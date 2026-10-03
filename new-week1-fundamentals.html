@@ -239,6 +239,23 @@ aside.notes,aside.onscreen{display:none}
 .temp:has(.t-low.shown:not(.gone)) .tblank .l,.temp:has(.t-high.shown) .tblank .h{opacity:1}
 .temp:has(.t-low.shown:not(.gone)) .pct .m,.temp:has(.t-high.shown) .pct .m{display:none}
 .temp:has(.t-low.shown:not(.gone)) .pct .l,.temp:has(.t-high.shown) .pct .h{display:inline}
+/* recap: five cards, each a condensed visual from its section */
+.rcards{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:70px}
+.rcard{position:relative;height:400px;background:#141414;border:3px solid #2A2A28;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:44px 16px 26px}
+.rnum{position:absolute;left:-14px;top:-14px;width:44px;height:44px;border-radius:50%;background:var(--model);color:#0A0A0A;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.rvis{flex:1;width:100%;display:flex;align-items:center;justify-content:center;gap:10px}
+.rcard h3{margin:0;font-size:26px;text-align:center;line-height:1.15}
+.mdot{width:64px;height:64px;border-radius:50%;background:var(--model);display:inline-flex;align-items:center;justify-content:center;font-size:38px;line-height:1}
+.mcage{position:relative;width:96px;height:110px;border:3px solid var(--fg);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#0A0A0A}
+.mcage.jailed::after{content:"";position:absolute;inset:-3px;border-radius:6px;background:repeating-linear-gradient(90deg,transparent 0 12px,#F5F5F0 12px 16px);border-top:8px solid var(--fg);border-bottom:8px solid var(--fg)}
+.mcage.door{border-bottom:none;background:rgba(255,210,63,.16)}
+.mcage .mdot{width:58px;height:58px;font-size:34px}
+.rbars{width:100%;display:flex;flex-direction:column;gap:10px}
+.rbar{display:grid;grid-template-columns:52px 1fr;gap:8px;align-items:center;font-size:16px;color:var(--dim)}
+.rbar i{display:block;height:16px;border-radius:3px;background:var(--fg)}
+.rbar.win{color:var(--model)} .rbar.win i{background:var(--model)}
+.mcoin{display:inline-block;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFF6C2 0 12%,#FFD23F 38%,#E0A800 72%,#9C7400 100%);border:2px solid #7A5A00}
+.mctx{width:190px;height:150px;border:4px solid var(--demo);border-radius:10px;box-shadow:0 0 0 5px rgba(255,90,61,.18),0 0 30px rgba(255,90,61,.3);padding:10px;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}
 /* sort game: each name appears centre stage, then moves to its side on the next click ([data-move]) */
 .pick{position:absolute;left:800px;top:350px;font-size:26px;font-weight:700;padding:10px 24px;border:2px solid var(--fg);border-radius:999px;white-space:nowrap;z-index:4;
   transition:opacity .5s ease,transform .8s cubic-bezier(.5,0,.2,1),left .8s cubic-bezier(.5,0,.2,1),top .8s cubic-bezier(.5,0,.2,1),background .5s,color .5s,border-color .5s}
@@ -1117,6 +1134,43 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 <!-- ============================ 25. MEMORY = HARNESS ============================ -->
+<!-- ============================ 23b. RECAP ============================ -->
+<section class="slide">
+  <h2 class="fu title-xl" style="--d:.1s">Recap so far.</h2>
+  <div class="rcards">
+    <div class="rcard" data-step="1"><span class="rnum">1</span>
+      <div class="rvis" style="font-size:40px">📚<span style="color:var(--dim);font-size:28px">→</span><span class="mdot">💃</span><span style="color:var(--dim);font-size:28px">→</span>💬</div>
+      <h3>Training &amp; inference</h3></div>
+    <div class="rcard" data-step="2"><span class="rnum">2</span>
+      <div class="rvis"><div class="mcage jailed"><span class="mdot">💃</span></div><div class="mcage door"><span class="mdot">💃</span></div></div>
+      <h3>Closed vs open</h3></div>
+    <div class="rcard" data-step="3"><span class="rnum">3</span>
+      <div class="rvis"><div class="rbars">
+        <div class="rbar win"><span>blue</span><i style="width:100%"></i></div>
+        <div class="rbar"><span>grey</span><i style="width:23%"></i></div>
+        <div class="rbar"><span>clear</span><i style="width:16%"></i></div>
+        <div class="rbar"><span>black</span><i style="width:10%"></i></div>
+      </div></div>
+      <h3>Guess the next word</h3></div>
+    <div class="rcard" data-step="4"><span class="rnum">4</span>
+      <div class="rvis" style="flex-direction:column;gap:22px"><span class="mcoin" style="width:64px;height:64px;border-width:3px"></span>
+        <div class="tokwords" style="font-size:30px;gap:3px"><span class="tk1" style="padding:2px 6px">un</span><span class="tk2" style="padding:2px 6px">believ</span><span class="tk3" style="padding:2px 6px">able</span></div></div>
+      <h3>Tokens</h3></div>
+    <div class="rcard" data-step="5"><span class="rnum">5</span>
+      <div class="rvis"><div class="mctx"><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span></div></div>
+      <h3>Context window</h3></div>
+  </div>
+  <aside class="onscreen">
+    Recap so far.
+    1 · Training &amp; inference
+    2 · Closed vs open
+    3 · Guess the next word
+    4 · Tokens
+    5 · Context window
+  </aside>
+  <aside class="notes">Let's recap what we've covered so far. [Click] One: training and inference. The model reads a huge library once, at great cost, then freezes. Every time you use it, that's inference: question in, answer out. [Click] Two: closed versus open. Closed models stay locked in the company's servers and you rent them. Open models are a file you can download and run yourself. [Click] Three: it's all probabilistic prediction. The model guesses the next word from the odds, and temperature controls how adventurous those guesses are. [Click] Four: tokens. Models read chunks, not words, and tokens are the currency: limits and pricing are all counted in them. [Click] Five: the context window. That's the model's desk: everything it can see right now. It's big but not infinite, it fills up, and the model remembers nothing outside it.</aside>
+</section>
+
 <!-- ============================ 29b. SUBSCRIPTION vs TOKENS ============================ -->
 <section class="slide">
   <h2 class="fu title-xl" style="--d:.1s">Subscription or pay per token?</h2>

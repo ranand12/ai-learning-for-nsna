@@ -378,7 +378,22 @@ This surprises almost everyone. The model has no memory. [Click] Turn 1: you sen
 
 Frozen dials have a side effect. Ask it about last week's news: why does it get it wrong? Someone usually says "it's not connected to the internet", which is half right. Every model has a knowledge cutoff date. [Click] Training: it reads everything up to a certain day. [Click] Then the dials freeze. That's the cutoff. [Click] After that, we only use it: inference, right up to today. Without web search it can't know what happened after the cutoff, and it may not even know that it doesn't know. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?" Live demo: ask a model "What's your knowledge cutoff?" and then ask about something from last week, with web search off.
 
-## 24. Subscription Vs Tokens — Subscription or pay per token?
+## 24. Recap — Recap so far.
+
+**On screen**
+
+- Recap so far.
+- 1 · Training & inference
+- 2 · Closed vs open
+- 3 · Guess the next word
+- 4 · Tokens
+- 5 · Context window
+
+**Say**
+
+Let's recap what we've covered so far. [Click] One: training and inference. The model reads a huge library once, at great cost, then freezes. Every time you use it, that's inference: question in, answer out. [Click] Two: closed versus open. Closed models stay locked in the company's servers and you rent them. Open models are a file you can download and run yourself. [Click] Three: it's all probabilistic prediction. The model guesses the next word from the odds, and temperature controls how adventurous those guesses are. [Click] Four: tokens. Models read chunks, not words, and tokens are the currency: limits and pricing are all counted in them. [Click] Five: the context window. That's the model's desk: everything it can see right now. It's big but not infinite, it fills up, and the model remembers nothing outside it.
+
+## 25. Subscription Vs Tokens — Subscription or pay per token?
 
 **On screen**
 
@@ -389,7 +404,7 @@ Frozen dials have a side effect. Ask it about last week's news: why does it get 
 
 Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
 
-## 25. Worth Paying? — Is it worth paying?
+## 26. Worth Paying? — Is it worth paying?
 
 **On screen**
 
