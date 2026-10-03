@@ -609,7 +609,18 @@ Results depend on whether memory is on, and either result teaches something. If 
 
 Three sentences. If people leave with these, they'll already use AI better than most. The Ask AI sticker is the habit I want: when a concept feels fuzzy, have the AI teach it back to you at your level. Next: how to actually get your hands on Claude, Grok, GPT, DeepSeek and the rest.
 
-## 36. Worth Paying? — Is it worth paying?
+## 36. Subscription Vs Tokens — Subscription or pay per token?
+
+**On screen**
+
+- Should I choose subscription or pay per tokens?
+- Netflix (subscription) vs tokens (pay per use) (GIFs)
+
+**Say**
+
+Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
+
+## 37. Worth Paying? — Is it worth paying?
 
 **On screen**
 
