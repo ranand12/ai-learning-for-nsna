@@ -224,6 +224,9 @@ aside.notes,aside.onscreen{display:none}
 .turn .b{height:54px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#0A0A0A;padding:0 18px}
 .turn .q{background:var(--fg)} .turn .a{background:var(--model)} .turn .empty{border:2px dashed #555;color:#777;background:transparent}
 .turn .arrow{font-size:30px;color:var(--dim);margin:0 10px}
+.turns.noword .b{width:84px;padding:0}
+.turns.noword .b.empty{width:150px}
+.mdl.eqsign{width:130px;height:130px;border-radius:50%;background:var(--model);display:inline-flex;align-items:center;justify-content:center;font-size:80px}
 .turn .mdl{width:54px;height:54px;border-radius:50%;background:var(--model);display:inline-flex;align-items:center;justify-content:center;font-size:32px;line-height:1}
 /* tiers */
 .tiers{display:flex;align-items:flex-end;gap:70px;margin-top:40px}
@@ -1111,25 +1114,31 @@ aside.notes,aside.onscreen{display:none}
 
 <!-- ============================ 24. STATELESS ============================ -->
 <section class="slide">
-  <div class="kicker fu">The surprising part</div>
-  <h2 class="fu" style="--d:.1s">The model remembers nothing between turns.</h2>
-  <div class="turns">
-    <div class="turn fu" style="--d:.4s"><span class="lbl">Turn 1</span><span class="b q">You 1</span><span class="arrow">→</span><span class="mdl">💃</span></div>
-    <div class="turn fu" style="--d:.9s"><span class="lbl">Turn 2</span><span class="b q">You 1</span><span class="b a">AI 1</span><span class="b q">You 2</span><span class="arrow">→</span><span class="mdl">💃</span></div>
-    <div class="turn fu" style="--d:1.4s"><span class="lbl">Turn 3</span><span class="b q">You 1</span><span class="b a">AI 1</span><span class="b q">You 2</span><span class="b a">AI 2</span><span class="b q">You 3</span><span class="arrow">→</span><span class="mdl">💃</span></div>
-    <div class="turn fu" style="--d:2.1s"><span class="lbl hl-demo">New chat</span><span class="b empty">empty desk</span><span class="arrow">→</span><span class="mdl">💃</span><span class="dim" style="font-size:24px;margin-left:16px">"Who are you?"</span></div>
+  <h2 class="fu title-xl" style="--d:.1s">Stateless.</h2>
+  <div class="split" style="grid-template-columns:1.1fr 1fr;gap:60px">
+    <div class="turns noword" style="margin-top:0">
+      <div class="turn fu" style="--d:.4s"><span class="b q"></span><span class="arrow">→</span><span class="mdl">💃</span></div>
+      <div class="turn fu" style="--d:.9s"><span class="b q"></span><span class="b a"></span><span class="b q"></span><span class="arrow">→</span><span class="mdl">💃</span></div>
+      <div class="turn fu" style="--d:1.4s"><span class="b q"></span><span class="b a"></span><span class="b q"></span><span class="b a"></span><span class="b q"></span><span class="arrow">→</span><span class="mdl">💃</span></div>
+      <div class="turn fu" style="--d:2.1s"><span class="b empty"></span><span class="arrow">→</span><span class="mdl">💃</span><span style="font-size:44px;margin-left:12px">❓</span></div>
+    </div>
+    <div class="fu" style="--d:2.6s;display:flex;flex-direction:column;align-items:center;gap:24px">
+      <div style="display:flex;align-items:center;gap:28px"><span class="mdl eqsign">💃</span><span style="font-size:80px;font-weight:800">=</span></div>
+      <img src="gifs/ghajini.gif" alt="" style="width:520px;height:292px;border-radius:14px;border:3px solid #2A2A28">
+    </div>
   </div>
-  <p class="dim fu" style="--d:2.5s;margin-top:44px">The app re-sends the <b style="color:#F5F5F0">whole conversation</b> every time. One session never leaks into the next.</p>
   <aside class="onscreen">
     The surprising part
     The model remembers nothing between turns.
-    Turn 1You 1→💃
-    Turn 2You 1AI 1You 2→💃
-    Turn 3You 1AI 1You 2AI 2You 3→💃
-    New chatempty desk→💃"Who are you?"
+    Turn 1: You 1 → model
+    Turn 2: You 1, AI 1, You 2 → model
+    Turn 3: You 1, AI 1, You 2, AI 2, You 3 → model
+    New chat: empty desk → model: "Who are you?"
     The app re-sends the whole conversation every time. One session never leaks into the next.
+    Stateless.
+    Model = Ghajini (GIF)
   </aside>
-  <aside class="notes">This surprises almost everyone. The model has no memory. Every time you hit enter, the app bundles up the entire conversation so far and sends all of it again. It feels like a conversation, but the model is reading the whole script fresh each time. Open a new chat and the desk is empty. It has never met you.</aside>
+  <aside class="notes">This surprises almost everyone. The model has no memory. Every time you hit enter, the app bundles up the entire conversation so far and sends all of it again. It feels like a conversation, but the model is reading the whole script fresh each time. Open a new chat and the desk is empty. It has never met you. (The GIF appears after the rows.) The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch.</aside>
 </section>
 
 <!-- ============================ 25. MEMORY = HARNESS ============================ -->

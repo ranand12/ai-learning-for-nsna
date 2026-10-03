@@ -496,21 +496,23 @@ Picture a desk. Whatever is on the desk, the model can see. Anything off the des
 
 Most people pick B, and some pick A. Remind them of the frozen dials: that rules out A. Press → to reveal C, then → for the one-liner. The next slide shows what that looks like.
 
-## 29. Stateless — The model remembers nothing between turns.
+## 29. Stateless — Stateless.
 
 **On screen**
 
 - The surprising part
 - The model remembers nothing between turns.
-- Turn 1You 1→💃
-- Turn 2You 1AI 1You 2→💃
-- Turn 3You 1AI 1You 2AI 2You 3→💃
-- New chatempty desk→💃"Who are you?"
+- Turn 1: You 1 → model
+- Turn 2: You 1, AI 1, You 2 → model
+- Turn 3: You 1, AI 1, You 2, AI 2, You 3 → model
+- New chat: empty desk → model: "Who are you?"
 - The app re-sends the whole conversation every time. One session never leaks into the next.
+- Stateless.
+- Model = Ghajini (GIF)
 
 **Say**
 
-This surprises almost everyone. The model has no memory. Every time you hit enter, the app bundles up the entire conversation so far and sends all of it again. It feels like a conversation, but the model is reading the whole script fresh each time. Open a new chat and the desk is empty. It has never met you.
+This surprises almost everyone. The model has no memory. Every time you hit enter, the app bundles up the entire conversation so far and sends all of it again. It feels like a conversation, but the model is reading the whole script fresh each time. Open a new chat and the desk is empty. It has never met you. (The GIF appears after the rows.) The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch.
 
 ## 30.  — That's the app, not the model.
 
