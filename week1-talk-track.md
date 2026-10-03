@@ -211,17 +211,34 @@ Here's our frozen model from the last slide. Training is done and the dials are 
 
 Let's sort some. I'll put a name up, you shout "closed" or "open", then I'll move it. [Click] OpenAI's GPT-5.6? [Click] Closed. (OpenAI does also publish a separate open model called gpt-oss.) [Click] DeepSeek? [Click] Open. The Chinese lab that shocked everyone by publishing a top model for free. [Click] Anthropic's Claude models? [Click] All closed. [Click] Gemini? [Click] Closed. Google's flagship. [Click] Gemma? [Click] Open. That's Google too: Gemma is Gemini's open little sibling, so one company can do both. [Click] Llama? [Click] Open, from Meta. [Click] Qwen? [Click] Open, from Alibaba. [Click] Mistral? [Click] Open. A French lab, best known for open models, though it also sells some closed ones. Notice the pattern: closed is the big US labs' flagships, open is a mix of Meta, Chinese labs and Europe.
 
-## 13. Renting A Closed Model — Renting a closed model.
+## 13. Closed Vs Open: How You Use It — Renting a closed model.
 
 **On screen**
 
 - Renting a closed model.
+- How does an open model work?
 
 **Say**
 
-Let's zoom in on the closed one. [Click] When you use ChatGPT or Claude, or a developer calls their API, your question travels over the internet to the company's servers. It runs through their frozen model, and the answer comes back to you. That round trip is an API call. [Click] Every one of those trips is inference, and inference is what you pay for. The money goes to the company that owns the model: a monthly subscription, or a fee per token through the API. [Click] Strip everything else away and this is the product: the frozen model. Training happened once. The company makes its money renting out inference on it, one question at a time.
+Let's zoom in on the closed one. [Click] When you use ChatGPT or Claude, or a developer calls their API, your question travels over the internet to the company's servers. It runs through their frozen model, and the answer comes back to you. That round trip is an API call. [Click] Every one of those trips is inference, and inference is what you pay for. The money goes to the company that owns the model: a monthly subscription, or a fee per token through the API. [Click] Take my money. [Click] Now flip it. How does an open model work? [Click] Same questions, same answers, same arrows. But the model is a file sitting on your own laptop. [Click] So what happened to the company and the money? [Click] Gone. Nobody to pay per question. You're running it on hardware you already own.
 
-## 14. Dyk: Cutoff — Ask it about last week's news. Why does it get it wrong?
+## 14. Free? / Bigger File, Bigger Machine — Bigger file, bigger machine.
+
+**On screen**
+
+- "Can I run one?"
+- Bigger file, bigger machine.
+- ~8B ≈ 5 GB — Laptop, even a phone
+- ~30B ≈ 20 GB — Strong laptop / Mac
+- ~70B ≈ 40 GB — Workstation, big GPU
+- ~670B+ ≈ 400 GB — Data center
+- B = billion dials. Rough rule for compressed ("4-bit") models: ~0.6 GB of memory per billion. A rule of thumb, not a spec.
+
+**Say**
+
+So I can run these models for free? [Click] Mostly yes, but the file has to fit on your machine. Bigger file, bigger machine. B means billion dials. Rough rule for compressed, "4-bit" models: about 0.6 GB of memory per billion. A small model, around 8 billion, is about 5 GB and runs on a laptop, even a phone. [Click] Around 30 billion, about 20 GB: a strong laptop or a Mac. [Click] Around 70 billion, about 40 GB: a workstation with a big GPU. [Click] And the giants, 670 billion and up, about 400 GB: that's a data center. [Click] Which is why this man is dancing: every one of those data centers runs on Nvidia chips. Most people run the small ones locally and use the big ones through a hosted service.
+
+## 15. Dyk: Cutoff — Ask it about last week's news. Why does it get it wrong?
 
 **On screen**
 
@@ -239,7 +256,7 @@ Let's zoom in on the closed one. [Click] When you use ChatGPT or Claude, or a de
 
 Ask why before revealing. Someone usually says "it's not connected to the internet", which is half right. Press → for the timeline. The dials froze on a particular day. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?"
 
-## 15. Inference Loop — One token at a time, on a loop.
+## 16. Inference Loop — One token at a time, on a loop.
 
 **On screen**
 
@@ -259,7 +276,7 @@ Ask why before revealing. Someone usually says "it's not connected to the intern
 
 White chips are what you typed. Green chips are what the model writes, one at a time. After each one it re-reads the whole thing and picks the next. That's why answers stream in word by word. It isn't typing for effect; it really does produce text one piece at a time.
 
-## 16. Demo: Streaming — Same question, different answer. Why?
+## 17. Demo: Streaming — Same question, different answer. Why?
 
 **On screen**
 
@@ -277,7 +294,7 @@ White chips are what you typed. Green chips are what the model writes, one at a 
 
 Run this live. Ask for the story, then hit regenerate two or three times. Ask the room why it changed and take a few guesses before pressing → to reveal. Link it back to the bar chart: it doesn't always take the 62% word, sometimes it takes the 14% one. That randomness is what makes it creative, and also why it's sometimes inconsistent.
 
-## 17. Section 02 — Proprietary vs open weights
+## 18. Section 02 — Proprietary vs open weights
 
 **On screen**
 
@@ -290,7 +307,7 @@ Run this live. Ask for the story, then hit regenerate two or three times. Ask th
 
 Remember the file of dials? This whole section is about who gets to hold it.
 
-## 18. Quiz: Offline — Can you run ChatGPT on your laptop with the Wi-Fi off?
+## 19. Quiz: Offline — Can you run ChatGPT on your laptop with the Wi-Fi off?
 
 **On screen**
 
@@ -307,7 +324,7 @@ Remember the file of dials? This whole section is about who gets to hold it.
 
 Take a show of hands for A, B and C. Most people pick A or B. Press → to strike the wrong ones, then → again for the reason. That reason is this whole section.
 
-## 19. Vault Vs Zip — A vault, or a zip file.
+## 20. Vault Vs Zip — A vault, or a zip file.
 
 **On screen**
 
@@ -325,7 +342,7 @@ Take a show of hands for A, B and C. Most people pick A or B. Press → to strik
 
 Proprietary is a vault. The dials never leave the building, and you pay to send questions in and get answers out. Open weights is a zip file: the company publishes the numbers and you can download and run them yourself. Nuance for the curious: open weights usually doesn't mean open source. You get the trained model, not the data or the training code.
 
-## 20. What Changes — Training looks the same. Everything after it differs.
+## 21. What Changes — Training looks the same. Everything after it differs.
 
 **On screen**
 
@@ -352,26 +369,6 @@ Proprietary is a vault. The dials never leave the building, and you pay to send 
 **Say**
 
 Pre-training and post-training happen the same way either way. The difference is what happens to the file afterwards. The main trade-off is privacy and control versus convenience and peak capability. For most people in this room, proprietary through an app is the right starting point. Open weights starts to matter for sensitive data, offline use, or cost at scale.
-
-## 21. Hardware — Bigger file, bigger machine.
-
-**On screen**
-
-- "Can I run one?"
-- Bigger file, bigger machine.
-- ~8B≈ 5 GB
-- Laptop, even a phone
-- ~30B≈ 20 GB
-- Strong laptop / Mac
-- ~70B≈ 40 GB
-- Workstation, big GPU
-- ~670B+≈ 400 GB
-- Data center
-- B = billion dials. Rough rule for compressed ("4-bit") models: ~0.6 GB of memory per billion. A rule of thumb, not a spec.
-
-**Say**
-
-The question people always ask is: can I run this at home? It depends on the size of the file. Small models with a few billion dials fit on a laptop. The giant ones need a data center. The big open models are real, but most people run the small ones locally and use the big ones through a hosted service.
 
 ## 22. Demo: Offline — Run an AI with the Wi-Fi off.
 

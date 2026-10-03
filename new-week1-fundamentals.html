@@ -80,7 +80,7 @@ svg text{font-family:var(--font);fill:var(--fg)}
 /* ---------- ask-then-reveal: → shows [data-step] pieces before advancing ---------- */
 [data-step]{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
 [data-step].shown{opacity:1;transform:none}
-[data-step].shown.gone,.gone{opacity:0}
+[data-step].shown.gone,.gone{opacity:0!important}
 [data-step]:not(.shown),[data-step]:not(.shown) *{animation-play-state:paused!important}
 .opts{display:flex;gap:18px;margin-top:40px}
 .opt{white-space:nowrap;border:2px solid #555;border-radius:12px;padding:14px 24px;font-size:27px;font-weight:600;transition:all .4s}
@@ -178,7 +178,14 @@ aside.notes,aside.onscreen{display:none}
 .gif{position:absolute;top:540px;height:220px;border-radius:14px;border:3px solid #2A2A28;object-fit:cover}
 .title-c{font-size:72px;line-height:1;letter-spacing:-.04em;max-width:none;width:100%;text-align:center}
 /* renting a closed model: caged model glides to centre, API calls in, answers out, then everything but the model fades */
-.rentbox{position:absolute;left:650px;top:250px;width:300px;height:300px;border:5px solid var(--fg);border-radius:6px;background:#141414}
+.rentbox{position:absolute;left:650px;top:250px;width:300px;height:300px;perspective:1400px}
+.rent-in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.4,.2,.2,1)}
+.rentbox.moved .rent-in{transform:rotateY(180deg)}
+.rent-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:5px solid var(--fg);border-radius:6px;background:#141414}
+.rent-face.open-face{transform:rotateY(180deg);border-bottom:none;border-radius:6px 6px 0 0;background:rgba(255,210,63,.16)}
+.door-flat{position:absolute;left:-5px;top:-34px;width:90px;height:340px;background:#2A2A28;border:3px solid #8C8C86;clip-path:polygon(0 10%,100% 0,100% 100%,0 90%)}
+.title-swap{position:relative}
+.title-swap h2+h2{position:absolute;left:0;top:0}
 .fm.solo{left:710px;top:310px;transform:scale(.9)}
 .active .rentbox{animation:boxIn 1.2s cubic-bezier(.5,0,.2,1) .1s both}
 .active .fm.solo{animation:soloIn 1.2s cubic-bezier(.5,0,.2,1) .1s both}
@@ -190,10 +197,6 @@ aside.notes,aside.onscreen{display:none}
 @keyframes req{0%{transform:translateX(0);opacity:0}10%,75%{opacity:1}90%,100%{transform:translateX(250px);opacity:0}}
 @keyframes resp{0%{transform:translateX(0);opacity:0}10%,75%{opacity:1}90%,100%{transform:translateX(-250px);opacity:0}}
 .money{font-size:72px}
-.gone3{transition:opacity .6s ease}
-.slide:has(.hl-ring.shown) .gone3{opacity:0}
-.active .hl-ring.shown .pulse{animation:pulse 1.6s ease-in-out 1.2s infinite}
-@keyframes pulse{0%,100%{opacity:.15}50%{opacity:.55}}
 /* sort game: each name appears centre stage, then moves to its side on the next click ([data-move]) */
 .pick{position:absolute;left:800px;top:350px;font-size:26px;font-weight:700;padding:10px 24px;border:2px solid var(--fg);border-radius:999px;white-space:nowrap;z-index:4;
   transition:opacity .5s ease,transform .8s cubic-bezier(.5,0,.2,1),left .8s cubic-bezier(.5,0,.2,1),top .8s cubic-bezier(.5,0,.2,1),background .5s,color .5s,border-color .5s}
@@ -660,10 +663,16 @@ aside.notes,aside.onscreen{display:none}
   <aside class="notes">Let's sort some. I'll put a name up, you shout "closed" or "open", then I'll move it. [Click] OpenAI's GPT-5.6? [Click] Closed. (OpenAI does also publish a separate open model called gpt-oss.) [Click] DeepSeek? [Click] Open. The Chinese lab that shocked everyone by publishing a top model for free. [Click] Anthropic's Claude models? [Click] All closed. [Click] Gemini? [Click] Closed. Google's flagship. [Click] Gemma? [Click] Open. That's Google too: Gemma is Gemini's open little sibling, so one company can do both. [Click] Llama? [Click] Open, from Meta. [Click] Qwen? [Click] Open, from Alibaba. [Click] Mistral? [Click] Open. A French lab, best known for open models, though it also sells some closed ones. Notice the pattern: closed is the big US labs' flagships, open is a mix of Meta, Chinese labs and Europe.</aside>
 </section>
 
-<!-- ============================ 10d. RENTING A CLOSED MODEL ============================ -->
+<!-- ============================ 10d. CLOSED vs OPEN: HOW YOU USE IT ============================ -->
 <section class="slide">
-  <h2 class="fu title-c" style="--d:.1s">Renting a closed model.</h2>
-  <div class="rentbox gone3"><div class="jail"></div></div>
+  <div class="title-swap">
+    <h2 class="fu title-c" style="--d:.1s" data-hide="4">Renting a closed model.</h2>
+    <h2 class="title-c" data-step="4">How does an open model work?</h2>
+  </div>
+  <div class="rentbox" data-move="4"><div class="rent-in">
+    <div class="rent-face"><div class="jail"></div></div>
+    <div class="rent-face open-face"><div class="door-flat"></div></div>
+  </div></div>
   <div class="fm solo">💃</div>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900">
     <defs>
@@ -671,7 +680,8 @@ aside.notes,aside.onscreen{display:none}
       <marker id="arrowG2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2EE59D"/></marker>
       <marker id="arrowR2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#FF5A3D"/></marker>
     </defs>
-    <g class="gone3" data-step="1">
+    <!-- closed: ask, pay the company, take my money -->
+    <g data-step="1" data-hide="4">
       <text x="230" y="400" text-anchor="middle" dominant-baseline="central" font-size="130">🧑‍💻</text>
       <line x1="330" y1="365" x2="620" y2="365" stroke="#F5F5F0" stroke-width="4" marker-end="url(#arrowW2)"/>
       <line x1="620" y1="440" x2="330" y2="440" stroke="#2EE59D" stroke-width="4" marker-end="url(#arrowG2)"/>
@@ -684,20 +694,65 @@ aside.notes,aside.onscreen{display:none}
         <g class="pkt resp" style="--d:2.1s"><rect width="96" height="52" rx="12" fill="#2EE59D"/><g stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"><line x1="16" y1="17" x2="80" y2="17"/><line x1="16" y1="27" x2="70" y2="27"/><line x1="16" y1="37" x2="54" y2="37"/></g></g>
       </g>
     </g>
-    <g class="gone3" data-step="2">
-      <image href="gifs/corporate-buildings.gif" x="1064" y="290" width="392" height="220"/>
-      <path class="draw" pathLength="1" d="M230 500 C230 790 1260 800 1260 560" fill="none" stroke="#FF5A3D" stroke-width="6" marker-end="url(#arrowR2)" style="--t:1.2s;--d:.3s"/>
-      <text class="money pop" x="745" y="720" text-anchor="middle" dominant-baseline="central" style="--d:1.2s">💰</text>
+    <g data-step="2" data-hide="4">
+      <image href="gifs/corporate-buildings.gif" x="1100" y="210" width="360" height="202"/>
+      <path class="draw" pathLength="1" d="M230 500 C230 800 980 780 1090 425" fill="none" stroke="#FF5A3D" stroke-width="6" marker-end="url(#arrowR2)" style="--t:1.2s;--d:.3s"/>
+      <text class="money pop" x="571" y="709" text-anchor="middle" dominant-baseline="central" style="--d:1.2s">💰</text>
     </g>
-    <g class="hl-ring" data-step="3">
-      <circle class="pulse" cx="800" cy="400" r="150" fill="none" stroke="#FF5A3D" stroke-width="30" opacity=".15"/>
-      <circle class="draw" pathLength="1" cx="800" cy="400" r="150" fill="none" stroke="#FF5A3D" stroke-width="8" style="--t:1s;--d:.4s" transform="rotate(-90 800 400)"/>
+    <image data-step="3" data-hide="4" href="gifs/take-my-money.gif" x="1170" y="450" width="220" height="220"/>
+    <!-- open: same questions, model runs on your laptop, nobody to pay -->
+    <g data-step="5">
+      <text x="230" y="400" text-anchor="middle" dominant-baseline="central" font-size="130">🧑‍💻</text>
+      <line x1="330" y1="365" x2="620" y2="365" stroke="#F5F5F0" stroke-width="4" marker-end="url(#arrowW2)"/>
+      <line x1="620" y1="440" x2="330" y2="440" stroke="#2EE59D" stroke-width="4" marker-end="url(#arrowG2)"/>
+      <g transform="translate(330,343)">
+        <g class="pkt req" style="--d:0s"><rect width="64" height="44" rx="22" fill="#F5F5F0"/><text x="32" y="23" text-anchor="middle" dominant-baseline="central" font-size="28" font-weight="800" style="fill:#0A0A0A">?</text></g>
+        <g class="pkt req" style="--d:1.4s"><rect width="64" height="44" rx="22" fill="#F5F5F0"/><text x="32" y="23" text-anchor="middle" dominant-baseline="central" font-size="28" font-weight="800" style="fill:#0A0A0A">?</text></g>
+      </g>
+      <g transform="translate(524,414)">
+        <g class="pkt resp" style="--d:.7s"><rect width="96" height="52" rx="12" fill="#2EE59D"/><g stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"><line x1="16" y1="17" x2="80" y2="17"/><line x1="16" y1="27" x2="70" y2="27"/><line x1="16" y1="37" x2="54" y2="37"/></g></g>
+        <g class="pkt resp" style="--d:2.1s"><rect width="96" height="52" rx="12" fill="#2EE59D"/><g stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"><line x1="16" y1="17" x2="80" y2="17"/><line x1="16" y1="27" x2="70" y2="27"/><line x1="16" y1="37" x2="54" y2="37"/></g></g>
+      </g>
+    </g>
+    <image data-step="5" href="gifs/powerbook.gif" x="735" y="568" width="130" height="130"/>
+    <g data-step="6">
+      <image href="gifs/corporate-buildings.gif" x="1100" y="210" width="360" height="202"/>
+      <path class="draw" pathLength="1" d="M230 500 C230 930 980 910 1090 425" fill="none" stroke="#FF5A3D" stroke-width="6" marker-end="url(#arrowR2)" style="--t:1.2s;--d:.3s"/>
+      <text class="money pop" x="583" y="806" text-anchor="middle" dominant-baseline="central" style="--d:1.2s">💰</text>
+    </g>
+    <g data-step="7">
+      <line class="draw" pathLength="1" x1="1070" y1="190" x2="1490" y2="440" stroke="#FF5A3D" stroke-width="16" stroke-linecap="round" style="--t:.4s"/>
+      <line class="draw" pathLength="1" x1="1490" y1="190" x2="1070" y2="440" stroke="#FF5A3D" stroke-width="16" stroke-linecap="round" style="--t:.4s;--d:.35s"/>
     </g>
   </svg>
   <aside class="onscreen">
     Renting a closed model.
+    How does an open model work?
   </aside>
-  <aside class="notes">Let's zoom in on the closed one. [Click] When you use ChatGPT or Claude, or a developer calls their API, your question travels over the internet to the company's servers. It runs through their frozen model, and the answer comes back to you. That round trip is an API call. [Click] Every one of those trips is inference, and inference is what you pay for. The money goes to the company that owns the model: a monthly subscription, or a fee per token through the API. [Click] Strip everything else away and this is the product: the frozen model. Training happened once. The company makes its money renting out inference on it, one question at a time.</aside>
+  <aside class="notes">Let's zoom in on the closed one. [Click] When you use ChatGPT or Claude, or a developer calls their API, your question travels over the internet to the company's servers. It runs through their frozen model, and the answer comes back to you. That round trip is an API call. [Click] Every one of those trips is inference, and inference is what you pay for. The money goes to the company that owns the model: a monthly subscription, or a fee per token through the API. [Click] Take my money. [Click] Now flip it. How does an open model work? [Click] Same questions, same answers, same arrows. But the model is a file sitting on your own laptop. [Click] So what happened to the company and the money? [Click] Gone. Nobody to pay per question. You're running it on hardware you already own.</aside>
+</section>
+
+<!-- ============================ 10e. FREE? / BIGGER FILE, BIGGER MACHINE ============================ -->
+<section class="slide">
+  <img data-hide="1" src="gifs/shaq-rubbing-hands.gif" alt="" style="position:absolute;left:550px;top:200px;width:500px;height:500px;border-radius:16px;border:3px solid #2A2A28;transition:opacity .5s">
+  <h2 class="title-xl" data-step="1">Bigger file, bigger machine.</h2>
+  <div class="tiers" style="margin-top:auto;gap:60px">
+    <div class="tier" data-step="1"><div class="sq" style="width:32px;height:32px"></div><b>~8B</b><span>≈ 5 GB<br>Laptop, even a phone</span></div>
+    <div class="tier" data-step="2"><div class="sq" style="width:64px;height:64px"></div><b>~30B</b><span>≈ 20 GB<br>Strong laptop / Mac</span></div>
+    <div class="tier" data-step="3"><div class="sq" style="width:90px;height:90px"></div><b>~70B</b><span>≈ 40 GB<br>Workstation, big GPU</span></div>
+    <div class="tier" data-step="4"><div class="sq big" style="width:290px;height:290px"></div><b>~670B+</b><span>≈ 400 GB<br>Data center</span></div>
+  </div>
+  <img data-step="5" src="gifs/jensen-dance.gif" alt="" style="position:absolute;right:110px;top:215px;width:150px;height:225px;border-radius:14px;border:3px solid #2A2A28">
+  <aside class="onscreen">
+    "Can I run one?"
+    Bigger file, bigger machine.
+    ~8B ≈ 5 GB — Laptop, even a phone
+    ~30B ≈ 20 GB — Strong laptop / Mac
+    ~70B ≈ 40 GB — Workstation, big GPU
+    ~670B+ ≈ 400 GB — Data center
+    B = billion dials. Rough rule for compressed ("4-bit") models: ~0.6 GB of memory per billion. A rule of thumb, not a spec.
+  </aside>
+  <aside class="notes">So I can run these models for free? [Click] Mostly yes, but the file has to fit on your machine. Bigger file, bigger machine. B means billion dials. Rough rule for compressed, "4-bit" models: about 0.6 GB of memory per billion. A small model, around 8 billion, is about 5 GB and runs on a laptop, even a phone. [Click] Around 30 billion, about 20 GB: a strong laptop or a Mac. [Click] Around 70 billion, about 40 GB: a workstation with a big GPU. [Click] And the giants, 670 billion and up, about 400 GB: that's a data center. [Click] Which is why this man is dancing: every one of those data centers runs on Nvidia chips. Most people run the small ones locally and use the big ones through a hosted service.</aside>
 </section>
 
 <!-- ============================ 11. DYK: CUTOFF ============================ -->
@@ -906,33 +961,6 @@ aside.notes,aside.onscreen{display:none}
     Fine-tune it however you like
   </aside>
   <aside class="notes">Pre-training and post-training happen the same way either way. The difference is what happens to the file afterwards. The main trade-off is privacy and control versus convenience and peak capability. For most people in this room, proprietary through an app is the right starting point. Open weights starts to matter for sensitive data, offline use, or cost at scale.</aside>
-</section>
-
-<!-- ============================ 17. HARDWARE ============================ -->
-<section class="slide">
-  <div class="kicker fu">"Can I run one?"</div>
-  <h2 class="fu" style="--d:.1s">Bigger file, bigger machine.</h2>
-  <div class="tiers">
-    <div class="tier fu" style="--d:.3s"><div class="sq" style="width:32px;height:32px"></div><b>~8B</b><span>≈ 5 GB<br>Laptop, even a phone</span></div>
-    <div class="tier fu" style="--d:.5s"><div class="sq" style="width:64px;height:64px"></div><b>~30B</b><span>≈ 20 GB<br>Strong laptop / Mac</span></div>
-    <div class="tier fu" style="--d:.7s"><div class="sq" style="width:90px;height:90px"></div><b>~70B</b><span>≈ 40 GB<br>Workstation, big GPU</span></div>
-    <div class="tier fu" style="--d:.9s"><div class="sq big" style="width:290px;height:290px"></div><b>~670B+</b><span>≈ 400 GB<br>Data center</span></div>
-  </div>
-  <p class="foot fu" style="--d:1.2s">B = billion dials. Rough rule for compressed ("4-bit") models: ~0.6 GB of memory per billion. A rule of thumb, not a spec.</p>
-  <aside class="onscreen">
-    "Can I run one?"
-    Bigger file, bigger machine.
-    ~8B≈ 5 GB
-    Laptop, even a phone
-    ~30B≈ 20 GB
-    Strong laptop / Mac
-    ~70B≈ 40 GB
-    Workstation, big GPU
-    ~670B+≈ 400 GB
-    Data center
-    B = billion dials. Rough rule for compressed ("4-bit") models: ~0.6 GB of memory per billion. A rule of thumb, not a spec.
-  </aside>
-  <aside class="notes">The question people always ask is: can I run this at home? It depends on the size of the file. Small models with a few billion dials fit on a laptop. The giant ones need a data center. The big open models are real, but most people run the small ones locally and use the big ones through a hosted service.</aside>
 </section>
 
 <!-- ============================ 18. DEMO: OFFLINE ============================ -->
