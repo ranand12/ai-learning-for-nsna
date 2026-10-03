@@ -255,12 +255,13 @@ Back to our frozen model. Closed or open, their data center or your laptop, it's
 - Temperature.
 - The color of the sky is ___
 - blue 62% · grey 14% · clear 10% · black 6% · orange 4%
-- Low temperature: blue 97% · grey 2% · clear 1% · black 0% · orange 0% → "blue"
-- High temperature: blue 30% · grey 22% · clear 19% · black 15% · orange 14% → "orange"
+- temperature 1.0 (default)
+- temperature 0.0: blue 97% · grey 2% · clear 1% · black 0% · orange 0% → 3 regenerates: blue, blue, blue
+- temperature 2.0: blue 30% · grey 22% · clear 19% · black 15% · orange 14% → 3 regenerates: grey, blue, orange
 
 **Say**
 
-The answer is a setting called temperature. Same frozen model, same odds; temperature just changes how it picks. [Click] The color of the sky is... what? [Click] Here are the model's odds. Blue is the clear favorite, but grey, clear, black and orange all have a chance. These numbers are illustrative. [Click] Turn the temperature down, close to zero, and the favorite gets even stronger. It picks "blue" practically every time. Low temperature means predictable, almost deterministic. Good for facts, code, and data extraction. [Click] Turn it up and the odds flatten out. Now "orange" has a real shot, and sometimes it wins: hello, sunset. High temperature means more varied, more surprising, more creative. And more likely to go off the rails. Most chat apps sit somewhere in the middle, which is why regenerate gives you a different answer each time.
+The answer is a setting called temperature. It's a dial in every large language model's API, usually from 0 to 2. Same frozen model, same odds; temperature only changes how the next token gets picked. [Click] The color of the sky is... what? [Click] Here are the model's odds for the next word, at the default temperature of about 1. Blue is the favorite, but grey, clear, black and orange all have a chance. The numbers are illustrative. [Click] Set temperature to 0 and the favorite takes over. The model almost always picks the single most likely token. Hit regenerate three times: blue, blue, blue. That's deterministic, the same answer every time. Use it for facts, code and data extraction. [Click] Turn it up to 2 and the odds flatten. Now every word has a real shot, and three regenerates give you grey, blue, orange. That's probabilistic: more varied, more creative, and more likely to go off the rails. Chat apps sit around the middle, which is why regenerate gives you a different answer each time.
 
 ## 17. Dyk: Cutoff — Ask it about last week's news. Why does it get it wrong?
 

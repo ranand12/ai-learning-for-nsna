@@ -201,7 +201,7 @@ aside.notes,aside.onscreen{display:none}
 .fm.fm-big{left:710px;top:360px;transform:scale(1.5)}
 .active .fm.fm-big{animation:fmBig .7s cubic-bezier(.3,1.5,.5,1) .15s both}
 @keyframes fmBig{from{transform:scale(0)}to{transform:scale(1.5)}}
-/* temperature: same next-word odds, sharpened (low) or flattened (high) by the thermometer state */
+/* LLM temperature: same next-word odds, sharpened (temperature 0) or flattened (temperature 2); three regenerate runs show deterministic vs random picks */
 .tsent{display:flex;align-items:center;gap:22px;font-size:64px;font-weight:700;letter-spacing:-.03em;margin-top:44px}
 .tblank{position:relative;display:inline-block;min-width:240px;height:80px;border-bottom:6px solid var(--fg)}
 .tblank span{position:absolute;left:0;right:0;bottom:6px;text-align:center;color:var(--model);opacity:0;transition:opacity .4s}
@@ -214,13 +214,25 @@ aside.notes,aside.onscreen{display:none}
 .tbar.win .fill{background:var(--model)}
 .tbar .pct{color:var(--dim);text-align:right}
 .tbar .pct span{display:none} .tbar .pct .m{display:inline}
-.thermo{position:absolute;left:1260px;top:300px;width:60px;height:420px;border:4px solid var(--fg);border-radius:30px;overflow:hidden}
-.thermo .lvl{position:absolute;left:0;right:0;bottom:0;height:50%;background:var(--dyk);transition:height 1s cubic-bezier(.2,.7,.2,1),background 1s}
-.thermo-ico{position:absolute;left:1290px;font-size:56px;transform:translateX(-50%)}
+.tslider{position:absolute;left:1090px;top:300px;width:400px}
+.tslider .lbl{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:28px;display:flex;justify-content:space-between;align-items:baseline}
+.tval{position:relative;display:inline-block;width:70px;height:34px;color:var(--model);font-weight:700}
+.tval span{position:absolute;right:0;opacity:0;transition:opacity .4s} .tval .m{opacity:1}
+.tslider .track{position:relative;height:10px;border-radius:5px;margin-top:26px;background:linear-gradient(90deg,var(--harness),var(--fg),var(--demo))}
+.tknob{position:absolute;top:50%;left:50%;width:34px;height:34px;border-radius:50%;background:var(--fg);border:5px solid #0A0A0A;box-shadow:0 0 0 3px var(--fg);transform:translate(-50%,-50%);transition:left 1s cubic-bezier(.2,.7,.2,1)}
+.tslider .ends{display:flex;justify-content:space-between;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:20px;color:var(--dim);margin-top:18px}
+.truns{position:absolute;left:1090px;top:470px;width:400px;display:flex;flex-direction:column;gap:14px}
+.trun{display:flex;align-items:center;gap:16px;font-size:30px;font-weight:700}
+.trun .ico{font-size:28px}
+.trun .w{position:relative;flex:1;height:52px;border:2px solid #333;border-radius:10px}
+.trun .w span{position:absolute;inset:0;display:flex;align-items:center;padding-left:20px;opacity:0;transition:opacity .4s}
+.temp:has(.t-low.shown:not(.gone)) .tknob{left:0%}
+.temp:has(.t-high.shown) .tknob{left:100%}
+.temp:has(.t-low.shown:not(.gone)) .tval .m,.temp:has(.t-high.shown) .tval .m{opacity:0}
+.temp:has(.t-low.shown:not(.gone)) .tval .l,.temp:has(.t-high.shown) .tval .h{opacity:1}
+.temp:has(.t-low.shown:not(.gone)) .trun .l,.temp:has(.t-high.shown) .trun .h{opacity:1}
 .temp:has(.t-low.shown:not(.gone)) .fill{width:var(--lo)}
 .temp:has(.t-high.shown) .fill{width:var(--hi)}
-.temp:has(.t-low.shown:not(.gone)) .lvl{height:8%;background:var(--harness)}
-.temp:has(.t-high.shown) .lvl{height:94%;background:var(--demo)}
 .temp:has(.t-low.shown:not(.gone)) .tblank .m,.temp:has(.t-high.shown) .tblank .m{opacity:0}
 .temp:has(.t-low.shown:not(.gone)) .tblank .l,.temp:has(.t-high.shown) .tblank .h{opacity:1}
 .temp:has(.t-low.shown:not(.gone)) .pct .m,.temp:has(.t-high.shown) .pct .m{display:none}
@@ -803,10 +815,15 @@ aside.notes,aside.onscreen{display:none}
       <div class="tbar" style="--m:6%;--lo:0%;--hi:15%"><span>black</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">6%</span><span class="l">0%</span><span class="h">15%</span></span></div>
       <div class="tbar" style="--m:4%;--lo:0%;--hi:14%"><span>orange</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">4%</span><span class="l">0%</span><span class="h">14%</span></span></div>
   </div>
-  <div data-step="3">
-    <span class="thermo-ico" style="top:225px">🔥</span>
-    <div class="thermo"><div class="lvl"></div></div>
-    <span class="thermo-ico" style="top:735px">🧊</span>
+  <div class="tslider" data-step="2">
+    <div class="lbl"><span>temperature</span><span class="tval"><span class="m">1.0</span><span class="l">0.0</span><span class="h">2.0</span></span></div>
+    <div class="track"><div class="tknob"></div></div>
+    <div class="ends"><span>0 · same answer</span><span>2 · random</span></div>
+  </div>
+  <div class="truns" data-step="3">
+    <div class="trun"><span class="ico">🔁</span><div class="w"><span class="l">blue</span><span class="h">grey</span></div></div>
+    <div class="trun"><span class="ico">🔁</span><div class="w"><span class="l">blue</span><span class="h">blue</span></div></div>
+    <div class="trun"><span class="ico">🔁</span><div class="w"><span class="l">blue</span><span class="h">orange</span></div></div>
   </div>
   <span class="t-low" data-step="3" data-hide="4"></span>
   <span class="t-high" data-step="4"></span>
@@ -814,10 +831,11 @@ aside.notes,aside.onscreen{display:none}
     Temperature.
     The color of the sky is ___
     blue 62% · grey 14% · clear 10% · black 6% · orange 4%
-    Low temperature: blue 97% · grey 2% · clear 1% · black 0% · orange 0% → "blue"
-    High temperature: blue 30% · grey 22% · clear 19% · black 15% · orange 14% → "orange"
+    temperature 1.0 (default)
+    temperature 0.0: blue 97% · grey 2% · clear 1% · black 0% · orange 0% → 3 regenerates: blue, blue, blue
+    temperature 2.0: blue 30% · grey 22% · clear 19% · black 15% · orange 14% → 3 regenerates: grey, blue, orange
   </aside>
-  <aside class="notes">The answer is a setting called temperature. Same frozen model, same odds; temperature just changes how it picks. [Click] The color of the sky is... what? [Click] Here are the model's odds. Blue is the clear favorite, but grey, clear, black and orange all have a chance. These numbers are illustrative. [Click] Turn the temperature down, close to zero, and the favorite gets even stronger. It picks "blue" practically every time. Low temperature means predictable, almost deterministic. Good for facts, code, and data extraction. [Click] Turn it up and the odds flatten out. Now "orange" has a real shot, and sometimes it wins: hello, sunset. High temperature means more varied, more surprising, more creative. And more likely to go off the rails. Most chat apps sit somewhere in the middle, which is why regenerate gives you a different answer each time.</aside>
+  <aside class="notes">The answer is a setting called temperature. It's a dial in every large language model's API, usually from 0 to 2. Same frozen model, same odds; temperature only changes how the next token gets picked. [Click] The color of the sky is... what? [Click] Here are the model's odds for the next word, at the default temperature of about 1. Blue is the favorite, but grey, clear, black and orange all have a chance. The numbers are illustrative. [Click] Set temperature to 0 and the favorite takes over. The model almost always picks the single most likely token. Hit regenerate three times: blue, blue, blue. That's deterministic, the same answer every time. Use it for facts, code and data extraction. [Click] Turn it up to 2 and the odds flatten. Now every word has a real shot, and three regenerates give you grey, blue, orange. That's probabilistic: more varied, more creative, and more likely to go off the rails. Chat apps sit around the middle, which is why regenerate gives you a different answer each time.</aside>
 </section>
 
 <!-- ============================ 11. DYK: CUTOFF ============================ -->
