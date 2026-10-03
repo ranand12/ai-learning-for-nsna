@@ -3,6 +3,7 @@
 Usage: python3 extract-talk-track.py new-week1-fundamentals.html week1-talk-track.md "Week 1"
 """
 import html
+import os
 import re
 import sys
 
@@ -29,5 +30,10 @@ for i, (hdr, body) in enumerate(secs, 1):
     if screen:
         out += ["**On screen**", ""] + [f"- {l}" for l in screen] + [""]
     out += ["**Say**", ""] + ([n + "\n" for n in notes] if notes else ["_(no notes)_", ""])
+# talk track for slides that were removed from the deck lives in <dst stem>-removed.md and is kept at the end
+removed = dst[:-3] + "-removed.md"
+if os.path.exists(removed):
+    out += ["", "---", "", "## Removed slides", "", "_Kept for reference; these slides are no longer in the deck._", "",
+            re.sub(r'<!--.*?-->\s*', '', open(removed).read(), flags=re.S)]
 open(dst, "w").write("\n".join(out))
 print(f"{len(secs)} slides -> {dst}")
