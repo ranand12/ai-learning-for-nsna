@@ -72,6 +72,8 @@ svg text{font-family:var(--font);fill:var(--fg)}
 .active .fi{animation:fi .8s ease var(--d,0s) both}
 @keyframes fi{from{opacity:0}to{opacity:1}}
 .draw{stroke-dasharray:1;stroke-dashoffset:1}
+.ahead{opacity:0}
+.active .ahead{animation:fi .15s linear var(--d) forwards}
 .active .draw{animation:draw var(--t,1.2s) ease var(--d,0s) forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
 .active .pop{animation:pop .5s cubic-bezier(.3,1.6,.5,1) var(--d,0s) both;transform-box:fill-box;transform-origin:center}
@@ -1212,6 +1214,23 @@ document.querySelectorAll('.bookfield').forEach(g=>{const icons=['📕','📗','
   const k=document.createElementNS(NS,'circle');k.setAttribute('cy','-23');k.setAttribute('r','5');k.setAttribute('fill',Math.random()<0.12?'#2EE59D':'#F5F5F0');
   n.appendChild(k);g.appendChild(c);g.appendChild(e);g.appendChild(n);root.appendChild(g);}})();
 
+// drawn arrows: SVG markers ignore the draw animation, so swap each marker for a real arrowhead that appears when the line finishes
+document.querySelectorAll('.draw[marker-end]').forEach(el=>{
+  const id=(el.getAttribute('marker-end').match(/#([^)]+)/)||[])[1], mk=id&&document.getElementById(id);
+  const fill=mk?(mk.querySelector('path')||{}).getAttribute?.('fill')||el.getAttribute('stroke'):el.getAttribute('stroke');
+  const mw=mk?+(mk.getAttribute('markerWidth')||3):3, sw=+(el.getAttribute('stroke-width')||1), size=mw*sw;
+  const pl=el.getAttribute('pathLength'); if(pl)el.removeAttribute('pathLength');
+  const L=el.getTotalLength(), p=el.getPointAtLength(L), q=el.getPointAtLength(Math.max(0,L-3));
+  if(pl)el.setAttribute('pathLength',pl);
+  const ang=Math.atan2(p.y-q.y,p.x-q.x)*180/Math.PI, cs=getComputedStyle(el);
+  const sec=v=>parseFloat(v)||0, t=cs.getPropertyValue('--t').trim(), d=cs.getPropertyValue('--d').trim();
+  const h=document.createElementNS(NS,'path');
+  h.setAttribute('d',`M${size*.4} 0 L${-size*.6} ${size/2} L${-size*.6} ${-size/2} Z`);
+  h.setAttribute('fill',fill);h.setAttribute('class','ahead');
+  h.setAttribute('transform',`translate(${p.x},${p.y}) rotate(${ang})`);
+  h.style.setProperty('--d',(sec(d)+(t?sec(t):1.2)).toFixed(2)+'s');
+  el.removeAttribute('marker-end');el.after(h);
+});
 addEventListener('hashchange',()=>{const i=parseInt(location.hash.slice(1),10)-1;if(i!==cur)show(i);});
 show(parseInt(location.hash.slice(1)||'1',10)-1);
 </script>
