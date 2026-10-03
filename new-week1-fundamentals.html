@@ -503,36 +503,44 @@ aside.notes,aside.onscreen{display:none}
 
 <!-- ============================ 7. NEXT WORD ============================ -->
 <section class="slide">
-  <div class="kicker fu">Finish this sentence</div>
-  <h2 class="fu" style="--d:.1s">What word comes next?</h2>
+  <h2 class="fu title-xl" style="--d:.1s">What word comes next?</h2>
   <div class="body" style="flex-direction:column;align-items:flex-start;justify-content:center">
-    <div class="nw fu" style="--d:.4s">The cat sat on the <span class="blank"><span data-step="1">mat</span></span></div>
-    <div class="bars" data-step="1">
-      <div class="bar win"><span>mat</span><div class="track"><div class="fill" style="--w:62%;--d:1.2s"></div></div><span class="pct">62%</span></div>
-      <div class="bar"><span>floor</span><div class="track"><div class="fill" style="--w:14%;--d:1.4s"></div></div><span class="pct">14%</span></div>
-      <div class="bar"><span>sofa</span><div class="track"><div class="fill" style="--w:9%;--d:1.6s"></div></div><span class="pct">9%</span></div>
-      <div class="bar"><span>roof</span><div class="track"><div class="fill" style="--w:4%;--d:1.8s"></div></div><span class="pct">4%</span></div>
+    <div style="position:relative;width:100%">
+      <div data-hide="4">
+        <div class="nw" data-step="1" style="font-size:60px">The color of the sky is <span class="blank"><span data-step="3">blue</span></span></div>
+        <div class="bars" data-step="2" style="margin-top:44px">
+        <div class="bar win"><span>blue</span><div class="track"><div class="fill" style="--w:62%;--d:0.10s"></div></div><span class="pct">62%</span></div>
+        <div class="bar"><span>grey</span><div class="track"><div class="fill" style="--w:14%;--d:0.25s"></div></div><span class="pct">14%</span></div>
+        <div class="bar"><span>clear</span><div class="track"><div class="fill" style="--w:10%;--d:0.40s"></div></div><span class="pct">10%</span></div>
+        <div class="bar"><span>black</span><div class="track"><div class="fill" style="--w:6%;--d:0.55s"></div></div><span class="pct">6%</span></div>
+        <div class="bar"><span>orange</span><div class="track"><div class="fill" style="--w:4%;--d:0.70s"></div></div><span class="pct">4%</span></div>
+        </div>
+      </div>
+      <div data-step="4" style="position:absolute;left:0;top:0;width:100%">
+        <div class="nw" style="font-size:60px">The color of the sky at sunset is <span class="blank" style="min-width:240px"><span data-step="6">orange</span></span></div>
+        <div class="bars" data-step="5" style="margin-top:44px">
+        <div class="bar win"><span>orange</span><div class="track"><div class="fill" style="--w:48%;--d:0.10s"></div></div><span class="pct">48%</span></div>
+        <div class="bar"><span>red</span><div class="track"><div class="fill" style="--w:21%;--d:0.25s"></div></div><span class="pct">21%</span></div>
+        <div class="bar"><span>pink</span><div class="track"><div class="fill" style="--w:14%;--d:0.40s"></div></div><span class="pct">14%</span></div>
+        <div class="bar"><span>purple</span><div class="track"><div class="fill" style="--w:9%;--d:0.55s"></div></div><span class="pct">9%</span></div>
+        <div class="bar"><span>gold</span><div class="track"><div class="fill" style="--w:5%;--d:0.70s"></div></div><span class="pct">5%</span></div>
+        </div>
+      </div>
     </div>
   </div>
-  <span class="sticker guess" style="--r:4deg;right:120px;top:24px;--sd:.8s"><svg viewBox="0 0 24 24"><path d="M4 3h16a2 2 0 012 2v10a2 2 0 01-2 2H10l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2zm7 11h2v-2h-2zm1-9a3 3 0 00-3 3h2a1 1 0 112 0c0 1-2 1.2-2 3h2c0-1.2 2-1.5 2-3a3 3 0 00-3-3z"/></svg>Your guess?</span>
-  <div data-step="2" style="position:absolute;left:110px;bottom:40px"><p class="answer">That's the whole trick: <span class="hl-model">guess the next word.</span></p><p class="dim small" style="margin-top:8px">Illustrative numbers. It's your phone's autocomplete, trained on a big chunk of the internet.</p></div>
+  <div data-step="7" style="position:absolute;left:110px;bottom:40px"><p class="answer">That's the whole trick: <span class="hl-model">guess the next word.</span></p></div>
   <aside class="onscreen">
     Finish this sentence
     What word comes next?
-    The cat sat on the mat
-    mat
-    62%
-    floor
-    14%
-    sofa
-    9%
-    roof
-    4%
+    The color of the sky is ___ → blue
+    blue 62% · grey 14% · clear 10% · black 6% · orange 4%
+    The color of the sky at sunset is ___ → orange
+    orange 48% · red 21% · pink 14% · purple 9% · gold 5%
     Your guess?
     That's the whole trick: guess the next word.
     Illustrative numbers. It's your phone's autocomplete, trained on a big chunk of the internet.
   </aside>
-  <aside class="notes">Ask the room first and let them shout. Everyone says "mat". Press → to reveal the odds: you just did what the model does. Press → again for the punchline. That's all it does. Given some text, it scores every possible next word and picks one. Then it does it again, and again. Essays, code and poems are all this one step repeated thousands of times. Keep the bar chart in mind; we'll come back to it in the demo.</aside>
+  <aside class="notes">Finish this sentence for me. [Click] "The color of the sky is..." Let the room shout. Everyone says "blue". [Click] Here are the model's odds for the next word. Blue is the favorite, but grey, clear, black and even orange get a slice. These numbers are illustrative. [Click] It picks blue. You just did exactly what the model does. [Click] Now a different version of the same question: "The color of the sky at sunset is..." [Click] Look how the odds shift. Two extra words, "at sunset", and orange jumps from 4% to the top. The model doesn't look anything up; the words before the blank change the odds. [Click] Orange. [Click] That's the whole trick: guess the next word. Given some text, it scores every possible next word and picks one. Then it does it again, and again. Essays, code and poems are all this one step repeated thousands of times. It's your phone's autocomplete, trained on a big chunk of the internet. Keep these bars in mind; they come back when we talk about temperature.</aside>
 </section>
 
 <!-- ============================ 8. TRAINING vs INFERENCE ============================ -->

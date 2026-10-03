@@ -115,22 +115,17 @@ When people say "the model", they mean one specific thing. Let's pin down what i
 
 - Finish this sentence
 - What word comes next?
-- The cat sat on the mat
-- mat
-- 62%
-- floor
-- 14%
-- sofa
-- 9%
-- roof
-- 4%
+- The color of the sky is ___ → blue
+- blue 62% · grey 14% · clear 10% · black 6% · orange 4%
+- The color of the sky at sunset is ___ → orange
+- orange 48% · red 21% · pink 14% · purple 9% · gold 5%
 - Your guess?
 - That's the whole trick: guess the next word.
 - Illustrative numbers. It's your phone's autocomplete, trained on a big chunk of the internet.
 
 **Say**
 
-Ask the room first and let them shout. Everyone says "mat". Press → to reveal the odds: you just did what the model does. Press → again for the punchline. That's all it does. Given some text, it scores every possible next word and picks one. Then it does it again, and again. Essays, code and poems are all this one step repeated thousands of times. Keep the bar chart in mind; we'll come back to it in the demo.
+Finish this sentence for me. [Click] "The color of the sky is..." Let the room shout. Everyone says "blue". [Click] Here are the model's odds for the next word. Blue is the favorite, but grey, clear, black and even orange get a slice. These numbers are illustrative. [Click] It picks blue. You just did exactly what the model does. [Click] Now a different version of the same question: "The color of the sky at sunset is..." [Click] Look how the odds shift. Two extra words, "at sunset", and orange jumps from 4% to the top. The model doesn't look anything up; the words before the blank change the odds. [Click] Orange. [Click] That's the whole trick: guess the next word. Given some text, it scores every possible next word and picks one. Then it does it again, and again. Essays, code and poems are all this one step repeated thousands of times. It's your phone's autocomplete, trained on a big chunk of the internet. Keep these bars in mind; they come back when we talk about temperature.
 
 ## 8. Training Vs Inference — Training builds the model. Inference uses it.
 
