@@ -376,18 +376,7 @@ Frozen dials have a side effect. Ask it about last week's news: why does it get 
 
 Let's recap what we've covered so far. [Click] One: training and inference. The model reads a huge library once, at great cost, then freezes. Every time you use it, that's inference: question in, answer out. [Click] Two: closed versus open. Closed models stay locked in the company's servers and you rent them. Open models are a file you can download and run yourself. [Click] Three: it's all probabilistic prediction. The model guesses the next word from the odds, and temperature controls how adventurous those guesses are. [Click] Four: tokens. Models read chunks, not words, and tokens are the currency: limits and pricing are all counted in them. [Click] Five: the context window. That's the model's desk: everything it can see right now. It's big but not infinite, it fills up, and the model remembers nothing outside it.
 
-## 24. Subscription Vs Tokens — Subscription or pay per token?
-
-**On screen**
-
-- Should I choose subscription or pay per tokens?
-- Netflix (subscription) vs tokens (pay per use) (GIFs)
-
-**Say**
-
-Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
-
-## 25. Worth Paying? — Is it worth paying?
+## 24. Worth Paying? — Is it worth paying?
 
 **On screen**
 
@@ -397,6 +386,17 @@ Should you pay for a subscription or pay per token? There are two approaches. [C
 **Say**
 
 Is it worth paying? [Click] Option one: hold on to your money and stick with the free tiers. [Click] Option two: pay for a plan. [Your punchline for the Vadivelu GIF goes here.]
+
+## 25. Subscription Vs Tokens — Subscription or pay per token?
+
+**On screen**
+
+- Should I choose subscription or pay per tokens?
+- Netflix (subscription) vs tokens (pay per use) (GIFs)
+
+**Say**
+
+Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
 
 
 ---
