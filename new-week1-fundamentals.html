@@ -157,7 +157,7 @@ aside.notes{display:none}
 .turn .b{height:54px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#0A0A0A;padding:0 18px}
 .turn .q{background:var(--fg)} .turn .a{background:var(--model)} .turn .empty{border:2px dashed #555;color:#777;background:transparent}
 .turn .arrow{font-size:30px;color:var(--dim);margin:0 10px}
-.turn .mdl{width:54px;height:54px;border-radius:50%;background:var(--model)}
+.turn .mdl{width:54px;height:54px;border-radius:50%;background:var(--model);display:inline-flex;align-items:center;justify-content:center;font-size:32px;line-height:1}
 /* tiers */
 .tiers{display:flex;align-items:flex-end;gap:70px;margin-top:40px}
 .tier{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
@@ -225,7 +225,7 @@ aside.notes{display:none}
   <svg class="title-mark" width="520" height="520" viewBox="0 0 520 520">
     <circle class="draw" pathLength="1" cx="260" cy="260" r="220" fill="none" stroke="#F5F5F0" stroke-width="3" style="--t:1.6s"/>
     <line class="draw" pathLength="1" x1="40" y1="260" x2="480" y2="260" stroke="#F5F5F0" stroke-width="3" style="--d:.9s;--t:.8s"/>
-    <circle class="pop" cx="260" cy="260" r="46" fill="#2EE59D" style="--d:1.5s"/>
+    <g class="pop" style="--d:1.5s"><circle cx="260" cy="260" r="46" fill="#2EE59D"/><text x="260" y="262" text-anchor="middle" dominant-baseline="central" font-size="53">💃</text></g>
   </svg>
   <aside class="notes">Welcome. No prerequisites. By the end of today nobody should feel like AI is magic. It's a machine with a few very specific habits, and once you know them you'll use it far better than most people.</aside>
 </section>
@@ -340,13 +340,13 @@ aside.notes{display:none}
     <!-- training -->
     <g id="dotfield" transform="translate(360,170)"></g>
     <circle cx="360" cy="170" r="110" fill="none" stroke="#F5F5F0" stroke-width="3" stroke-dasharray="6 8"/>
-    <circle class="pop" cx="360" cy="170" r="48" fill="#2EE59D" style="--d:1.4s"/>
+    <g class="pop" style="--d:1.4s"><circle cx="360" cy="170" r="48" fill="#2EE59D"/><text x="360" y="172" text-anchor="middle" dominant-baseline="central" font-size="55">💃</text></g>
     <text x="360" y="340" text-anchor="middle" font-size="30" font-weight="800">TRAINING</text>
     <!-- divider -->
     <line x1="690" y1="30" x2="690" y2="330" stroke="#2A2A28" stroke-width="2"/>
     <!-- inference -->
     <line class="draw" pathLength="1" x1="790" y1="170" x2="1300" y2="170" stroke="#F5F5F0" stroke-width="3" style="--d:.6s"/>
-    <circle cx="1045" cy="170" r="48" fill="#2EE59D"/>
+    <circle cx="1045" cy="170" r="48" fill="#2EE59D"/><text x="1045" y="172" text-anchor="middle" dominant-baseline="central" font-size="55">💃</text>
     <g transform="translate(790,158)">
       <rect class="tok-run" width="24" height="24" rx="3" style="--d:1s"/>
       <rect class="tok-run" width="24" height="24" rx="3" style="--d:1.8s"/>
@@ -379,7 +379,7 @@ aside.notes{display:none}
       <path d="M840 100 l14 14 l26 -28" fill="none" stroke="#2EE59D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
     <line class="draw" pathLength="1" x1="960" y1="100" x2="1110" y2="100" stroke="#F5F5F0" stroke-width="3" style="--d:2.1s;--t:.5s"/>
-    <circle class="pop" cx="1230" cy="100" r="80" fill="#2EE59D" style="--d:2.4s"/>
+    <g class="pop" style="--d:2.4s"><circle cx="1230" cy="100" r="80" fill="#2EE59D"/><text x="1230" y="103" text-anchor="middle" dominant-baseline="central" font-size="92">💃</text></g>
   </svg>
   <div class="cols4" style="margin-top:36px">
     <div class="fu" style="--d:.4s"><h3>Pre-training</h3><p class="dim small">Read a huge slice of the internet, books and code. Learn to predict the next word.</p></div>
@@ -495,7 +495,7 @@ aside.notes{display:none}
         <rect class="draw" pathLength="1" x="10" y="10" width="160" height="160" rx="10" fill="none" stroke="#F5F5F0" stroke-width="4" style="--d:.4s"/>
         <circle class="draw" pathLength="1" cx="90" cy="90" r="44" fill="none" stroke="#F5F5F0" stroke-width="4" style="--d:.9s"/>
         <g class="fi" style="--d:1.3s" stroke="#F5F5F0" stroke-width="4" stroke-linecap="round"><line x1="90" y1="54" x2="90" y2="70"/><line x1="90" y1="110" x2="90" y2="126"/><line x1="54" y1="90" x2="70" y2="90"/><line x1="110" y1="90" x2="126" y2="90"/></g>
-        <circle class="pop" cx="90" cy="90" r="10" fill="#2EE59D" style="--d:1.5s"/>
+        <g class="pop" style="--d:1.5s"><circle cx="90" cy="90" r="24" fill="#2EE59D"/><text x="90" y="91" text-anchor="middle" dominant-baseline="central" font-size="28">💃</text></g>
       </svg>
       <h3 style="margin-top:34px">Proprietary</h3>
       <p class="dim">The weights stay on the company's servers. You <b style="color:#F5F5F0">rent access</b> through their app or API.</p>
@@ -505,7 +505,7 @@ aside.notes{display:none}
       <svg width="180" height="180" viewBox="0 0 180 180">
         <path class="draw" pathLength="1" d="M30 10 H120 L150 40 V170 H30 Z" fill="none" stroke="#F5F5F0" stroke-width="4" stroke-linejoin="round" style="--d:.7s"/>
         <g class="fi" style="--d:1.3s" fill="#F5F5F0"><rect x="82" y="18" width="16" height="10"/><rect x="82" y="38" width="16" height="10"/><rect x="82" y="58" width="16" height="10"/><rect x="82" y="78" width="16" height="10"/></g>
-        <rect class="pop" x="76" y="100" width="28" height="36" rx="4" fill="#2EE59D" style="--d:1.6s"/>
+        <g class="pop" style="--d:1.6s"><circle cx="90" cy="128" r="24" fill="#2EE59D"/><text x="90" y="129" text-anchor="middle" dominant-baseline="central" font-size="28">💃</text></g>
       </svg>
       <h3 style="margin-top:34px">Open weights</h3>
       <p class="dim">The weights are published. <b style="color:#F5F5F0">Download</b> them and run them on your laptop, your server or your cloud.</p>
@@ -662,10 +662,10 @@ aside.notes{display:none}
   <div class="kicker fu">The surprising part</div>
   <h2 class="fu" style="--d:.1s">The model remembers nothing between turns.</h2>
   <div class="turns">
-    <div class="turn fu" style="--d:.4s"><span class="lbl">Turn 1</span><span class="b q">You 1</span><span class="arrow">→</span><span class="mdl"></span></div>
-    <div class="turn fu" style="--d:.9s"><span class="lbl">Turn 2</span><span class="b q">You 1</span><span class="b a">AI 1</span><span class="b q">You 2</span><span class="arrow">→</span><span class="mdl"></span></div>
-    <div class="turn fu" style="--d:1.4s"><span class="lbl">Turn 3</span><span class="b q">You 1</span><span class="b a">AI 1</span><span class="b q">You 2</span><span class="b a">AI 2</span><span class="b q">You 3</span><span class="arrow">→</span><span class="mdl"></span></div>
-    <div class="turn fu" style="--d:2.1s"><span class="lbl hl-demo">New chat</span><span class="b empty">empty desk</span><span class="arrow">→</span><span class="mdl"></span><span class="dim" style="font-size:24px;margin-left:16px">"Who are you?"</span></div>
+    <div class="turn fu" style="--d:.4s"><span class="lbl">Turn 1</span><span class="b q">You 1</span><span class="arrow">→</span><span class="mdl">💃</span></div>
+    <div class="turn fu" style="--d:.9s"><span class="lbl">Turn 2</span><span class="b q">You 1</span><span class="b a">AI 1</span><span class="b q">You 2</span><span class="arrow">→</span><span class="mdl">💃</span></div>
+    <div class="turn fu" style="--d:1.4s"><span class="lbl">Turn 3</span><span class="b q">You 1</span><span class="b a">AI 1</span><span class="b q">You 2</span><span class="b a">AI 2</span><span class="b q">You 3</span><span class="arrow">→</span><span class="mdl">💃</span></div>
+    <div class="turn fu" style="--d:2.1s"><span class="lbl hl-demo">New chat</span><span class="b empty">empty desk</span><span class="arrow">→</span><span class="mdl">💃</span><span class="dim" style="font-size:24px;margin-left:16px">"Who are you?"</span></div>
   </div>
   <p class="dim fu" style="--d:2.5s;margin-top:44px">The app re-sends the <b style="color:#F5F5F0">whole conversation</b> every time. One session never leaks into the next.</p>
   <aside class="notes">This surprises almost everyone. The model has no memory. Every time you hit enter, the app bundles up the entire conversation so far and sends all of it again. It feels like a conversation, but the model is reading the whole script fresh each time. Open a new chat and the desk is empty. It has never met you.</aside>
@@ -677,7 +677,7 @@ aside.notes{display:none}
   <div class="split" style="grid-template-columns:1fr 1fr">
     <svg class="fi" style="--d:.2s" width="600" height="460" viewBox="0 0 600 460">
       <polygon class="draw" pathLength="1" points="300,20 520,140 520,340 300,460 80,340 80,140" fill="none" stroke="#4D9FFF" stroke-width="4" style="--d:.3s;--t:1.4s"/>
-      <circle class="pop" cx="300" cy="260" r="70" fill="#2EE59D" style="--d:1s"/>
+      <g class="pop" style="--d:1s"><circle cx="300" cy="260" r="70" fill="#2EE59D"/><text x="300" y="263" text-anchor="middle" dominant-baseline="central" font-size="80">💃</text></g>
       <g class="fu" style="--d:1.6s">
         <rect x="350" y="62" width="190" height="146" fill="#FFD23F" transform="rotate(8 435 135)"/>
         <text x="368" y="120" font-size="20" font-weight="700" fill="#0A0A0A" transform="rotate(8 435 135)">Name: Priya</text>
