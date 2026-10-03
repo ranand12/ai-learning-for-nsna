@@ -402,6 +402,30 @@ Is it worth paying? [Click] Option one: hold on to your money and stick with the
 
 Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
 
+## 27. Ai Agents — AI agents.
+
+**On screen**
+
+- AI agents.
+- 🧑‍💻 “Find me the cheapest flight and add it to my calendar.”
+- Context window
+- 🧑‍💻 Cheapest flight → add to calendar
+- 💃 Think 💭
+- Use tool: 🔍 Search flights
+- ✈️ Flight search: 14 flights found
+- 🔁 Repeat (tokens loop: context → think → tool → back into context)
+- 💃 Best pick: Fri 7am · $89
+- Use tool: 📅 Check calendar
+- 📅 Calendar: Friday morning is free
+- Use tool: 📝 Create event
+- ✅ Event created: Fri 7am flight
+- AI agent: same LLM, but now it can do things between answers. It can read files/web/data, use tools/APIs, take actions, see the result, put that result back into its context window, and decide the next step.
+- Flow: Goal → Context Window → Think → Use Tool → Result comes back into Context → Think again → Repeat
+
+**Say**
+
+So what's an AI agent? It's the same model, the same LLM we've been talking about all day. The only difference: now it can do things between answers. It can read files, the web or your data, use tools and apps, take actions, see what happened, and decide what to do next. Let's watch one work. [Click] You give it a goal: "Find me the cheapest flight and add it to my calendar." [Click] That goes into the context window, the desk we just talked about. The agent understands your request. [Click] The model thinks: what do I need to do first? [Click] It decides to use a tool: search flights. [Click] And here's the key part: the result comes back into the context window. Fourteen flights, now sitting on the desk. [Click] Then it thinks again, with that new information, and picks the best match: Friday 7am, 89 dollars. That's the loop: context, think, use a tool, result back into context, think again, repeat. [Click] Next tool: check your calendar. [Click] Context updated: Friday morning is free. [Click] Last tool: create the calendar event. [Click] Done. Notice it never stopped being a next-word guesser. Everything it learned along the way just landed on its desk as more tokens. Which also means a long task fills up that context window fast.
+
 
 ---
 
