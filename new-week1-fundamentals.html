@@ -101,6 +101,10 @@ svg text{font-family:var(--font);fill:var(--fg)}
 .ag-blk[data-step]:not(.shown){transform:translateX(60px)}
 .ag-frame{position:absolute;left:80px;top:300px;width:1430px;height:565px;border:4px dashed var(--harness);border-radius:28px;background:rgba(77,159,255,.05);box-shadow:0 0 50px rgba(77,159,255,.25);pointer-events:none}
 .ag-spy{position:absolute;left:1390px;top:196px;width:130px;height:130px}
+.agcirc{border-radius:50%;background:var(--model);overflow:hidden;position:absolute}
+.agcirc img{position:absolute;left:-8%;top:4%;width:116%;height:116%}
+.neq-dot{position:absolute;border-radius:50%;background:var(--model);display:flex;align-items:center;justify-content:center;line-height:1}
+.neq-sign{position:absolute;font-size:200px;font-weight:800;color:var(--fg);text-align:center;line-height:1}
 .ag-name{position:absolute;left:1180px;top:240px;font-size:34px;font-weight:800;color:var(--harness)}
 .ag-you{background:var(--fg)} .ag-ai{background:var(--model)} .ag-tool{background:var(--harness)}
 .ag-card{position:absolute;left:960px;top:650px;width:380px;height:120px;border:4px solid var(--harness);border-radius:18px;background:var(--bg);box-shadow:0 0 40px rgba(77,159,255,.3);display:flex;align-items:center;justify-content:center;gap:16px;font-size:30px;font-weight:700}
@@ -1191,6 +1195,18 @@ aside.notes,aside.onscreen{display:none}
   <aside class="notes">Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.</aside>
 </section>
 
+<!-- ============================ 30b. MODEL ≠ AGENT ============================ -->
+<section class="slide">
+  <div class="neq-dot" data-step="1" style="left:250px;top:320px;width:300px;height:300px;font-size:180px">💃</div>
+  <div class="neq-sign" data-step="2" style="left:650px;top:360px;width:300px">≠</div>
+  <div class="agcirc" data-step="3" style="left:1050px;top:320px;width:300px;height:300px"><img src="gifs/agent.png" alt=""></div>
+  <aside class="onscreen">
+    💃 (model, green circle) ≠ 🕵️ (agent, spy in green circle)
+    Model ≠ agent
+  </aside>
+  <aside class="notes">Before we go on, one thing people mix up all the time. [Click] This is the model, our dancer: the brain that guesses the next word. [Click] It is not the same thing as [Click] an agent. An agent is the model plus the ability to go and do things for you. People use the words interchangeably; they're not the same. Let's see what an agent actually does.</aside>
+</section>
+
 <!-- ============================ 31. AI AGENTS ============================ -->
 <section class="slide">
   <h2 class="fu title-xl" style="--d:.1s">AI agents.</h2>
@@ -1221,7 +1237,7 @@ aside.notes,aside.onscreen{display:none}
   <div class="ag-rep" data-step="6"><span>🔁</span>Repeat</div>
   <div class="ag-frame" data-step="11"></div>
   <div class="ag-name" data-step="11">= AI agent</div>
-  <img class="ag-spy" data-step="11" src="gifs/agent.png" alt="">
+  <div class="agcirc ag-spy" data-step="11"><img src="gifs/agent.png" alt=""></div>
   <aside class="onscreen">
     AI agents.
     🧑‍💻 “Find me the cheapest flight and add it to my calendar.”
