@@ -204,6 +204,8 @@ aside.notes,aside.onscreen{display:none}
 .active .fm.fm-big{animation:fmBig .7s cubic-bezier(.3,1.5,.5,1) .15s both}
 @keyframes fmBig{from{transform:scale(0)}to{transform:scale(1.5)}}
 /* LLM temperature: same next-word odds, sharpened (temperature 0) or flattened (temperature 2); three regenerate runs show deterministic vs random picks */
+.story{position:absolute;left:110px;top:515px;width:920px;display:flex;flex-wrap:wrap;gap:8px}
+.story .chip{font-size:22px;padding:5px 11px;border-radius:7px}
 .tsent{display:flex;align-items:center;gap:22px;font-size:64px;font-weight:700;letter-spacing:-.03em;margin-top:44px}
 .tblank{position:relative;display:inline-block;min-width:240px;height:80px;border-bottom:6px solid var(--fg)}
 .tblank span{position:absolute;left:0;right:0;bottom:6px;text-align:center;color:var(--model);opacity:0;transition:opacity .4s}
@@ -839,13 +841,13 @@ aside.notes,aside.onscreen{display:none}
 
 <!-- ============================ 10g. TEMPERATURE ============================ -->
 <section class="slide temp">
-  <div class="tsent" data-step="1">The color of the sky is <span class="tblank"><span class="m">?</span><span class="l">blue</span><span class="h">orange</span></span></div>
+  <div class="tsent" data-step="1">Pip was a very small <span class="tblank" style="min-width:300px"><span class="m">?</span><span class="l">hedgehog</span><span class="h">dragon</span></span></div>
   <div class="tbars" data-step="2">
-      <div class="tbar win" style="--m:62%;--lo:97%;--hi:30%"><span>blue</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">62%</span><span class="l">97%</span><span class="h">30%</span></span></div>
-      <div class="tbar" style="--m:14%;--lo:2%;--hi:22%"><span>grey</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">14%</span><span class="l">2%</span><span class="h">22%</span></span></div>
-      <div class="tbar" style="--m:10%;--lo:1%;--hi:19%"><span>clear</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">10%</span><span class="l">1%</span><span class="h">19%</span></span></div>
-      <div class="tbar" style="--m:6%;--lo:0%;--hi:15%"><span>black</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">6%</span><span class="l">0%</span><span class="h">15%</span></span></div>
-      <div class="tbar" style="--m:4%;--lo:0%;--hi:14%"><span>orange</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">4%</span><span class="l">0%</span><span class="h">14%</span></span></div>
+      <div class="tbar win" style="--m:48%;--lo:96%;--hi:26%"><span>hedgehog</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">48%</span><span class="l">96%</span><span class="h">26%</span></span></div>
+      <div class="tbar" style="--m:20%;--lo:3%;--hi:22%"><span>mouse</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">20%</span><span class="l">3%</span><span class="h">22%</span></span></div>
+      <div class="tbar" style="--m:14%;--lo:1%;--hi:20%"><span>puppy</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">14%</span><span class="l">1%</span><span class="h">20%</span></span></div>
+      <div class="tbar" style="--m:10%;--lo:0%;--hi:18%"><span>kitten</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">10%</span><span class="l">0%</span><span class="h">18%</span></span></div>
+      <div class="tbar" style="--m:4%;--lo:0%;--hi:14%"><span>dragon</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">4%</span><span class="l">0%</span><span class="h">14%</span></span></div>
   </div>
   <div class="tslider" data-step="2">
     <div class="lbl"><span>temperature</span><span class="tval"><span class="m">1.0</span><span class="l">0.0</span><span class="h">2.0</span></span></div>
@@ -853,21 +855,26 @@ aside.notes,aside.onscreen{display:none}
     <div class="ends"><span>0 · same answer</span><span>2 · random</span></div>
   </div>
   <div class="truns" data-step="3">
-    <div class="trun"><span class="ico">🔁</span><div class="w"><span class="l">blue</span><span class="h">grey</span></div></div>
-    <div class="trun"><span class="ico">🔁</span><div class="w"><span class="l">blue</span><span class="h">blue</span></div></div>
-    <div class="trun"><span class="ico">🔁</span><div class="w"><span class="l">blue</span><span class="h">orange</span></div></div>
+    <div class="trun"><span class="ico">🔁</span><div class="w"><span class="l">hedgehog</span><span class="h">mouse</span></div></div>
+    <div class="trun"><span class="ico">🔁</span><div class="w"><span class="l">hedgehog</span><span class="h">dragon</span></div></div>
+    <div class="trun"><span class="ico">🔁</span><div class="w"><span class="l">hedgehog</span><span class="h">puppy</span></div></div>
   </div>
+  <div class="story" data-step="3" data-hide="4"><span class="chip">Pip</span><span class="chip">was</span><span class="chip">a</span><span class="chip">very</span><span class="chip">small</span><span class="chip gen pop" style="--d:0.40s">hedgehog</span><span class="chip gen pop" style="--d:0.58s">who</span><span class="chip gen pop" style="--d:0.76s">lived</span><span class="chip gen pop" style="--d:0.94s">in</span><span class="chip gen pop" style="--d:1.12s">a</span><span class="chip gen pop" style="--d:1.30s">cozy</span><span class="chip gen pop" style="--d:1.48s">burrow</span><span class="chip gen pop" style="--d:1.66s">at</span><span class="chip gen pop" style="--d:1.84s">the</span><span class="chip gen pop" style="--d:2.02s">edge</span><span class="chip gen pop" style="--d:2.20s">of</span><span class="chip gen pop" style="--d:2.38s">the</span><span class="chip gen pop" style="--d:2.56s">forest.</span><span class="chip gen pop" style="--d:2.74s">Every</span><span class="chip gen pop" style="--d:2.92s">night,</span><span class="chip gen pop" style="--d:3.10s">Pip</span><span class="chip gen pop" style="--d:3.28s">curled</span><span class="chip gen pop" style="--d:3.46s">up</span><span class="chip gen pop" style="--d:3.64s">into</span><span class="chip gen pop" style="--d:3.82s">a</span><span class="chip gen pop" style="--d:4.00s">tiny</span><span class="chip gen pop" style="--d:4.18s">ball</span><span class="chip gen pop" style="--d:4.36s">and</span><span class="chip gen pop" style="--d:4.54s">fell</span><span class="chip gen pop" style="--d:4.72s">asleep</span><span class="chip gen pop" style="--d:4.90s">to</span><span class="chip gen pop" style="--d:5.08s">the</span><span class="chip gen pop" style="--d:5.26s">sound</span><span class="chip gen pop" style="--d:5.44s">of</span><span class="chip gen pop" style="--d:5.62s">the</span><span class="chip gen pop" style="--d:5.80s">owls.</span></div>
+  <div class="story" data-step="4"><span class="chip">Pip</span><span class="chip">was</span><span class="chip">a</span><span class="chip">very</span><span class="chip">small</span><span class="chip gen pop" style="--d:0.40s">dragon</span><span class="chip gen pop" style="--d:0.58s">who</span><span class="chip gen pop" style="--d:0.76s">collected</span><span class="chip gen pop" style="--d:0.94s">teaspoons</span><span class="chip gen pop" style="--d:1.12s">from</span><span class="chip gen pop" style="--d:1.30s">the</span><span class="chip gen pop" style="--d:1.48s">moon.</span><span class="chip gen pop" style="--d:1.66s">On</span><span class="chip gen pop" style="--d:1.84s">Tuesdays,</span><span class="chip gen pop" style="--d:2.02s">Pip</span><span class="chip gen pop" style="--d:2.20s">argued</span><span class="chip gen pop" style="--d:2.38s">with</span><span class="chip gen pop" style="--d:2.56s">a</span><span class="chip gen pop" style="--d:2.74s">polite</span><span class="chip gen pop" style="--d:2.92s">cloud</span><span class="chip gen pop" style="--d:3.10s">about</span><span class="chip gen pop" style="--d:3.28s">jazz,</span><span class="chip gen pop" style="--d:3.46s">then</span><span class="chip gen pop" style="--d:3.64s">sailed</span><span class="chip gen pop" style="--d:3.82s">home</span><span class="chip gen pop" style="--d:4.00s">in</span><span class="chip gen pop" style="--d:4.18s">a</span><span class="chip gen pop" style="--d:4.36s">sock</span><span class="chip gen pop" style="--d:4.54s">full</span><span class="chip gen pop" style="--d:4.72s">of</span><span class="chip gen pop" style="--d:4.90s">thunder.</span></div>
   <span class="t-low" data-step="3" data-hide="4"></span>
   <span class="t-high" data-step="4"></span>
   <aside class="onscreen">
     Temperature.
-    The color of the sky is ___
-    blue 62% · grey 14% · clear 10% · black 6% · orange 4%
+    Pip was a very small ___
+    hedgehog 48% · mouse 20% · puppy 14% · kitten 10% · dragon 4%
     temperature 1.0 (default)
-    temperature 0.0: blue 97% · grey 2% · clear 1% · black 0% · orange 0% → 3 regenerates: blue, blue, blue
-    temperature 2.0: blue 30% · grey 22% · clear 19% · black 15% · orange 14% → 3 regenerates: grey, blue, orange
+    temperature 0.0: hedgehog 96% · mouse 3% · puppy 1% · kitten 0% · dragon 0% → 3 regenerates: hedgehog, hedgehog, hedgehog
+    Pip was a very small hedgehog who lived in a cozy burrow at the edge of the forest. Every night, Pip curled up into a tiny ball and fell asleep to the sound of the owls.
+    temperature 2.0: hedgehog 26% · mouse 22% · puppy 20% · kitten 18% · dragon 14% → 3 regenerates: mouse, dragon, puppy
+    Pip was a very small dragon who collected teaspoons from the moon. On Tuesdays, Pip argued with a polite cloud about jazz, then sailed home in a sock full of thunder.
+    (earlier version: The color of the sky is ___ · blue 62% · grey 14% · clear 10% · black 6% · orange 4%)
   </aside>
-  <aside class="notes">The answer is a setting called temperature. It's a dial in every large language model's API, usually from 0 to 2. Same frozen model, same odds; temperature only changes how the next token gets picked. [Click] The color of the sky is... what? [Click] Here are the model's odds for the next word, at the default temperature of about 1. Blue is the favorite, but grey, clear, black and orange all have a chance. The numbers are illustrative. [Click] Set temperature to 0 and the favorite takes over. The model almost always picks the single most likely token. Hit regenerate three times: blue, blue, blue. That's deterministic, the same answer every time. Use it for facts, code and data extraction. [Click] Turn it up to 2 and the odds flatten. Now every word has a real shot, and three regenerates give you grey, blue, orange. That's probabilistic: more varied, more creative, and more likely to go off the rails. Chat apps sit around the middle, which is why regenerate gives you a different answer each time.</aside>
+  <aside class="notes">The answer is a setting called temperature. It's a dial in every large language model's API, usually from 0 to 2. Same frozen model, same odds; temperature only changes how the next token gets picked. Let's ask it for a bedtime story. [Click] "Pip was a very small..." what? [Click] Here are the model's odds for the next word, at the default temperature of about 1. Hedgehog is the favorite, but mouse, puppy, kitten and even dragon have a chance. The numbers are illustrative. [Click] Set temperature to 0 and the favorite takes over. Hit regenerate three times: hedgehog, hedgehog, hedgehog. And watch the story write itself, one token at a time: a cozy hedgehog in a burrow who falls asleep to the owls. Safe, predictable, the same story every time. That's deterministic. Use it for facts, code and data extraction. [Click] Turn it up to 2 and the odds flatten. Three regenerates give you mouse, dragon, puppy. And the story? Pip is a dragon who collects teaspoons from the moon and argues with a cloud about jazz. More creative, more surprising, and more likely to go off the rails. That's probabilistic. Chat apps sit around the middle, which is why regenerate gives you a different answer each time.</aside>
 </section>
 
 <!-- ============================ 12. INFERENCE LOOP ============================ -->

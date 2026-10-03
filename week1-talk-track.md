@@ -222,15 +222,18 @@ Back to our frozen model. Closed or open, their data center or your laptop, it's
 **On screen**
 
 - Temperature.
-- The color of the sky is ___
-- blue 62% · grey 14% · clear 10% · black 6% · orange 4%
+- Pip was a very small ___
+- hedgehog 48% · mouse 20% · puppy 14% · kitten 10% · dragon 4%
 - temperature 1.0 (default)
-- temperature 0.0: blue 97% · grey 2% · clear 1% · black 0% · orange 0% → 3 regenerates: blue, blue, blue
-- temperature 2.0: blue 30% · grey 22% · clear 19% · black 15% · orange 14% → 3 regenerates: grey, blue, orange
+- temperature 0.0: hedgehog 96% · mouse 3% · puppy 1% · kitten 0% · dragon 0% → 3 regenerates: hedgehog, hedgehog, hedgehog
+- Pip was a very small hedgehog who lived in a cozy burrow at the edge of the forest. Every night, Pip curled up into a tiny ball and fell asleep to the sound of the owls.
+- temperature 2.0: hedgehog 26% · mouse 22% · puppy 20% · kitten 18% · dragon 14% → 3 regenerates: mouse, dragon, puppy
+- Pip was a very small dragon who collected teaspoons from the moon. On Tuesdays, Pip argued with a polite cloud about jazz, then sailed home in a sock full of thunder.
+- (earlier version: The color of the sky is ___ · blue 62% · grey 14% · clear 10% · black 6% · orange 4%)
 
 **Say**
 
-The answer is a setting called temperature. It's a dial in every large language model's API, usually from 0 to 2. Same frozen model, same odds; temperature only changes how the next token gets picked. [Click] The color of the sky is... what? [Click] Here are the model's odds for the next word, at the default temperature of about 1. Blue is the favorite, but grey, clear, black and orange all have a chance. The numbers are illustrative. [Click] Set temperature to 0 and the favorite takes over. The model almost always picks the single most likely token. Hit regenerate three times: blue, blue, blue. That's deterministic, the same answer every time. Use it for facts, code and data extraction. [Click] Turn it up to 2 and the odds flatten. Now every word has a real shot, and three regenerates give you grey, blue, orange. That's probabilistic: more varied, more creative, and more likely to go off the rails. Chat apps sit around the middle, which is why regenerate gives you a different answer each time.
+The answer is a setting called temperature. It's a dial in every large language model's API, usually from 0 to 2. Same frozen model, same odds; temperature only changes how the next token gets picked. Let's ask it for a bedtime story. [Click] "Pip was a very small..." what? [Click] Here are the model's odds for the next word, at the default temperature of about 1. Hedgehog is the favorite, but mouse, puppy, kitten and even dragon have a chance. The numbers are illustrative. [Click] Set temperature to 0 and the favorite takes over. Hit regenerate three times: hedgehog, hedgehog, hedgehog. And watch the story write itself, one token at a time: a cozy hedgehog in a burrow who falls asleep to the owls. Safe, predictable, the same story every time. That's deterministic. Use it for facts, code and data extraction. [Click] Turn it up to 2 and the odds flatten. Three regenerates give you mouse, dragon, puppy. And the story? Pip is a dragon who collects teaspoons from the moon and argues with a cloud about jazz. More creative, more surprising, and more likely to go off the rails. That's probabilistic. Chat apps sit around the middle, which is why regenerate gives you a different answer each time.
 
 ## 16. Inference Loop — One token at a time, on a loop.
 
