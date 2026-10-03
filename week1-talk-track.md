@@ -219,7 +219,7 @@ Let's sort some. I'll put a name up, you shout "closed" or "open", then I'll mov
 
 **Say**
 
-Let's zoom in on the closed one. [Click] When you use ChatGPT or Claude, or a developer calls their API, your question travels over the internet to the company's servers. It runs through their frozen model, and the answer comes back to you. That round trip is an API call. [Click] Every one of those trips is inference, and inference is what you pay for: a monthly subscription, or a fee per token through the API. [Click] Strip everything else away and this is the product: the frozen model. Training happened once. The company makes its money renting out inference on it, one question at a time.
+Let's zoom in on the closed one. [Click] When you use ChatGPT or Claude, or a developer calls their API, your question travels over the internet to the company's servers. It runs through their frozen model, and the answer comes back to you. That round trip is an API call. [Click] Every one of those trips is inference, and inference is what you pay for. The money goes to the company that owns the model: a monthly subscription, or a fee per token through the API. [Click] Strip everything else away and this is the product: the frozen model. Training happened once. The company makes its money renting out inference on it, one question at a time.
 
 ## 14. Dyk: Cutoff — Ask it about last week's news. Why does it get it wrong?
 
