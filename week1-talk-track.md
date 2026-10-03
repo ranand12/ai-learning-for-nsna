@@ -534,11 +534,12 @@ This surprises almost everyone. The model has no memory. [Click] Turn 1: you sen
 
 Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have memory features. But that memory lives in the app, not the model. The app writes sticky notes about you and pastes them onto the desk before you type. The model is still stateless underneath. This is our first look at the harness, the blue hexagon, and we'll unpack it properly in part 6.
 
-## 31. Desk Fills Up — Three hours into one chat. Is it sharper now, or sloppier?
+## 31. Desk Fills Up — Three hours into one chat.
 
 **On screen**
 
 - When the desk fills up
+- Three hours into one chat.
 - Three hours into one chat. Is it sharper now, or sloppier?
 - Your guess?
 - Sloppier. Long chats get worse, not better.
@@ -552,7 +553,7 @@ Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have m
 
 **Say**
 
-Ask it straight: sharper or sloppier? Most people assume it's gotten to know them. Press → for the answer, then → again for the three reasons. Three things go wrong on a full desk. One: the oldest stuff falls off or gets compressed, which is why it "forgets" what you said an hour ago. Two: every turn re-reads everything, so it gets slower and you hit usage limits sooner. Three, the sneaky one: models pay most attention to the beginning and end, and the middle blurs. Imagine one sticky note tucked into a thousand-page book. We'll come back to how to beat this.
+Three hours into one chat. [Click] You've been at it all night, like a phone call that never ends. Ask it straight: is it sharper now, or sloppier? Most people assume it's gotten to know them. Answer: sloppier. Long chats get worse, not better. Three things go wrong on a full desk. [Click] One: [Click] the oldest stuff gets dropped, or squashed into a summary, which is why it "forgets" what you said an hour ago. [Click] Two: [Click] every turn costs more. It re-reads the whole desk each time, so it gets slower and you hit usage limits sooner. [Click] Three, the sneaky one: [Click] lost in the middle. Models pay most attention to the beginning and end, and the middle blurs. Imagine one sticky note tucked into a thousand-page book. We'll fix this in part 10, context engineering.
 
 ## 32. Demo: Forgetful — The forgetful genius.
 

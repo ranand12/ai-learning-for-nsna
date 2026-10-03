@@ -248,6 +248,14 @@ aside.notes,aside.onscreen{display:none}
 .cmp td:first-child{color:var(--dim);width:26%}
 .cmp td:nth-child(2){width:37%}
 .consq{display:flex;flex-direction:column;gap:26px}
+/* flip cards: [data-step] shows the GIF face, [data-move] flips to the visual */
+.flip{perspective:1400px;height:390px}
+.flip-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.2,.2,1)}
+.flip.moved .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;overflow:hidden;border:3px solid #2A2A28}
+.face img{width:100%;height:100%;object-fit:cover;display:block}
+.face.back-face{transform:rotateY(180deg);background:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:30px;text-align:center}
+.back-face svg{height:150px;width:240px}
 .consq svg{height:150px}
 .big-q{font-size:92px;font-weight:800;letter-spacing:-.04em;line-height:1}
 .take{display:flex;gap:30px;align-items:flex-start;padding:30px 0;border-bottom:1px solid var(--faint)}
@@ -1184,27 +1192,25 @@ aside.notes,aside.onscreen{display:none}
 
 <!-- ============================ 26. DESK FILLS UP ============================ -->
 <section class="slide">
-  <div class="kicker fu">When the desk fills up</div>
-  <h2 class="fu" style="--d:.1s">Three hours into one chat. Is it sharper now, or sloppier?</h2>
-  <span class="sticker guess" style="--r:-4deg;right:120px;top:24px;--sd:.6s"><svg viewBox="0 0 24 24"><path d="M4 3h16a2 2 0 012 2v10a2 2 0 01-2 2H10l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2zm7 11h2v-2h-2zm1-9a3 3 0 00-3 3h2a1 1 0 112 0c0 1-2 1.2-2 3h2c0-1.2 2-1.5 2-3a3 3 0 00-3-3z"/></svg>Your guess?</span>
-  <p class="answer" data-step="1" style="margin-top:30px">Sloppier. <span class="dim">Long chats get worse, not better.</span></p>
-  <div class="cols3" data-step="2" style="margin-top:50px">
-    <div class="consq fu" style="--d:.3s">
-      <svg viewBox="0 0 240 150"><rect x="20" y="30" width="150" height="110" fill="none" stroke="#F5F5F0" stroke-width="3"/><rect x="34" y="96" width="122" height="30" fill="#F5F5F0"/><rect x="34" y="58" width="122" height="30" fill="#F5F5F0"/><rect class="fu" style="--d:.8s" x="150" y="4" width="80" height="30" fill="#8C8C86" transform="rotate(18 190 19)"/></svg>
-      <h3>Oldest gets dropped</h3><p class="dim small">Or squashed into a summary. Early details quietly disappear.</p>
-    </div>
-    <div class="consq fu" style="--d:.5s">
-      <svg viewBox="0 0 240 150"><rect x="20" y="120" width="40" height="20" fill="#F5F5F0"/><rect x="80" y="90" width="40" height="50" fill="#F5F5F0"/><rect x="140" y="50" width="40" height="90" fill="#F5F5F0"/><rect x="200" y="6" width="40" height="134" fill="#FF5A3D"/></svg>
-      <h3>Every turn costs more</h3><p class="dim small">It re-reads the whole desk each time. Slower, and it burns through your limits.</p>
-    </div>
-    <div class="consq fu" style="--d:.7s">
-      <svg viewBox="0 0 240 150"><circle cx="20" cy="75" r="14" fill="#F5F5F0"/><circle cx="62" cy="75" r="14" fill="#8C8C86"/><circle cx="104" cy="75" r="14" fill="#3a3a37"/><circle cx="146" cy="75" r="14" fill="#3a3a37"/><circle cx="188" cy="75" r="14" fill="#8C8C86"/><circle cx="230" cy="75" r="14" fill="#F5F5F0"/></svg>
-      <h3>Lost in the middle</h3><p class="dim small">It pays most attention to the start and the end. The middle blurs.</p>
-    </div>
+  <h2 class="fu title-xl" style="--d:.1s">Three hours into one chat.</h2>
+  <img data-step="1" data-hide="2" src="gifs/calling-all-night.gif" alt="" style="position:absolute;left:520px;top:290px;width:560px;height:339px;border-radius:16px;border:3px solid #2A2A28">
+  <div class="cols3" style="margin-top:70px">
+    <div class="flip" data-step="2" data-move="3"><div class="flip-in">
+      <div class="face"><img src="gifs/mic-drop.gif" alt=""></div>
+      <div class="face back-face"><svg viewBox="0 0 240 150"><rect x="20" y="30" width="150" height="110" fill="none" stroke="#F5F5F0" stroke-width="3"/><rect x="34" y="96" width="122" height="30" fill="#F5F5F0"/><rect x="34" y="58" width="122" height="30" fill="#F5F5F0"/><rect x="150" y="4" width="80" height="30" fill="#8C8C86" transform="rotate(18 190 19)"/></svg><h3>Oldest gets dropped</h3></div>
+    </div></div>
+    <div class="flip" data-step="4" data-move="5"><div class="flip-in">
+      <div class="face"><img src="gifs/again-and-again.gif" alt=""></div>
+      <div class="face back-face"><svg viewBox="0 0 240 150"><rect x="20" y="120" width="40" height="20" fill="#F5F5F0"/><rect x="80" y="90" width="40" height="50" fill="#F5F5F0"/><rect x="140" y="50" width="40" height="90" fill="#F5F5F0"/><rect x="200" y="6" width="40" height="134" fill="#FF5A3D"/></svg><h3>Every turn costs more</h3></div>
+    </div></div>
+    <div class="flip" data-step="6" data-move="7"><div class="flip-in">
+      <div class="face"><img src="gifs/haystack-dive.gif" alt=""></div>
+      <div class="face back-face"><svg viewBox="0 0 240 150"><circle cx="20" cy="75" r="14" fill="#F5F5F0"/><circle cx="62" cy="75" r="14" fill="#8C8C86"/><circle cx="104" cy="75" r="14" fill="#3a3a37"/><circle cx="146" cy="75" r="14" fill="#3a3a37"/><circle cx="188" cy="75" r="14" fill="#8C8C86"/><circle cx="230" cy="75" r="14" fill="#F5F5F0"/></svg><h3>Lost in the middle</h3></div>
+    </div></div>
   </div>
-  <p class="foot" data-step="2">We'll fix this in part 10, context engineering.</p>
   <aside class="onscreen">
     When the desk fills up
+    Three hours into one chat.
     Three hours into one chat. Is it sharper now, or sloppier?
     Your guess?
     Sloppier. Long chats get worse, not better.
@@ -1216,7 +1222,7 @@ aside.notes,aside.onscreen{display:none}
     It pays most attention to the start and the end. The middle blurs.
     We'll fix this in part 10, context engineering.
   </aside>
-  <aside class="notes">Ask it straight: sharper or sloppier? Most people assume it's gotten to know them. Press → for the answer, then → again for the three reasons. Three things go wrong on a full desk. One: the oldest stuff falls off or gets compressed, which is why it "forgets" what you said an hour ago. Two: every turn re-reads everything, so it gets slower and you hit usage limits sooner. Three, the sneaky one: models pay most attention to the beginning and end, and the middle blurs. Imagine one sticky note tucked into a thousand-page book. We'll come back to how to beat this.</aside>
+  <aside class="notes">Three hours into one chat. [Click] You've been at it all night, like a phone call that never ends. Ask it straight: is it sharper now, or sloppier? Most people assume it's gotten to know them. Answer: sloppier. Long chats get worse, not better. Three things go wrong on a full desk. [Click] One: [Click] the oldest stuff gets dropped, or squashed into a summary, which is why it "forgets" what you said an hour ago. [Click] Two: [Click] every turn costs more. It re-reads the whole desk each time, so it gets slower and you hit usage limits sooner. [Click] Three, the sneaky one: [Click] lost in the middle. Models pay most attention to the beginning and end, and the middle blurs. Imagine one sticky note tucked into a thousand-page book. We'll fix this in part 10, context engineering.</aside>
 </section>
 
 <!-- ============================ 27. DEMO: FORGETFUL ============================ -->
