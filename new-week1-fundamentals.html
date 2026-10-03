@@ -155,26 +155,28 @@ aside.notes,aside.onscreen{display:none}
 .fm.center{left:710px;top:220px}
 .active .fm.center{animation:handoff 1.3s cubic-bezier(.5,0,.2,1) .15s both}
 @keyframes handoff{from{transform:translate(410px,130px) scale(1.22)}to{transform:none}}
-.fm.l{left:290px;top:250px;transform:scale(.8)} .fm.r{left:1130px;top:250px;transform:scale(.8)}
-.shown > .fm.l.fly{animation:flyL 1s cubic-bezier(.5,0,.2,1) .1s both}
-.shown > .fm.r.fly{animation:flyR 1s cubic-bezier(.5,0,.2,1) .5s both}
-@keyframes flyL{from{transform:translate(420px,-30px) scale(1)}to{transform:scale(.8)}}
-@keyframes flyR{from{transform:translate(-420px,-30px) scale(1)}to{transform:scale(.8)}}
+/* a cage is the cell or doorway box; its model copy and bars sit inside it so they always line up */
+.cage{position:absolute;top:200px;width:300px;height:300px;border:5px solid var(--fg);border-radius:6px}
+.cage.l{left:230px;background:#141414} .cage.r{left:1070px;border-bottom:none;border-radius:6px 6px 0 0;background:rgba(255,210,63,.16);perspective:1600px}
+.cage .fm{left:55px;top:55px;transform:scale(.8)}
+.shown .cage.l .fm.fly{animation:flyL 1s cubic-bezier(.5,0,.2,1) .1s both}
+.shown .cage.r .fm.fly{animation:flyR 1s cubic-bezier(.5,0,.2,1) .5s both}
+@keyframes flyL{from{transform:translate(420px,-40px) scale(1)}to{transform:scale(.8)}}
+@keyframes flyR{from{transform:translate(-420px,-40px) scale(1)}to{transform:scale(.8)}}
 .layer{position:absolute;inset:0}
-.cell{position:absolute;left:260px;top:210px;width:240px;height:260px;border:5px solid var(--fg);border-radius:6px;background:#141414}
-.bars{position:absolute;left:260px;top:210px;width:240px;height:260px;z-index:3;transform-origin:top;
-  background:repeating-linear-gradient(90deg,transparent 0 28px,#F5F5F0 28px 36px);border-top:14px solid var(--fg);border-bottom:14px solid var(--fg)}
-.shown > .bars.drop{animation:barsDown .55s cubic-bezier(.3,1.4,.5,1) 1.2s both}
+.bars{position:absolute;inset:-5px;z-index:3;transform-origin:top;border-radius:6px;
+  background:repeating-linear-gradient(90deg,transparent 0 30px,#F5F5F0 30px 38px);border-top:16px solid var(--fg);border-bottom:16px solid var(--fg)}
+.shown .bars.drop{animation:barsDown .55s cubic-bezier(.3,1.4,.5,1) 1.2s both}
 @keyframes barsDown{from{transform:scaleY(0)}to{transform:scaleY(1)}}
-.doorway{position:absolute;left:1100px;top:210px;width:240px;height:260px;border:5px solid var(--fg);border-bottom:none;background:rgba(255,210,63,.16);perspective:900px}
-.door{position:absolute;inset:0;background:#2A2A28;border:3px solid #8C8C86;transform-origin:left;transform:rotateY(-72deg);z-index:1}
+.door{position:absolute;inset:0;background:#2A2A28;border:3px solid #8C8C86;transform-origin:left;transform:rotateY(-70deg);z-index:1}
 .door::after{content:"";position:absolute;right:18px;top:50%;width:14px;height:14px;border-radius:50%;background:var(--dyk)}
 .shown .door.swing{animation:swing .8s cubic-bezier(.3,1.2,.5,1) .1s both}
-@keyframes swing{from{transform:rotateY(0)}to{transform:rotateY(-72deg)}}
-.gif{position:absolute;top:510px;height:220px;border-radius:14px;border:3px solid #2A2A28;object-fit:cover}
+@keyframes swing{from{transform:rotateY(0)}to{transform:rotateY(-70deg)}}
+.gif{position:absolute;top:540px;height:220px;border-radius:14px;border:3px solid #2A2A28;object-fit:cover}
 .gif.l{left:184px;width:392px} .gif.r{left:1110px;width:220px}
+.title-c{font-size:72px;line-height:1;letter-spacing:-.04em;max-width:none;width:100%;text-align:center}
 /* sort game: each name appears centre stage, then moves to its side on the next click ([data-move]) */
-.pick{position:absolute;left:800px;top:330px;font-size:30px;font-weight:700;padding:12px 28px;border:2px solid var(--fg);border-radius:999px;white-space:nowrap;z-index:4;
+.pick{position:absolute;left:800px;top:350px;font-size:26px;font-weight:700;padding:10px 24px;border:2px solid var(--fg);border-radius:999px;white-space:nowrap;z-index:4;
   transition:opacity .5s ease,transform .8s cubic-bezier(.5,0,.2,1),left .8s cubic-bezier(.5,0,.2,1),top .8s cubic-bezier(.5,0,.2,1),background .5s,color .5s,border-color .5s}
 .pick[data-step]{transform:translate(-50%,-30%) scale(1.3)}
 .pick[data-step].shown{transform:translate(-50%,-50%) scale(1.6)}
@@ -580,14 +582,11 @@ aside.notes,aside.onscreen{display:none}
 
 <!-- ============================ 10b. CLOSED vs OPEN ============================ -->
 <section class="slide">
-  <h2 class="fu title-xl" style="--d:.1s">Closed vs open.</h2>
+  <h2 class="fu title-c" style="--d:.1s">Closed vs open.</h2>
   <div class="fm center">💃</div>
   <div class="layer" data-step="1">
-    <div class="cell"></div>
-    <div class="fm l fly">💃</div>
-    <div class="bars drop"></div>
-    <div class="doorway"><div class="door swing"></div></div>
-    <div class="fm r fly">💃</div>
+    <div class="cage l"><div class="fm fly">💃</div><div class="bars drop"></div></div>
+    <div class="cage r"><div class="door swing"></div><div class="fm fly">💃</div></div>
   </div>
   <img class="gif l" data-step="2" src="gifs/corporate-buildings.gif" alt="">
   <img class="gif r" data-step="3" src="gifs/local-computer.gif" alt="">
@@ -599,20 +598,17 @@ aside.notes,aside.onscreen{display:none}
 
 <!-- ============================ 10c. SORT: CLOSED or OPEN ============================ -->
 <section class="slide">
-  <h2 class="fu title-xl" style="--d:.1s">Closed or open?</h2>
-  <div class="cell"></div>
-  <div class="fm l">💃</div>
-  <div class="bars"></div>
-  <div class="doorway"><div class="door"></div></div>
-  <div class="fm r">💃</div>
-  <div class="pick closed" data-step="1" data-move="2" style="--x:380px;--y:520px">OpenAI GPT-5.6</div>
-  <div class="pick open" data-step="3" data-move="4" style="--x:1220px;--y:520px">DeepSeek</div>
-  <div class="pick closed" data-step="5" data-move="6" style="--x:380px;--y:578px">All Anthropic models</div>
-  <div class="pick closed" data-step="7" data-move="8" style="--x:380px;--y:636px">Gemini</div>
-  <div class="pick open" data-step="9" data-move="10" style="--x:1220px;--y:578px">Gemma</div>
-  <div class="pick open" data-step="11" data-move="12" style="--x:1220px;--y:636px">Llama</div>
-  <div class="pick open" data-step="13" data-move="14" style="--x:1220px;--y:694px">Qwen</div>
-  <div class="pick open" data-step="15" data-move="16" style="--x:1220px;--y:752px">Mistral</div>
+  <h2 class="fu title-c" style="--d:.1s">Closed or open?</h2>
+  <div class="cage l"><div class="fm">💃</div><div class="bars"></div></div>
+  <div class="cage r"><div class="door"></div><div class="fm">💃</div></div>
+  <div class="pick closed" data-step="1" data-move="2" style="--x:380px;--y:565px">OpenAI GPT-5.6</div>
+  <div class="pick open" data-step="3" data-move="4" style="--x:1220px;--y:565px">DeepSeek</div>
+  <div class="pick closed" data-step="5" data-move="6" style="--x:380px;--y:629px">All Anthropic models</div>
+  <div class="pick closed" data-step="7" data-move="8" style="--x:380px;--y:693px">Gemini</div>
+  <div class="pick open" data-step="9" data-move="10" style="--x:1220px;--y:629px">Gemma</div>
+  <div class="pick open" data-step="11" data-move="12" style="--x:1220px;--y:693px">Llama</div>
+  <div class="pick open" data-step="13" data-move="14" style="--x:1220px;--y:757px">Qwen</div>
+  <div class="pick open" data-step="15" data-move="16" style="--x:1220px;--y:821px">Mistral</div>
   <aside class="onscreen">
     Closed or open?
     OpenAI GPT-5.6
