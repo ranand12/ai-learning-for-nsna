@@ -8,7 +8,7 @@ import sys
 
 src, dst, label = sys.argv[1], sys.argv[2], sys.argv[3]
 s = open(src).read()
-secs = re.findall(r'(?:<!-- =+ ([^=]+?) =+ -->\s*)?<section class="slide[^"]*">(.*?)</section>', s, re.S)
+secs = re.findall(r'(?:<!-- =+ ([^=]+?) =+ -->\s*)?<section class="slide[^"]*"[^>]*>(.*?)</section>', s, re.S)
 
 
 def strip(t):
