@@ -378,64 +378,7 @@ This surprises almost everyone. The model has no memory. [Click] Turn 1: you sen
 
 Frozen dials have a side effect. Ask it about last week's news: why does it get it wrong? Someone usually says "it's not connected to the internet", which is half right. Every model has a knowledge cutoff date. [Click] Training: it reads everything up to a certain day. [Click] Then the dials freeze. That's the cutoff. [Click] After that, we only use it: inference, right up to today. Without web search it can't know what happened after the cutoff, and it may not even know that it doesn't know. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?" Live demo: ask a model "What's your knowledge cutoff?" and then ask about something from last week, with web search off.
 
-## 24.  — That's the app, not the model.
-
-**On screen**
-
-- "But ChatGPT remembers my name!"
-- Name: Priya
-- Likes: teal
-- Job: nurse
-- That's the app, not the model.
-- The app keeps notes about you and quietly slips them onto the desk at the start of each chat.
-- 💃 Green circle = model (no memory).
-- Blue hexagon = the app around it (memory, search, files).
-- More on this in part 06.
-- 💃Model
-- Harness
-
-**Say**
-
-Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have memory features. But that memory lives in the app, not the model. The app writes sticky notes about you and pastes them onto the desk before you type. The model is still stateless underneath. This is our first look at the harness, the blue hexagon, and we'll unpack it properly in part 6.
-
-## 25. Demo: Forgetful — The forgetful genius.
-
-**On screen**
-
-- Try it
-- The forgetful genius.
-- Chat A: My favorite color is teal. Remember that.
-- Open a new chat.
-- Chat B: What's my favorite color?
-- Now try it again with the app's memory turned off (or in a temporary chat).
-- If it "remembers", the app put a note on the desk. If it doesn't, you've met the real model.
-- Live demo
-- Free
-
-**Say**
-
-Results depend on whether memory is on, and either result teaches something. If it remembers, ask: where did that come from? The app's sticky notes. If it doesn't, that's the stateless model. Temporary or incognito chat modes are the cleanest way to show it.
-
-## 26. Checkpoint — If you forget everything else…
-
-**On screen**
-
-- Checkpoint
-- If you forget everything else…
-- 1
-- A model guesses the next token, over and over.
-- 2
-- Its dials froze after training. It doesn't learn from your chats, and it has a cutoff date.
-- 3
-- The context window is its only working memory. New chat, empty desk.
-- Ask AI
-- Homework: ask any AI to "Explain tokens and context windows to me like I'm 12." Up next: 04, how do I get access?
-
-**Say**
-
-Three sentences. If people leave with these, they'll already use AI better than most. The Ask AI sticker is the habit I want: when a concept feels fuzzy, have the AI teach it back to you at your level. Next: how to actually get your hands on Claude, Grok, GPT, DeepSeek and the rest.
-
-## 27. Subscription Vs Tokens — Subscription or pay per token?
+## 24. Subscription Vs Tokens — Subscription or pay per token?
 
 **On screen**
 
@@ -446,7 +389,7 @@ Three sentences. If people leave with these, they'll already use AI better than 
 
 Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
 
-## 28. Worth Paying? — Is it worth paying?
+## 25. Worth Paying? — Is it worth paying?
 
 **On screen**
 
@@ -651,3 +594,60 @@ Most people pick B, and some pick A. Remind them of the frozen dials: that rules
 **Say**
 
 Run this live. Ask for the story, then hit regenerate two or three times. Ask the room why it changed and take a few guesses before pressing → to reveal. Link it back to the bar chart: it doesn't always take the 62% word, sometimes it takes the 14% one. That randomness is what makes it creative, and also why it's sometimes inconsistent.
+
+###  — That's the app, not the model.
+
+**On screen**
+
+- "But ChatGPT remembers my name!"
+- Name: Priya
+- Likes: teal
+- Job: nurse
+- That's the app, not the model.
+- The app keeps notes about you and quietly slips them onto the desk at the start of each chat.
+- 💃 Green circle = model (no memory).
+- Blue hexagon = the app around it (memory, search, files).
+- More on this in part 06.
+- 💃Model
+- Harness
+
+**Say**
+
+Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have memory features. But that memory lives in the app, not the model. The app writes sticky notes about you and pastes them onto the desk before you type. The model is still stateless underneath. This is our first look at the harness, the blue hexagon, and we'll unpack it properly in part 6.
+
+### Demo: Forgetful — The forgetful genius.
+
+**On screen**
+
+- Try it
+- The forgetful genius.
+- Chat A: My favorite color is teal. Remember that.
+- Open a new chat.
+- Chat B: What's my favorite color?
+- Now try it again with the app's memory turned off (or in a temporary chat).
+- If it "remembers", the app put a note on the desk. If it doesn't, you've met the real model.
+- Live demo
+- Free
+
+**Say**
+
+Results depend on whether memory is on, and either result teaches something. If it remembers, ask: where did that come from? The app's sticky notes. If it doesn't, that's the stateless model. Temporary or incognito chat modes are the cleanest way to show it.
+
+### Checkpoint — If you forget everything else…
+
+**On screen**
+
+- Checkpoint
+- If you forget everything else…
+- 1
+- A model guesses the next token, over and over.
+- 2
+- Its dials froze after training. It doesn't learn from your chats, and it has a cutoff date.
+- 3
+- The context window is its only working memory. New chat, empty desk.
+- Ask AI
+- Homework: ask any AI to "Explain tokens and context windows to me like I'm 12." Up next: 04, how do I get access?
+
+**Say**
+
+Three sentences. If people leave with these, they'll already use AI better than most. The Ask AI sticker is the habit I want: when a concept feels fuzzy, have the AI teach it back to you at your level. Next: how to actually get your hands on Claude, Grok, GPT, DeepSeek and the rest.
