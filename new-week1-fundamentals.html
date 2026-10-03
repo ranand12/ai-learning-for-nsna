@@ -980,39 +980,6 @@ aside.notes,aside.onscreen{display:none}
   <aside class="notes">Names are fun because unusual names get split into strange pieces. The other-language comparison usually gets a reaction: the same meaning can cost two or three times as many tokens. That means non-English users hit limits sooner and pay more.</aside>
 </section>
 
-<!-- ============================ 22. DYK: STRAWBERRY ============================ -->
-<section class="slide">
-  <div class="kicker fu">The famous mistake</div>
-  <h2 class="fu" style="--d:.1s">"How many r's are in strawberry?"</h2>
-  <div class="opts fu" style="--d:.4s;margin-top:30px">
-    <div class="opt" data-strike="1"><b>A</b>2</div>
-    <div class="opt" data-mark="1"><b>B</b>3</div>
-    <div class="opt" data-strike="1"><b>C</b>4</div>
-  </div>
-  <p data-step="2" style="margin-top:40px">So why did older models confidently say <b class="hl-dyk">2</b>?</p>
-  <div class="tokwords" data-step="3" style="margin-top:34px">
-    <span class="tk1 pop" style="--d:.2s">str</span><span class="tk2 pop" style="--d:.5s">aw</span><span class="tk4 pop" style="--d:.8s">berry</span>
-  </div>
-  <p data-step="3" style="margin-top:34px;max-width:1100px">They never saw the letters, only the chunks.</p>
-  <p class="dim" data-step="3" style="margin-top:12px">Newer "thinking" models spell it out first, so they usually get it right.</p>
-  <span class="sticker guess" style="--r:-4deg;right:360px;top:24px;--sd:.6s"><svg viewBox="0 0 24 24"><path d="M4 3h16a2 2 0 012 2v10a2 2 0 01-2 2H10l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2zm7 11h2v-2h-2zm1-9a3 3 0 00-3 3h2a1 1 0 112 0c0 1-2 1.2-2 3h2c0-1.2 2-1.5 2-3a3 3 0 00-3-3z"/></svg>Your guess?</span>
-  <span class="sticker dyk" style="--r:5deg;right:120px;top:24px;--sd:2s" data-step="3"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 16h-2v-2h2zm2.1-7.7l-.9.9c-.7.7-1.2 1.3-1.2 2.8h-2v-.5c0-1.1.5-2.1 1.2-2.8l1.2-1.3a2 2 0 10-3.4-1.4H8a4 4 0 118 0c0 .9-.4 1.7-.9 2.3z"/></svg>Did you know?</span>
-  <aside class="onscreen">
-    The famous mistake
-    "How many r's are in strawberry?"
-    A2
-    B3
-    C4
-    So why did older models confidently say 2?
-    strawberry
-    They never saw the letters, only the chunks.
-    Newer "thinking" models spell it out first, so they usually get it right.
-    Your guess?
-    Did you know?
-  </aside>
-  <aside class="notes">Vote first: A, B or C? It's 3, so press → to mark it. Then ask the real question, why would a smart model say 2, and let people guess before the final →. This is the best example of tokens leaking through. A model that can write a legal brief used to fail at counting letters, because it doesn't see letters. The lesson generalizes: be skeptical of AI for letter counts, exact character limits and precise arithmetic unless it's using a tool.</aside>
-</section>
-
 <!-- ============================ 23. CONTEXT WINDOW ============================ -->
 <section class="slide">
   <div class="kicker fu">The context window</div>
@@ -1046,29 +1013,6 @@ aside.notes,aside.onscreen{display:none}
     200K tokens ≈ 150,000 words ≈ 500 pages.
   </aside>
   <aside class="notes">Picture a desk. Whatever is on the desk, the model can see. Anything off the desk doesn't exist for it. Every message, every reply, every file you upload goes on the desk and takes up space. Even the app's hidden instructions sit there. Desks are big now, hundreds of pages, but they're not infinite.</aside>
-</section>
-
-<!-- ============================ 24a. QUIZ: WHERE IS IT STORED ============================ -->
-<section class="slide">
-  <div class="kicker fu">Quick question</div>
-  <h2 class="fu" style="--d:.1s">You told it your name ten messages ago. Where is your name stored right now?</h2>
-  <div class="opts fu" style="--d:.4s;flex-direction:column;align-items:flex-start;gap:18px">
-    <div class="opt" data-strike="1"><b>A</b>It was learned into the model's dials</div>
-    <div class="opt" data-strike="1"><b>B</b>In the model's memory</div>
-    <div class="opt" data-mark="1"><b>C</b>Nowhere in the model. The app sends the chat again.</div>
-  </div>
-  <p class="answer" data-step="2" style="margin-top:50px">Every turn, the model reads <span class="hl-model">the whole script from scratch</span>.</p>
-  <span class="sticker guess" style="--r:-4deg;right:120px;top:24px;--sd:.6s"><svg viewBox="0 0 24 24"><path d="M4 3h16a2 2 0 012 2v10a2 2 0 01-2 2H10l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2zm7 11h2v-2h-2zm1-9a3 3 0 00-3 3h2a1 1 0 112 0c0 1-2 1.2-2 3h2c0-1.2 2-1.5 2-3a3 3 0 00-3-3z"/></svg>Your guess?</span>
-  <aside class="onscreen">
-    Quick question
-    You told it your name ten messages ago. Where is your name stored right now?
-    AIt was learned into the model's dials
-    BIn the model's memory
-    CNowhere in the model. The app sends the chat again.
-    Every turn, the model reads the whole script from scratch.
-    Your guess?
-  </aside>
-  <aside class="notes">Most people pick B, and some pick A. Remind them of the frozen dials: that rules out A. Press → to reveal C, then → for the one-liner. The next slide shows what that looks like.</aside>
 </section>
 
 <!-- ============================ 24. STATELESS ============================ -->

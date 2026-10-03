@@ -321,27 +321,7 @@ Models don't read letters or words. They read tokens: chunks of text. [Click] An
 
 Names are fun because unusual names get split into strange pieces. The other-language comparison usually gets a reaction: the same meaning can cost two or three times as many tokens. That means non-English users hit limits sooner and pay more.
 
-## 21. Dyk: Strawberry — "How many r's are in strawberry?"
-
-**On screen**
-
-- The famous mistake
-- "How many r's are in strawberry?"
-- A2
-- B3
-- C4
-- So why did older models confidently say 2?
-- strawberry
-- They never saw the letters, only the chunks.
-- Newer "thinking" models spell it out first, so they usually get it right.
-- Your guess?
-- Did you know?
-
-**Say**
-
-Vote first: A, B or C? It's 3, so press → to mark it. Then ask the real question, why would a smart model say 2, and let people guess before the final →. This is the best example of tokens leaking through. A model that can write a legal brief used to fail at counting letters, because it doesn't see letters. The lesson generalizes: be skeptical of AI for letter counts, exact character limits and precise arithmetic unless it's using a tool.
-
-## 22. Context Window — The model's desk.
+## 21. Context Window — The model's desk.
 
 **On screen**
 
@@ -361,23 +341,7 @@ Vote first: A, B or C? It's 3, so press → to mark it. Then ask the real questi
 
 Picture a desk. Whatever is on the desk, the model can see. Anything off the desk doesn't exist for it. Every message, every reply, every file you upload goes on the desk and takes up space. Even the app's hidden instructions sit there. Desks are big now, hundreds of pages, but they're not infinite.
 
-## 23. Quiz: Where Is It Stored — You told it your name ten messages ago. Where is your name stored right now?
-
-**On screen**
-
-- Quick question
-- You told it your name ten messages ago. Where is your name stored right now?
-- AIt was learned into the model's dials
-- BIn the model's memory
-- CNowhere in the model. The app sends the chat again.
-- Every turn, the model reads the whole script from scratch.
-- Your guess?
-
-**Say**
-
-Most people pick B, and some pick A. Remind them of the frozen dials: that rules out A. Press → to reveal C, then → for the one-liner. The next slide shows what that looks like.
-
-## 24. Stateless — Stateless.
+## 22. Stateless — Stateless.
 
 **On screen**
 
@@ -395,7 +359,7 @@ Most people pick B, and some pick A. Remind them of the frozen dials: that rules
 
 This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch.
 
-## 25.  — That's the app, not the model.
+## 23.  — That's the app, not the model.
 
 **On screen**
 
@@ -415,7 +379,7 @@ This surprises almost everyone. The model has no memory. [Click] Turn 1: you sen
 
 Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have memory features. But that memory lives in the app, not the model. The app writes sticky notes about you and pastes them onto the desk before you type. The model is still stateless underneath. This is our first look at the harness, the blue hexagon, and we'll unpack it properly in part 6.
 
-## 26. Desk Fills Up — Three hours into one chat.
+## 24. Desk Fills Up — Three hours into one chat.
 
 **On screen**
 
@@ -436,7 +400,7 @@ Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have m
 
 Three hours into one chat. [Click] You've been at it all night, like a phone call that never ends. Ask it straight: is it sharper now, or sloppier? Most people assume it's gotten to know them. Answer: sloppier. Long chats get worse, not better. Three things go wrong on a full desk. [Click] One: [Click] the oldest stuff gets dropped, or squashed into a summary, which is why it "forgets" what you said an hour ago. [Click] Two: [Click] every turn costs more. It re-reads the whole desk each time, so it gets slower and you hit usage limits sooner. [Click] Three, the sneaky one: [Click] lost in the middle. Models pay most attention to the beginning and end, and the middle blurs. Imagine one sticky note tucked into a thousand-page book. We'll fix this in part 10, context engineering.
 
-## 27. Demo: Forgetful — The forgetful genius.
+## 25. Demo: Forgetful — The forgetful genius.
 
 **On screen**
 
@@ -454,7 +418,7 @@ Three hours into one chat. [Click] You've been at it all night, like a phone cal
 
 Results depend on whether memory is on, and either result teaches something. If it remembers, ask: where did that come from? The app's sticky notes. If it doesn't, that's the stateless model. Temporary or incognito chat modes are the cleanest way to show it.
 
-## 28. Checkpoint — If you forget everything else…
+## 26. Checkpoint — If you forget everything else…
 
 **On screen**
 
@@ -473,7 +437,7 @@ Results depend on whether memory is on, and either result teaches something. If 
 
 Three sentences. If people leave with these, they'll already use AI better than most. The Ask AI sticker is the habit I want: when a concept feels fuzzy, have the AI teach it back to you at your level. Next: how to actually get your hands on Claude, Grok, GPT, DeepSeek and the rest.
 
-## 29. Subscription Vs Tokens — Subscription or pay per token?
+## 27. Subscription Vs Tokens — Subscription or pay per token?
 
 **On screen**
 
@@ -484,7 +448,7 @@ Three sentences. If people leave with these, they'll already use AI better than 
 
 Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
 
-## 30. Worth Paying? — Is it worth paying?
+## 28. Worth Paying? — Is it worth paying?
 
 **On screen**
 
@@ -635,3 +599,39 @@ Green circle with the dancer 💃 means a model, the brain. Blue hexagon means a
 **Say**
 
 Remember the file of dials? This whole section is about who gets to hold it.
+
+### Dyk: Strawberry — "How many r's are in strawberry?"
+
+**On screen**
+
+- The famous mistake
+- "How many r's are in strawberry?"
+- A2
+- B3
+- C4
+- So why did older models confidently say 2?
+- strawberry
+- They never saw the letters, only the chunks.
+- Newer "thinking" models spell it out first, so they usually get it right.
+- Your guess?
+- Did you know?
+
+**Say**
+
+Vote first: A, B or C? It's 3, so press → to mark it. Then ask the real question, why would a smart model say 2, and let people guess before the final →. This is the best example of tokens leaking through. A model that can write a legal brief used to fail at counting letters, because it doesn't see letters. The lesson generalizes: be skeptical of AI for letter counts, exact character limits and precise arithmetic unless it's using a tool.
+
+### Quiz: Where Is It Stored — You told it your name ten messages ago. Where is your name stored right now?
+
+**On screen**
+
+- Quick question
+- You told it your name ten messages ago. Where is your name stored right now?
+- AIt was learned into the model's dials
+- BIn the model's memory
+- CNowhere in the model. The app sends the chat again.
+- Every turn, the model reads the whole script from scratch.
+- Your guess?
+
+**Say**
+
+Most people pick B, and some pick A. Remind them of the frozen dials: that rules out A. Press → to reveal C, then → for the one-liner. The next slide shows what that looks like.

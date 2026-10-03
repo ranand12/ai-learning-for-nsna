@@ -133,3 +133,39 @@ Green circle with the dancer 💃 means a model, the brain. Blue hexagon means a
 **Say**
 
 Remember the file of dials? This whole section is about who gets to hold it.
+
+### Dyk: Strawberry — "How many r's are in strawberry?"
+
+**On screen**
+
+- The famous mistake
+- "How many r's are in strawberry?"
+- A2
+- B3
+- C4
+- So why did older models confidently say 2?
+- strawberry
+- They never saw the letters, only the chunks.
+- Newer "thinking" models spell it out first, so they usually get it right.
+- Your guess?
+- Did you know?
+
+**Say**
+
+Vote first: A, B or C? It's 3, so press → to mark it. Then ask the real question, why would a smart model say 2, and let people guess before the final →. This is the best example of tokens leaking through. A model that can write a legal brief used to fail at counting letters, because it doesn't see letters. The lesson generalizes: be skeptical of AI for letter counts, exact character limits and precise arithmetic unless it's using a tool.
+
+### Quiz: Where Is It Stored — You told it your name ten messages ago. Where is your name stored right now?
+
+**On screen**
+
+- Quick question
+- You told it your name ten messages ago. Where is your name stored right now?
+- AIt was learned into the model's dials
+- BIn the model's memory
+- CNowhere in the model. The app sends the chat again.
+- Every turn, the model reads the whole script from scratch.
+- Your guess?
+
+**Say**
+
+Most people pick B, and some pick A. Remind them of the frozen dials: that rules out A. Press → to reveal C, then → for the one-liner. The next slide shows what that looks like.
