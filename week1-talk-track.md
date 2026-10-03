@@ -32,7 +32,7 @@ Welcome. No prerequisites. By the end of today nobody should feel like AI is mag
 
 **Say**
 
-Four building blocks, each one stacks on the last. Week 1: understand the fundamentals. Week 2: use AI better. Week 3: build with AI. Week 4: how to think in the age of AI. [Click] Honestly, we don't know how long each one will take, so let's call them modules instead of weeks.
+Four building blocks, each one stacks on the last. [Click] Week 1: understand the fundamentals. [Click] Week 2: use AI better. [Click] Week 3: build with AI. [Click] Week 4: how to think in the age of AI. [Click] Honestly, we don't know how long each one will take, so let's call them modules instead of weeks.
 
 ## 3. How — How?
 
