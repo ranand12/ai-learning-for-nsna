@@ -94,3 +94,29 @@ Pre-download the model before the session because it's several gigabytes. Pull t
 **Say**
 
 If you remember one section from today, make it this one. Almost every "why did the AI do that?" moment traces back to it.
+
+### Sticker Legend — Your stickers for the next two weeks
+
+**On screen**
+
+- Watch for these
+- Your stickers for the next two weeks
+- 💃Model
+- The raw brain. Text in, text out.
+- Agent harness
+- The body around the brain: apps, tools, memory.
+- Live demo
+- Laptops out. We try it right now.
+- Did you know?
+- A fact worth repeating at dinner.
+- Ask AI
+- Don't memorize it. Ask the AI to explain it back.
+- Free
+- Paid
+- What it costs to try this yourself.
+- Your guess?
+- A question first. Shout an answer, then we reveal it.
+
+**Say**
+
+Green circle with the dancer 💃 means a model, the brain. Blue hexagon means a harness, the app or agent wrapped around the brain. That split matters a lot in part 6. Red means a demo is coming. Purple means I'm going to ask you first: take a guess before I reveal the answer. Wrong guesses are the point; they make the answer stick.
