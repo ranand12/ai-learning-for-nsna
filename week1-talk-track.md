@@ -47,7 +47,20 @@ Four building blocks, each one stacks on the last. [Click] Week 1: understand th
 
 How are we going to do this? [Click] Lots of memes and GIFs. A lot. [Click] No jargon. If I use a technical word, I'll explain it in plain English first. [Click] And we won't get bogged down in technical details. No math. You'll understand how it works well enough to use it better, and that's the goal.
 
-## 4. Agenda — The map
+## 4. Expectations — Expectations
+
+**On screen**
+
+- Expectations
+- Ask a lot of questions (me-pick GIF)
+- Interact (a bit more interactive GIF)
+- Camera on, if possible (camera on GIF)
+
+**Say**
+
+A few expectations from my side. [Click] Ask a lot of questions. There are no dumb questions here; if you're wondering about it, someone else is too. [Click] Interact. Jump in, react, use the chat. This works much better as a conversation than a lecture. [Click] And if possible, keep your camera on. It helps me see when something lands and when I've lost you.
+
+## 5. Agenda — The map
 
 **On screen**
 
@@ -69,7 +82,7 @@ How are we going to do this? [Click] Lots of memes and GIFs. A lot. [Click] No j
 
 Ten stops. The three in green are the foundations, and everything after builds on them. Rule for today: every hard concept gets a short demo right after it, so you see it happen instead of just hearing about it.
 
-## 5. Section 01 — How a model works
+## 6. Section 01 — How a model works
 
 **On screen**
 
@@ -81,7 +94,7 @@ Ten stops. The three in green are the foundations, and everything after builds o
 
 When people say "the model", they mean one specific thing. Let's pin down what it is.
 
-## 6. Next Word — What word comes next?
+## 7. Next Word — What word comes next?
 
 **On screen**
 
@@ -99,7 +112,7 @@ When people say "the model", they mean one specific thing. Let's pin down what i
 
 Finish this sentence for me. [Click] "The color of the sky is..." Let the room shout. Everyone says "blue". [Click] Here are the model's odds for the next word. Blue is the favorite, but grey, clear, black and even orange get a slice. These numbers are illustrative. [Click] It picks blue. You just did exactly what the model does. [Click] Now a different version of the same question: "The color of the sky at sunset is..." [Click] Look how the odds shift. Two extra words, "at sunset", and orange jumps from 4% to the top. The model doesn't look anything up; the words before the blank change the odds. [Click] Orange. [Click] That's the whole trick: guess the next word. Given some text, it scores every possible next word and picks one. Then it does it again, and again. Essays, code and poems are all this one step repeated thousands of times. It's your phone's autocomplete, trained on a big chunk of the internet. Keep these bars in mind; they come back when we talk about temperature.
 
-## 7. Training Vs Inference — Training builds the model. Inference uses it.
+## 8. Training Vs Inference — Training builds the model. Inference uses it.
 
 **On screen**
 
@@ -116,7 +129,7 @@ Finish this sentence for me. [Click] "The color of the sky is..." Let the room s
 
 Left side: books, articles and web pages pour in, and out comes the model. That's training. [Click] It's the learning part: months of work and many millions of dollars, and it's done once, in a data center. Like going to school. [Click] Right side: a question goes into the finished model, and an answer comes out. That's inference, the using part. [Click] It takes seconds and costs fractions of a cent, and it happens every time you hit enter. Like sitting the exam. Everything you do in ChatGPT or Claude is inference. You never train the model when you chat with it.
 
-## 8. Training Up Close — Read the library. Then do the job training.
+## 9. Training Up Close — Read the library. Then do the job training.
 
 **On screen**
 
@@ -135,7 +148,7 @@ Left side: books, articles and web pages pour in, and out comes the model. That'
 
 Pre-training is reading the entire library. The result is a base model: it knows a lot, but ask it a question and it might just carry on with more questions, because it's only autocompleting. Post-training is job training. People write example answers and rank responses, and the model learns to behave like an assistant. Much of what makes Claude feel different from GPT comes from this stage.
 
-## 9. Weights — A giant file of numbers.
+## 10. Weights — A giant file of numbers.
 
 **On screen**
 
@@ -150,7 +163,7 @@ Pre-training is reading the entire library. The result is a base model: it knows
 
 What is a model, physically? Strip away the hype and it's a file, a very large file of numbers. Each number is a dial, and they're called weights or parameters. Open models run from about 1 billion to about 1 trillion of them. Right now they're all moving: this is training. [Click] Text runs through the dials and out comes a guess. [Click] We compare that guess with the right answer and send the error backwards through every dial, nudging each one a tiny bit. That's called backpropagation, and it repeats billions of times until the guesses get good. [Click] Then training stops and the dials freeze. Key point: when you chat with it, it isn't learning from you. The dials don't move. Remember "weights"; it comes back in two slides.
 
-## 10. Closed Vs Open — Closed vs open.
+## 11. Closed Vs Open — Closed vs open.
 
 **On screen**
 
@@ -160,7 +173,7 @@ What is a model, physically? Strip away the hype and it's a file, a very large f
 
 Here's our frozen model from the last slide. Training is done and the dials are locked. Now the company that made it has a choice: what do they do with this file? [Click] Some lock it up. The weights never leave their servers, and you rent access through their app or API. That's a closed, or proprietary, model. Others open the door and publish the file so anyone can download it. That's an open-weights model. [Click] Where it runs: closed models live inside big companies' data centers, and you visit them over the internet. [Click] Open models can run right here, on your own laptop, even with the Wi-Fi off. [Click] Your data: with a closed model, every file and question you send goes to their servers. With an open model running locally, it never leaves your machine. It even works with no internet at all. [Click] What you pay for: closed means a subscription or per-use API fees to cover their data centers. Open means your own hardware or a cloud you choose, and the model itself is free. [Click] Customizing: with open weights you have the file, so you can fine-tune it on your own data however you like. Closed models give you limited options, on their terms. [Click] Top capability: the closed models are usually the cutting edge. [Click] Open models are playing catch-up, close behind, often by a few months. So the trade-off is privacy and control versus convenience and peak capability.
 
-## 11. Sort: Closed Or Open — Closed or open?
+## 12. Sort: Closed Or Open — Closed or open?
 
 **On screen**
 
@@ -178,7 +191,7 @@ Here's our frozen model from the last slide. Training is done and the dials are 
 
 Let's sort some. I'll put a name up, you shout "closed" or "open", then I'll move it. [Click] OpenAI's GPT-5.6? [Click] Closed. (OpenAI does also publish a separate open model called gpt-oss.) [Click] DeepSeek? [Click] Open. The Chinese lab that shocked everyone by publishing a top model for free. [Click] Anthropic's Claude models? [Click] All closed. [Click] Gemini? [Click] Closed. Google's flagship. [Click] Gemma? [Click] Open. That's Google too: Gemma is Gemini's open little sibling, so one company can do both. [Click] Llama? [Click] Open, from Meta. [Click] Qwen? [Click] Open, from Alibaba. [Click] Mistral? [Click] Open. A French lab, best known for open models, though it also sells some closed ones. Notice the pattern: closed is the big US labs' flagships, open is a mix of Meta, Chinese labs and Europe.
 
-## 12. Closed Vs Open: How You Use It — Renting a closed model.
+## 13. Closed Vs Open: How You Use It — Renting a closed model.
 
 **On screen**
 
@@ -189,7 +202,7 @@ Let's sort some. I'll put a name up, you shout "closed" or "open", then I'll mov
 
 Let's zoom in on the closed one. [Click] When you use ChatGPT or Claude, or a developer calls their API, your question travels over the internet to the company's servers. It runs through their frozen model, and the answer comes back to you. That round trip is an API call. [Click] Every one of those trips is inference, and inference is what you pay for. The money goes to the company that owns the model: a monthly subscription, or a fee per token through the API. [Click] Take my money. [Click] Now flip it. How does an open model work? [Click] Same questions, same answers, same arrows. But the model is a file sitting on your own laptop. [Click] So what happened to the company and the money? [Click] Gone. Nobody to pay per question. You're running it on hardware you already own.
 
-## 13. Free? / Bigger File, Bigger Machine — Bigger file, bigger machine.
+## 14. Free? / Bigger File, Bigger Machine — Bigger file, bigger machine.
 
 **On screen**
 
@@ -205,7 +218,7 @@ Let's zoom in on the closed one. [Click] When you use ChatGPT or Claude, or a de
 
 So I can run these models for free? [Click] Mostly yes, but the file has to fit on your machine. Bigger file, bigger machine. B means billion dials. Rough rule for compressed, "4-bit" models: about 0.6 GB of memory per billion. A small model, around 8 billion, is about 5 GB and runs on a laptop, even a phone. [Click] Around 30 billion, about 20 GB: a strong laptop or a Mac. [Click] Around 70 billion, about 40 GB: a workstation with a big GPU. [Click] And the giants, 670 billion and up, about 400 GB: that's a data center. [Click] Which is why this man is dancing: every one of those data centers runs on Nvidia chips. Most people run the small ones locally and use the big ones through a hosted service.
 
-## 14. Frozen Model
+## 15. Frozen Model
 
 **On screen**
 
@@ -217,7 +230,7 @@ So I can run these models for free? [Click] Mostly yes, but the file has to fit 
 
 Back to our frozen model. Closed or open, their data center or your laptop, it's the same thing underneath: one frozen file of numbers. The dials never change. [Click] So here's a puzzle: if the dials never change, why do you get a different answer every time you hit regenerate? Live demo: open any chat app, ask the same question twice with regenerate, and compare the answers.
 
-## 15. Temperature
+## 16. Temperature
 
 **On screen**
 
@@ -235,7 +248,7 @@ Back to our frozen model. Closed or open, their data center or your laptop, it's
 
 The answer is a setting called temperature. It's a dial in every large language model's API, usually from 0 to 2. Same frozen model, same odds; temperature only changes how the next token gets picked. Let's ask it for a bedtime story. [Click] "Pip was a very small..." what? [Click] Here are the model's odds for the next word, at the default temperature of about 1. Hedgehog is the favorite, but mouse, puppy, kitten and even dragon have a chance. The numbers are illustrative. [Click] Set temperature to 0 and the favorite takes over. Hit regenerate three times: hedgehog, hedgehog, hedgehog. And watch the story write itself, one token at a time: a cozy hedgehog in a burrow who falls asleep to the owls. Safe, predictable, the same story every time. That's deterministic. Use it for facts, code and data extraction. [Click] Turn it up to 2 and the odds flatten. Three regenerates give you mouse, dragon, puppy. And the story? Pip is a dragon who collects teaspoons from the moon and argues with a cloud about jazz. More creative, more surprising, and more likely to go off the rails. That's probabilistic. Chat apps sit around the middle, which is why regenerate gives you a different answer each time.
 
-## 16. Tokens — They read tokens.
+## 17. Tokens — They read tokens.
 
 **On screen**
 
@@ -253,7 +266,7 @@ The answer is a setting called temperature. It's a dial in every large language 
 
 Models don't read letters or words. They read tokens: chunks of text. [Click] And tokens are the currency of AI models. Limits, pricing and memory are all counted in tokens, not words. When you pay per use, you're paying per token. [Click] A token is a chunk, usually part of a word. "Unbelievable" becomes un, believ, able. Common words are a single token, rare words get split up. [Click] In English, a token is about 4 characters, [Click] or roughly three-quarters of a word. [Click] Rule of thumb: a thousand tokens is about 750 words, about a page and a half. Other languages, code and emoji usually take more tokens for the same meaning, and exact splits vary by model.
 
-## 17. Demo: Tokenizer
+## 18. Demo: Tokenizer
 
 **On screen**
 
@@ -263,7 +276,7 @@ Models don't read letters or words. They read tokens: chunks of text. [Click] An
 
 Open tiktokenizer.vercel.app. Have them type their full name, then the same sentence in English and in another language they speak, then add an emoji 🎉 and watch the count. Names are fun because unusual names get split into strange pieces. The other-language comparison usually gets a reaction: the same meaning can cost two or three times as many tokens. That means non-English users hit limits sooner and pay more.
 
-## 18. Context Window — The context window.
+## 19. Context Window — The context window.
 
 **On screen**
 
@@ -283,7 +296,7 @@ Open tiktokenizer.vercel.app. Have them type their full name, then the same sent
 
 This is the context window, the model's desk. [Click] The box is everything the model can see right now; the gauge shows how full it is. The model only works with what's in this box. Anything outside doesn't exist for it. [Click] This box is the context window. [Click] Before you type anything, the app puts its own hidden instructions in. Those are tokens too. [Click] You: "Summarize this report." A few tokens. [Click] Then the 40-page PDF you pasted. Look how much space that takes. [Click] The AI's reply: "Here are the 5 key points…" Its own answer goes in the box too. [Click] You: "Now make it shorter." Every message, every reply, every file: it's all tokens, the coins we talked about, and it all takes up space. Frontier desks today hold roughly 200K to 1M+ tokens; 200K is about 150,000 words, or 500 pages. Big, but not infinite.
 
-## 19. How Big Is The Window — How big can it get?
+## 20. How Big Is The Window — How big can it get?
 
 **On screen**
 
@@ -295,7 +308,7 @@ This is the context window, the model's desk. [Click] The box is everything the 
 
 How big can the context window get? That whole conversation we just built, the instructions, the messages, the 40-page PDF, shrinks down to this. [Click] A typical frontier model's window holds about 200,000 tokens. That's roughly 150,000 words, or about 500 pages. [Click] And some models now go up to a million tokens: about 750,000 words, roughly 2,500 pages. Several books at once. Huge, but still not infinite, and as we'll see, a fuller desk isn't always a better one.
 
-## 20. Desk Fills Up — Three hours into one chat.
+## 21. Desk Fills Up — Three hours into one chat.
 
 **On screen**
 
@@ -316,7 +329,7 @@ How big can the context window get? That whole conversation we just built, the i
 
 Three hours into one chat. [Click] You've been at it all night, like a phone call that never ends. Ask it straight: is it sharper now, or sloppier? Most people assume it's gotten to know them. Answer: sloppier. Long chats get worse, not better. Three things go wrong on a full desk. [Click] One: [Click] the oldest stuff gets dropped, or squashed into a summary, which is why it "forgets" what you said an hour ago. [Click] Two: [Click] every turn costs more. It re-reads the whole desk each time, so it gets slower and you hit usage limits sooner. [Click] Three, the sneaky one: [Click] lost in the middle. Models pay most attention to the beginning and end, and the middle blurs. Imagine one sticky note tucked into a thousand-page book. We'll fix this in part 10, context engineering.
 
-## 21. Stateless — Stateless.
+## 22. Stateless — Stateless.
 
 **On screen**
 
@@ -335,7 +348,7 @@ Three hours into one chat. [Click] You've been at it all night, like a phone cal
 
 This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far, puts it all in the context window, and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch. Live demo: tell a chat your favorite color, open a new chat, and ask what it is.
 
-## 22. Dyk: Cutoff — Every model has a knowledge cutoff date.
+## 23. Dyk: Cutoff — Every model has a knowledge cutoff date.
 
 **On screen**
 
@@ -354,7 +367,7 @@ This surprises almost everyone. The model has no memory. [Click] Turn 1: you sen
 
 Frozen dials have a side effect. Ask it about last week's news: why does it get it wrong? Someone usually says "it's not connected to the internet", which is half right. Every model has a knowledge cutoff date. [Click] Training: it reads everything up to a certain day. [Click] Then the dials freeze. That's the cutoff. [Click] After that, we only use it: inference, right up to today. Without web search it can't know what happened after the cutoff, and it may not even know that it doesn't know. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?" Live demo: ask a model "What's your knowledge cutoff?" and then ask about something from last week, with web search off.
 
-## 23. Recap — Recap so far.
+## 24. Recap — Recap so far.
 
 **On screen**
 
@@ -369,7 +382,7 @@ Frozen dials have a side effect. Ask it about last week's news: why does it get 
 
 Let's recap what we've covered so far. [Click] One: training and inference. The model reads a huge library once, at great cost, then freezes. Every time you use it, that's inference: question in, answer out. [Click] Two: closed versus open. Closed models stay locked in the company's servers and you rent them. Open models are a file you can download and run yourself. [Click] Three: it's all probabilistic prediction. The model guesses the next word from the odds, and temperature controls how adventurous those guesses are. [Click] Four: tokens. Models read chunks, not words, and tokens are the currency: limits and pricing are all counted in them. [Click] Five: the context window. That's the model's desk: everything it can see right now. It's big but not infinite, it fills up, and the model remembers nothing outside it.
 
-## 24. How To Get Access — How to get access?
+## 25. How To Get Access — How to get access?
 
 **On screen**
 
@@ -380,7 +393,7 @@ Let's recap what we've covered so far. [Click] One: training and inference. The 
 
 So now you know what these models are. How do you actually get your hands on one? [Click] Everyone wants in. Let's talk about whether it's worth paying, and how.
 
-## 25. Worth Paying? — Is it worth paying?
+## 26. Worth Paying? — Is it worth paying?
 
 **On screen**
 
@@ -391,7 +404,7 @@ So now you know what these models are. How do you actually get your hands on one
 
 Is it worth paying? [Click] Option one: hold on to your money and stick with the free tiers. [Click] Option two: pay for a plan. [Your punchline for the Vadivelu GIF goes here.]
 
-## 26. Subscription Vs Tokens — Subscription or pay per token?
+## 27. Subscription Vs Tokens — Subscription or pay per token?
 
 **On screen**
 
@@ -402,7 +415,7 @@ Is it worth paying? [Click] Option one: hold on to your money and stick with the
 
 Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
 
-## 27. Model ≠ Agent
+## 28. Model ≠ Agent
 
 **On screen**
 
@@ -413,7 +426,7 @@ Should you pay for a subscription or pay per token? There are two approaches. [C
 
 Before we go on, one thing people mix up all the time. [Click] This is the model, our dancer: the brain that guesses the next word. [Click] It is not the same thing as [Click] an agent. An agent is the model plus the ability to go and do things for you. People use the words interchangeably; they're not the same. Let's see what an agent actually does.
 
-## 28. Ai Agents
+## 29. Ai Agents
 
 **On screen**
 
