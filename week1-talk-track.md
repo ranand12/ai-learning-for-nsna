@@ -369,7 +369,18 @@ Frozen dials have a side effect. Ask it about last week's news: why does it get 
 
 Let's recap what we've covered so far. [Click] One: training and inference. The model reads a huge library once, at great cost, then freezes. Every time you use it, that's inference: question in, answer out. [Click] Two: closed versus open. Closed models stay locked in the company's servers and you rent them. Open models are a file you can download and run yourself. [Click] Three: it's all probabilistic prediction. The model guesses the next word from the odds, and temperature controls how adventurous those guesses are. [Click] Four: tokens. Models read chunks, not words, and tokens are the currency: limits and pricing are all counted in them. [Click] Five: the context window. That's the model's desk: everything it can see right now. It's big but not infinite, it fills up, and the model remembers nothing outside it.
 
-## 24. Worth Paying? — Is it worth paying?
+## 24. How To Get Access — How to get access?
+
+**On screen**
+
+- How to get access?
+- Want / demand (GIF)
+
+**Say**
+
+So now you know what these models are. How do you actually get your hands on one? [Click] Everyone wants in. Let's talk about whether it's worth paying, and how.
+
+## 25. Worth Paying? — Is it worth paying?
 
 **On screen**
 
@@ -380,7 +391,7 @@ Let's recap what we've covered so far. [Click] One: training and inference. The 
 
 Is it worth paying? [Click] Option one: hold on to your money and stick with the free tiers. [Click] Option two: pay for a plan. [Your punchline for the Vadivelu GIF goes here.]
 
-## 25. Subscription Vs Tokens — Subscription or pay per token?
+## 26. Subscription Vs Tokens — Subscription or pay per token?
 
 **On screen**
 
