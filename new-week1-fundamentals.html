@@ -852,59 +852,6 @@ aside.notes,aside.onscreen{display:none}
   <aside class="notes">The answer is a setting called temperature. It's a dial in every large language model's API, usually from 0 to 2. Same frozen model, same odds; temperature only changes how the next token gets picked. [Click] The color of the sky is... what? [Click] Here are the model's odds for the next word, at the default temperature of about 1. Blue is the favorite, but grey, clear, black and orange all have a chance. The numbers are illustrative. [Click] Set temperature to 0 and the favorite takes over. The model almost always picks the single most likely token. Hit regenerate three times: blue, blue, blue. That's deterministic, the same answer every time. Use it for facts, code and data extraction. [Click] Turn it up to 2 and the odds flatten. Now every word has a real shot, and three regenerates give you grey, blue, orange. That's probabilistic: more varied, more creative, and more likely to go off the rails. Chat apps sit around the middle, which is why regenerate gives you a different answer each time.</aside>
 </section>
 
-<!-- ============================ 11. DYK: CUTOFF ============================ -->
-<section class="slide">
-  <h2 class="fu title-c" style="--d:.1s">Every model has a knowledge cutoff date.</h2>
-  <svg style="margin-top:20px" width="1380" height="560" viewBox="0 0 1380 560">
-    <g data-step="1">
-      <g transform="translate(158,40) scale(.7)">
-    <g class="bookfield" transform="translate(360,170)"></g>
-    <circle cx="360" cy="170" r="110" fill="none" stroke="#F5F5F0" stroke-width="3" stroke-dasharray="6 8"/>
-    <g class="pop" style="--d:1.4s"><circle cx="360" cy="170" r="48" fill="#2EE59D"/><text x="360" y="172" text-anchor="middle" dominant-baseline="central" font-size="55">💃</text></g>
-        <text x="360" y="340" text-anchor="middle" font-size="30" font-weight="800">TRAINING</text>
-      </g>
-      <line class="draw" pathLength="1" x1="0" y1="420" x2="820" y2="420" stroke="#F5F5F0" stroke-width="6" style="--d:.2s"/>
-    </g>
-    <g data-step="2">
-      <rect class="pop" x="808" y="360" width="24" height="120" fill="#FFD23F" style="--d:.1s"/>
-      <text x="820" y="340" text-anchor="middle" font-size="26" font-weight="800" fill="#FFD23F">CUTOFF</text>
-    </g>
-    <g data-step="3">
-      <g transform="translate(368,40) scale(.7)">
-      
-      <line x1="770" y1="170" x2="1320" y2="170" stroke="#2A2A28" stroke-width="3"/>
-      <g transform="translate(770,148)">
-        <g class="q-in" style="--d:0s"><rect width="64" height="44" rx="22" fill="#F5F5F0"/><text x="32" y="23" text-anchor="middle" dominant-baseline="central" font-size="28" font-weight="800" style="fill:#0A0A0A">?</text></g>
-        <g class="q-in" style="--d:1.5s"><rect width="64" height="44" rx="22" fill="#F5F5F0"/><text x="32" y="23" text-anchor="middle" dominant-baseline="central" font-size="28" font-weight="800" style="fill:#0A0A0A">?</text></g>
-      </g>
-      <g transform="translate(1100,144)">
-        <g class="a-out" style="--d:.75s"><rect width="96" height="52" rx="12" fill="#2EE59D"/><g stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"><line x1="16" y1="17" x2="80" y2="17"/><line x1="16" y1="27" x2="70" y2="27"/><line x1="16" y1="37" x2="54" y2="37"/></g></g>
-        <g class="a-out" style="--d:2.25s"><rect width="96" height="52" rx="12" fill="#2EE59D"/><g stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"><line x1="16" y1="17" x2="80" y2="17"/><line x1="16" y1="27" x2="70" y2="27"/><line x1="16" y1="37" x2="54" y2="37"/></g></g>
-      </g>
-      <circle cx="1045" cy="170" r="48" fill="#2EE59D"/><text x="1045" y="172" text-anchor="middle" dominant-baseline="central" font-size="55">💃</text>
-      <text x="1045" y="340" text-anchor="middle" font-size="30" font-weight="800">INFERENCE</text>
-    </g>
-      <line x1="820" y1="420" x2="1380" y2="420" stroke="#8C8C86" stroke-width="6" stroke-dasharray="4 18" stroke-linecap="round"/>
-      <circle cx="1380" cy="420" r="16" fill="#F5F5F0"/>
-      <text x="1380" y="500" text-anchor="end" font-size="26" font-weight="800">Today</text>
-    </g>
-  </svg>
-  <span class="sticker demo" style="--r:-4deg;right:110px;top:26px;--sd:.5s;font-size:16px;padding:8px 18px 8px 14px"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M6 3l15 9-15 9z"/></svg>Live demo</span>
-  <aside class="onscreen">
-    Live demo
-    Frozen dials have a side effect
-    Ask it about last week's news. Why does it get it wrong?
-    Every model has a knowledge cutoff date.
-    What it read in training
-    CUTOFF
-    Today
-    Without web search it can't know what happened after the cutoff, and it may not know that it doesn't know.
-    Your guess?
-    Did you know?
-  </aside>
-  <aside class="notes">Frozen dials have a side effect. Ask it about last week's news: why does it get it wrong? Someone usually says "it's not connected to the internet", which is half right. Every model has a knowledge cutoff date. [Click] Training: it reads everything up to a certain day. [Click] Then the dials freeze. That's the cutoff. [Click] After that, we only use it: inference, right up to today. Without web search it can't know what happened after the cutoff, and it may not even know that it doesn't know. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?" Live demo: ask a model "What's your knowledge cutoff?" and then ask about something from last week, with web search off.</aside>
-</section>
-
 <!-- ============================ 12. INFERENCE LOOP ============================ -->
 <section class="slide">
   <div class="kicker fu">What happens when you hit enter</div>
@@ -1113,6 +1060,59 @@ aside.notes,aside.onscreen{display:none}
     Model = Ghajini (GIF)
   </aside>
   <aside class="notes">This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far, puts it all in the context window, and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch. Live demo: tell a chat your favorite color, open a new chat, and ask what it is.</aside>
+</section>
+
+<!-- ============================ 11. DYK: CUTOFF ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Every model has a knowledge cutoff date.</h2>
+  <svg style="margin-top:20px" width="1380" height="560" viewBox="0 0 1380 560">
+    <g data-step="1">
+      <g transform="translate(158,40) scale(.7)">
+    <g class="bookfield" transform="translate(360,170)"></g>
+    <circle cx="360" cy="170" r="110" fill="none" stroke="#F5F5F0" stroke-width="3" stroke-dasharray="6 8"/>
+    <g class="pop" style="--d:1.4s"><circle cx="360" cy="170" r="48" fill="#2EE59D"/><text x="360" y="172" text-anchor="middle" dominant-baseline="central" font-size="55">💃</text></g>
+        <text x="360" y="340" text-anchor="middle" font-size="30" font-weight="800">TRAINING</text>
+      </g>
+      <line class="draw" pathLength="1" x1="0" y1="420" x2="820" y2="420" stroke="#F5F5F0" stroke-width="6" style="--d:.2s"/>
+    </g>
+    <g data-step="2">
+      <rect class="pop" x="808" y="360" width="24" height="120" fill="#FFD23F" style="--d:.1s"/>
+      <text x="820" y="340" text-anchor="middle" font-size="26" font-weight="800" fill="#FFD23F">CUTOFF</text>
+    </g>
+    <g data-step="3">
+      <g transform="translate(368,40) scale(.7)">
+      
+      <line x1="770" y1="170" x2="1320" y2="170" stroke="#2A2A28" stroke-width="3"/>
+      <g transform="translate(770,148)">
+        <g class="q-in" style="--d:0s"><rect width="64" height="44" rx="22" fill="#F5F5F0"/><text x="32" y="23" text-anchor="middle" dominant-baseline="central" font-size="28" font-weight="800" style="fill:#0A0A0A">?</text></g>
+        <g class="q-in" style="--d:1.5s"><rect width="64" height="44" rx="22" fill="#F5F5F0"/><text x="32" y="23" text-anchor="middle" dominant-baseline="central" font-size="28" font-weight="800" style="fill:#0A0A0A">?</text></g>
+      </g>
+      <g transform="translate(1100,144)">
+        <g class="a-out" style="--d:.75s"><rect width="96" height="52" rx="12" fill="#2EE59D"/><g stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"><line x1="16" y1="17" x2="80" y2="17"/><line x1="16" y1="27" x2="70" y2="27"/><line x1="16" y1="37" x2="54" y2="37"/></g></g>
+        <g class="a-out" style="--d:2.25s"><rect width="96" height="52" rx="12" fill="#2EE59D"/><g stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"><line x1="16" y1="17" x2="80" y2="17"/><line x1="16" y1="27" x2="70" y2="27"/><line x1="16" y1="37" x2="54" y2="37"/></g></g>
+      </g>
+      <circle cx="1045" cy="170" r="48" fill="#2EE59D"/><text x="1045" y="172" text-anchor="middle" dominant-baseline="central" font-size="55">💃</text>
+      <text x="1045" y="340" text-anchor="middle" font-size="30" font-weight="800">INFERENCE</text>
+    </g>
+      <line x1="820" y1="420" x2="1380" y2="420" stroke="#8C8C86" stroke-width="6" stroke-dasharray="4 18" stroke-linecap="round"/>
+      <circle cx="1380" cy="420" r="16" fill="#F5F5F0"/>
+      <text x="1380" y="500" text-anchor="end" font-size="26" font-weight="800">Today</text>
+    </g>
+  </svg>
+  <span class="sticker demo" style="--r:-4deg;right:110px;top:26px;--sd:.5s;font-size:16px;padding:8px 18px 8px 14px"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M6 3l15 9-15 9z"/></svg>Live demo</span>
+  <aside class="onscreen">
+    Live demo
+    Frozen dials have a side effect
+    Ask it about last week's news. Why does it get it wrong?
+    Every model has a knowledge cutoff date.
+    What it read in training
+    CUTOFF
+    Today
+    Without web search it can't know what happened after the cutoff, and it may not know that it doesn't know.
+    Your guess?
+    Did you know?
+  </aside>
+  <aside class="notes">Frozen dials have a side effect. Ask it about last week's news: why does it get it wrong? Someone usually says "it's not connected to the internet", which is half right. Every model has a knowledge cutoff date. [Click] Training: it reads everything up to a certain day. [Click] Then the dials freeze. That's the cutoff. [Click] After that, we only use it: inference, right up to today. Without web search it can't know what happened after the cutoff, and it may not even know that it doesn't know. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?" Live demo: ask a model "What's your knowledge cutoff?" and then ask about something from last week, with web search off.</aside>
 </section>
 
 <!-- ============================ 25. MEMORY = HARNESS ============================ -->

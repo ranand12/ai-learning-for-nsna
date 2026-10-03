@@ -232,26 +232,7 @@ Back to our frozen model. Closed or open, their data center or your laptop, it's
 
 The answer is a setting called temperature. It's a dial in every large language model's API, usually from 0 to 2. Same frozen model, same odds; temperature only changes how the next token gets picked. [Click] The color of the sky is... what? [Click] Here are the model's odds for the next word, at the default temperature of about 1. Blue is the favorite, but grey, clear, black and orange all have a chance. The numbers are illustrative. [Click] Set temperature to 0 and the favorite takes over. The model almost always picks the single most likely token. Hit regenerate three times: blue, blue, blue. That's deterministic, the same answer every time. Use it for facts, code and data extraction. [Click] Turn it up to 2 and the odds flatten. Now every word has a real shot, and three regenerates give you grey, blue, orange. That's probabilistic: more varied, more creative, and more likely to go off the rails. Chat apps sit around the middle, which is why regenerate gives you a different answer each time.
 
-## 16. Dyk: Cutoff — Every model has a knowledge cutoff date.
-
-**On screen**
-
-- Live demo
-- Frozen dials have a side effect
-- Ask it about last week's news. Why does it get it wrong?
-- Every model has a knowledge cutoff date.
-- What it read in training
-- CUTOFF
-- Today
-- Without web search it can't know what happened after the cutoff, and it may not know that it doesn't know.
-- Your guess?
-- Did you know?
-
-**Say**
-
-Frozen dials have a side effect. Ask it about last week's news: why does it get it wrong? Someone usually says "it's not connected to the internet", which is half right. Every model has a knowledge cutoff date. [Click] Training: it reads everything up to a certain day. [Click] Then the dials freeze. That's the cutoff. [Click] After that, we only use it: inference, right up to today. Without web search it can't know what happened after the cutoff, and it may not even know that it doesn't know. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?" Live demo: ask a model "What's your knowledge cutoff?" and then ask about something from last week, with web search off.
-
-## 17. Inference Loop — One token at a time, on a loop.
+## 16. Inference Loop — One token at a time, on a loop.
 
 **On screen**
 
@@ -271,7 +252,7 @@ Frozen dials have a side effect. Ask it about last week's news: why does it get 
 
 White chips are what you typed. Green chips are what the model writes, one at a time. After each one it re-reads the whole thing and picks the next. That's why answers stream in word by word. It isn't typing for effect; it really does produce text one piece at a time.
 
-## 18. Tokens — They read tokens.
+## 17. Tokens — They read tokens.
 
 **On screen**
 
@@ -289,7 +270,7 @@ White chips are what you typed. Green chips are what the model writes, one at a 
 
 Models don't read letters or words. They read tokens: chunks of text. [Click] And tokens are the currency of AI models. Limits, pricing and memory are all counted in tokens, not words. When you pay per use, you're paying per token. [Click] A token is a chunk, usually part of a word. "Unbelievable" becomes un, believ, able. Common words are a single token, rare words get split up. [Click] In English, a token is about 4 characters, [Click] or roughly three-quarters of a word. [Click] Rule of thumb: a thousand tokens is about 750 words, about a page and a half. Other languages, code and emoji usually take more tokens for the same meaning, and exact splits vary by model.
 
-## 19. Demo: Tokenizer — See your own words get chopped up.
+## 18. Demo: Tokenizer — See your own words get chopped up.
 
 **On screen**
 
@@ -306,7 +287,7 @@ Models don't read letters or words. They read tokens: chunks of text. [Click] An
 
 Names are fun because unusual names get split into strange pieces. The other-language comparison usually gets a reaction: the same meaning can cost two or three times as many tokens. That means non-English users hit limits sooner and pay more.
 
-## 20. Context Window — The context window.
+## 19. Context Window — The context window.
 
 **On screen**
 
@@ -326,7 +307,7 @@ Names are fun because unusual names get split into strange pieces. The other-lan
 
 This is the context window, the model's desk. [Click] The box is everything the model can see right now; the gauge shows how full it is. The model only works with what's in this box. Anything outside doesn't exist for it. [Click] This box is the context window. [Click] Before you type anything, the app puts its own hidden instructions in. Those are tokens too. [Click] You: "Summarize this report." A few tokens. [Click] Then the 40-page PDF you pasted. Look how much space that takes. [Click] The AI's reply: "Here are the 5 key points…" Its own answer goes in the box too. [Click] You: "Now make it shorter." Every message, every reply, every file: it's all tokens, the coins we talked about, and it all takes up space. Frontier desks today hold roughly 200K to 1M+ tokens; 200K is about 150,000 words, or 500 pages. Big, but not infinite.
 
-## 21. How Big Is The Window — How big can it get?
+## 20. How Big Is The Window — How big can it get?
 
 **On screen**
 
@@ -338,7 +319,7 @@ This is the context window, the model's desk. [Click] The box is everything the 
 
 How big can the context window get? That whole conversation we just built, the instructions, the messages, the 40-page PDF, shrinks down to this. [Click] A typical frontier model's window holds about 200,000 tokens. That's roughly 150,000 words, or about 500 pages. [Click] And some models now go up to a million tokens: about 750,000 words, roughly 2,500 pages. Several books at once. Huge, but still not infinite, and as we'll see, a fuller desk isn't always a better one.
 
-## 22. Desk Fills Up — Three hours into one chat.
+## 21. Desk Fills Up — Three hours into one chat.
 
 **On screen**
 
@@ -359,7 +340,7 @@ How big can the context window get? That whole conversation we just built, the i
 
 Three hours into one chat. [Click] You've been at it all night, like a phone call that never ends. Ask it straight: is it sharper now, or sloppier? Most people assume it's gotten to know them. Answer: sloppier. Long chats get worse, not better. Three things go wrong on a full desk. [Click] One: [Click] the oldest stuff gets dropped, or squashed into a summary, which is why it "forgets" what you said an hour ago. [Click] Two: [Click] every turn costs more. It re-reads the whole desk each time, so it gets slower and you hit usage limits sooner. [Click] Three, the sneaky one: [Click] lost in the middle. Models pay most attention to the beginning and end, and the middle blurs. Imagine one sticky note tucked into a thousand-page book. We'll fix this in part 10, context engineering.
 
-## 23. Stateless — Stateless.
+## 22. Stateless — Stateless.
 
 **On screen**
 
@@ -377,6 +358,25 @@ Three hours into one chat. [Click] You've been at it all night, like a phone cal
 **Say**
 
 This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far, puts it all in the context window, and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch. Live demo: tell a chat your favorite color, open a new chat, and ask what it is.
+
+## 23. Dyk: Cutoff — Every model has a knowledge cutoff date.
+
+**On screen**
+
+- Live demo
+- Frozen dials have a side effect
+- Ask it about last week's news. Why does it get it wrong?
+- Every model has a knowledge cutoff date.
+- What it read in training
+- CUTOFF
+- Today
+- Without web search it can't know what happened after the cutoff, and it may not know that it doesn't know.
+- Your guess?
+- Did you know?
+
+**Say**
+
+Frozen dials have a side effect. Ask it about last week's news: why does it get it wrong? Someone usually says "it's not connected to the internet", which is half right. Every model has a knowledge cutoff date. [Click] Training: it reads everything up to a certain day. [Click] Then the dials freeze. That's the cutoff. [Click] After that, we only use it: inference, right up to today. Without web search it can't know what happened after the cutoff, and it may not even know that it doesn't know. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?" Live demo: ask a model "What's your knowledge cutoff?" and then ask about something from last week, with web search off.
 
 ## 24.  — That's the app, not the model.
 
