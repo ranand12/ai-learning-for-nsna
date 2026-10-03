@@ -413,11 +413,11 @@ Should you pay for a subscription or pay per token? There are two approaches. [C
 
 Before we go on, one thing people mix up all the time. [Click] This is the model, our dancer: the brain that guesses the next word. [Click] It is not the same thing as [Click] an agent. An agent is the model plus the ability to go and do things for you. People use the words interchangeably; they're not the same. Let's see what an agent actually does.
 
-## 28. Ai Agents — AI agents.
+## 28. Ai Agents
 
 **On screen**
 
-- AI agents.
+- (Title "AI agents." removed from screen)
 - 🧑‍💻 “Find me the cheapest flight and add it to my calendar.”
 - Context window
 - 🧑‍💻 Cheapest flight → add to calendar
