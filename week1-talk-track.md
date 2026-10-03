@@ -253,22 +253,15 @@ The answer is a setting called temperature. It's a dial in every large language 
 
 Models don't read letters or words. They read tokens: chunks of text. [Click] And tokens are the currency of AI models. Limits, pricing and memory are all counted in tokens, not words. When you pay per use, you're paying per token. [Click] A token is a chunk, usually part of a word. "Unbelievable" becomes un, believ, able. Common words are a single token, rare words get split up. [Click] In English, a token is about 4 characters, [Click] or roughly three-quarters of a word. [Click] Rule of thumb: a thousand tokens is about 750 words, about a page and a half. Other languages, code and emoji usually take more tokens for the same meaning, and exact splits vary by model.
 
-## 17. Demo: Tokenizer — See your own words get chopped up.
+## 17. Demo: Tokenizer
 
 **On screen**
 
-- Try it
-- See your own words get chopped up.
-- Open tiktokenizer.vercel.app
-- Type your full name.
-- Type the same sentence in English, then in another language you speak.
-- Add an emoji 🎉 and watch the count.
-- Live demo
-- Free
+- tiktokenizer.vercel.app
 
 **Say**
 
-Names are fun because unusual names get split into strange pieces. The other-language comparison usually gets a reaction: the same meaning can cost two or three times as many tokens. That means non-English users hit limits sooner and pay more.
+Open tiktokenizer.vercel.app. Have them type their full name, then the same sentence in English and in another language they speak, then add an emoji 🎉 and watch the count. Names are fun because unusual names get split into strange pieces. The other-language comparison usually gets a reaction: the same meaning can cost two or three times as many tokens. That means non-English users hit limits sooner and pay more.
 
 ## 18. Context Window — The context window.
 
