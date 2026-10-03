@@ -210,7 +210,7 @@ So I can run these models for free? [Click] Mostly yes, but the file has to fit 
 **On screen**
 
 - (frozen model only)
-- Chat star (GIF)
+- Vadivelu thinking (GIF)
 
 **Say**
 
