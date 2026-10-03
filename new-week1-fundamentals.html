@@ -260,6 +260,22 @@ aside.notes,aside.onscreen{display:none}
 .tok.sys{--ring:#8C8C86} .tok.you{--ring:#F5F5F0} .tok.ai{--ring:#2EE59D} .tok.doc{--ring:#3a3a37;outline:2px dashed #888;outline-offset:3px}
 .active .tok{animation:coinIn .45s cubic-bezier(.3,1.6,.5,1) var(--d) both}
 @keyframes coinIn{from{transform:scale(0)}to{transform:scale(1)}}
+/* context window sizes: slide-20 window shrinks right, a big window grows from 200K to 1M */
+.ctxbox.ctxmini{border-color:var(--demo);box-shadow:0 0 0 8px rgba(255,90,61,.18),0 0 60px rgba(255,90,61,.35);transform-origin:0 0;transform:translate(1030px,140px) scale(.25)}
+.ctxmini .tok{animation:none!important}
+.active .ctxmini{animation:ctxShrink 1.2s cubic-bezier(.5,0,.2,1) .2s both}
+@keyframes ctxShrink{from{transform:none}to{transform:translate(1030px,140px) scale(.25)}}
+.bigwin{position:absolute;left:110px;top:330px;width:480px;height:260px;border:5px solid var(--demo);border-radius:16px;box-shadow:0 0 0 8px rgba(255,90,61,.15),0 0 60px rgba(255,90,61,.3);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transition:opacity .5s ease,transform .6s ease,left 1.1s cubic-bezier(.5,0,.2,1),top 1.1s cubic-bezier(.5,0,.2,1),width 1.1s cubic-bezier(.5,0,.2,1),height 1.1s cubic-bezier(.5,0,.2,1)}
+.slide:has(.bw-1m.shown) .bigwin{top:210px;width:1070px;height:580px}
+.bwlbl{position:relative;height:96px;width:100%}
+.bwlbl div{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s}
+.bwlbl b{font-size:64px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.bwlbl span{font-size:28px;color:var(--dim);margin-top:8px}
+.bwlbl .b1m{opacity:0}
+.slide:has(.bw-1m.shown) .bwlbl .b200{opacity:0}
+.slide:has(.bw-1m.shown) .bwlbl .b1m{opacity:1}
+.slide:has(.bw-1m.shown) .bwlbl b{font-size:96px}
 .tsrc{position:absolute;left:110px;width:110px;display:flex;align-items:center;gap:12px;font-size:44px}
 .tsrc i{display:inline-block;width:26px;height:20px;border-radius:5px}
 .gauge{position:absolute;left:1150px;top:280px;width:44px;height:440px;border:4px solid var(--fg);border-radius:10px;overflow:hidden;display:flex;flex-direction:column-reverse}
@@ -1005,6 +1021,25 @@ aside.notes,aside.onscreen{display:none}
     200K tokens ≈ 150,000 words ≈ 500 pages.
   </aside>
   <aside class="notes">This is the context window, the model's desk. [Click] The box is everything the model can see right now; the gauge shows how full it is. The model only works with what's in this box. Anything outside doesn't exist for it. [Click] This box is the context window. [Click] Before you type anything, the app puts its own hidden instructions in. Those are tokens too. [Click] You: "Summarize this report." A few tokens. [Click] Then the 40-page PDF you pasted. Look how much space that takes. [Click] The AI's reply: "Here are the 5 key points…" Its own answer goes in the box too. [Click] You: "Now make it shorter." Every message, every reply, every file: it's all tokens, the coins we talked about, and it all takes up space. Frontier desks today hold roughly 200K to 1M+ tokens; 200K is about 150,000 words, or 500 pages. Big, but not infinite.</aside>
+</section>
+
+<!-- ============================ 20b. HOW BIG IS THE WINDOW ============================ -->
+<section class="slide">
+  <h2 class="fu title-xl" style="--d:.1s">How big can it get?</h2>
+  <div class="ctxbox ctxmini"><span class="tok sys"></span><span class="tok sys"></span><span class="tok sys"></span><span class="tok sys"></span><span class="tok sys"></span><span class="tok sys"></span><span class="tok sys"></span><span class="tok sys"></span><span class="tok sys"></span><span class="tok sys"></span><span class="tok sys"></span><span class="tok sys"></span><span class="tok sys"></span><span class="tok sys"></span><span class="tok you"></span><span class="tok you"></span><span class="tok you"></span><span class="tok you"></span><span class="tok you"></span><span class="tok you"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok doc"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok ai"></span><span class="tok you"></span><span class="tok you"></span><span class="tok you"></span><span class="tok you"></span><span class="tok you"></span><span class="tok you"></span></div>
+  <div class="bigwin" data-step="1">
+    <div class="bwlbl">
+      <div class="b200"><b>200K tokens</b><span>≈ 500 pages 📄</span></div>
+      <div class="b1m"><b>1M tokens</b><span>≈ 2,500 pages 📚</span></div>
+    </div>
+  </div>
+  <span class="bw-1m" data-step="2"></span>
+  <aside class="onscreen">
+    How big can it get?
+    200K tokens ≈ 500 pages
+    1M tokens ≈ 2,500 pages
+  </aside>
+  <aside class="notes">How big can the context window get? That whole conversation we just built, the instructions, the messages, the 40-page PDF, shrinks down to this. [Click] A typical frontier model's window holds about 200,000 tokens. That's roughly 150,000 words, or about 500 pages. [Click] And some models now go up to a million tokens: about 750,000 words, roughly 2,500 pages. Several books at once. Huge, but still not infinite, and as we'll see, a fuller desk isn't always a better one.</aside>
 </section>
 
 <!-- ============================ 24. STATELESS ============================ -->

@@ -324,7 +324,19 @@ Names are fun because unusual names get split into strange pieces. The other-lan
 
 This is the context window, the model's desk. [Click] The box is everything the model can see right now; the gauge shows how full it is. The model only works with what's in this box. Anything outside doesn't exist for it. [Click] This box is the context window. [Click] Before you type anything, the app puts its own hidden instructions in. Those are tokens too. [Click] You: "Summarize this report." A few tokens. [Click] Then the 40-page PDF you pasted. Look how much space that takes. [Click] The AI's reply: "Here are the 5 key points…" Its own answer goes in the box too. [Click] You: "Now make it shorter." Every message, every reply, every file: it's all tokens, the coins we talked about, and it all takes up space. Frontier desks today hold roughly 200K to 1M+ tokens; 200K is about 150,000 words, or 500 pages. Big, but not infinite.
 
-## 21. Stateless — Stateless.
+## 21. How Big Is The Window — How big can it get?
+
+**On screen**
+
+- How big can it get?
+- 200K tokens ≈ 500 pages
+- 1M tokens ≈ 2,500 pages
+
+**Say**
+
+How big can the context window get? That whole conversation we just built, the instructions, the messages, the 40-page PDF, shrinks down to this. [Click] A typical frontier model's window holds about 200,000 tokens. That's roughly 150,000 words, or about 500 pages. [Click] And some models now go up to a million tokens: about 750,000 words, roughly 2,500 pages. Several books at once. Huge, but still not infinite, and as we'll see, a fuller desk isn't always a better one.
+
+## 22. Stateless — Stateless.
 
 **On screen**
 
@@ -342,7 +354,7 @@ This is the context window, the model's desk. [Click] The box is everything the 
 
 This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far, puts it all in the context window, and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch.
 
-## 22.  — That's the app, not the model.
+## 23.  — That's the app, not the model.
 
 **On screen**
 
@@ -362,7 +374,7 @@ This surprises almost everyone. The model has no memory. [Click] Turn 1: you sen
 
 Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have memory features. But that memory lives in the app, not the model. The app writes sticky notes about you and pastes them onto the desk before you type. The model is still stateless underneath. This is our first look at the harness, the blue hexagon, and we'll unpack it properly in part 6.
 
-## 23. Desk Fills Up — Three hours into one chat.
+## 24. Desk Fills Up — Three hours into one chat.
 
 **On screen**
 
@@ -383,7 +395,7 @@ Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have m
 
 Three hours into one chat. [Click] You've been at it all night, like a phone call that never ends. Ask it straight: is it sharper now, or sloppier? Most people assume it's gotten to know them. Answer: sloppier. Long chats get worse, not better. Three things go wrong on a full desk. [Click] One: [Click] the oldest stuff gets dropped, or squashed into a summary, which is why it "forgets" what you said an hour ago. [Click] Two: [Click] every turn costs more. It re-reads the whole desk each time, so it gets slower and you hit usage limits sooner. [Click] Three, the sneaky one: [Click] lost in the middle. Models pay most attention to the beginning and end, and the middle blurs. Imagine one sticky note tucked into a thousand-page book. We'll fix this in part 10, context engineering.
 
-## 24. Demo: Forgetful — The forgetful genius.
+## 25. Demo: Forgetful — The forgetful genius.
 
 **On screen**
 
@@ -401,7 +413,7 @@ Three hours into one chat. [Click] You've been at it all night, like a phone cal
 
 Results depend on whether memory is on, and either result teaches something. If it remembers, ask: where did that come from? The app's sticky notes. If it doesn't, that's the stateless model. Temporary or incognito chat modes are the cleanest way to show it.
 
-## 25. Checkpoint — If you forget everything else…
+## 26. Checkpoint — If you forget everything else…
 
 **On screen**
 
@@ -420,7 +432,7 @@ Results depend on whether memory is on, and either result teaches something. If 
 
 Three sentences. If people leave with these, they'll already use AI better than most. The Ask AI sticker is the habit I want: when a concept feels fuzzy, have the AI teach it back to you at your level. Next: how to actually get your hands on Claude, Grok, GPT, DeepSeek and the rest.
 
-## 26. Subscription Vs Tokens — Subscription or pay per token?
+## 27. Subscription Vs Tokens — Subscription or pay per token?
 
 **On screen**
 
@@ -431,7 +443,7 @@ Three sentences. If people leave with these, they'll already use AI better than 
 
 Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
 
-## 27. Worth Paying? — Is it worth paying?
+## 28. Worth Paying? — Is it worth paying?
 
 **On screen**
 
