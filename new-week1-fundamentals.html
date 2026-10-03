@@ -1118,12 +1118,12 @@ aside.notes,aside.onscreen{display:none}
   <h2 class="fu title-xl" style="--d:.1s">Stateless.</h2>
   <div class="split" style="grid-template-columns:1.45fr 1fr;gap:50px">
     <div class="turns compact" style="margin-top:0">
-      <div class="turn fu" style="--d:.4s"><span class="lbl">Turn 1</span><span class="b q">You 1</span><span class="arrow">→</span><span class="mdl">💃</span></div>
-      <div class="turn fu" style="--d:.9s"><span class="lbl">Turn 2</span><span class="b q">You 1</span><span class="b a">AI 1</span><span class="b q">You 2</span><span class="arrow">→</span><span class="mdl">💃</span></div>
-      <div class="turn fu" style="--d:1.4s"><span class="lbl">Turn 3</span><span class="b q">You 1</span><span class="b a">AI 1</span><span class="b q">You 2</span><span class="b a">AI 2</span><span class="b q">You 3</span><span class="arrow">→</span><span class="mdl">💃</span></div>
-      <div class="turn fu" style="--d:2.1s"><span class="lbl hl-demo">New chat</span><span class="b empty">empty desk</span><span class="arrow">→</span><span class="mdl">💃</span><span class="dim" style="font-size:24px;margin-left:12px">"Who are you?"</span></div>
+      <div class="turn" data-step="1"><span class="lbl">Turn 1</span><span class="b q">You 1</span><span class="arrow">→</span><span class="mdl">💃</span></div>
+      <div class="turn" data-step="2"><span class="lbl">Turn 2</span><span class="b q">You 1</span><span class="b a">AI 1</span><span class="b q">You 2</span><span class="arrow">→</span><span class="mdl">💃</span></div>
+      <div class="turn" data-step="3"><span class="lbl">Turn 3</span><span class="b q">You 1</span><span class="b a">AI 1</span><span class="b q">You 2</span><span class="b a">AI 2</span><span class="b q">You 3</span><span class="arrow">→</span><span class="mdl">💃</span></div>
+      <div class="turn" data-step="4"><span class="lbl hl-demo">New chat</span><span class="b empty">empty desk</span><span class="arrow">→</span><span class="mdl">💃</span><span class="dim" style="font-size:24px;margin-left:12px">"Who are you?"</span></div>
     </div>
-    <div class="fu" style="--d:2.6s;display:flex;flex-direction:column;align-items:center;gap:24px">
+    <div data-step="5" style="display:flex;flex-direction:column;align-items:center;gap:24px">
       <div style="display:flex;align-items:center;gap:28px"><span class="mdl eqsign">💃</span><span style="font-size:80px;font-weight:800">=</span></div>
       <img src="gifs/ghajini.gif" alt="" style="width:440px;height:247px;border-radius:14px;border:3px solid #2A2A28">
     </div>
@@ -1139,7 +1139,7 @@ aside.notes,aside.onscreen{display:none}
     Stateless.
     Model = Ghajini (GIF)
   </aside>
-  <aside class="notes">This surprises almost everyone. The model has no memory. Every time you hit enter, the app bundles up the entire conversation so far and sends all of it again. It feels like a conversation, but the model is reading the whole script fresh each time. Open a new chat and the desk is empty. It has never met you. (The GIF appears after the rows.) The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch.</aside>
+  <aside class="notes">This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch.</aside>
 </section>
 
 <!-- ============================ 25. MEMORY = HARNESS ============================ -->
