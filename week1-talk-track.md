@@ -304,7 +304,7 @@ Models don't read letters or words. They read tokens: chunks of text. [Click] An
 
 Names are fun because unusual names get split into strange pieces. The other-language comparison usually gets a reaction: the same meaning can cost two or three times as many tokens. That means non-English users hit limits sooner and pay more.
 
-## 20. Context Window — The model's desk.
+## 20. Context Window — The context window.
 
 **On screen**
 
@@ -322,7 +322,7 @@ Names are fun because unusual names get split into strange pieces. The other-lan
 
 **Say**
 
-Picture a desk. Whatever is on the desk, the model can see. Anything off the desk doesn't exist for it. Every message, every reply, every file you upload goes on the desk and takes up space. Even the app's hidden instructions sit there. Desks are big now, hundreds of pages, but they're not infinite.
+This is the context window, the model's desk. [Click] The box is everything the model can see right now; the gauge shows how full it is. The model only works with what's in this box. Anything outside doesn't exist for it. [Click] Before you type anything, the app puts its own hidden instructions in. Those are tokens too. [Click] You: "Summarize this report." A few tokens. [Click] Then the 40-page PDF you pasted. Look how much space that takes. [Click] The AI's reply: "Here are the 5 key points…" Its own answer goes in the box too. [Click] You: "Now make it shorter." Every message, every reply, every file: it's all tokens, and it all takes up space. Frontier desks today hold roughly 200K to 1M+ tokens; 200K is about 150,000 words, or 500 pages. Big, but not infinite.
 
 ## 21. Stateless — Stateless.
 
