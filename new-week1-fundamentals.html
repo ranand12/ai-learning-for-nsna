@@ -521,7 +521,7 @@ aside.notes,aside.onscreen{display:none}
   <h2 class="fu" style="--d:.1s">Training builds the model. Inference uses it.</h2>
   <svg class="fi" style="--d:.3s;margin-top:40px" width="1380" height="380" viewBox="0 0 1380 380">
     <!-- training: books and pages pour into the model -->
-    <g id="bookfield" transform="translate(360,170)"></g>
+    <g class="bookfield" transform="translate(360,170)"></g>
     <circle cx="360" cy="170" r="110" fill="none" stroke="#F5F5F0" stroke-width="3" stroke-dasharray="6 8"/>
     <g class="pop" style="--d:1.4s"><circle cx="360" cy="170" r="48" fill="#2EE59D"/><text x="360" y="172" text-anchor="middle" dominant-baseline="central" font-size="55">💃</text></g>
     <text x="360" y="340" text-anchor="middle" font-size="30" font-weight="800">TRAINING</text>
@@ -819,22 +819,41 @@ aside.notes,aside.onscreen{display:none}
 
 <!-- ============================ 11. DYK: CUTOFF ============================ -->
 <section class="slide">
-  <div class="kicker fu">Frozen dials have a side effect</div>
-  <h2 class="fu" style="--d:.1s">Ask it about last week's news. Why does it get it wrong?</h2>
-  <p class="answer" data-step="1" style="margin-top:30px">Every model has a <span class="hl-dyk">knowledge cutoff</span> date.</p>
-  <svg data-step="1" style="margin-top:30px" width="1380" height="200" viewBox="0 0 1380 200">
-    <line class="draw" pathLength="1" x1="0" y1="100" x2="820" y2="100" stroke="#F5F5F0" stroke-width="6" style="--d:.3s"/>
-    <line class="fi" style="--d:1.4s" x1="820" y1="100" x2="1380" y2="100" stroke="#8C8C86" stroke-width="6" stroke-dasharray="4 18" stroke-linecap="round"/>
-    <rect class="pop" x="808" y="40" width="24" height="120" fill="#FFD23F" style="--d:1.3s"/>
-    <circle class="pop" cx="1380" cy="100" r="16" fill="#F5F5F0" style="--d:1.8s"/>
-    <text class="fi" style="--d:.5s" x="0" y="175" font-size="26" fill="#8C8C86">What it read in training</text>
-    <text class="fi" style="--d:1.4s" x="820" y="25" text-anchor="middle" font-size="26" font-weight="800" fill="#FFD23F">CUTOFF</text>
-    <text class="fi" style="--d:1.6s" x="1100" y="175" text-anchor="middle" font-size="26" fill="#8C8C86">? ? ?</text>
-    <text class="fi" style="--d:1.8s" x="1380" y="175" text-anchor="end" font-size="26" font-weight="800">Today</text>
+  <h2 class="fu title-c" style="--d:.1s">Every model has a knowledge cutoff date.</h2>
+  <svg style="margin-top:20px" width="1380" height="560" viewBox="0 0 1380 560">
+    <g data-step="1">
+      <g transform="translate(158,40) scale(.7)">
+    <g class="bookfield" transform="translate(360,170)"></g>
+    <circle cx="360" cy="170" r="110" fill="none" stroke="#F5F5F0" stroke-width="3" stroke-dasharray="6 8"/>
+    <g class="pop" style="--d:1.4s"><circle cx="360" cy="170" r="48" fill="#2EE59D"/><text x="360" y="172" text-anchor="middle" dominant-baseline="central" font-size="55">💃</text></g>
+        <text x="360" y="340" text-anchor="middle" font-size="30" font-weight="800">TRAINING</text>
+      </g>
+      <line class="draw" pathLength="1" x1="0" y1="420" x2="820" y2="420" stroke="#F5F5F0" stroke-width="6" style="--d:.2s"/>
+    </g>
+    <g data-step="2">
+      <rect class="pop" x="808" y="360" width="24" height="120" fill="#FFD23F" style="--d:.1s"/>
+      <text x="820" y="340" text-anchor="middle" font-size="26" font-weight="800" fill="#FFD23F">CUTOFF</text>
+    </g>
+    <g data-step="3">
+      <g transform="translate(368,40) scale(.7)">
+      
+      <line x1="770" y1="170" x2="1320" y2="170" stroke="#2A2A28" stroke-width="3"/>
+      <g transform="translate(770,148)">
+        <g class="q-in" style="--d:0s"><rect width="64" height="44" rx="22" fill="#F5F5F0"/><text x="32" y="23" text-anchor="middle" dominant-baseline="central" font-size="28" font-weight="800" style="fill:#0A0A0A">?</text></g>
+        <g class="q-in" style="--d:1.5s"><rect width="64" height="44" rx="22" fill="#F5F5F0"/><text x="32" y="23" text-anchor="middle" dominant-baseline="central" font-size="28" font-weight="800" style="fill:#0A0A0A">?</text></g>
+      </g>
+      <g transform="translate(1100,144)">
+        <g class="a-out" style="--d:.75s"><rect width="96" height="52" rx="12" fill="#2EE59D"/><g stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"><line x1="16" y1="17" x2="80" y2="17"/><line x1="16" y1="27" x2="70" y2="27"/><line x1="16" y1="37" x2="54" y2="37"/></g></g>
+        <g class="a-out" style="--d:2.25s"><rect width="96" height="52" rx="12" fill="#2EE59D"/><g stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"><line x1="16" y1="17" x2="80" y2="17"/><line x1="16" y1="27" x2="70" y2="27"/><line x1="16" y1="37" x2="54" y2="37"/></g></g>
+      </g>
+      <circle cx="1045" cy="170" r="48" fill="#2EE59D"/><text x="1045" y="172" text-anchor="middle" dominant-baseline="central" font-size="55">💃</text>
+      <text x="1045" y="340" text-anchor="middle" font-size="30" font-weight="800">INFERENCE</text>
+    </g>
+      <line x1="820" y1="420" x2="1380" y2="420" stroke="#8C8C86" stroke-width="6" stroke-dasharray="4 18" stroke-linecap="round"/>
+      <circle cx="1380" cy="420" r="16" fill="#F5F5F0"/>
+      <text x="1380" y="500" text-anchor="end" font-size="26" font-weight="800">Today</text>
+    </g>
   </svg>
-  <p data-step="2" style="margin-top:40px;max-width:1150px">Without web search it can't know what happened after the cutoff, and it may not <i>know</i> that it doesn't know.</p>
-  <span class="sticker guess" style="--r:-4deg;right:420px;top:24px;--sd:.6s"><svg viewBox="0 0 24 24"><path d="M4 3h16a2 2 0 012 2v10a2 2 0 01-2 2H10l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2zm7 11h2v-2h-2zm1-9a3 3 0 00-3 3h2a1 1 0 112 0c0 1-2 1.2-2 3h2c0-1.2 2-1.5 2-3a3 3 0 00-3-3z"/></svg>Your guess?</span>
-  <span class="sticker dyk" style="--r:5deg;right:120px;top:24px;--sd:2.2s" data-step="1"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 16h-2v-2h2zm2.1-7.7l-.9.9c-.7.7-1.2 1.3-1.2 2.8h-2v-.5c0-1.1.5-2.1 1.2-2.8l1.2-1.3a2 2 0 10-3.4-1.4H8a4 4 0 118 0c0 .9-.4 1.7-.9 2.3z"/></svg>Did you know?</span>
   <aside class="onscreen">
     Frozen dials have a side effect
     Ask it about last week's news. Why does it get it wrong?
@@ -846,7 +865,7 @@ aside.notes,aside.onscreen{display:none}
     Your guess?
     Did you know?
   </aside>
-  <aside class="notes">Ask why before revealing. Someone usually says "it's not connected to the internet", which is half right. Press → for the timeline. The dials froze on a particular day. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?"</aside>
+  <aside class="notes">Frozen dials have a side effect. Ask it about last week's news: why does it get it wrong? Someone usually says "it's not connected to the internet", which is half right. Every model has a knowledge cutoff date. [Click] Training: it reads everything up to a certain day. [Click] Then the dials freeze. That's the cutoff. [Click] After that, we only use it: inference, right up to today. Without web search it can't know what happened after the cutoff, and it may not even know that it doesn't know. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?"</aside>
 </section>
 
 <!-- ============================ 12. INFERENCE LOOP ============================ -->
@@ -1299,10 +1318,10 @@ stage.addEventListener('click',e=>{const r=stage.getBoundingClientRect();e.clien
 const NS='http://www.w3.org/2000/svg';
 const rand=(a,b)=>a+Math.random()*(b-a);
 // training: books and pages streaming into the model
-(function(){const g=document.getElementById('bookfield');const icons=['📕','📗','📘','📙','📄','📖','📚'];for(let i=0;i<26;i++){const t=document.createElementNS(NS,'text');const ang=rand(0,Math.PI*2),r=rand(170,320);
+document.querySelectorAll('.bookfield').forEach(g=>{const icons=['📕','📗','📘','📙','📄','📖','📚'];for(let i=0;i<26;i++){const t=document.createElementNS(NS,'text');const ang=rand(0,Math.PI*2),r=rand(170,320);
   t.textContent=icons[i%icons.length];t.setAttribute('class','book');t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','central');
   t.style.setProperty('--x',(Math.cos(ang)*r).toFixed(0)+'px');t.style.setProperty('--y',(Math.sin(ang)*r*0.5).toFixed(0)+'px');t.style.setProperty('--rot',rand(-40,40).toFixed(0)+'deg');
-  t.style.setProperty('--d',rand(0,3).toFixed(2)+'s');t.style.setProperty('--t',rand(2.2,3.4).toFixed(2)+'s');g.appendChild(t);}})();
+  t.style.setProperty('--d',rand(0,3).toFixed(2)+'s');t.style.setProperty('--t',rand(2.2,3.4).toFixed(2)+'s');g.appendChild(t);}});
 // pre-training: dense dots inside a circle
 (function(){const g=document.getElementById('denseDots');for(let i=0;i<70;i++){const a=rand(0,Math.PI*2),r=Math.sqrt(Math.random())*68;const c=document.createElementNS(NS,'circle');
   c.setAttribute('cx',(120+Math.cos(a)*r).toFixed(1));c.setAttribute('cy',(100+Math.sin(a)*r).toFixed(1));c.setAttribute('r','2.6');g.appendChild(c);}})();
