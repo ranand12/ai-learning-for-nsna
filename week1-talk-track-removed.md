@@ -120,3 +120,16 @@ If you remember one section from today, make it this one. Almost every "why did 
 **Say**
 
 Green circle with the dancer 💃 means a model, the brain. Blue hexagon means a harness, the app or agent wrapped around the brain. That split matters a lot in part 6. Red means a demo is coming. Purple means I'm going to ask you first: take a guess before I reveal the answer. Wrong guesses are the point; they make the answer stick.
+
+### Section 02 — Proprietary vs open weights
+
+**On screen**
+
+- 02
+- Proprietary vs
+- open weights
+- Who holds the file of numbers?
+
+**Say**
+
+Remember the file of dials? This whole section is about who gets to hold it.
