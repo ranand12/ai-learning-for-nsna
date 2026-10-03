@@ -197,6 +197,34 @@ aside.notes,aside.onscreen{display:none}
 @keyframes req{0%{transform:translateX(0);opacity:0}10%,75%{opacity:1}90%,100%{transform:translateX(250px);opacity:0}}
 @keyframes resp{0%{transform:translateX(0);opacity:0}10%,75%{opacity:1}90%,100%{transform:translateX(-250px);opacity:0}}
 .money{font-size:72px}
+/* frozen model, alone */
+.fm.fm-big{left:710px;top:360px;transform:scale(1.5)}
+.active .fm.fm-big{animation:fmBig .7s cubic-bezier(.3,1.5,.5,1) .15s both}
+@keyframes fmBig{from{transform:scale(0)}to{transform:scale(1.5)}}
+/* temperature: same next-word odds, sharpened (low) or flattened (high) by the thermometer state */
+.tsent{display:flex;align-items:center;gap:22px;font-size:64px;font-weight:700;letter-spacing:-.03em;margin-top:44px}
+.tblank{position:relative;display:inline-block;min-width:240px;height:80px;border-bottom:6px solid var(--fg)}
+.tblank span{position:absolute;left:0;right:0;bottom:6px;text-align:center;color:var(--model);opacity:0;transition:opacity .4s}
+.tblank .m{opacity:1}
+.tbars{display:flex;flex-direction:column;gap:16px;width:900px;margin-top:44px}
+.tbar{display:grid;grid-template-columns:140px 1fr 90px;align-items:center;gap:22px;font-size:28px}
+.tbar .track{height:30px;background:var(--faint);border-radius:4px;overflow:hidden}
+.tbar .fill{height:100%;width:var(--m);background:var(--fg);transition:width .9s cubic-bezier(.2,.7,.2,1)}
+.tbars:not(.shown) .fill{width:0}
+.tbar.win .fill{background:var(--model)}
+.tbar .pct{color:var(--dim);text-align:right}
+.tbar .pct span{display:none} .tbar .pct .m{display:inline}
+.thermo{position:absolute;left:1260px;top:300px;width:60px;height:420px;border:4px solid var(--fg);border-radius:30px;overflow:hidden}
+.thermo .lvl{position:absolute;left:0;right:0;bottom:0;height:50%;background:var(--dyk);transition:height 1s cubic-bezier(.2,.7,.2,1),background 1s}
+.thermo-ico{position:absolute;left:1290px;font-size:56px;transform:translateX(-50%)}
+.temp:has(.t-low.shown:not(.gone)) .fill{width:var(--lo)}
+.temp:has(.t-high.shown) .fill{width:var(--hi)}
+.temp:has(.t-low.shown:not(.gone)) .lvl{height:8%;background:var(--harness)}
+.temp:has(.t-high.shown) .lvl{height:94%;background:var(--demo)}
+.temp:has(.t-low.shown:not(.gone)) .tblank .m,.temp:has(.t-high.shown) .tblank .m{opacity:0}
+.temp:has(.t-low.shown:not(.gone)) .tblank .l,.temp:has(.t-high.shown) .tblank .h{opacity:1}
+.temp:has(.t-low.shown:not(.gone)) .pct .m,.temp:has(.t-high.shown) .pct .m{display:none}
+.temp:has(.t-low.shown:not(.gone)) .pct .l,.temp:has(.t-high.shown) .pct .h{display:inline}
 /* sort game: each name appears centre stage, then moves to its side on the next click ([data-move]) */
 .pick{position:absolute;left:800px;top:350px;font-size:26px;font-weight:700;padding:10px 24px;border:2px solid var(--fg);border-radius:999px;white-space:nowrap;z-index:4;
   transition:opacity .5s ease,transform .8s cubic-bezier(.5,0,.2,1),left .8s cubic-bezier(.5,0,.2,1),top .8s cubic-bezier(.5,0,.2,1),background .5s,color .5s,border-color .5s}
@@ -753,6 +781,43 @@ aside.notes,aside.onscreen{display:none}
     B = billion dials. Rough rule for compressed ("4-bit") models: ~0.6 GB of memory per billion. A rule of thumb, not a spec.
   </aside>
   <aside class="notes">So I can run these models for free? [Click] Mostly yes, but the file has to fit on your machine. Bigger file, bigger machine. B means billion dials. Rough rule for compressed, "4-bit" models: about 0.6 GB of memory per billion. A small model, around 8 billion, is about 5 GB and runs on a laptop, even a phone. [Click] Around 30 billion, about 20 GB: a strong laptop or a Mac. [Click] Around 70 billion, about 40 GB: a workstation with a big GPU. [Click] And the giants, 670 billion and up, about 400 GB: that's a data center. [Click] Which is why this man is dancing: every one of those data centers runs on Nvidia chips. Most people run the small ones locally and use the big ones through a hosted service.</aside>
+</section>
+
+<!-- ============================ 10f. FROZEN MODEL ============================ -->
+<section class="slide">
+  <div class="fm fm-big">💃</div>
+  <aside class="onscreen">
+    (frozen model only)
+  </aside>
+  <aside class="notes">Back to our frozen model. Closed or open, their data center or your laptop, it's the same thing underneath: one frozen file of numbers. The dials never change. So here's a puzzle: if the dials never change, why do you get a different answer every time you hit regenerate?</aside>
+</section>
+
+<!-- ============================ 10g. TEMPERATURE ============================ -->
+<section class="slide temp">
+  <h2 class="fu title-xl" style="--d:.1s">Temperature.</h2>
+  <div class="tsent" data-step="1">The color of the sky is <span class="tblank"><span class="m">?</span><span class="l">blue</span><span class="h">orange</span></span></div>
+  <div class="tbars" data-step="2">
+      <div class="tbar win" style="--m:62%;--lo:97%;--hi:30%"><span>blue</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">62%</span><span class="l">97%</span><span class="h">30%</span></span></div>
+      <div class="tbar" style="--m:14%;--lo:2%;--hi:22%"><span>grey</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">14%</span><span class="l">2%</span><span class="h">22%</span></span></div>
+      <div class="tbar" style="--m:10%;--lo:1%;--hi:19%"><span>clear</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">10%</span><span class="l">1%</span><span class="h">19%</span></span></div>
+      <div class="tbar" style="--m:6%;--lo:0%;--hi:15%"><span>black</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">6%</span><span class="l">0%</span><span class="h">15%</span></span></div>
+      <div class="tbar" style="--m:4%;--lo:0%;--hi:14%"><span>orange</span><div class="track"><div class="fill"></div></div><span class="pct"><span class="m">4%</span><span class="l">0%</span><span class="h">14%</span></span></div>
+  </div>
+  <div data-step="3">
+    <span class="thermo-ico" style="top:225px">🔥</span>
+    <div class="thermo"><div class="lvl"></div></div>
+    <span class="thermo-ico" style="top:735px">🧊</span>
+  </div>
+  <span class="t-low" data-step="3" data-hide="4"></span>
+  <span class="t-high" data-step="4"></span>
+  <aside class="onscreen">
+    Temperature.
+    The color of the sky is ___
+    blue 62% · grey 14% · clear 10% · black 6% · orange 4%
+    Low temperature: blue 97% · grey 2% · clear 1% · black 0% · orange 0% → "blue"
+    High temperature: blue 30% · grey 22% · clear 19% · black 15% · orange 14% → "orange"
+  </aside>
+  <aside class="notes">The answer is a setting called temperature. Same frozen model, same odds; temperature just changes how it picks. [Click] The color of the sky is... what? [Click] Here are the model's odds. Blue is the clear favorite, but grey, clear, black and orange all have a chance. These numbers are illustrative. [Click] Turn the temperature down, close to zero, and the favorite gets even stronger. It picks "blue" practically every time. Low temperature means predictable, almost deterministic. Good for facts, code, and data extraction. [Click] Turn it up and the odds flatten out. Now "orange" has a real shot, and sometimes it wins: hello, sunset. High temperature means more varied, more surprising, more creative. And more likely to go off the rails. Most chat apps sit somewhere in the middle, which is why regenerate gives you a different answer each time.</aside>
 </section>
 
 <!-- ============================ 11. DYK: CUTOFF ============================ -->

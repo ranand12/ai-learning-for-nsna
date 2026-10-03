@@ -238,7 +238,31 @@ Let's zoom in on the closed one. [Click] When you use ChatGPT or Claude, or a de
 
 So I can run these models for free? [Click] Mostly yes, but the file has to fit on your machine. Bigger file, bigger machine. B means billion dials. Rough rule for compressed, "4-bit" models: about 0.6 GB of memory per billion. A small model, around 8 billion, is about 5 GB and runs on a laptop, even a phone. [Click] Around 30 billion, about 20 GB: a strong laptop or a Mac. [Click] Around 70 billion, about 40 GB: a workstation with a big GPU. [Click] And the giants, 670 billion and up, about 400 GB: that's a data center. [Click] Which is why this man is dancing: every one of those data centers runs on Nvidia chips. Most people run the small ones locally and use the big ones through a hosted service.
 
-## 15. Dyk: Cutoff — Ask it about last week's news. Why does it get it wrong?
+## 15. Frozen Model
+
+**On screen**
+
+- (frozen model only)
+
+**Say**
+
+Back to our frozen model. Closed or open, their data center or your laptop, it's the same thing underneath: one frozen file of numbers. The dials never change. So here's a puzzle: if the dials never change, why do you get a different answer every time you hit regenerate?
+
+## 16. Temperature — Temperature.
+
+**On screen**
+
+- Temperature.
+- The color of the sky is ___
+- blue 62% · grey 14% · clear 10% · black 6% · orange 4%
+- Low temperature: blue 97% · grey 2% · clear 1% · black 0% · orange 0% → "blue"
+- High temperature: blue 30% · grey 22% · clear 19% · black 15% · orange 14% → "orange"
+
+**Say**
+
+The answer is a setting called temperature. Same frozen model, same odds; temperature just changes how it picks. [Click] The color of the sky is... what? [Click] Here are the model's odds. Blue is the clear favorite, but grey, clear, black and orange all have a chance. These numbers are illustrative. [Click] Turn the temperature down, close to zero, and the favorite gets even stronger. It picks "blue" practically every time. Low temperature means predictable, almost deterministic. Good for facts, code, and data extraction. [Click] Turn it up and the odds flatten out. Now "orange" has a real shot, and sometimes it wins: hello, sunset. High temperature means more varied, more surprising, more creative. And more likely to go off the rails. Most chat apps sit somewhere in the middle, which is why regenerate gives you a different answer each time.
+
+## 17. Dyk: Cutoff — Ask it about last week's news. Why does it get it wrong?
 
 **On screen**
 
@@ -256,7 +280,7 @@ So I can run these models for free? [Click] Mostly yes, but the file has to fit 
 
 Ask why before revealing. Someone usually says "it's not connected to the internet", which is half right. Press → for the timeline. The dials froze on a particular day. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?"
 
-## 16. Inference Loop — One token at a time, on a loop.
+## 18. Inference Loop — One token at a time, on a loop.
 
 **On screen**
 
@@ -276,7 +300,7 @@ Ask why before revealing. Someone usually says "it's not connected to the intern
 
 White chips are what you typed. Green chips are what the model writes, one at a time. After each one it re-reads the whole thing and picks the next. That's why answers stream in word by word. It isn't typing for effect; it really does produce text one piece at a time.
 
-## 17. Demo: Streaming — Same question, different answer. Why?
+## 19. Demo: Streaming — Same question, different answer. Why?
 
 **On screen**
 
@@ -294,7 +318,7 @@ White chips are what you typed. Green chips are what the model writes, one at a 
 
 Run this live. Ask for the story, then hit regenerate two or three times. Ask the room why it changed and take a few guesses before pressing → to reveal. Link it back to the bar chart: it doesn't always take the 62% word, sometimes it takes the 14% one. That randomness is what makes it creative, and also why it's sometimes inconsistent.
 
-## 18. Section 02 — Proprietary vs open weights
+## 20. Section 02 — Proprietary vs open weights
 
 **On screen**
 
@@ -307,7 +331,7 @@ Run this live. Ask for the story, then hit regenerate two or three times. Ask th
 
 Remember the file of dials? This whole section is about who gets to hold it.
 
-## 19. Quiz: Offline — Can you run ChatGPT on your laptop with the Wi-Fi off?
+## 21. Quiz: Offline — Can you run ChatGPT on your laptop with the Wi-Fi off?
 
 **On screen**
 
@@ -324,7 +348,7 @@ Remember the file of dials? This whole section is about who gets to hold it.
 
 Take a show of hands for A, B and C. Most people pick A or B. Press → to strike the wrong ones, then → again for the reason. That reason is this whole section.
 
-## 20. Vault Vs Zip — A vault, or a zip file.
+## 22. Vault Vs Zip — A vault, or a zip file.
 
 **On screen**
 
@@ -342,7 +366,7 @@ Take a show of hands for A, B and C. Most people pick A or B. Press → to strik
 
 Proprietary is a vault. The dials never leave the building, and you pay to send questions in and get answers out. Open weights is a zip file: the company publishes the numbers and you can download and run them yourself. Nuance for the curious: open weights usually doesn't mean open source. You get the trained model, not the data or the training code.
 
-## 21. What Changes — Training looks the same. Everything after it differs.
+## 23. What Changes — Training looks the same. Everything after it differs.
 
 **On screen**
 
@@ -370,7 +394,7 @@ Proprietary is a vault. The dials never leave the building, and you pay to send 
 
 Pre-training and post-training happen the same way either way. The difference is what happens to the file afterwards. The main trade-off is privacy and control versus convenience and peak capability. For most people in this room, proprietary through an app is the right starting point. Open weights starts to matter for sensitive data, offline use, or cost at scale.
 
-## 22. Demo: Offline — Run an AI with the Wi-Fi off.
+## 24. Demo: Offline — Run an AI with the Wi-Fi off.
 
 **On screen**
 
@@ -389,7 +413,7 @@ Pre-training and post-training happen the same way either way. The difference is
 
 Pre-download the model before the session because it's several gigabytes. Pull the Wi-Fi on stage and it keeps working. That's the moment "open weights" clicks for people. Point out that it's slower and less capable than the frontier models, which is exactly the trade-off from the table.
 
-## 23. Section 03 — Tokens & the context window
+## 25. Section 03 — Tokens & the context window
 
 **On screen**
 
@@ -402,7 +426,7 @@ Pre-download the model before the session because it's several gigabytes. Pull t
 
 If you remember one section from today, make it this one. Almost every "why did the AI do that?" moment traces back to it.
 
-## 24. Tokens — They read tokens: chunks of text.
+## 26. Tokens — They read tokens: chunks of text.
 
 **On screen**
 
@@ -420,7 +444,7 @@ If you remember one section from today, make it this one. Almost every "why did 
 
 A token is a chunk, usually part of a word. Common words are a single token, rare words get split up. Why care? Because limits, pricing and memory are all counted in tokens, not words. Rule of thumb: a thousand tokens is about 750 words.
 
-## 25. Demo: Tokenizer — See your own words get chopped up.
+## 27. Demo: Tokenizer — See your own words get chopped up.
 
 **On screen**
 
@@ -437,7 +461,7 @@ A token is a chunk, usually part of a word. Common words are a single token, rar
 
 Names are fun because unusual names get split into strange pieces. The other-language comparison usually gets a reaction: the same meaning can cost two or three times as many tokens. That means non-English users hit limits sooner and pay more.
 
-## 26. Dyk: Strawberry — "How many r's are in strawberry?"
+## 28. Dyk: Strawberry — "How many r's are in strawberry?"
 
 **On screen**
 
@@ -457,7 +481,7 @@ Names are fun because unusual names get split into strange pieces. The other-lan
 
 Vote first: A, B or C? It's 3, so press → to mark it. Then ask the real question, why would a smart model say 2, and let people guess before the final →. This is the best example of tokens leaking through. A model that can write a legal brief used to fail at counting letters, because it doesn't see letters. The lesson generalizes: be skeptical of AI for letter counts, exact character limits and precise arithmetic unless it's using a tool.
 
-## 27. Context Window — The model's desk.
+## 29. Context Window — The model's desk.
 
 **On screen**
 
@@ -477,7 +501,7 @@ Vote first: A, B or C? It's 3, so press → to mark it. Then ask the real questi
 
 Picture a desk. Whatever is on the desk, the model can see. Anything off the desk doesn't exist for it. Every message, every reply, every file you upload goes on the desk and takes up space. Even the app's hidden instructions sit there. Desks are big now, hundreds of pages, but they're not infinite.
 
-## 28. Quiz: Where Is It Stored — You told it your name ten messages ago. Where is your name stored right now?
+## 30. Quiz: Where Is It Stored — You told it your name ten messages ago. Where is your name stored right now?
 
 **On screen**
 
@@ -493,7 +517,7 @@ Picture a desk. Whatever is on the desk, the model can see. Anything off the des
 
 Most people pick B, and some pick A. Remind them of the frozen dials: that rules out A. Press → to reveal C, then → for the one-liner. The next slide shows what that looks like.
 
-## 29. Stateless — Stateless.
+## 31. Stateless — Stateless.
 
 **On screen**
 
@@ -511,7 +535,7 @@ Most people pick B, and some pick A. Remind them of the frozen dials: that rules
 
 This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch.
 
-## 30.  — That's the app, not the model.
+## 32.  — That's the app, not the model.
 
 **On screen**
 
@@ -531,7 +555,7 @@ This surprises almost everyone. The model has no memory. [Click] Turn 1: you sen
 
 Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have memory features. But that memory lives in the app, not the model. The app writes sticky notes about you and pastes them onto the desk before you type. The model is still stateless underneath. This is our first look at the harness, the blue hexagon, and we'll unpack it properly in part 6.
 
-## 31. Desk Fills Up — Three hours into one chat.
+## 33. Desk Fills Up — Three hours into one chat.
 
 **On screen**
 
@@ -552,7 +576,7 @@ Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have m
 
 Three hours into one chat. [Click] You've been at it all night, like a phone call that never ends. Ask it straight: is it sharper now, or sloppier? Most people assume it's gotten to know them. Answer: sloppier. Long chats get worse, not better. Three things go wrong on a full desk. [Click] One: [Click] the oldest stuff gets dropped, or squashed into a summary, which is why it "forgets" what you said an hour ago. [Click] Two: [Click] every turn costs more. It re-reads the whole desk each time, so it gets slower and you hit usage limits sooner. [Click] Three, the sneaky one: [Click] lost in the middle. Models pay most attention to the beginning and end, and the middle blurs. Imagine one sticky note tucked into a thousand-page book. We'll fix this in part 10, context engineering.
 
-## 32. Demo: Forgetful — The forgetful genius.
+## 34. Demo: Forgetful — The forgetful genius.
 
 **On screen**
 
@@ -570,7 +594,7 @@ Three hours into one chat. [Click] You've been at it all night, like a phone cal
 
 Results depend on whether memory is on, and either result teaches something. If it remembers, ask: where did that come from? The app's sticky notes. If it doesn't, that's the stateless model. Temporary or incognito chat modes are the cleanest way to show it.
 
-## 33. Checkpoint — If you forget everything else…
+## 35. Checkpoint — If you forget everything else…
 
 **On screen**
 
