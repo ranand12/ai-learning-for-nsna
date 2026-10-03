@@ -244,3 +244,23 @@ Results depend on whether memory is on, and either result teaches something. If 
 **Say**
 
 Three sentences. If people leave with these, they'll already use AI better than most. The Ask AI sticker is the habit I want: when a concept feels fuzzy, have the AI teach it back to you at your level. Next: how to actually get your hands on Claude, Grok, GPT, DeepSeek and the rest.
+
+### Inference Loop — One token at a time, on a loop.
+
+**On screen**
+
+- What happens when you hit enter
+- One token at a time, on a loop.
+- ThecapitalofFranceis Paris.Itisknownfor…
+- 1 · Read
+- Take in everything written so far.
+- 2 · Score
+- Rate every possible next token.
+- 3 · Pick
+- Choose one. A bit of randomness is allowed.
+- 4 · Repeat
+- Stick it on the end and go again.
+
+**Say**
+
+White chips are what you typed. Green chips are what the model writes, one at a time. After each one it re-reads the whole thing and picks the next. That's why answers stream in word by word. It isn't typing for effect; it really does produce text one piece at a time.
