@@ -462,6 +462,25 @@ Before we go on, one thing people mix up all the time. [Click] This is the model
 
 So what's an AI agent? It's the same model, the same LLM we've been talking about all day. The only difference: now it can do things between answers. It can read files, the web or your data, use tools and apps, take actions, see what happened, and decide what to do next. Let's watch one work. [Click] You give it a goal: "Find me the cheapest flight and add it to my calendar." [Click] That goes into the context window, the desk we just talked about. The agent understands your request. [Click] The model thinks: what do I need to do first? [Click] It decides to use a tool: search flights. Strictly speaking, the model can't click anything. It just writes a request, "search flights for Friday", and the app around it runs the tool for it. [Click] And here's the key part: the result comes back into the context window. Fourteen flights, now sitting on the desk. [Click] Then it thinks again, with that new information, and picks the best match: Friday 7am, 89 dollars. That's the loop: context, think, use a tool, result back into context, think again, repeat. [Click] Next tool: check your calendar. [Click] Context updated: Friday morning is free. [Click] Last tool: create the calendar event. [Click] Done. [Click] So what's the agent? It's not the dancer in the middle. The model is still just the brain, called again on every lap of the loop. The agent is the whole package: the model, its desk, its tools, and the app running the loop. We'll draw agents as this guy from now on. Notice it never stopped being a next-word guesser. Everything it learned along the way just landed on its desk as more tokens. Which also means a long task fills up that context window fast.
 
+## 31. Chat Vs Agent — Chat vs agent.
+
+**On screen**
+
+- Chat vs agent.
+- 🧑‍💻 “Find me the cheapest flight and add it to my calendar.”
+- Left: 💃 (model, green circle) · Chat
+- White reply bubble: ✈️ Here are 3 cheap flights. Now go book one yourself.
+- 😩 You do the clicking
+- Divider
+- Right: 🕵️ (agent spy in green circle) · Agent
+- 🔁 🔍 → 📅 → 📝 (loop through tools)
+- ✅ Booked · on your calendar
+- Answers. (left) · Does. (green, right)
+
+**Say**
+
+So let's put the two side by side. [Click] Same request as before: find me the cheapest flight and add it to my calendar. [Click] First, a plain chat. Just the model. [Click] It gives you a nice answer: here are three cheap flights. And then it stops. [Click] You still open the airline site, you still book it, you still open your calendar. You do the clicking. [Click] Now the agent. [Click] It goes round the loop we just saw: search flights, check the calendar, create the event, as many laps as it needs. [Click] And it comes back with the job done: booked, and on your calendar. [Click] That's the whole difference. A chat answers. An agent does. Same brain inside; the agent just keeps going until the task is finished.
+
 
 ---
 
