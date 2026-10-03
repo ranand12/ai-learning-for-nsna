@@ -810,11 +810,13 @@ aside.notes,aside.onscreen{display:none}
 <section class="slide">
   <div class="fm fm-big">💃</div>
   <img data-step="1" src="gifs/vadivelu-thinking.gif" alt="" style="position:absolute;left:1120px;top:270px;width:246px;height:360px;border-radius:16px;border:3px solid #2A2A28">
+  <span class="sticker demo" style="--r:-4deg;right:110px;top:26px;--sd:.5s;font-size:16px;padding:8px 18px 8px 14px"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M6 3l15 9-15 9z"/></svg>Live demo</span>
   <aside class="onscreen">
+    Live demo
     (frozen model only)
     Vadivelu thinking (GIF)
   </aside>
-  <aside class="notes">Back to our frozen model. Closed or open, their data center or your laptop, it's the same thing underneath: one frozen file of numbers. The dials never change. [Click] So here's a puzzle: if the dials never change, why do you get a different answer every time you hit regenerate?</aside>
+  <aside class="notes">Back to our frozen model. Closed or open, their data center or your laptop, it's the same thing underneath: one frozen file of numbers. The dials never change. [Click] So here's a puzzle: if the dials never change, why do you get a different answer every time you hit regenerate? Live demo: open any chat app, ask the same question twice with regenerate, and compare the answers.</aside>
 </section>
 
 <!-- ============================ 10g. TEMPERATURE ============================ -->
@@ -887,7 +889,9 @@ aside.notes,aside.onscreen{display:none}
       <text x="1380" y="500" text-anchor="end" font-size="26" font-weight="800">Today</text>
     </g>
   </svg>
+  <span class="sticker demo" style="--r:-4deg;right:110px;top:26px;--sd:.5s;font-size:16px;padding:8px 18px 8px 14px"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M6 3l15 9-15 9z"/></svg>Live demo</span>
   <aside class="onscreen">
+    Live demo
     Frozen dials have a side effect
     Ask it about last week's news. Why does it get it wrong?
     Every model has a knowledge cutoff date.
@@ -898,7 +902,7 @@ aside.notes,aside.onscreen{display:none}
     Your guess?
     Did you know?
   </aside>
-  <aside class="notes">Frozen dials have a side effect. Ask it about last week's news: why does it get it wrong? Someone usually says "it's not connected to the internet", which is half right. Every model has a knowledge cutoff date. [Click] Training: it reads everything up to a certain day. [Click] Then the dials freeze. That's the cutoff. [Click] After that, we only use it: inference, right up to today. Without web search it can't know what happened after the cutoff, and it may not even know that it doesn't know. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?"</aside>
+  <aside class="notes">Frozen dials have a side effect. Ask it about last week's news: why does it get it wrong? Someone usually says "it's not connected to the internet", which is half right. Every model has a knowledge cutoff date. [Click] Training: it reads everything up to a certain day. [Click] Then the dials freeze. That's the cutoff. [Click] After that, we only use it: inference, right up to today. Without web search it can't know what happened after the cutoff, and it may not even know that it doesn't know. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?" Live demo: ask a model "What's your knowledge cutoff?" and then ask about something from last week, with web search off.</aside>
 </section>
 
 <!-- ============================ 12. INFERENCE LOOP ============================ -->
@@ -1095,7 +1099,9 @@ aside.notes,aside.onscreen{display:none}
       <img src="gifs/ghajini.gif" alt="" style="width:400px;height:225px;border-radius:14px;border:3px solid #2A2A28">
     </div>
   </div>
+  <span class="sticker demo" style="--r:-4deg;right:110px;top:26px;--sd:.5s;font-size:16px;padding:8px 18px 8px 14px"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M6 3l15 9-15 9z"/></svg>Live demo</span>
   <aside class="onscreen">
+    Live demo
     The surprising part
     The model remembers nothing between turns.
     Turn 1: You 1 → model
@@ -1106,7 +1112,7 @@ aside.notes,aside.onscreen{display:none}
     Stateless.
     Model = Ghajini (GIF)
   </aside>
-  <aside class="notes">This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far, puts it all in the context window, and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch.</aside>
+  <aside class="notes">This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far, puts it all in the context window, and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch. Live demo: tell a chat your favorite color, open a new chat, and ask what it is.</aside>
 </section>
 
 <!-- ============================ 25. MEMORY = HARNESS ============================ -->

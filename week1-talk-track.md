@@ -209,12 +209,13 @@ So I can run these models for free? [Click] Mostly yes, but the file has to fit 
 
 **On screen**
 
+- Live demo
 - (frozen model only)
 - Vadivelu thinking (GIF)
 
 **Say**
 
-Back to our frozen model. Closed or open, their data center or your laptop, it's the same thing underneath: one frozen file of numbers. The dials never change. [Click] So here's a puzzle: if the dials never change, why do you get a different answer every time you hit regenerate?
+Back to our frozen model. Closed or open, their data center or your laptop, it's the same thing underneath: one frozen file of numbers. The dials never change. [Click] So here's a puzzle: if the dials never change, why do you get a different answer every time you hit regenerate? Live demo: open any chat app, ask the same question twice with regenerate, and compare the answers.
 
 ## 15. Temperature
 
@@ -235,6 +236,7 @@ The answer is a setting called temperature. It's a dial in every large language 
 
 **On screen**
 
+- Live demo
 - Frozen dials have a side effect
 - Ask it about last week's news. Why does it get it wrong?
 - Every model has a knowledge cutoff date.
@@ -247,7 +249,7 @@ The answer is a setting called temperature. It's a dial in every large language 
 
 **Say**
 
-Frozen dials have a side effect. Ask it about last week's news: why does it get it wrong? Someone usually says "it's not connected to the internet", which is half right. Every model has a knowledge cutoff date. [Click] Training: it reads everything up to a certain day. [Click] Then the dials freeze. That's the cutoff. [Click] After that, we only use it: inference, right up to today. Without web search it can't know what happened after the cutoff, and it may not even know that it doesn't know. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?"
+Frozen dials have a side effect. Ask it about last week's news: why does it get it wrong? Someone usually says "it's not connected to the internet", which is half right. Every model has a knowledge cutoff date. [Click] Training: it reads everything up to a certain day. [Click] Then the dials freeze. That's the cutoff. [Click] After that, we only use it: inference, right up to today. Without web search it can't know what happened after the cutoff, and it may not even know that it doesn't know. Anything after that, the model simply never read. That's why "search the web" buttons exist, and why a model will sometimes confidently tell you the wrong CEO or last year's price. Try it: ask any model "What's your knowledge cutoff?" Live demo: ask a model "What's your knowledge cutoff?" and then ask about something from last week, with web search off.
 
 ## 17. Inference Loop — One token at a time, on a loop.
 
@@ -361,6 +363,7 @@ Three hours into one chat. [Click] You've been at it all night, like a phone cal
 
 **On screen**
 
+- Live demo
 - The surprising part
 - The model remembers nothing between turns.
 - Turn 1: You 1 → model
@@ -373,7 +376,7 @@ Three hours into one chat. [Click] You've been at it all night, like a phone cal
 
 **Say**
 
-This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far, puts it all in the context window, and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch.
+This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far, puts it all in the context window, and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch. Live demo: tell a chat your favorite color, open a new chat, and ask what it is.
 
 ## 24.  — That's the app, not the model.
 
