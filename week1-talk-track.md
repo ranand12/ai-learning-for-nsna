@@ -210,10 +210,11 @@ So I can run these models for free? [Click] Mostly yes, but the file has to fit 
 **On screen**
 
 - (frozen model only)
+- Chat star (GIF)
 
 **Say**
 
-Back to our frozen model. Closed or open, their data center or your laptop, it's the same thing underneath: one frozen file of numbers. The dials never change. So here's a puzzle: if the dials never change, why do you get a different answer every time you hit regenerate?
+Back to our frozen model. Closed or open, their data center or your laptop, it's the same thing underneath: one frozen file of numbers. The dials never change. [Click] So here's a puzzle: if the dials never change, why do you get a different answer every time you hit regenerate?
 
 ## 15. Temperature
 
@@ -268,25 +269,7 @@ Frozen dials have a side effect. Ask it about last week's news: why does it get 
 
 White chips are what you typed. Green chips are what the model writes, one at a time. After each one it re-reads the whole thing and picks the next. That's why answers stream in word by word. It isn't typing for effect; it really does produce text one piece at a time.
 
-## 18. Demo: Streaming — Same question, different answer. Why?
-
-**On screen**
-
-- Try it
-- Same question, different answer. Why?
-- Open any chat app (ChatGPT, Claude, Gemini).
-- Ask: Write a 6-word story about Mondays.
-- Watch it stream, token by token.
-- Hit regenerate. Compare.
-- Different answers come from the "Pick" step: it samples from the odds instead of always taking the top word.
-- Live demo
-- Free
-
-**Say**
-
-Run this live. Ask for the story, then hit regenerate two or three times. Ask the room why it changed and take a few guesses before pressing → to reveal. Link it back to the bar chart: it doesn't always take the 62% word, sometimes it takes the 14% one. That randomness is what makes it creative, and also why it's sometimes inconsistent.
-
-## 19. Tokens — They read tokens.
+## 18. Tokens — They read tokens.
 
 **On screen**
 
@@ -304,7 +287,7 @@ Run this live. Ask for the story, then hit regenerate two or three times. Ask th
 
 Models don't read letters or words. They read tokens: chunks of text. [Click] And tokens are the currency of AI models. Limits, pricing and memory are all counted in tokens, not words. When you pay per use, you're paying per token. [Click] A token is a chunk, usually part of a word. "Unbelievable" becomes un, believ, able. Common words are a single token, rare words get split up. [Click] In English, a token is about 4 characters, [Click] or roughly three-quarters of a word. [Click] Rule of thumb: a thousand tokens is about 750 words, about a page and a half. Other languages, code and emoji usually take more tokens for the same meaning, and exact splits vary by model.
 
-## 20. Demo: Tokenizer — See your own words get chopped up.
+## 19. Demo: Tokenizer — See your own words get chopped up.
 
 **On screen**
 
@@ -321,7 +304,7 @@ Models don't read letters or words. They read tokens: chunks of text. [Click] An
 
 Names are fun because unusual names get split into strange pieces. The other-language comparison usually gets a reaction: the same meaning can cost two or three times as many tokens. That means non-English users hit limits sooner and pay more.
 
-## 21. Context Window — The model's desk.
+## 20. Context Window — The model's desk.
 
 **On screen**
 
@@ -341,7 +324,7 @@ Names are fun because unusual names get split into strange pieces. The other-lan
 
 Picture a desk. Whatever is on the desk, the model can see. Anything off the desk doesn't exist for it. Every message, every reply, every file you upload goes on the desk and takes up space. Even the app's hidden instructions sit there. Desks are big now, hundreds of pages, but they're not infinite.
 
-## 22. Stateless — Stateless.
+## 21. Stateless — Stateless.
 
 **On screen**
 
@@ -359,7 +342,7 @@ Picture a desk. Whatever is on the desk, the model can see. Anything off the des
 
 This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch.
 
-## 23.  — That's the app, not the model.
+## 22.  — That's the app, not the model.
 
 **On screen**
 
@@ -379,7 +362,7 @@ This surprises almost everyone. The model has no memory. [Click] Turn 1: you sen
 
 Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have memory features. But that memory lives in the app, not the model. The app writes sticky notes about you and pastes them onto the desk before you type. The model is still stateless underneath. This is our first look at the harness, the blue hexagon, and we'll unpack it properly in part 6.
 
-## 24. Desk Fills Up — Three hours into one chat.
+## 23. Desk Fills Up — Three hours into one chat.
 
 **On screen**
 
@@ -400,7 +383,7 @@ Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have m
 
 Three hours into one chat. [Click] You've been at it all night, like a phone call that never ends. Ask it straight: is it sharper now, or sloppier? Most people assume it's gotten to know them. Answer: sloppier. Long chats get worse, not better. Three things go wrong on a full desk. [Click] One: [Click] the oldest stuff gets dropped, or squashed into a summary, which is why it "forgets" what you said an hour ago. [Click] Two: [Click] every turn costs more. It re-reads the whole desk each time, so it gets slower and you hit usage limits sooner. [Click] Three, the sneaky one: [Click] lost in the middle. Models pay most attention to the beginning and end, and the middle blurs. Imagine one sticky note tucked into a thousand-page book. We'll fix this in part 10, context engineering.
 
-## 25. Demo: Forgetful — The forgetful genius.
+## 24. Demo: Forgetful — The forgetful genius.
 
 **On screen**
 
@@ -418,7 +401,7 @@ Three hours into one chat. [Click] You've been at it all night, like a phone cal
 
 Results depend on whether memory is on, and either result teaches something. If it remembers, ask: where did that come from? The app's sticky notes. If it doesn't, that's the stateless model. Temporary or incognito chat modes are the cleanest way to show it.
 
-## 26. Checkpoint — If you forget everything else…
+## 25. Checkpoint — If you forget everything else…
 
 **On screen**
 
@@ -437,7 +420,7 @@ Results depend on whether memory is on, and either result teaches something. If 
 
 Three sentences. If people leave with these, they'll already use AI better than most. The Ask AI sticker is the habit I want: when a concept feels fuzzy, have the AI teach it back to you at your level. Next: how to actually get your hands on Claude, Grok, GPT, DeepSeek and the rest.
 
-## 27. Subscription Vs Tokens — Subscription or pay per token?
+## 26. Subscription Vs Tokens — Subscription or pay per token?
 
 **On screen**
 
@@ -448,7 +431,7 @@ Three sentences. If people leave with these, they'll already use AI better than 
 
 Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
 
-## 28. Worth Paying? — Is it worth paying?
+## 27. Worth Paying? — Is it worth paying?
 
 **On screen**
 
@@ -635,3 +618,21 @@ Vote first: A, B or C? It's 3, so press → to mark it. Then ask the real questi
 **Say**
 
 Most people pick B, and some pick A. Remind them of the frozen dials: that rules out A. Press → to reveal C, then → for the one-liner. The next slide shows what that looks like.
+
+### Demo: Streaming — Same question, different answer. Why?
+
+**On screen**
+
+- Try it
+- Same question, different answer. Why?
+- Open any chat app (ChatGPT, Claude, Gemini).
+- Ask: Write a 6-word story about Mondays.
+- Watch it stream, token by token.
+- Hit regenerate. Compare.
+- Different answers come from the "Pick" step: it samples from the odds instead of always taking the top word.
+- Live demo
+- Free
+
+**Say**
+
+Run this live. Ask for the story, then hit regenerate two or three times. Ask the room why it changed and take a few guesses before pressing → to reveal. Link it back to the bar chart: it doesn't always take the 62% word, sometimes it takes the 14% one. That randomness is what makes it creative, and also why it's sometimes inconsistent.

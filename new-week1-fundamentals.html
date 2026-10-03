@@ -778,10 +778,12 @@ aside.notes,aside.onscreen{display:none}
 <!-- ============================ 10f. FROZEN MODEL ============================ -->
 <section class="slide">
   <div class="fm fm-big">💃</div>
+  <img data-step="1" src="gifs/chat-star.gif" alt="" style="position:absolute;left:1060px;top:300px;width:374px;height:300px;border-radius:16px;border:3px solid #2A2A28">
   <aside class="onscreen">
     (frozen model only)
+    Chat star (GIF)
   </aside>
-  <aside class="notes">Back to our frozen model. Closed or open, their data center or your laptop, it's the same thing underneath: one frozen file of numbers. The dials never change. So here's a puzzle: if the dials never change, why do you get a different answer every time you hit regenerate?</aside>
+  <aside class="notes">Back to our frozen model. Closed or open, their data center or your laptop, it's the same thing underneath: one frozen file of numbers. The dials never change. [Click] So here's a puzzle: if the dials never change, why do you get a different answer every time you hit regenerate?</aside>
 </section>
 
 <!-- ============================ 10g. TEMPERATURE ============================ -->
@@ -896,33 +898,6 @@ aside.notes,aside.onscreen{display:none}
     Stick it on the end and go again.
   </aside>
   <aside class="notes">White chips are what you typed. Green chips are what the model writes, one at a time. After each one it re-reads the whole thing and picks the next. That's why answers stream in word by word. It isn't typing for effect; it really does produce text one piece at a time.</aside>
-</section>
-
-<!-- ============================ 13. DEMO: STREAMING ============================ -->
-<section class="slide">
-  <div class="kicker fu">Try it</div>
-  <h2 class="fu" style="--d:.1s">Same question, different answer. Why?</h2>
-  <ol class="demo-steps">
-    <li class="fu" style="--d:.3s"><span>Open any chat app (ChatGPT, Claude, Gemini).</span></li>
-    <li class="fu" style="--d:.45s"><span>Ask: <span class="prompt">Write a 6-word story about Mondays.</span></span></li>
-    <li class="fu" style="--d:.6s"><span>Watch it stream, token by token.</span></li>
-    <li class="fu" style="--d:.75s"><span>Hit <b>regenerate</b>. Compare.</span></li>
-  </ol>
-  <p class="dim" data-step="1" style="margin-top:50px">Different answers come from the <b style="color:#F5F5F0">"Pick"</b> step: it samples from the odds instead of always taking the top word.</p>
-  <span class="sticker demo" style="--r:-5deg;right:260px;top:24px;--sd:.9s"><svg viewBox="0 0 24 24"><path d="M6 3l15 9-15 9z"/></svg>Live demo</span>
-  <span class="sticker free" style="--r:6deg;right:110px;top:24px;--sd:1.1s">Free</span>
-  <aside class="onscreen">
-    Try it
-    Same question, different answer. Why?
-    Open any chat app (ChatGPT, Claude, Gemini).
-    Ask: Write a 6-word story about Mondays.
-    Watch it stream, token by token.
-    Hit regenerate. Compare.
-    Different answers come from the "Pick" step: it samples from the odds instead of always taking the top word.
-    Live demo
-    Free
-  </aside>
-  <aside class="notes">Run this live. Ask for the story, then hit regenerate two or three times. Ask the room why it changed and take a few guesses before pressing → to reveal. Link it back to the bar chart: it doesn't always take the 62% word, sometimes it takes the 14% one. That randomness is what makes it creative, and also why it's sometimes inconsistent.</aside>
 </section>
 
 <!-- ============================ 20. TOKENS ============================ -->

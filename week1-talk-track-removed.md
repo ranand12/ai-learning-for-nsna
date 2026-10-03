@@ -169,3 +169,21 @@ Vote first: A, B or C? It's 3, so press → to mark it. Then ask the real questi
 **Say**
 
 Most people pick B, and some pick A. Remind them of the frozen dials: that rules out A. Press → to reveal C, then → for the one-liner. The next slide shows what that looks like.
+
+### Demo: Streaming — Same question, different answer. Why?
+
+**On screen**
+
+- Try it
+- Same question, different answer. Why?
+- Open any chat app (ChatGPT, Claude, Gemini).
+- Ask: Write a 6-word story about Mondays.
+- Watch it stream, token by token.
+- Hit regenerate. Compare.
+- Different answers come from the "Pick" step: it samples from the odds instead of always taking the top word.
+- Live demo
+- Free
+
+**Say**
+
+Run this live. Ask for the story, then hit regenerate two or three times. Ask the room why it changed and take a few guesses before pressing → to reveal. Link it back to the bar chart: it doesn't always take the 62% word, sometimes it takes the 14% one. That randomness is what makes it creative, and also why it's sometimes inconsistent.
