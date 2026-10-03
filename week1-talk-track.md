@@ -336,45 +336,7 @@ This is the context window, the model's desk. [Click] The box is everything the 
 
 How big can the context window get? That whole conversation we just built, the instructions, the messages, the 40-page PDF, shrinks down to this. [Click] A typical frontier model's window holds about 200,000 tokens. That's roughly 150,000 words, or about 500 pages. [Click] And some models now go up to a million tokens: about 750,000 words, roughly 2,500 pages. Several books at once. Huge, but still not infinite, and as we'll see, a fuller desk isn't always a better one.
 
-## 22. Stateless — Stateless.
-
-**On screen**
-
-- The surprising part
-- The model remembers nothing between turns.
-- Turn 1: You 1 → model
-- Turn 2: You 1, AI 1, You 2 → model
-- Turn 3: You 1, AI 1, You 2, AI 2, You 3 → model
-- New chat: empty desk → model: "Who are you?"
-- The app re-sends the whole conversation every time. One session never leaks into the next.
-- Stateless.
-- Model = Ghajini (GIF)
-
-**Say**
-
-This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far, puts it all in the context window, and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch.
-
-## 23.  — That's the app, not the model.
-
-**On screen**
-
-- "But ChatGPT remembers my name!"
-- Name: Priya
-- Likes: teal
-- Job: nurse
-- That's the app, not the model.
-- The app keeps notes about you and quietly slips them onto the desk at the start of each chat.
-- 💃 Green circle = model (no memory).
-- Blue hexagon = the app around it (memory, search, files).
-- More on this in part 06.
-- 💃Model
-- Harness
-
-**Say**
-
-Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have memory features. But that memory lives in the app, not the model. The app writes sticky notes about you and pastes them onto the desk before you type. The model is still stateless underneath. This is our first look at the harness, the blue hexagon, and we'll unpack it properly in part 6.
-
-## 24. Desk Fills Up — Three hours into one chat.
+## 22. Desk Fills Up — Three hours into one chat.
 
 **On screen**
 
@@ -394,6 +356,44 @@ Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have m
 **Say**
 
 Three hours into one chat. [Click] You've been at it all night, like a phone call that never ends. Ask it straight: is it sharper now, or sloppier? Most people assume it's gotten to know them. Answer: sloppier. Long chats get worse, not better. Three things go wrong on a full desk. [Click] One: [Click] the oldest stuff gets dropped, or squashed into a summary, which is why it "forgets" what you said an hour ago. [Click] Two: [Click] every turn costs more. It re-reads the whole desk each time, so it gets slower and you hit usage limits sooner. [Click] Three, the sneaky one: [Click] lost in the middle. Models pay most attention to the beginning and end, and the middle blurs. Imagine one sticky note tucked into a thousand-page book. We'll fix this in part 10, context engineering.
+
+## 23. Stateless — Stateless.
+
+**On screen**
+
+- The surprising part
+- The model remembers nothing between turns.
+- Turn 1: You 1 → model
+- Turn 2: You 1, AI 1, You 2 → model
+- Turn 3: You 1, AI 1, You 2, AI 2, You 3 → model
+- New chat: empty desk → model: "Who are you?"
+- The app re-sends the whole conversation every time. One session never leaks into the next.
+- Stateless.
+- Model = Ghajini (GIF)
+
+**Say**
+
+This surprises almost everyone. The model has no memory. [Click] Turn 1: you send a message. [Click] Turn 2: the app bundles up the entire conversation so far, puts it all in the context window, and sends all of it again. [Click] Turn 3: again, the whole script. It feels like a conversation, but the model is reading everything fresh each time. [Click] Open a new chat and the desk is empty. It has never met you. [Click] The model is Ghajini: no short-term memory, so it relies on the notes you hand it, and every turn it reads them from scratch.
+
+## 24.  — That's the app, not the model.
+
+**On screen**
+
+- "But ChatGPT remembers my name!"
+- Name: Priya
+- Likes: teal
+- Job: nurse
+- That's the app, not the model.
+- The app keeps notes about you and quietly slips them onto the desk at the start of each chat.
+- 💃 Green circle = model (no memory).
+- Blue hexagon = the app around it (memory, search, files).
+- More on this in part 06.
+- 💃Model
+- Harness
+
+**Say**
+
+Someone always pushes back here, and that's good. Yes, ChatGPT and Claude have memory features. But that memory lives in the app, not the model. The app writes sticky notes about you and pastes them onto the desk before you type. The model is still stateless underneath. This is our first look at the harness, the blue hexagon, and we'll unpack it properly in part 6.
 
 ## 25. Demo: Forgetful — The forgetful genius.
 
