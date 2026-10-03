@@ -404,7 +404,18 @@ So now you know what these models are. How do you actually get your hands on one
 
 Is it worth paying? [Click] Option one: hold on to your money and stick with the free tiers. [Click] Option two: pay for a plan. [Your punchline for the Vadivelu GIF goes here.]
 
-## 27. Subscription Vs Tokens — Subscription or pay per token?
+## 27. How To Pick — How to pick the right one?
+
+**On screen**
+
+- How to pick the right one?
+- Tamil chat star (GIF)
+
+**Say**
+
+So how do you pick the right one? There are so many options. [Click] My recommendation: start with a closed model. Then look at the benchmarks to compare them. Open models are the third option. We'll talk about building with them and installing them locally later in the course, but for now, go with a closed model.
+
+## 28. Subscription Vs Tokens — Subscription or pay per token?
 
 **On screen**
 
@@ -415,7 +426,7 @@ Is it worth paying? [Click] Option one: hold on to your money and stick with the
 
 Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
 
-## 28. Model ≠ Agent
+## 29. Model ≠ Agent
 
 **On screen**
 
@@ -426,7 +437,7 @@ Should you pay for a subscription or pay per token? There are two approaches. [C
 
 Before we go on, one thing people mix up all the time. [Click] This is the model, our dancer: the brain that guesses the next word. [Click] It is not the same thing as [Click] an agent. An agent is the model plus the ability to go and do things for you. People use the words interchangeably; they're not the same. Let's see what an agent actually does.
 
-## 29. Ai Agents
+## 30. Ai Agents
 
 **On screen**
 
