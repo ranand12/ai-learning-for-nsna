@@ -286,7 +286,7 @@ White chips are what you typed. Green chips are what the model writes, one at a 
 
 Run this live. Ask for the story, then hit regenerate two or three times. Ask the room why it changed and take a few guesses before pressing → to reveal. Link it back to the bar chart: it doesn't always take the 62% word, sometimes it takes the 14% one. That randomness is what makes it creative, and also why it's sometimes inconsistent.
 
-## 19. Tokens — They read tokens: chunks of text.
+## 19. Tokens — They read tokens.
 
 **On screen**
 
@@ -302,7 +302,7 @@ Run this live. Ask for the story, then hit regenerate two or three times. Ask th
 
 **Say**
 
-A token is a chunk, usually part of a word. Common words are a single token, rare words get split up. Why care? Because limits, pricing and memory are all counted in tokens, not words. Rule of thumb: a thousand tokens is about 750 words.
+Models don't read letters or words. They read tokens: chunks of text. [Click] And tokens are the currency of AI models. Limits, pricing and memory are all counted in tokens, not words. When you pay per use, you're paying per token. [Click] A token is a chunk, usually part of a word. "Unbelievable" becomes un, believ, able. Common words are a single token, rare words get split up. [Click] In English, a token is about 4 characters, [Click] or roughly three-quarters of a word. [Click] Rule of thumb: a thousand tokens is about 750 words, about a page and a half. Other languages, code and emoji usually take more tokens for the same meaning, and exact splits vary by model.
 
 ## 20. Demo: Tokenizer — See your own words get chopped up.
 
