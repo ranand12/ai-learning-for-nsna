@@ -241,7 +241,7 @@ So I can run these models for free? [Click] Mostly yes, but the file has to fit 
 
 Back to our frozen model. Closed or open, their data center or your laptop, it's the same thing underneath: one frozen file of numbers. The dials never change. So here's a puzzle: if the dials never change, why do you get a different answer every time you hit regenerate?
 
-## 16. Temperature — Temperature.
+## 16. Temperature
 
 **On screen**
 
