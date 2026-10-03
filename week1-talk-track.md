@@ -15,20 +15,7 @@ Speaker notes for `new-week1-fundamentals.html`, in slide order. **On screen** i
 
 Welcome. No prerequisites. By the end of today nobody should feel like AI is magic. It's a machine with a few very specific habits, and once you know them you'll use it far better than most people.
 
-## 2. How — How?
-
-**On screen**
-
-- How?
-- Lots of memes and GIFs
-- No jargon
-- Won't bog down with technical details
-
-**Say**
-
-How are we going to do this? [Click] Lots of memes and GIFs. A lot. [Click] No jargon. If I use a technical word, I'll explain it in plain English first. [Click] And we won't get bogged down in technical details. No math. You'll understand how it works well enough to use it better, and that's the goal.
-
-## 3. Prereqs
+## 2. Prereqs
 
 **On screen**
 
@@ -43,7 +30,7 @@ How are we going to do this? [Click] Lots of memes and GIFs. A lot. [Click] No j
 
 You don't need to code or know any math. Free tiers cover everything today. A single $20 plan gets you the bigger models and higher limits, and next week that makes a real difference.
 
-## 4. The Arc — Four building blocks.
+## 3. The Arc — Four building blocks.
 
 **On screen**
 
@@ -61,6 +48,19 @@ You don't need to code or know any math. Free tiers cover everything today. A si
 **Say**
 
 Four building blocks, each one stacks on the last. Week 1: understand the fundamentals. Week 2: use AI better. Week 3: build with AI. Week 4: how to think in the age of AI. [Click] Honestly, we don't know how long each one will take, so let's call them modules instead of weeks.
+
+## 4. How — How?
+
+**On screen**
+
+- How?
+- Lots of memes and GIFs
+- No jargon
+- Won't bog down with technical details
+
+**Say**
+
+How are we going to do this? [Click] Lots of memes and GIFs. A lot. [Click] No jargon. If I use a technical word, I'll explain it in plain English first. [Click] And we won't get bogged down in technical details. No math. You'll understand how it works well enough to use it better, and that's the goal.
 
 ## 5. Agenda — The map
 
