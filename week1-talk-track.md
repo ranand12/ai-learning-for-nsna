@@ -608,3 +608,14 @@ Results depend on whether memory is on, and either result teaches something. If 
 **Say**
 
 Three sentences. If people leave with these, they'll already use AI better than most. The Ask AI sticker is the habit I want: when a concept feels fuzzy, have the AI teach it back to you at your level. Next: how to actually get your hands on Claude, Grok, GPT, DeepSeek and the rest.
+
+## 36. Worth Paying? — Is it worth paying?
+
+**On screen**
+
+- Is it worth paying?
+- Counting money (Santhanam) vs Vadivelu (GIFs)
+
+**Say**
+
+Is it worth paying? [Click] Option one: hold on to your money and stick with the free tiers. [Click] Option two: pay for a plan. [Your punchline for the Vadivelu GIF goes here.]
