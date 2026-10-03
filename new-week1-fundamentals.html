@@ -133,9 +133,20 @@ aside.notes{display:none}
 .active .a-out{animation:aout 3s cubic-bezier(.4,0,.6,1) var(--d) infinite both}
 @keyframes aout{0%{transform:translateX(-40px) scale(.4);opacity:0}15%{opacity:1;transform:translateX(0) scale(1)}75%{opacity:1}100%{transform:translateX(130px);opacity:0}}
 /* dials */
-.needle{transform:rotate(0)}
-.active .needle{animation:spin 1.8s cubic-bezier(.2,.7,.2,1) var(--d) both}
-@keyframes spin{from{transform:rotate(0)}to{transform:rotate(var(--a))}}
+.title-xl{font-size:104px;line-height:1;letter-spacing:-.045em;max-width:none}
+.needle{transform:rotate(var(--a1))}
+.active .needle{animation:tune var(--spd) ease-in-out var(--d) infinite alternate}
+@keyframes tune{from{transform:rotate(var(--a1))}to{transform:rotate(var(--a2))}}
+.dial circle{transition:stroke .8s}
+.flow{stroke-dasharray:16 14}
+.active .flow{animation:flow .8s linear infinite}
+.active .flow.back{animation-direction:reverse}
+@keyframes flow{to{stroke-dashoffset:-30}}
+.arrows{transition:opacity .6s}
+/* frozen: stop the dials, ice them over, drop the arrows */
+#s-weights:has(.frost.shown) .needle{animation-play-state:paused}
+#s-weights:has(.frost.shown) .dial circle{stroke:#BEE9FF}
+#s-weights:has(.frost.shown) .arrows{opacity:0}
 /* token chips */
 .chips{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .chip{font-size:40px;font-weight:600;padding:12px 20px;border:2px solid var(--fg);border-radius:10px;letter-spacing:-.01em}
@@ -396,19 +407,30 @@ aside.notes{display:none}
 </section>
 
 <!-- ============================ 10. WEIGHTS ============================ -->
-<section class="slide">
-  <div class="kicker fu">What is a "model", physically?</div>
-  <div class="split" style="grid-template-columns:1.05fr 1fr">
-    <svg class="fi" style="--d:.2s" width="680" height="440" viewBox="0 0 680 440" id="dials"></svg>
-    <div>
-      <h2 class="fu" style="--d:.2s;font-size:56px">A giant file of numbers.</h2>
-      <p class="fu" style="--d:.4s;margin-top:30px">Think billions of tiny dials. They're called <b>weights</b> or <b>parameters</b>.</p>
-      <p class="dim fu" style="--d:.6s;margin-top:22px">Training = turning the dials until the guesses get good.</p>
-      <p class="dim fu" style="--d:.8s;margin-top:22px">After training, the dials are <b style="color:#F5F5F0">frozen</b>. Chatting with it doesn't change them.</p>
-      <p class="dim fu small" style="--d:1s;margin-top:34px">Open models run from ~1 billion to ~1 trillion dials.</p>
-    </div>
-  </div>
-  <aside class="notes">Strip away the hype and a model is a file, a very large file of numbers. Each number is a dial. Training nudges billions of dials, a tiny bit at a time, until the next-word guesses are good. Then they freeze. Key point: when you chat with it, it isn't learning from you. The dials don't move. Remember "weights"; it comes back in two slides.</aside>
+<section class="slide" id="s-weights">
+  <h2 class="fu title-xl" style="--d:.1s">A giant file of numbers.</h2>
+  <svg class="fi" style="--d:.2s;margin-top:40px" width="1380" height="580" viewBox="0 0 1380 580">
+    <defs>
+      <marker id="arrowW" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker>
+      <marker id="arrowR" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#FF5A3D"/></marker>
+    </defs>
+    <g id="dials" transform="translate(0,20)"></g>
+    <g class="arrows">
+      <g data-step="1"><line class="flow" x1="600" y1="216" x2="950" y2="216" stroke="#F5F5F0" stroke-width="4" marker-end="url(#arrowW)"/></g>
+      <g data-step="2"><path class="flow back" d="M1100 340 C1100 570 320 590 290 482" fill="none" stroke="#FF5A3D" stroke-width="4" marker-end="url(#arrowR)"/></g>
+    </g>
+    <g data-step="1">
+      <circle cx="1100" cy="216" r="110" fill="#2EE59D"/>
+      <text x="1100" y="222" text-anchor="middle" dominant-baseline="central" font-size="125">💃</text>
+    </g>
+    <g class="frost" data-step="3">
+      <circle cx="1100" cy="216" r="124" fill="rgba(190,233,255,.18)" stroke="#BEE9FF" stroke-width="8" stroke-dasharray="3 9" stroke-linecap="round"/>
+      <text x="1010" y="110" font-size="48" text-anchor="middle" dominant-baseline="central">❄️</text>
+      <text x="1205" y="320" font-size="40" text-anchor="middle" dominant-baseline="central">❄️</text>
+      <text x="1215" y="120" font-size="56" text-anchor="middle" dominant-baseline="central">🧊</text>
+    </g>
+  </svg>
+  <aside class="notes">What is a model, physically? Strip away the hype and it's a file, a very large file of numbers. Each number is a dial, and they're called weights or parameters. Open models run from about 1 billion to about 1 trillion of them. Right now they're all moving: this is training. [Click] Text runs through the dials and out comes a guess. [Click] We compare that guess with the right answer and send the error backwards through every dial, nudging each one a tiny bit. That's called backpropagation, and it repeats billions of times until the guesses get good. [Click] Then training stops and the dials freeze. Key point: when you chat with it, it isn't learning from you. The dials don't move. Remember "weights"; it comes back in two slides.</aside>
 </section>
 
 <!-- ============================ 11. DYK: CUTOFF ============================ -->
@@ -815,14 +837,16 @@ const rand=(a,b)=>a+Math.random()*(b-a);
 // pre-training: dense dots inside a circle
 (function(){const g=document.getElementById('denseDots');for(let i=0;i<70;i++){const a=rand(0,Math.PI*2),r=Math.sqrt(Math.random())*68;const c=document.createElementNS(NS,'circle');
   c.setAttribute('cx',(120+Math.cos(a)*r).toFixed(1));c.setAttribute('cy',(100+Math.sin(a)*r).toFixed(1));c.setAttribute('r','2.6');g.appendChild(c);}})();
-// weights: grid of dials that spin into place, then freeze
-(function(){const svg=document.getElementById('dials');const cols=12,rows=8,gap=56;for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){
-  const g=document.createElementNS(NS,'g');g.setAttribute('transform',`translate(${28+x*gap},${28+y*gap})`);
-  const c=document.createElementNS(NS,'circle');c.setAttribute('r','20');c.setAttribute('fill','none');c.setAttribute('stroke','#F5F5F0');c.setAttribute('stroke-width','2');
-  const n=document.createElementNS(NS,'g');n.setAttribute('class','needle');n.style.setProperty('--a',rand(-160,160).toFixed(0)+'deg');n.style.setProperty('--d',(0.3+(x+y)*0.05).toFixed(2)+'s');
-  const l=document.createElementNS(NS,'line');l.setAttribute('x1','0');l.setAttribute('y1','0');l.setAttribute('x2','0');l.setAttribute('y2','-15');
-  const hot=Math.random()<0.08;l.setAttribute('stroke',hot?'#2EE59D':'#F5F5F0');l.setAttribute('stroke-width','3');l.setAttribute('stroke-linecap','round');
-  n.appendChild(l);g.appendChild(c);g.appendChild(n);svg.appendChild(g);}})();
+// weights: grid of dials, each with a weight inside, tuning until the frost step freezes them
+(function(){const root=document.getElementById('dials');const cols=10,rows=8,gap=56;for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){
+  const g=document.createElementNS(NS,'g');g.setAttribute('class','dial');g.setAttribute('transform',`translate(${28+x*gap},${28+y*gap})`);
+  const c=document.createElementNS(NS,'circle');c.setAttribute('r','23');c.setAttribute('fill','none');c.setAttribute('stroke','#F5F5F0');c.setAttribute('stroke-width','2');
+  const e=document.createElementNS(NS,'text');e.textContent='⚖️';e.setAttribute('text-anchor','middle');e.setAttribute('dominant-baseline','central');e.setAttribute('font-size','17');e.setAttribute('y','1');
+  const n=document.createElementNS(NS,'g');n.setAttribute('class','needle');const a1=rand(-180,180);
+  n.style.setProperty('--a1',a1.toFixed(0)+'deg');n.style.setProperty('--a2',(a1+rand(-200,200)).toFixed(0)+'deg');
+  n.style.setProperty('--spd',rand(.7,1.6).toFixed(2)+'s');n.style.setProperty('--d',(-rand(0,2)).toFixed(2)+'s');
+  const k=document.createElementNS(NS,'circle');k.setAttribute('cy','-23');k.setAttribute('r','5');k.setAttribute('fill',Math.random()<0.12?'#2EE59D':'#F5F5F0');
+  n.appendChild(k);g.appendChild(c);g.appendChild(e);g.appendChild(n);root.appendChild(g);}})();
 
 addEventListener('hashchange',()=>{const i=parseInt(location.hash.slice(1),10)-1;if(i!==cur)show(i);});
 show(parseInt(location.hash.slice(1)||'1',10)-1);
