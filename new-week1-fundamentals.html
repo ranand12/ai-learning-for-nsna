@@ -147,6 +147,40 @@ aside.notes,aside.onscreen{display:none}
 #s-weights:has(.frost.shown) .needle{animation-play-state:paused}
 #s-weights:has(.frost.shown) .dial circle{stroke:#BEE9FF}
 #s-weights:has(.frost.shown) .arrows{opacity:0}
+/* closed vs open: frozen model hands off from the weights slide, then splits into a cell and a doorway */
+.fm{position:absolute;width:180px;height:180px;border-radius:50%;background:var(--model);display:flex;align-items:center;justify-content:center;font-size:104px;line-height:1;
+  outline:7px dotted #BEE9FF;outline-offset:8px;box-shadow:0 0 0 22px rgba(190,233,255,.12);z-index:2}
+.fm::before{content:"❄️";position:absolute;left:-26px;top:-22px;font-size:40px}
+.fm::after{content:"🧊";position:absolute;right:-30px;top:-18px;font-size:44px}
+.fm.center{left:710px;top:220px}
+.active .fm.center{animation:handoff 1.3s cubic-bezier(.5,0,.2,1) .15s both}
+@keyframes handoff{from{transform:translate(410px,130px) scale(1.22)}to{transform:none}}
+.fm.l{left:290px;top:250px;transform:scale(.8)} .fm.r{left:1130px;top:250px;transform:scale(.8)}
+.shown > .fm.l.fly{animation:flyL 1s cubic-bezier(.5,0,.2,1) .1s both}
+.shown > .fm.r.fly{animation:flyR 1s cubic-bezier(.5,0,.2,1) .5s both}
+@keyframes flyL{from{transform:translate(420px,-30px) scale(1)}to{transform:scale(.8)}}
+@keyframes flyR{from{transform:translate(-420px,-30px) scale(1)}to{transform:scale(.8)}}
+.layer{position:absolute;inset:0}
+.cell{position:absolute;left:260px;top:210px;width:240px;height:260px;border:5px solid var(--fg);border-radius:6px;background:#141414}
+.bars{position:absolute;left:260px;top:210px;width:240px;height:260px;z-index:3;transform-origin:top;
+  background:repeating-linear-gradient(90deg,transparent 0 28px,#F5F5F0 28px 36px);border-top:14px solid var(--fg);border-bottom:14px solid var(--fg)}
+.shown > .bars.drop{animation:barsDown .55s cubic-bezier(.3,1.4,.5,1) 1.2s both}
+@keyframes barsDown{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.doorway{position:absolute;left:1100px;top:210px;width:240px;height:260px;border:5px solid var(--fg);border-bottom:none;background:rgba(255,210,63,.16);perspective:900px}
+.door{position:absolute;inset:0;background:#2A2A28;border:3px solid #8C8C86;transform-origin:left;transform:rotateY(-72deg);z-index:1}
+.door::after{content:"";position:absolute;right:18px;top:50%;width:14px;height:14px;border-radius:50%;background:var(--dyk)}
+.shown .door.swing{animation:swing .8s cubic-bezier(.3,1.2,.5,1) .1s both}
+@keyframes swing{from{transform:rotateY(0)}to{transform:rotateY(-72deg)}}
+.gif{position:absolute;top:510px;height:220px;border-radius:14px;border:3px solid #2A2A28;object-fit:cover}
+.gif.l{left:184px;width:392px} .gif.r{left:1110px;width:220px}
+/* sort game: each name appears centre stage, then moves to its side on the next click ([data-move]) */
+.pick{position:absolute;left:800px;top:330px;font-size:30px;font-weight:700;padding:12px 28px;border:2px solid var(--fg);border-radius:999px;white-space:nowrap;z-index:4;
+  transition:opacity .5s ease,transform .8s cubic-bezier(.5,0,.2,1),left .8s cubic-bezier(.5,0,.2,1),top .8s cubic-bezier(.5,0,.2,1),background .5s,color .5s,border-color .5s}
+.pick[data-step]{transform:translate(-50%,-30%) scale(1.3)}
+.pick[data-step].shown{transform:translate(-50%,-50%) scale(1.6)}
+.pick[data-step].shown.moved{left:var(--x);top:var(--y);transform:translate(-50%,-50%) scale(1)}
+.pick.closed.moved{background:#2A2A28;border-color:#8C8C86}
+.pick.open.moved{border-color:var(--model);color:var(--model)}
 /* token chips */
 .chips{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .chip{font-size:40px;font-weight:600;padding:12px 20px;border:2px solid var(--fg);border-radius:10px;letter-spacing:-.01em}
@@ -542,6 +576,55 @@ aside.notes,aside.onscreen{display:none}
     Open models run from ~1 billion to ~1 trillion dials.
   </aside>
   <aside class="notes">What is a model, physically? Strip away the hype and it's a file, a very large file of numbers. Each number is a dial, and they're called weights or parameters. Open models run from about 1 billion to about 1 trillion of them. Right now they're all moving: this is training. [Click] Text runs through the dials and out comes a guess. [Click] We compare that guess with the right answer and send the error backwards through every dial, nudging each one a tiny bit. That's called backpropagation, and it repeats billions of times until the guesses get good. [Click] Then training stops and the dials freeze. Key point: when you chat with it, it isn't learning from you. The dials don't move. Remember "weights"; it comes back in two slides.</aside>
+</section>
+
+<!-- ============================ 10b. CLOSED vs OPEN ============================ -->
+<section class="slide">
+  <h2 class="fu title-xl" style="--d:.1s">Closed vs open.</h2>
+  <div class="fm center">💃</div>
+  <div class="layer" data-step="1">
+    <div class="cell"></div>
+    <div class="fm l fly">💃</div>
+    <div class="bars drop"></div>
+    <div class="doorway"><div class="door swing"></div></div>
+    <div class="fm r fly">💃</div>
+  </div>
+  <img class="gif l" data-step="2" src="gifs/corporate-buildings.gif" alt="">
+  <img class="gif r" data-step="3" src="gifs/local-computer.gif" alt="">
+  <aside class="onscreen">
+    Closed vs open.
+  </aside>
+  <aside class="notes">Here's our frozen model from the last slide. Training is done and the dials are locked. Now the company that made it has a choice: what do they do with this file? [Click] Some lock it up. The weights never leave their servers, and you rent access through their app or API. That's a closed, or proprietary, model. Others open the door and publish the file so anyone can download it. That's an open-weights model. [Click] Closed models live inside big companies' data centers. You visit them over the internet. [Click] Open models can run right here, on your own laptop, even with the Wi-Fi off.</aside>
+</section>
+
+<!-- ============================ 10c. SORT: CLOSED or OPEN ============================ -->
+<section class="slide">
+  <h2 class="fu title-xl" style="--d:.1s">Closed or open?</h2>
+  <div class="cell"></div>
+  <div class="fm l">💃</div>
+  <div class="bars"></div>
+  <div class="doorway"><div class="door"></div></div>
+  <div class="fm r">💃</div>
+  <div class="pick closed" data-step="1" data-move="2" style="--x:380px;--y:520px">OpenAI GPT-5.6</div>
+  <div class="pick open" data-step="3" data-move="4" style="--x:1220px;--y:520px">DeepSeek</div>
+  <div class="pick closed" data-step="5" data-move="6" style="--x:380px;--y:578px">All Anthropic models</div>
+  <div class="pick closed" data-step="7" data-move="8" style="--x:380px;--y:636px">Gemini</div>
+  <div class="pick open" data-step="9" data-move="10" style="--x:1220px;--y:578px">Gemma</div>
+  <div class="pick open" data-step="11" data-move="12" style="--x:1220px;--y:636px">Llama</div>
+  <div class="pick open" data-step="13" data-move="14" style="--x:1220px;--y:694px">Qwen</div>
+  <div class="pick open" data-step="15" data-move="16" style="--x:1220px;--y:752px">Mistral</div>
+  <aside class="onscreen">
+    Closed or open?
+    OpenAI GPT-5.6
+    DeepSeek
+    All Anthropic models
+    Gemini
+    Gemma
+    Llama
+    Qwen
+    Mistral
+  </aside>
+  <aside class="notes">Let's sort some. I'll put a name up, you shout "closed" or "open", then I'll move it. [Click] OpenAI's GPT-5.6? [Click] Closed. (OpenAI does also publish a separate open model called gpt-oss.) [Click] DeepSeek? [Click] Open. The Chinese lab that shocked everyone by publishing a top model for free. [Click] Anthropic's Claude models? [Click] All closed. [Click] Gemini? [Click] Closed. Google's flagship. [Click] Gemma? [Click] Open. That's Google too: Gemma is Gemini's open little sibling, so one company can do both. [Click] Llama? [Click] Open, from Meta. [Click] Qwen? [Click] Open, from Alibaba. [Click] Mistral? [Click] Open. A French lab, best known for open models, though it also sells some closed ones. Notice the pattern: closed is the big US labs' flagships, open is a mix of Meta, Chinese labs and Europe.</aside>
 </section>
 
 <!-- ============================ 11. DYK: CUTOFF ============================ -->
@@ -1133,14 +1216,15 @@ let cur=0;
 function fit(){const s=Math.min(innerWidth/1600,innerHeight/900);stage.style.transform=`translate(-50%,-50%) scale(${s})`;}
 addEventListener('resize',fit);fit();
 
-/* ask-then-reveal: [data-step=k] appears on the k-th press; [data-mark=k] / [data-strike=k] mark answer options */
+/* ask-then-reveal: [data-step=k] appears on the k-th press; [data-mark=k] / [data-strike=k] mark answer options; [data-move=k] adds .moved */
 let step=0;
-const maxStep=sl=>Math.max(0,...[...sl.querySelectorAll('[data-step],[data-mark],[data-strike]')].map(e=>+(e.dataset.step||e.dataset.mark||e.dataset.strike)));
+const maxStep=sl=>Math.max(0,...[...sl.querySelectorAll('[data-step],[data-mark],[data-strike],[data-move]')].map(e=>+(e.dataset.move||e.dataset.step||e.dataset.mark||e.dataset.strike)));
 function paint(){
   const sl=slides[cur];
   sl.querySelectorAll('[data-step]').forEach(e=>e.classList.toggle('shown',step>=+e.dataset.step));
   sl.querySelectorAll('[data-mark]').forEach(e=>e.classList.toggle('marked',step>=+e.dataset.mark));
   sl.querySelectorAll('[data-strike]').forEach(e=>e.classList.toggle('struck',step>=+e.dataset.strike));
+  sl.querySelectorAll('[data-move]').forEach(e=>e.classList.toggle('moved',step>=+e.dataset.move));
   document.getElementById('count').textContent=`${cur+1} / ${slides.length}`+(step<maxStep(sl)?'  ▸':'');
 }
 function show(i,atEnd){
