@@ -164,9 +164,11 @@ aside.notes,aside.onscreen{display:none}
 @keyframes flyL{from{transform:translate(420px,-40px) scale(1)}to{transform:scale(.8)}}
 @keyframes flyR{from{transform:translate(-420px,-40px) scale(1)}to{transform:scale(.8)}}
 .layer{position:absolute;inset:0}
-.bars{position:absolute;inset:-5px;z-index:3;transform-origin:top;border-radius:6px;
+.fm.center{transition:opacity .5s ease}
+.slide:has(> .layer.shown) .fm.center{opacity:0;transition-delay:1.5s}
+.jail{position:absolute;inset:-5px;z-index:3;transform-origin:top;border-radius:6px;
   background:repeating-linear-gradient(90deg,transparent 0 30px,#F5F5F0 30px 38px);border-top:16px solid var(--fg);border-bottom:16px solid var(--fg)}
-.shown .bars.drop{animation:barsDown .55s cubic-bezier(.3,1.4,.5,1) 1.2s both}
+.shown .jail.drop{animation:barsDown .55s cubic-bezier(.3,1.4,.5,1) 1.2s both}
 @keyframes barsDown{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 .door{position:absolute;inset:0;background:#2A2A28;border:3px solid #8C8C86;transform-origin:left;transform:rotateY(-70deg);z-index:1}
 .door::after{content:"";position:absolute;right:18px;top:50%;width:14px;height:14px;border-radius:50%;background:var(--dyk)}
@@ -585,7 +587,7 @@ aside.notes,aside.onscreen{display:none}
   <h2 class="fu title-c" style="--d:.1s">Closed vs open.</h2>
   <div class="fm center">💃</div>
   <div class="layer" data-step="1">
-    <div class="cage l"><div class="fm fly">💃</div><div class="bars drop"></div></div>
+    <div class="cage l"><div class="fm fly">💃</div><div class="jail drop"></div></div>
     <div class="cage r"><div class="door swing"></div><div class="fm fly">💃</div></div>
   </div>
   <img class="gif l" data-step="2" src="gifs/corporate-buildings.gif" alt="">
@@ -599,7 +601,7 @@ aside.notes,aside.onscreen{display:none}
 <!-- ============================ 10c. SORT: CLOSED or OPEN ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Closed or open?</h2>
-  <div class="cage l"><div class="fm">💃</div><div class="bars"></div></div>
+  <div class="cage l"><div class="fm">💃</div><div class="jail"></div></div>
   <div class="cage r"><div class="door"></div><div class="fm">💃</div></div>
   <div class="pick closed" data-step="1" data-move="2" style="--x:380px;--y:565px">OpenAI GPT-5.6</div>
   <div class="pick open" data-step="3" data-move="4" style="--x:1220px;--y:565px">DeepSeek</div>
