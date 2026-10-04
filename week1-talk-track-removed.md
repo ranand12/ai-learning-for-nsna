@@ -319,3 +319,19 @@ So what's an AI agent? It's the same model, the same LLM we've been talking abou
 **Say**
 
 So let's put the two side by side. [Click] Same request as before: find me the cheapest flight and add it to my calendar. [Click] First, a plain chat. Just the model. [Click] It gives you a nice answer: here are three cheap flights. And then it stops. [Click] You still open the airline site, you still book it, you still open your calendar. You do the clicking. [Click] Now the agent. [Click] It goes round the loop we just saw: search flights, check the calendar, create the event, as many laps as it needs. [Click] And it comes back with the job done: booked, and on your calendar. [Click] That's the whole difference. A chat answers. An agent does. Same brain inside; the agent just keeps going until the task is finished.
+
+### Meet The Agent — Meet the agent.
+
+**On screen**
+
+- Meet the agent.
+- 💃 Model (center)
+- Context (red context window, left)
+- Tools (blue tiles, right): 🔍 📄 ✏️ 📧
+- 🔁 Loop (yellow dashed ring spinning around the model)
+- Spy icon in green circle: = AI agent
+- Agent = Model + Tools + a Loop
+
+**Say**
+
+So let's put the pieces together. [Click] The model. The same dancer we met at the start of today: the file of numbers that guesses the next word. Nothing new. [Click] The context window: its desk, where the goal, the tool results and its own notes pile up. [Click] Tools: the things the app will run for it when it asks. [Click] And the loop: think, act, see, think again, until the job is done. [Click] Put all of that together and that's an AI agent. Model plus tools plus a loop. We'll draw agents as this spy from now on. The thing to remember: it's the same model you met an hour ago. It didn't get smarter. It just got hands and a loop.
