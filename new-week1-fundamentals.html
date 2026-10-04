@@ -130,6 +130,10 @@ svg text{font-family:var(--font);fill:var(--fg)}
 .wa-tile .m{height:230px;display:flex;align-items:center;justify-content:center;font-size:150px;line-height:1}
 .wa-tile img{border-radius:16px;border:3px solid #2A2A28}
 .wa-tile b{font-size:34px;font-weight:800;text-align:center;line-height:1.15;letter-spacing:-.02em}
+.pk-logo{position:absolute;width:110px;height:110px;border-radius:26px;background:var(--fg);padding:16px;transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1),left .9s cubic-bezier(.5,0,.2,1),top .9s cubic-bezier(.5,0,.2,1),width .9s cubic-bezier(.5,0,.2,1),height .9s cubic-bezier(.5,0,.2,1),padding .9s ease,border-radius .9s ease}
+.pk-ring{position:absolute;width:154px;height:154px;border-radius:50%;border:7px solid var(--yellow,#FFD23F)}
+.pk-logo.pk-openai.moved{left:330px!important;top:370px!important;width:340px;height:340px;padding:50px;border-radius:70px}
+.pk-logo.pk-claude.moved{left:930px!important;top:370px!important;width:340px;height:340px;padding:50px;border-radius:70px}
 .wa-logos{position:absolute;top:530px;width:520px;display:flex;justify-content:center;gap:22px}
 .wa-logos img{width:100px;height:100px;border-radius:24px;background:var(--fg);padding:14px}
 .wa-win{position:absolute;border:4px solid var(--harness);border-radius:24px;background:rgba(77,159,255,.05);box-shadow:0 0 40px rgba(77,159,255,.2)}
@@ -1318,6 +1322,41 @@ aside.notes,aside.onscreen{display:none}
     Netflix (subscription) vs tokens (pay per use) (GIFs)
   </aside>
   <aside class="notes">Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.</aside>
+</section>
+
+<!-- ============================ 29c. PICK ONE ============================ -->
+<section class="slide">
+  <h2 class="title-xl" data-step="3" style="width:100%;text-align:center">Pick one of these.</h2>
+  <img class="pk-logo pk-openai" data-step="1" data-move="3" src="gifs/logos/openai.png" alt="openai" style="left:1130px;top:292px">
+  <img class="pk-logo pk-claude" data-step="1" data-move="3" src="gifs/logos/claude.png" alt="claude" style="left:1182px;top:64px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/antigravity.png" alt="antigravity" style="left:45px;top:513px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/claude-code.png" alt="claude-code" style="left:644px;top:727px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/codex.png" alt="codex" style="left:310px;top:41px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/cohere.png" alt="cohere" style="left:575px;top:62px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/copilot.png" alt="copilot" style="left:1385px;top:495px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/cursor.png" alt="cursor" style="left:889px;top:36px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/deepseek.png" alt="deepseek" style="left:1437px;top:259px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/gemini.png" alt="gemini" style="left:909px;top:271px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/gemma.png" alt="gemma" style="left:109px;top:79px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/grok.png" alt="grok" style="left:593px;top:258px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/hermes.png" alt="hermes" style="left:1176px;top:513px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/huggingface.png" alt="huggingface" style="left:328px;top:500px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/kimi.png" alt="kimi" style="left:316px;top:737px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/meta.png" alt="meta" style="left:46px;top:288px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/microsoft.png" alt="microsoft" style="left:843px;top:741px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/minimax.png" alt="minimax" style="left:1394px;top:733px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/mistral.png" alt="mistral" style="left:638px;top:504px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/nvidia.png" alt="nvidia" style="left:344px;top:281px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/perplexity.png" alt="perplexity" style="left:910px;top:536px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/qwen.png" alt="qwen" style="left:1160px;top:725px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/zhipu.png" alt="zhipu" style="left:76px;top:717px">
+  <div class="pk-ring" data-step="2" data-hide="3" style="left:1108px;top:270px"></div>
+  <div class="pk-ring" data-step="2" data-hide="3" style="left:1160px;top:42px"></div>
+  <aside class="onscreen">
+    Pick one of these.
+    Logos of AI models and companies, scattered: Grok, Claude, Claude Code, OpenAI, Codex, Hermes, Gemini, Antigravity, DeepSeek, Qwen, Meta, Mistral, Gemma, Perplexity, Microsoft, Cohere, NVIDIA, Hugging Face, Kimi, Zhipu, MiniMax, Copilot, Cursor. Circle: OpenAI and Claude.
+  </aside>
+  <aside class="notes">Look at how many models and companies there are. [Click] Let's narrow it down: the two big names are OpenAI and Claude. [Click] Pick one of these. Either is a great place to start.</aside>
 </section>
 
 <!-- ============================ 30b. YOU ARE THE LOOP ============================ -->

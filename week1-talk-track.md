@@ -417,7 +417,18 @@ So how do you pick the right one? There are so many options. [Click] My recommen
 
 Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
 
-## 29. You Are The Loop — You are the loop.
+## 29. Pick One — Pick one of these.
+
+**On screen**
+
+- Pick one of these.
+- Logos of AI models and companies, scattered: Grok, Claude, Claude Code, OpenAI, Codex, Hermes, Gemini, Antigravity, DeepSeek, Qwen, Meta, Mistral, Gemma, Perplexity, Microsoft, Cohere, NVIDIA, Hugging Face, Kimi, Zhipu, MiniMax, Copilot, Cursor. Circle: OpenAI and Claude.
+
+**Say**
+
+Look at how many models and companies there are. [Click] Let's narrow it down: the two big names are OpenAI and Claude. [Click] Pick one of these. Either is a great place to start.
+
+## 30. You Are The Loop — You are the loop.
 
 **On screen**
 
@@ -432,7 +443,7 @@ Should you pay for a subscription or pay per token? There are two approaches. [C
 
 We've spent the whole session on the model. Before we meet agents, let's look at how you use it today. [Click] Here's our model, the dancer. [Click] You ask it a question. [Click] It gives you an answer. Text. That's all it ever gives you. [Click] And then what do you do? You copy that answer, open Excel or your email or a website, paste it, click around, do the actual work yourself. Then you come back with whatever happened and ask the next question. [Click] So who is going round and round here? You are. You're the loop. You carry every answer out into the world and carry every result back in. Hold on to that picture.
 
-## 30. The Model Can'T Do Anything — The model can't do anything.
+## 31. The Model Can'T Do Anything — The model can't do anything.
 
 **On screen**
 
@@ -445,7 +456,7 @@ We've spent the whole session on the model. Before we meet agents, let's look at
 
 Here's the fact that surprises people. [Click] The model, on its own, can't actually do anything. Remember, it's a giant file of numbers that guesses the next word. [Click] It can't open a file on your computer. [Click] It can't go and search the web. [Click] It can't send an email. [Click] It can't click a button. [Click] The only thing it can do is write words. It can write "search flights to Chennai", but writing it doesn't make the search happen. Somebody has to read those words and actually go and run the search. So far that somebody has been you.
 
-## 31. Give It Tools — Give it tools.
+## 32. Give It Tools — Give it tools.
 
 **On screen**
 
@@ -460,7 +471,7 @@ Here's the fact that surprises people. [Click] The model, on its own, can't actu
 
 So let's fix that. Let's give the model tools. [Click] A search tool. [Click] A tool to read a file. [Click] A tool to write a file. [Click] A tool to send an email. Now here's the part that most people get wrong, so watch closely. [Click] The model still only writes words. It writes a request: "search: flights to Chennai". [Click] The app around the model reads that request and actually runs the search. The model asks; the software does. [Click] The search comes back: fourteen flights found. [Click] And that result goes back into the context window, the desk we talked about earlier. Now the model can read it and decide what to do next. That's what a tool is: the model asks, the software runs it, the result comes back as more tokens.
 
-## 32. Now Let It Loop — Now let it loop.
+## 33. Now Let It Loop — Now let it loop.
 
 **On screen**
 
@@ -475,7 +486,7 @@ So let's fix that. Let's give the model tools. [Click] A search tool. [Click] A 
 
 Now the big step. Remember who was going round in circles? You. What if the model could go round by itself? [Click] You give it one goal: find three cheap flights and put them in a spreadsheet. [Click] That goes into the context window, the desk. [Click] The model reads the desk and thinks: what's the first thing I need? [Click] It acts: it asks for the search tool, and the app runs it. [Click] It sees the result: fourteen flights, now sitting on the desk. [Click] And now it goes back to thinking, with that new information on the desk. It picks the three cheapest. That's the loop: think, act, see the result, think again. Round and round, as many laps as it needs. [Click] Next lap: it acts again with a different tool, and makes the spreadsheet. The result lands on the desk. [Click] And on the last lap, the model thinks: is the job finished? Yes. So it stops and tells you it's done. You gave it one sentence. It did all the copying, pasting and clicking that you used to do.
 
-## 33. Meet The Agent — Meet the agent.
+## 34. Meet The Agent — Meet the agent.
 
 **On screen**
 
@@ -491,7 +502,7 @@ Now the big step. Remember who was going round in circles? You. What if the mode
 
 So let's put the pieces together. [Click] The model. The same dancer we met at the start of today: the file of numbers that guesses the next word. Nothing new. [Click] The context window: its desk, where the goal, the tool results and its own notes pile up. [Click] Tools: the things the app will run for it when it asks. [Click] And the loop: think, act, see, think again, until the job is done. [Click] Put all of that together and that's an AI agent. Model plus tools plus a loop. We'll draw agents as this spy from now on. The thing to remember: it's the same model you met an hour ago. It didn't get smarter. It just got hands and a loop.
 
-## 34. What It Still Can'T Escape — What it still can't escape.
+## 35. What It Still Can'T Escape — What it still can't escape.
 
 **On screen**
 
@@ -505,7 +516,7 @@ So let's put the pieces together. [Click] The model. The same dancer we met at t
 
 An agent is not magic, though. Everything you learned about the model today still applies, because the model inside hasn't changed. [Click] First: the desk fills up. Every search result, every file it reads, lands in the context window. On a long job the desk gets crowded, it gets lost in the middle, and the oldest stuff gets dropped. Same problem as three hours into one chat, just faster. [Click] Second: it's still Ghajini. It's stateless. Close the session and it remembers nothing. When an agent seems to "remember" you, it's because it wrote notes to a file and reads them back next time. [Click] Third: it still has a knowledge cutoff. The difference is, now it can fix that with a tool: give it web search and it can look up today's news. [Click] And fourth, the new one: an agent can actually do things. It can delete a file or send the wrong email. More freedom means more can go wrong. So good agents ask permission before anything risky, and you should keep it that way.
 
-## 35. Chat Vs Agent — Chat vs agent.
+## 36. Chat Vs Agent — Chat vs agent.
 
 **On screen**
 
@@ -519,7 +530,7 @@ An agent is not magic, though. Everything you learned about the model today stil
 
 So let's name some names. [Click] On one side, chat. [Click] Claude, ChatGPT, Gemini, Grok: you type, it answers. [Click] On the other side, agents. [Click] Claude Code, Codex, Antigravity, Hermes: you give them a goal, and they use tools on your computer until it's done. The lines are blurring: the chat apps keep adding agent features. So don't worry about which box a product sits in. Ask one question. [Click] In a chat, you run the loop. [Click] With an agent, it runs the loop. Same brain inside. That's the whole difference.
 
-## 36. Inside The Model — What's inside the model?
+## 37. Inside The Model — What's inside the model?
 
 **On screen**
 
@@ -533,7 +544,7 @@ So let's name some names. [Click] On one side, chat. [Click] Claude, ChatGPT, Ge
 
 Let's open the model up and look inside, so you never confuse it with the app again. [Click] Here's the model. [Click] Inside: the weights. The billions of dials we tuned during training. [Click] Those dials hold everything it picked up from what it read: language, facts, how to write code, how to reason. [Click] And all of it is frozen at the cutoff date. Nothing gets added while you use it. That's it. That's everything inside. Now, what's NOT inside? [Click] Your chats. [Click] Your files. [Click] Today's news. [Click] Notes about you. None of that lives in the model. Every single time you use it, the model starts from zero. So where does all that stuff live? Outside the model.
 
-## 37. Outside: The App — Everything else lives in the app.
+## 38. Outside: The App — Everything else lives in the app.
 
 **On screen**
 
@@ -550,7 +561,7 @@ Let's open the model up and look inside, so you never confuse it with the app ag
 
 So where does everything else live? [Click] Here's our frozen model again. [Click] Around it is the app. ChatGPT, Claude, Gemini: what you download or open in your browser is the app. The model sits inside the company's computers; the app is everything wrapped around it. Now let's fill it in. [Click] The context window. The desk lives in the app, not in the model. Every time you hit send, the app builds the desk and hands the whole thing to the model. The model reads it, writes a reply, and keeps nothing. That's why it's stateless. [Click] Instructions. Before you type a single word, the company has already put a note at the top of the desk: be helpful, be safe, keep it short. You never see it, but it's there in every chat. [Click] Memory. When ChatGPT or Claude "remembers" you, it's the app keeping a sticky note like this, and pasting it onto the desk next time. The model still remembers nothing. [Click] And the chat screen itself: the box you type in and your past conversations. All of this is the app. Only the 💃 in the middle is the model.
 
-## 38. Outside: The Agent — An agent adds more outside.
+## 39. Outside: The Agent — An agent adds more outside.
 
 **On screen**
 
@@ -565,7 +576,7 @@ So where does everything else live? [Click] Here's our frozen model again. [Clic
 
 Same picture. Same app around it, same frozen model in the middle, same context window, instructions, memory and chat. So what turns an app into an agent? Three more things, and all three are outside the model too. [Click] Tools: search, read files, write files, send email. The model asks, the app runs them. [Click] The loop: instead of one question, one answer, the app keeps calling the model, think, act, see, think again, until the job is done. [Click] And permissions: because it can now actually do things, a good agent asks you first before anything risky. [Click] Add those three and the app becomes an agent. Look at the middle: the model didn't change. Not one dial. Everything that makes it an agent was added on the outside.
 
-## 39. App Vs Agent — App vs agent.
+## 40. App Vs Agent — App vs agent.
 
 **On screen**
 
