@@ -84,9 +84,7 @@ Here's the route for today. Ten stops, and we'll take them in order. [Click] Sto
 
 **On screen**
 
-- 01
 - How a model works
-- Two words: training and inference.
 
 **Say**
 
