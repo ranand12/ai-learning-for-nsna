@@ -568,14 +568,14 @@ Let's put the two side by side so the difference is crystal clear. [Click] An ap
 **On screen**
 
 - Models, apps, agents.
-- Column 1 · 💃 Models (green chips): GPT-5.6 · GPT-6.1 · Astra · Claude Opus 5.5 · Gemini · Grok · DeepSeek
+- Column 1 · 💃 Models (green chips): GPT-5.6 · GPT-6 Astra · Claude Opus 5.5 · Gemini · Grok · DeepSeek
 - Column 2 · plain blue app box · Apps (logo chips): ChatGPT · Claude · Gemini · Codex
 - Column 3 · spy icon · Agents (logo chips): Codex · Claude Code · Hermes
 - Both Codex chips light up yellow (it's an app that is also an agent)
 
 **Say**
 
-Let's finish by putting real names on the three words. [Click] Models: the brains, the frozen files of numbers. [Click] GPT-5.6, GPT-6.1, Astra, Claude Opus, Gemini, Grok, DeepSeek. You never touch these directly; you reach them through something. [Click] Apps: the thing you actually open. [Click] ChatGPT, Claude, Gemini, Codex. Notice Gemini is both a model and an app name, and ChatGPT is the app while GPT is the model. Companies reuse names, which is why this gets confusing. [Click] Agents: apps that add tools, a loop and permissions. [Click] Codex, Claude Code, Hermes. [Click] And notice Codex shows up twice. That's not a mistake. An agent is just an app that does more on the outside, so the same product can be both. When you hear a new AI name, ask one question: is it the brain, the app, or an app that runs the loop for you?
+Let's finish by putting real names on the three words. [Click] Models: the brains, the frozen files of numbers. [Click] GPT-5.6, GPT-6 Astra, Claude Opus, Gemini, Grok, DeepSeek. You never touch these directly; you reach them through something. [Click] Apps: the thing you actually open. [Click] ChatGPT, Claude, Gemini, Codex. Notice Gemini is both a model and an app name, and ChatGPT is the app while GPT is the model. Companies reuse names, which is why this gets confusing. [Click] Agents: apps that add tools, a loop and permissions. [Click] Codex, Claude Code, Hermes. [Click] And notice Codex shows up twice. That's not a mistake. An agent is just an app that does more on the outside, so the same product can be both. When you hear a new AI name, ask one question: is it the brain, the app, or an app that runs the loop for you?
 
 
 ---
