@@ -132,6 +132,39 @@ svg text{font-family:var(--font);fill:var(--fg)}
 .wa-tile b{font-size:34px;font-weight:800;text-align:center;line-height:1.15;letter-spacing:-.02em}
 .wa-logos{position:absolute;top:530px;width:520px;display:flex;justify-content:center;gap:22px}
 .wa-logos img{width:100px;height:100px;border-radius:24px;background:var(--fg);padding:14px}
+.wa-win{position:absolute;border:4px solid var(--harness);border-radius:24px;background:rgba(77,159,255,.05);box-shadow:0 0 40px rgba(77,159,255,.2)}
+.wa-bar{position:absolute;left:0;right:0;top:0;height:52px;border-bottom:3px solid var(--harness);display:flex;align-items:center;gap:10px;padding:0 20px}
+.wa-bar i{width:14px;height:14px;border-radius:50%;background:var(--harness);opacity:.6}
+.wa-winlbl{position:absolute;font-size:28px;font-weight:800;color:var(--harness);white-space:nowrap;display:flex;align-items:center;gap:12px}
+.wa-mini{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:30px;color:var(--harness);font-size:30px;font-weight:800;line-height:1.1}
+.wa-mini .wa-bar{height:30px;padding:0 12px;gap:6px}
+.wa-mini .wa-bar i{width:9px;height:9px}
+.wa-mini .e{font-size:44px}
+.wa-core{position:absolute;border-radius:50%;background:var(--model)}
+.wa-core>*{position:absolute;left:0;width:100%;text-align:center;line-height:1}
+.wa-core b{font-size:24px;font-weight:800;color:#0A0A0A}
+.wa-ice{position:absolute;border-radius:50%;border:7px dotted #BEE9FF;box-shadow:0 0 0 18px rgba(190,233,255,.1)}
+.wa-ice::before{content:"❄️";position:absolute;left:10px;top:10px;font-size:46px}
+.wa-ice::after{content:"🧊";position:absolute;right:6px;top:14px;font-size:50px}
+.wa-cap{position:absolute;font-size:24px;font-weight:700;color:var(--dim);text-align:center}
+.wa-note{position:absolute;background:var(--dyk);color:#0A0A0A;border-radius:6px;padding:14px 16px;font-size:23px;font-weight:700;line-height:1.25;box-shadow:0 8px 0 rgba(0,0,0,.4)}
+.wa-note[data-step].shown{transform:rotate(-3deg)}
+.wa-instr{position:absolute;background:#8C8C86;color:#0A0A0A;border-radius:12px;padding:16px 20px;font-size:23px;font-weight:700;line-height:1.3}
+.wa-instr .lock{position:absolute;right:-14px;top:-18px;font-size:36px}
+.wa-chat{position:absolute;border:3px solid #555;border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.wa-chat span{border-radius:12px;padding:8px 14px;font-size:20px;font-weight:700;color:#0A0A0A;width:max-content;max-width:100%}
+.wa-chat .u{background:var(--fg);align-self:flex-end} .wa-chat .a{background:var(--model)}
+.wa-shield{position:absolute;height:80px;border:4px solid var(--dyk);border-radius:18px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:24px;font-weight:800;color:var(--dyk)}
+.wa-shield .e{font-size:40px}
+.wa-mtools{position:absolute;display:flex;gap:16px}
+.wa-mtools span{width:80px;height:80px;border:4px solid var(--harness);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:40px;line-height:1;box-shadow:0 0 20px rgba(77,159,255,.3)}
+.wa-row{position:absolute;left:280px;width:1040px;height:58px;display:grid;grid-template-columns:300px 440px 300px;align-items:center;text-align:center;border-bottom:2px solid #2A2A28;font-size:27px;font-weight:700}
+.wa-row .k{color:var(--dim)}
+.wa-row .y{color:var(--model);font-size:34px;font-weight:900}
+.wa-row .n{color:#555}
+.wa-row .d{display:inline-flex;width:50px;height:50px;border-radius:50%;background:var(--model);align-items:center;justify-content:center;font-size:30px;margin:0 auto}
+.wa-side{position:absolute;left:110px;width:150px;font-size:18px;font-weight:800;letter-spacing:.18em;text-align:center;border-radius:10px;padding:8px 0}
+.wa-head{position:absolute;top:205px;width:300px;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:32px;font-weight:800}
 /* agent loop */
 .ag-goal{position:absolute;left:200px;top:222px;background:var(--fg);color:#0A0A0A;border-radius:999px;padding:14px 28px;font-size:26px;font-weight:600;white-space:nowrap}
 .ag-user{position:absolute;left:110px;top:212px;font-size:60px;line-height:1}
@@ -1349,18 +1382,18 @@ aside.notes,aside.onscreen{display:none}
   </svg>
   <div class="neq-dot" data-step="5" style="left:135px;top:535px;width:170px;height:170px;font-size:96px">💃</div>
   <div class="wa-pill" data-step="5" style="left:335px;top:590px;width:430px">🔍 search: flights to Chennai</div>
-  <div class="wa-hex" data-step="6" style="left:855px;top:545px;width:170px;height:150px"><span class="e">⚙️</span>App</div>
+  <div class="wa-win wa-mini" data-step="6" style="left:855px;top:545px;width:170px;height:150px"><div class="wa-bar"><i></i><i></i><i></i></div><span class="e">⚙️</span>App</div>
   <div class="wa-res" data-step="7" style="left:1110px;top:590px;width:370px">✈️ 14 flights found</div>
   <div class="wa-tag" data-step="8" style="left:520px;top:735px;width:500px;font-size:26px;color:var(--dyk)">back into the context window</div>
   <aside class="onscreen">
     Give it tools.
     Four blue tool cards drop in: 🔍 Search · 📄 Read file · ✏️ Write file · 📧 Email
     💃 model writes a request pill: 🔍 search: flights to Chennai
-    → blue hexagon ⚙️ App (the software around the model) runs it
+    → plain blue app box ⚙️ App (the software around the model) runs it
     → blue result: ✈️ 14 flights found
     Yellow curved arrow back to the model: back into the context window
   </aside>
-  <aside class="notes">So let's fix that. Let's give the model tools. [Click] A search tool. [Click] A tool to read a file. [Click] A tool to write a file. [Click] A tool to send an email. Now here's the part that most people get wrong, so watch closely. [Click] The model still only writes words. It writes a request: "search: flights to Chennai". [Click] The app around the model, the software, reads that request and actually runs the search. The model asks; the software does. [Click] The search comes back: fourteen flights found. [Click] And that result goes back into the context window, the desk we talked about earlier. Now the model can read it and decide what to do next. That's what a tool is: the model asks, the software runs it, the result comes back as more tokens.</aside>
+  <aside class="notes">So let's fix that. Let's give the model tools. [Click] A search tool. [Click] A tool to read a file. [Click] A tool to write a file. [Click] A tool to send an email. Now here's the part that most people get wrong, so watch closely. [Click] The model still only writes words. It writes a request: "search: flights to Chennai". [Click] The app around the model reads that request and actually runs the search. The model asks; the software does. [Click] The search comes back: fourteen flights found. [Click] And that result goes back into the context window, the desk we talked about earlier. Now the model can read it and decide what to do next. That's what a tool is: the model asks, the software runs it, the result comes back as more tokens.</aside>
 </section>
 
 <!-- ============================ 30e. NOW LET IT LOOP ============================ -->
@@ -1408,7 +1441,6 @@ aside.notes,aside.onscreen{display:none}
 <!-- ============================ 30f. MEET THE AGENT ============================ -->
 <section class="slide">
   <h2 class="fu title-xl" style="--d:.1s">Meet the agent.</h2>
-  <div class="wa-frame" data-step="5" style="left:200px;top:250px;width:1200px;height:590px"></div>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
     <g data-step="4"><circle class="wa-loopring" cx="800" cy="540" r="155" fill="none" stroke="#FFD23F" stroke-width="6" stroke-dasharray="26 18" stroke-linecap="round"/></g>
   </svg>
@@ -1427,10 +1459,10 @@ aside.notes,aside.onscreen{display:none}
     Context (red context window, left)
     Tools (blue tiles, right): 🔍 📄 ✏️ 📧
     🔁 Loop (yellow dashed ring spinning around the model)
-    Blue dashed frame around all of it + spy icon in green circle: = AI agent
+    Spy icon in green circle: = AI agent
     Agent = Model + Tools + a Loop
   </aside>
-  <aside class="notes">So let's put the pieces together. [Click] The model. The same dancer we met at the start of today: the file of numbers that guesses the next word. Nothing new. [Click] The context window: its desk, where the goal, the tool results and its own notes pile up. [Click] Tools: the things the app will run for it when it asks. [Click] And the loop: think, act, see, think again, until the job is done. [Click] Wrap all of that together and that's an AI agent. Model plus tools plus a loop. We'll draw agents as this spy from now on. The thing to remember: it's the same model you met an hour ago. It didn't get smarter. It just got hands and a loop.</aside>
+  <aside class="notes">So let's put the pieces together. [Click] The model. The same dancer we met at the start of today: the file of numbers that guesses the next word. Nothing new. [Click] The context window: its desk, where the goal, the tool results and its own notes pile up. [Click] Tools: the things the app will run for it when it asks. [Click] And the loop: think, act, see, think again, until the job is done. [Click] Put all of that together and that's an AI agent. Model plus tools plus a loop. We'll draw agents as this spy from now on. The thing to remember: it's the same model you met an hour ago. It didn't get smarter. It just got hands and a loop.</aside>
 </section>
 
 <!-- ============================ 30g. WHAT IT STILL CAN'T ESCAPE ============================ -->
@@ -1470,6 +1502,125 @@ aside.notes,aside.onscreen{display:none}
     You run the loop. (left) · It runs the loop. (green, right)
   </aside>
   <aside class="notes">So let's name some names. [Click] On one side, chat. [Click] Claude, ChatGPT, Gemini, Grok: you type, it answers. [Click] On the other side, agents. [Click] Claude Code, Codex, Antigravity, Hermes: you give them a goal, and they use tools on your computer until it's done. The lines are blurring: the chat apps keep adding agent features. So don't worry about which box a product sits in. Ask one question. [Click] In a chat, you run the loop. [Click] With an agent, it runs the loop. Same brain inside. That's the whole difference.</aside>
+</section>
+
+<!-- ============================ 30i. INSIDE THE MODEL ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">What's inside the model?</h2>
+  <div class="wa-core" data-step="1" style="left:600px;top:250px;width:400px;height:400px">
+    <span style="top:40px;font-size:100px">💃</span>
+    <span data-step="2" style="top:165px;font-size:46px">⚖️⚖️⚖️⚖️</span>
+    <b data-step="2" style="top:225px">Weights</b>
+    <span data-step="3" style="top:268px;font-size:56px">📚</span>
+    <b data-step="3" style="top:332px">What it read</b>
+  </div>
+  <div class="wa-ice" data-step="4" style="left:575px;top:225px;width:450px;height:450px"></div>
+  <div class="wa-cap" data-step="4" style="left:550px;top:700px;width:500px;font-size:30px;color:#BEE9FF">❄️ Frozen at the cutoff</div>
+  <div class="wa-cant" data-step="5" style="left:260px;top:250px">💬<b>Your chats</b></div>
+  <div class="wa-cant" data-step="6" style="left:260px;top:520px">📂<b>Your files</b></div>
+  <div class="wa-cant" data-step="7" style="left:1190px;top:250px">📰<b>Today's news</b></div>
+  <div class="wa-cant" data-step="8" style="left:1190px;top:520px">🗒️<b>Notes about you</b></div>
+  <aside class="onscreen">
+    What's inside the model?
+    Big green circle (the model) with 💃
+    Inside: ⚖️⚖️⚖️⚖️ Weights · 📚 What it read
+    Dotted ice ring with ❄️ 🧊: ❄️ Frozen at the cutoff
+    Outside, crossed out (NOT inside the model): 💬 Your chats ✕ · 📂 Your files ✕ · 📰 Today's news ✕ · 🗒️ Notes about you ✕
+  </aside>
+  <aside class="notes">Let's open the model up and look inside, so you never confuse it with the app again. [Click] Here's the model. [Click] Inside: the weights. The billions of dials we tuned during training. [Click] Those dials hold everything it picked up from what it read: language, facts, how to write code, how to reason. [Click] And all of it is frozen at the cutoff date. Nothing gets added while you use it. That's it. That's everything inside. Now, what's NOT inside? [Click] Your chats. [Click] Your files. [Click] Today's news. [Click] Notes about you. None of that lives in the model. Every single time you use it, the model starts from zero. So where does all that stuff live? Outside the model.</aside>
+</section>
+
+<!-- ============================ 30j. OUTSIDE: THE APP ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Everything else lives in the app.</h2>
+  <div class="wa-win" data-step="2" style="left:150px;top:225px;width:1300px;height:630px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
+  <div class="wa-winlbl" data-step="2" style="left:250px;top:233px">App</div>
+  <div class="fm" data-step="1" style="left:710px;top:410px">💃</div>
+  <div class="wa-cap" data-step="1" style="left:650px;top:615px;width:300px;color:var(--model)">Model</div>
+  <div class="ag-ctx" data-step="3" style="left:230px;top:310px;width:300px;height:190px;padding:14px;gap:10px"><i style="display:block;height:26px;border-radius:5px;background:#8C8C86"></i><i style="display:block;height:26px;border-radius:5px;background:var(--dyk);width:70%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--fg);width:85%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--model);width:60%"></i></div>
+  <div class="wa-cap" data-step="3" style="left:230px;top:510px;width:300px">Context window</div>
+  <div class="wa-instr" data-step="4" style="left:1070px;top:310px;width:300px">📝 “Be helpful. Be safe. Keep it short.”<span class="lock">🔒</span></div>
+  <div class="wa-cap" data-step="4" style="left:1070px;top:450px;width:300px">Instructions</div>
+  <div class="wa-note" data-step="5" style="left:285px;top:570px;width:190px">🗒️ Likes short answers</div>
+  <div class="wa-cap" data-step="5" style="left:230px;top:690px;width:300px">Memory</div>
+  <div class="wa-chat" data-step="6" style="left:1070px;top:520px;width:300px;height:150px"><span class="u">Plan my trip?</span><span class="a">Sure! Where to?</span></div>
+  <div class="wa-cap" data-step="6" style="left:1070px;top:690px;width:300px">Chat screen</div>
+  <aside class="onscreen">
+    Everything else lives in the app.
+    ❄️ Frozen model 💃 (center) · label: Model
+    Plain blue box around it with a title bar: App
+    Inside the app, outside the model:
+    Context window (red box: grey instructions bar, yellow memory bar, white your message, green reply)
+    Instructions: grey card 📝 “Be helpful. Be safe. Keep it short.” 🔒 (you never see it)
+    Memory: yellow sticky note 🗒️ Likes short answers
+    Chat screen: “Plan my trip?” / “Sure! Where to?”
+  </aside>
+  <aside class="notes">So where does everything else live? [Click] Here's our frozen model again. [Click] Around it is the app. ChatGPT, Claude, Gemini: what you download or open in your browser is the app. The model sits inside the company's computers; the app is everything wrapped around it. Now let's fill it in. [Click] The context window. The desk lives in the app, not in the model. Every time you hit send, the app builds the desk and hands the whole thing to the model. The model reads it, writes a reply, and keeps nothing. That's why it's stateless. [Click] Instructions. Before you type a single word, the company has already put a note at the top of the desk: be helpful, be safe, keep it short. You never see it, but it's there in every chat. [Click] Memory. When ChatGPT or Claude "remembers" you, it's the app keeping a sticky note like this, and pasting it onto the desk next time. The model still remembers nothing. [Click] And the chat screen itself: the box you type in and your past conversations. All of this is the app. Only the 💃 in the middle is the model.</aside>
+</section>
+
+<!-- ============================ 30k. OUTSIDE: THE AGENT ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">An agent adds more outside.</h2>
+  <div class="wa-win" style="left:150px;top:225px;width:1300px;height:630px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
+  <div class="wa-winlbl" data-hide="4" style="left:250px;top:233px">App</div>
+  <div class="wa-winlbl" data-step="4" style="left:250px;top:233px">Agent</div>
+  <div class="agcirc" data-step="4" style="left:1330px;top:175px;width:130px;height:130px"><img src="gifs/agent.png" alt=""></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <g data-step="2"><circle class="wa-loopring" cx="800" cy="500" r="135" fill="none" stroke="#FFD23F" stroke-width="6" stroke-dasharray="26 18" stroke-linecap="round"/></g>
+  </svg>
+  <div class="fm" style="left:710px;top:410px">💃</div>
+  <div class="wa-cap" style="left:650px;top:290px;width:300px;color:var(--model)">Model</div>
+  <div class="ag-ctx" style="left:230px;top:310px;width:300px;height:190px;padding:14px;gap:10px"><i style="display:block;height:26px;border-radius:5px;background:#8C8C86"></i><i style="display:block;height:26px;border-radius:5px;background:var(--dyk);width:70%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--fg);width:85%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--model);width:60%"></i></div>
+  <div class="wa-cap" style="left:230px;top:510px;width:300px">Context window</div>
+  <div class="wa-instr" style="left:1070px;top:310px;width:300px">📝 “Be helpful. Be safe. Keep it short.”<span class="lock">🔒</span></div>
+  <div class="wa-cap" style="left:1070px;top:450px;width:300px">Instructions</div>
+  <div class="wa-note" style="left:285px;top:570px;width:190px;transform:rotate(-3deg)">🗒️ Likes short answers</div>
+  <div class="wa-cap" style="left:230px;top:690px;width:300px">Memory</div>
+  <div class="wa-chat" style="left:1070px;top:520px;width:300px;height:150px"><span class="u">Plan my trip?</span><span class="a">Sure! Where to?</span></div>
+  <div class="wa-cap" style="left:1070px;top:690px;width:300px">Chat screen</div>
+  <div class="wa-mtools" data-step="1" style="left:552px;top:745px"><span>🔍</span><span>📄</span><span>✏️</span><span>📧</span></div>
+  <div class="wa-cap" data-step="1" style="left:400px;top:768px;width:140px;color:var(--harness)">Tools</div>
+  <div class="wa-cap" data-step="2" style="left:880px;top:370px;width:120px;color:var(--dyk)">🔁 Loop</div>
+  <div class="wa-shield" data-step="3" style="left:1000px;top:745px;width:260px"><span class="e">🛡️</span>Ask first</div>
+  <aside class="onscreen">
+    An agent adds more outside.
+    Same plain blue app box, same frozen model 💃 in the middle, same Context window · Instructions · Memory · Chat screen
+    New: Tools (🔍 📄 ✏️ 📧 blue tiles along the bottom)
+    New: 🔁 Loop (yellow ring spinning around the model)
+    New: 🛡️ Ask first (permissions)
+    Box label App → Agent, spy icon in green circle appears
+  </aside>
+  <aside class="notes">Same picture. Same app around it, same frozen model in the middle, same context window, instructions, memory and chat. So what turns an app into an agent? Three more things, and all three are outside the model too. [Click] Tools: search, read files, write files, send email. The model asks, the app runs them. [Click] The loop: instead of one question, one answer, the app keeps calling the model, think, act, see, think again, until the job is done. [Click] And permissions: because it can now actually do things, a good agent asks you first before anything risky. [Click] Add those three and the app becomes an agent. Look at the middle: the model didn't change. Not one dial. Everything that makes it an agent was added on the outside.</aside>
+</section>
+
+<!-- ============================ 30l. APP VS AGENT ============================ -->
+<section class="slide">
+  <h2 class="fu title-xl" style="--d:.1s">App vs agent.</h2>
+  <div class="wa-head" data-step="1" style="left:280px"><div class="wa-win" style="position:relative;width:110px;height:84px;border-radius:14px"><div class="wa-bar" style="height:22px;padding:0 8px;gap:5px;border-bottom-width:2px"><i style="width:7px;height:7px"></i><i style="width:7px;height:7px"></i><i style="width:7px;height:7px"></i></div></div>App</div>
+  <div class="wa-head" data-step="1" style="left:1020px"><div class="agcirc" style="position:relative;width:84px;height:84px"><img src="gifs/agent.png" alt=""></div>Agent</div>
+  <div class="wa-side" data-step="2" style="top:392px;background:var(--model);color:#0A0A0A">INSIDE</div>
+  <div class="wa-row" data-step="2" style="top:380px"><span class="d">💃</span><span class="k" style="color:var(--model)">The model</span><span class="d">💃</span></div>
+  <div class="wa-side" data-step="3" style="top:606px;border:3px solid var(--harness);color:var(--harness)">OUTSIDE</div>
+  <div class="layer" data-step="3">
+    <div class="wa-row" style="top:450px"><span class="y">✓</span><span class="k">📜 Context window</span><span class="y">✓</span></div>
+    <div class="wa-row" style="top:508px"><span class="y">✓</span><span class="k">📝 Instructions</span><span class="y">✓</span></div>
+    <div class="wa-row" style="top:566px"><span class="y">✓</span><span class="k">🗒️ Memory</span><span class="y">✓</span></div>
+  </div>
+  <div class="wa-row" data-step="4" style="top:624px"><span class="n">a few</span><span class="k">🧰 Tools</span><span style="color:var(--harness)">many</span></div>
+  <div class="wa-row" data-step="5" style="top:682px"><span class="n">one reply</span><span class="k">🔁 Loop</span><span style="color:var(--dyk)">until done</span></div>
+  <div class="wa-row" data-step="6" style="top:740px"><span class="n">—</span><span class="k">🛡️ Permissions</span><span style="color:var(--dyk)">asks first</span></div>
+  <div class="cva-punch" data-step="7" style="left:0;width:1600px;top:820px;font-size:48px;color:var(--fg)">Same inside. <span style="color:var(--model)">More outside.</span></div>
+  <aside class="onscreen">
+    App vs agent.
+    Columns: App (plain blue box icon) · Agent (spy icon)
+    INSIDE · The model: 💃 / 💃 (identical)
+    OUTSIDE · 📜 Context window ✓ / ✓ · 📝 Instructions ✓ / ✓ · 🗒️ Memory ✓ / ✓
+    🧰 Tools: a few / many
+    🔁 Loop: one reply / until done
+    🛡️ Permissions: — / asks first
+    Same inside. More outside.
+  </aside>
+  <aside class="notes">Let's put the two side by side so the difference is crystal clear. [Click] An app on the left, an agent on the right. [Click] Inside: the model. Identical. Often literally the same model; Claude chat and Claude Code can run the very same Claude. [Click] Outside, both have a context window, both have hidden instructions, both can have memory. No difference there. [Click] Here's where they split. Tools: a chat app has a few, like web search; an agent has many, and can work with your files and apps. [Click] The loop: an app gives you one reply and waits for you. An agent keeps going until the job is done. [Click] And because it acts on its own, an agent asks permission before risky steps. One honest note: the line is blurring, and chat apps keep adding agent features. That's fine. Just ask: who runs the loop? [Click] So if you remember one thing: same brain inside, more hands outside. Everything that makes it an app or an agent lives outside the model.</aside>
 </section>
 
 </div>
