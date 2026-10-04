@@ -529,7 +529,20 @@ So now you know what these models are. How do you actually get your hands on one
 
 Is it worth paying? [Click] Option one: hold on to your money and stick with the free tiers. [Click] Option two: pay for a plan. [Your punchline for the Vadivelu GIF goes here.]
 
-## 36. How To Pick — How to pick the right one?
+## 36. Country Of Geniuses — A country of geniuses
+
+**On screen**
+
+- A country of geniuses
+- Center: 🧑‍💻 You
+- Ring of geniuses, each linked to you: Einstein · Newton · Best coder · Options expert · Top doctor · Top lawyer · Best tutor · Best writer
+- Crowd of 🧠 filling the screen (a whole country)
+
+**Say**
+
+Here's the big idea I want you to walk away with. [Click] This is you. Sitting at home, with a phone or a laptop. [Click] With these models, it's like having Einstein on call. [Click] Newton. [Click] The smartest coding assistant in the world. [Click] A top options-trading expert to explain your finance questions. [Click] A doctor to help you understand your lab report. [Click] A lawyer to read your lease. [Click] A patient tutor for your kids, or for you. [Click] A writer to polish your email. [Click] And not just eight of them. Thousands. A whole country of geniuses, available to you any time of the day, for about the price of a Netflix subscription. The question is no longer "do I have access to expertise?" It's "do I know how to ask?" That's what the rest of this course is about.
+
+## 37. How To Pick — How to pick the right one?
 
 **On screen**
 
@@ -540,7 +553,7 @@ Is it worth paying? [Click] Option one: hold on to your money and stick with the
 
 So how do you pick the right one? There are so many options. [Click] My recommendation: start with a closed model. Then look at the benchmarks to compare them. Open models are the third option. We'll talk about building with them and installing them locally later in the course, but for now, go with a closed model.
 
-## 37. Subscription Vs Tokens — Subscription or pay per token?
+## 38. Subscription Vs Tokens — Subscription or pay per token?
 
 **On screen**
 
@@ -551,7 +564,7 @@ So how do you pick the right one? There are so many options. [Click] My recommen
 
 Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.
 
-## 38. Pick One — Pick one of these.
+## 39. Pick One — Pick one of these.
 
 **On screen**
 
