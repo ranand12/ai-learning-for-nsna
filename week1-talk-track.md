@@ -456,11 +456,12 @@ So let's fix that. Let's give the model tools. [Click] A search tool. [Click] A 
 - Context window (red box, left) fills up lap by lap:
 - 🧑‍💻 3 cheap flights → spreadsheet · ✈️ Search: 14 flights found · 💃 Picked the 3 cheapest · 📊 Spreadsheet saved · ✅ Done. Here's your file.
 - Loop (right): 💃 Think → Act (🔍 Search flights, then 📊 Make sheet) → 👀 See result → back to Think · 🔁 with token dots circling
+- Maanaadu “repeat” GIF (SJ Surya), top right, with the 🔁 (gone when ✅ Done appears)
 - Green exit arrow from Think → ✅ Done
 
 **Say**
 
-Now the big step. Remember who was going round in circles? You. What if the model could go round by itself? [Click] You give it one goal: find three cheap flights and put them in a spreadsheet. [Click] That goes into the context window, the desk. [Click] The model reads the desk and thinks: what's the first thing I need? [Click] It acts: it asks for the search tool, and the app runs it. [Click] It sees the result: fourteen flights, now sitting on the desk. [Click] And now it goes back to thinking, with that new information on the desk. It picks the three cheapest. That's the loop: think, act, see the result, think again. Round and round, as many laps as it needs. [Click] Next lap: it acts again with a different tool, and makes the spreadsheet. The result lands on the desk. [Click] And on the last lap, the model thinks: is the job finished? Yes. So it stops and tells you it's done. You gave it one sentence. It did all the copying, pasting and clicking that you used to do.
+Now the big step. Remember who was going round in circles? You. What if the model could go round by itself? [Click] You give it one goal: find three cheap flights and put them in a spreadsheet. [Click] That goes into the context window, the desk. [Click] The model reads the desk and thinks: what's the first thing I need? [Click] It acts: it asks for the search tool, and the app runs it. [Click] It sees the result: fourteen flights, now sitting on the desk. [Click] And now it goes back to thinking, with that new information on the desk. It picks the three cheapest. That's the loop: think, act, see the result, think again. Repeat-u, repeat-u, just like SJ Surya in Maanaadu. Round and round, as many laps as it needs. [Click] Next lap: it acts again with a different tool, and makes the spreadsheet. The result lands on the desk. [Click] And on the last lap, the model thinks: is the job finished? Yes. So it stops and tells you it's done. You gave it one sentence. It did all the copying, pasting and clicking that you used to do.
 
 ## 31. Outside: The Agent — An agent adds more outside.
 
