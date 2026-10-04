@@ -174,6 +174,7 @@ svg text{font-family:var(--font);fill:var(--fg)}
 .wa-chip.m{border-color:var(--model)}
 .wa-chip.m::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--model);flex:none}
 .wa-chip img{width:40px;height:40px;border-radius:10px;background:var(--fg);padding:5px;flex:none}
+.wa-ltr{width:40px;height:40px;border-radius:10px;background:var(--fg);color:#0A0A0A;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;flex:none}
 .slide:has(.wa-cxmk.shown) .wa-cx{border-color:var(--dyk);box-shadow:0 0 0 5px rgba(255,210,63,.35)}
 /* agent loop */
 .ag-goal{position:absolute;left:200px;top:222px;background:var(--fg);color:#0A0A0A;border-radius:999px;padding:14px 28px;font-size:26px;font-weight:600;white-space:nowrap}
@@ -651,17 +652,17 @@ aside.notes,aside.onscreen{display:none}
   <div class="mp-stop" data-step="1" style="left:100px;top:552px"><div class="mp-pin"><div class="mp-drop"><span>01</span></div></div><div class="mp-lbl">How a model works</div></div>
   <div class="mp-stop mp-up" data-step="2" style="left:385px;top:312px"><div class="mp-pin"><div class="mp-drop"><span>02</span></div></div><div class="mp-lbl">Closed vs open models</div></div>
   <div class="mp-stop" data-step="3" style="left:670px;top:552px"><div class="mp-pin"><div class="mp-drop"><span>03</span></div></div><div class="mp-lbl">Tokens &amp; the context window</div></div>
-  <div class="mp-stop mp-up" data-step="4" style="left:955px;top:312px"><div class="mp-pin"><div class="mp-drop"><span>04</span></div></div><div class="mp-lbl">Getting access: plans &amp; pricing</div></div>
-  <div class="mp-stop" data-step="5" style="left:1240px;top:552px"><div class="mp-pin"><div class="mp-drop"><span>05</span></div></div><div class="mp-lbl">Models vs agents</div></div>
+  <div class="mp-stop mp-up" data-step="4" style="left:955px;top:312px"><div class="mp-pin"><div class="mp-drop"><span>04</span></div></div><div class="mp-lbl">Models, apps &amp; agents</div></div>
+  <div class="mp-stop" data-step="5" style="left:1240px;top:552px"><div class="mp-pin"><div class="mp-drop"><span>05</span></div></div><div class="mp-lbl">Getting access: plans &amp; pricing</div></div>
   <aside class="onscreen">
     The map
     01 How a model works
     02 Closed vs open models
     03 Tokens & the context window
-    04 Getting access: plans & pricing
-    05 Models vs agents
+    04 Models, apps & agents
+    05 Getting access: plans & pricing
   </aside>
-  <aside class="notes">Here's the route for today. Five stops, and we'll take them in order. [Click] Stop 1: How a model works. [Click] Stop 2: Closed vs open models. [Click] Stop 3: Tokens & the context window. [Click] Stop 4: Getting access: plans & pricing. [Click] Stop 5: Models vs agents. Every stop builds on the one before it, so if anything along the way doesn't land, stop me and ask.</aside>
+  <aside class="notes">Here's the route for today. Five stops, and we'll take them in order. [Click] Stop 1: How a model works. [Click] Stop 2: Closed vs open models. [Click] Stop 3: Tokens & the context window. [Click] Stop 4: Models, apps & agents. [Click] Stop 5: Getting access: plans & pricing. Every stop builds on the one before it, so if anything along the way doesn't land, stop me and ask.</aside>
 </section>
 
 <!-- ============================ 6. SECTION 01 ============================ -->
@@ -1282,89 +1283,6 @@ aside.notes,aside.onscreen{display:none}
   <aside class="notes">Let's recap what we've covered so far. [Click] One: training and inference. The model reads a huge library once, at great cost, then freezes. Every time you use it, that's inference: question in, answer out. [Click] Two: closed versus open. Closed models stay locked in the company's servers and you rent them. Open models are a file you can download and run yourself. [Click] Three: it's all probabilistic prediction. The model guesses the next word from the odds, and temperature controls how adventurous those guesses are. [Click] Four: tokens. Models read chunks, not words, and tokens are the currency: limits and pricing are all counted in them. [Click] Five: the context window. That's the model's desk: everything it can see right now. It's big but not infinite, it fills up, and the model remembers nothing outside it.</aside>
 </section>
 
-<!-- ============================ 23c. HOW TO GET ACCESS ============================ -->
-<section class="slide">
-  <h2 class="fu title-c" style="--d:.1s">How to get access?</h2>
-  <img data-step="1" src="gifs/want-demand.gif" alt="" style="position:absolute;left:547px;top:300px;width:506px;height:420px;border-radius:16px;border:3px solid #2A2A28">
-  <aside class="onscreen">
-    How to get access?
-    Want / demand (GIF)
-  </aside>
-  <aside class="notes">So now you know what these models are. How do you actually get your hands on one? [Click] Everyone wants in. Let's talk about whether it's worth paying, and how.</aside>
-</section>
-
-<!-- ============================ 30. WORTH PAYING? ============================ -->
-<section class="slide">
-  <h2 class="fu title-xl" style="--d:.1s">Is it worth paying?</h2>
-  <img data-step="1" src="gifs/counting-money.gif" alt="" style="position:absolute;left:219px;top:360px;width:404px;height:300px;border-radius:16px;border:3px solid #2A2A28">
-  <div data-step="2" style="position:absolute;left:623px;top:360px;width:120px;height:300px;display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:800;color:var(--dim)">vs</div>
-  <img data-step="2" src="gifs/vadivelu.gif" alt="" style="position:absolute;left:743px;top:360px;width:638px;height:300px;border-radius:16px;border:3px solid #2A2A28">
-  <aside class="onscreen">
-    Is it worth paying?
-    Counting money (Santhanam) vs Vadivelu (GIFs)
-  </aside>
-  <aside class="notes">Is it worth paying? [Click] Option one: hold on to your money and stick with the free tiers. [Click] Option two: pay for a plan. [Your punchline for the Vadivelu GIF goes here.]</aside>
-</section>
-
-<!-- ============================ 30a. HOW TO PICK ============================ -->
-<section class="slide">
-  <h2 class="fu title-xl" style="--d:.1s">How to pick the right one?</h2>
-  <img data-step="1" src="gifs/tamil-chat-star.gif" alt="" style="position:absolute;left:539px;top:300px;width:523px;height:420px;border-radius:16px;border:3px solid #2A2A28">
-  <aside class="onscreen">
-    How to pick the right one?
-    Tamil chat star (GIF)
-  </aside>
-  <aside class="notes">So how do you pick the right one? There are so many options. [Click] My recommendation: start with a closed model. Then look at the benchmarks to compare them. Open models are the third option. We'll talk about building with them and installing them locally later in the course, but for now, go with a closed model.</aside>
-</section>
-
-<!-- ============================ 29b. SUBSCRIPTION vs TOKENS ============================ -->
-<section class="slide">
-  <h2 class="fu title-xl" style="--d:.1s">Subscription or pay per token?</h2>
-  <img data-step="1" src="gifs/netflix.gif" alt="" style="position:absolute;left:364px;top:360px;width:452px;height:300px;border-radius:16px;border:3px solid #2A2A28">
-  <div data-step="2" style="position:absolute;left:816px;top:360px;width:120px;height:300px;display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:800;color:var(--dim)">vs</div>
-  <img data-step="2" src="gifs/tokens-coins.gif" alt="" style="position:absolute;left:936px;top:360px;width:300px;height:300px;border-radius:16px;border:3px solid #2A2A28">
-  <aside class="onscreen">
-    Should I choose subscription or pay per tokens?
-    Netflix (subscription) vs tokens (pay per use) (GIFs)
-  </aside>
-  <aside class="notes">Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.</aside>
-</section>
-
-<!-- ============================ 29c. PICK ONE ============================ -->
-<section class="slide">
-  <h2 class="title-xl" data-step="3" style="width:100%;text-align:center">Pick one of these.</h2>
-  <img class="pk-logo pk-openai" data-step="1" data-move="3" src="gifs/logos/openai.png" alt="openai" style="left:1130px;top:292px">
-  <img class="pk-logo pk-claude" data-step="1" data-move="3" src="gifs/logos/claude.png" alt="claude" style="left:1182px;top:64px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/antigravity.png" alt="antigravity" style="left:45px;top:513px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/claude-code.png" alt="claude-code" style="left:644px;top:727px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/codex.png" alt="codex" style="left:310px;top:41px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/cohere.png" alt="cohere" style="left:575px;top:62px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/copilot.png" alt="copilot" style="left:1385px;top:495px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/cursor.png" alt="cursor" style="left:889px;top:36px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/deepseek.png" alt="deepseek" style="left:1437px;top:259px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/gemini.png" alt="gemini" style="left:909px;top:271px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/gemma.png" alt="gemma" style="left:109px;top:79px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/grok.png" alt="grok" style="left:593px;top:258px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/hermes.png" alt="hermes" style="left:1176px;top:513px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/huggingface.png" alt="huggingface" style="left:328px;top:500px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/kimi.png" alt="kimi" style="left:316px;top:737px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/meta.png" alt="meta" style="left:46px;top:288px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/microsoft.png" alt="microsoft" style="left:843px;top:741px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/minimax.png" alt="minimax" style="left:1394px;top:733px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/mistral.png" alt="mistral" style="left:638px;top:504px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/nvidia.png" alt="nvidia" style="left:344px;top:281px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/perplexity.png" alt="perplexity" style="left:910px;top:536px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/qwen.png" alt="qwen" style="left:1160px;top:725px">
-  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/zhipu.png" alt="zhipu" style="left:76px;top:717px">
-  <div class="pk-ring" data-step="2" data-hide="3" style="left:1108px;top:270px"></div>
-  <div class="pk-ring" data-step="2" data-hide="3" style="left:1160px;top:42px"></div>
-  <aside class="onscreen">
-    Pick one of these.
-    Logos of AI models and companies, scattered: Grok, Claude, Claude Code, OpenAI, Codex, Hermes, Gemini, Antigravity, DeepSeek, Qwen, Meta, Mistral, Gemma, Perplexity, Microsoft, Cohere, NVIDIA, Hugging Face, Kimi, Zhipu, MiniMax, Copilot, Cursor. Circle: OpenAI and Claude.
-  </aside>
-  <aside class="notes">Look at how many models and companies there are. [Click] Let's narrow it down: the two big names are OpenAI and Claude. [Click] Pick one of these. Either is a great place to start.</aside>
-</section>
-
 <!-- ============================ 30i. INSIDE THE MODEL ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">What's inside the model?</h2>
@@ -1572,23 +1490,6 @@ aside.notes,aside.onscreen{display:none}
   <aside class="notes">Remember the app picture? Same app around it, same frozen model in the middle, same context window, instructions, memory and chat. So what turns an app into an agent? The three things we just saw, and all three are outside the model. [Click] Tools: search, read files, write files, send email. The model asks, the app runs them. [Click] The loop: instead of one question, one answer, the app keeps calling the model, think, act, see, think again, until the job is done. [Click] And permissions: because it can now actually do things, a good agent asks you first before anything risky. [Click] Add those three and the app becomes an agent. Model plus tools plus a loop, run by the app. We'll draw agents as this spy from now on. Look at the middle: the model didn't change. Not one dial. It just got hands and a loop, and all of it was added on the outside.</aside>
 </section>
 
-<!-- ============================ 30g. WHAT IT STILL CAN'T ESCAPE ============================ -->
-<section class="slide">
-  <h2 class="fu title-c" style="--d:.1s">What it still can't escape.</h2>
-  <div class="wa-tile" data-step="1" style="left:80px;--c:var(--demo)"><div class="m"><img src="gifs/haystack-dive.gif" alt="" style="height:200px;width:233px"></div><b>Desk fills up</b></div>
-  <div class="wa-tile" data-step="2" style="left:450px;--c:var(--guess)"><div class="m"><img src="gifs/ghajini.gif" alt="" style="height:160px;width:285px"></div><b>Forgets between chats</b></div>
-  <div class="wa-tile" data-step="3" style="left:820px;--c:#BEE9FF"><div class="m"><img src="gifs/no-internet-dino.gif" alt="" style="height:200px;width:200px"></div><b>Cutoff → 🔍 search</b></div>
-  <div class="wa-tile" data-step="4" style="left:1190px;--c:var(--dyk)"><div class="m">⚠️</div><b>Ask before it acts</b></div>
-  <aside class="onscreen">
-    What it still can't escape.
-    Tile 1 (red): haystack-dive GIF · Desk fills up (every tool result lands in the context window; long jobs get messy, lost in the middle)
-    Tile 2 (purple): Ghajini GIF · Forgets between chats (still stateless; it only "remembers" by writing notes to a file and reading them back)
-    Tile 3 (ice blue): no-internet dino GIF · Cutoff → 🔍 search (still has a knowledge cutoff; a web search tool is how it gets fresh info)
-    Tile 4 (yellow): ⚠️ · Ask before it acts (more freedom = more can go wrong; permissions and approvals)
-  </aside>
-  <aside class="notes">An agent is not magic, though. Everything you learned about the model today still applies, because the model inside hasn't changed. [Click] First: the desk fills up. Every search result, every file it reads, lands in the context window. On a long job the desk gets crowded, it gets lost in the middle, and the oldest stuff gets dropped. Same problem as three hours into one chat, just faster. [Click] Second: it's still Ghajini. It's stateless. Close the session and it remembers nothing. When an agent seems to "remember" you, it's because it wrote notes to a file and reads them back next time. [Click] Third: it still has a knowledge cutoff. The difference is, now it can fix that with a tool: give it web search and it can look up today's news. [Click] And fourth, the new one: an agent can actually do things. It can delete a file or send the wrong email. More freedom means more can go wrong. So good agents ask permission before anything risky, and you should keep it that way.</aside>
-</section>
-
 <!-- ============================ 30l. APP VS AGENT ============================ -->
 <section class="slide">
   <h2 class="fu title-xl" style="--d:.1s">App vs agent.</h2>
@@ -1622,37 +1523,121 @@ aside.notes,aside.onscreen{display:none}
 <!-- ============================ 30m. MODELS, APPS, AGENTS ============================ -->
 <section class="slide">
   <h2 class="fu title-xl" style="--d:.1s">Models, apps, agents.</h2>
-  <div class="wa-head" data-step="1" style="left:180px;top:200px"><div class="neq-dot" style="position:relative;width:80px;height:80px;font-size:46px">💃</div>Models</div>
-  <div class="wa-list" data-step="2" style="left:130px">
+  <div class="wa-head" data-step="1" style="left:180px;top:240px"><div class="neq-dot" style="position:relative;width:80px;height:80px;font-size:46px">💃</div>Models</div>
+  <div class="wa-list" data-step="2" style="left:130px;top:390px">
     <div class="wa-chip m">GPT-5.6</div>
     <div class="wa-chip m">GPT-6 Astra</div>
     <div class="wa-chip m">Claude Opus 5.5</div>
-    <div class="wa-chip m">Gemini</div>
-    <div class="wa-chip m">Grok</div>
-    <div class="wa-chip m">DeepSeek</div>
+    <div class="wa-chip m">Gemini 3.8 Flash</div>
+    <div class="wa-chip m">Grok 4.7</div>
+    <div class="wa-chip m">DeepSeek V4.1 Flash</div>
   </div>
-  <div class="wa-head" data-step="3" style="left:650px;top:200px"><div class="wa-win" style="position:relative;width:96px;height:74px;border-radius:14px"><div class="wa-bar" style="height:20px;padding:0 8px;gap:5px;border-bottom-width:2px"><i style="width:7px;height:7px"></i><i style="width:7px;height:7px"></i><i style="width:7px;height:7px"></i></div></div>Apps</div>
-  <div class="wa-list" data-step="4" style="left:600px">
+  <div class="wa-head" data-step="3" style="left:650px;top:240px"><div class="wa-win" style="position:relative;width:96px;height:74px;border-radius:14px"><div class="wa-bar" style="height:20px;padding:0 8px;gap:5px;border-bottom-width:2px"><i style="width:7px;height:7px"></i><i style="width:7px;height:7px"></i><i style="width:7px;height:7px"></i></div></div>Apps</div>
+  <div class="wa-list" data-step="4" style="left:600px;top:390px">
     <div class="wa-chip"><img src="gifs/logos/openai.png" alt="">ChatGPT</div>
     <div class="wa-chip"><img src="gifs/logos/claude.png" alt="">Claude</div>
     <div class="wa-chip"><img src="gifs/logos/gemini.png" alt="">Gemini</div>
-    <div class="wa-chip wa-cx"><img src="gifs/logos/codex.png" alt="">Codex</div>
   </div>
-  <div class="wa-head" data-step="5" style="left:1120px;top:200px"><div class="agcirc" style="position:relative;width:80px;height:80px"><img src="gifs/agent.png" alt=""></div>Agents</div>
-  <div class="wa-list" data-step="6" style="left:1070px">
-    <div class="wa-chip wa-cx"><img src="gifs/logos/codex.png" alt="">Codex</div>
+  <div class="wa-head" data-step="5" style="left:1120px;top:240px"><div class="agcirc" style="position:relative;width:80px;height:80px"><img src="gifs/agent.png" alt=""></div>Agents</div>
+  <div class="wa-list" data-step="6" style="left:1070px;top:390px;gap:10px">
+    <div class="wa-chip"><img src="gifs/logos/codex.png" alt="">Codex</div>
     <div class="wa-chip"><img src="gifs/logos/claude-code.png" alt="">Claude Code</div>
     <div class="wa-chip"><img src="gifs/logos/hermes.png" alt="">Hermes</div>
+    <div class="wa-chip"><span class="wa-ltr">D</span>DeepSeek Harness</div>
+    <div class="wa-chip"><img src="gifs/logos/antigravity.png" alt="">Antigravity</div>
+    <div class="wa-chip"><img src="gifs/logos/grok.png" alt="">Grok Bot</div>
+    <div class="wa-chip"><span class="wa-ltr">M</span>Muse</div>
   </div>
-  <i class="wa-cxmk" data-step="7"></i>
   <aside class="onscreen">
     Models, apps, agents.
-    Column 1 · 💃 Models (green chips): GPT-5.6 · GPT-6 Astra · Claude Opus 5.5 · Gemini · Grok · DeepSeek
-    Column 2 · plain blue app box · Apps (logo chips): ChatGPT · Claude · Gemini · Codex
-    Column 3 · spy icon · Agents (logo chips): Codex · Claude Code · Hermes
-    Both Codex chips light up yellow (it's an app that is also an agent)
+    Column 1 · 💃 Models (green chips): GPT-5.6 · GPT-6 Astra · Claude Opus 5.5 · Gemini 3.8 Flash · Grok 4.7 · DeepSeek V4.1 Flash
+    Column 2 · plain blue app box · Apps (logo chips): ChatGPT · Claude · Gemini
+    Column 3 · spy icon · Agents (logo chips): Codex · Claude Code · Hermes · DeepSeek Harness · Antigravity · Grok Bot · Muse
   </aside>
-  <aside class="notes">Let's finish by putting real names on the three words. [Click] Models: the brains, the frozen files of numbers. [Click] GPT-5.6, GPT-6 Astra, Claude Opus, Gemini, Grok, DeepSeek. You never touch these directly; you reach them through something. [Click] Apps: the thing you actually open. [Click] ChatGPT, Claude, Gemini, Codex. Notice Gemini is both a model and an app name, and ChatGPT is the app while GPT is the model. Companies reuse names, which is why this gets confusing. [Click] Agents: apps that add tools, a loop and permissions. [Click] Codex, Claude Code, Hermes. [Click] And notice Codex shows up twice. That's not a mistake. An agent is just an app that does more on the outside, so the same product can be both. When you hear a new AI name, ask one question: is it the brain, the app, or an app that runs the loop for you?</aside>
+  <aside class="notes">Let's finish by putting real names on the three words. [Click] Models: the brains, the frozen files of numbers. [Click] GPT-5.6 and GPT-6 Astra from OpenAI, Claude Opus from Anthropic, Gemini 3.8 Flash from Google, Grok 4.7 from xAI, and DeepSeek V4.1 Flash, an open model from China. You never touch these directly; you reach them through something. [Click] Apps: the thing you actually open. [Click] ChatGPT, Claude, Gemini. Notice Gemini is both a model and an app name, and ChatGPT is the app while GPT is the model. Companies reuse names, which is why this gets confusing. [Click] Agents: apps that add tools, a loop and permissions. [Click] Codex and Claude Code for coding, Hermes, DeepSeek Harness, Google's Antigravity, Grok Bot from xAI, and Meta's Muse, which books and buys things for you. Most of these were launched in just the last few months. When you hear a new AI name, ask one question: is it the brain, the app, or an app that runs the loop for you?</aside>
+</section>
+
+<!-- ============================ 23c. HOW TO GET ACCESS ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">How to get access?</h2>
+  <img data-step="1" src="gifs/want-demand.gif" alt="" style="position:absolute;left:547px;top:300px;width:506px;height:420px;border-radius:16px;border:3px solid #2A2A28">
+  <aside class="onscreen">
+    How to get access?
+    Want / demand (GIF)
+  </aside>
+  <aside class="notes">So now you know what these models are. How do you actually get your hands on one? [Click] Everyone wants in. Let's talk about whether it's worth paying, and how.</aside>
+</section>
+
+<!-- ============================ 30. WORTH PAYING? ============================ -->
+<section class="slide">
+  <h2 class="fu title-xl" style="--d:.1s">Is it worth paying?</h2>
+  <img data-step="1" src="gifs/counting-money.gif" alt="" style="position:absolute;left:219px;top:360px;width:404px;height:300px;border-radius:16px;border:3px solid #2A2A28">
+  <div data-step="2" style="position:absolute;left:623px;top:360px;width:120px;height:300px;display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:800;color:var(--dim)">vs</div>
+  <img data-step="2" src="gifs/vadivelu.gif" alt="" style="position:absolute;left:743px;top:360px;width:638px;height:300px;border-radius:16px;border:3px solid #2A2A28">
+  <aside class="onscreen">
+    Is it worth paying?
+    Counting money (Santhanam) vs Vadivelu (GIFs)
+  </aside>
+  <aside class="notes">Is it worth paying? [Click] Option one: hold on to your money and stick with the free tiers. [Click] Option two: pay for a plan. [Your punchline for the Vadivelu GIF goes here.]</aside>
+</section>
+
+<!-- ============================ 30a. HOW TO PICK ============================ -->
+<section class="slide">
+  <h2 class="fu title-xl" style="--d:.1s">How to pick the right one?</h2>
+  <img data-step="1" src="gifs/tamil-chat-star.gif" alt="" style="position:absolute;left:539px;top:300px;width:523px;height:420px;border-radius:16px;border:3px solid #2A2A28">
+  <aside class="onscreen">
+    How to pick the right one?
+    Tamil chat star (GIF)
+  </aside>
+  <aside class="notes">So how do you pick the right one? There are so many options. [Click] My recommendation: start with a closed model. Then look at the benchmarks to compare them. Open models are the third option. We'll talk about building with them and installing them locally later in the course, but for now, go with a closed model.</aside>
+</section>
+
+<!-- ============================ 29b. SUBSCRIPTION vs TOKENS ============================ -->
+<section class="slide">
+  <h2 class="fu title-xl" style="--d:.1s">Subscription or pay per token?</h2>
+  <img data-step="1" src="gifs/netflix.gif" alt="" style="position:absolute;left:364px;top:360px;width:452px;height:300px;border-radius:16px;border:3px solid #2A2A28">
+  <div data-step="2" style="position:absolute;left:816px;top:360px;width:120px;height:300px;display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:800;color:var(--dim)">vs</div>
+  <img data-step="2" src="gifs/tokens-coins.gif" alt="" style="position:absolute;left:936px;top:360px;width:300px;height:300px;border-radius:16px;border:3px solid #2A2A28">
+  <aside class="onscreen">
+    Should I choose subscription or pay per tokens?
+    Netflix (subscription) vs tokens (pay per use) (GIFs)
+  </aside>
+  <aside class="notes">Should you pay for a subscription or pay per token? There are two approaches. [Click] A subscription works like Netflix: one flat monthly fee, and you use it as much as the plan allows. [Click] Pay per token is a meter: through the API you pay for exactly the tokens you send and get back. If you're starting out, always prefer the subscription: the cost is predictable and you won't get a surprise bill. And if you had to pick just one, choose Codex or Claude Code. You can't go wrong with either.</aside>
+</section>
+
+<!-- ============================ 29c. PICK ONE ============================ -->
+<section class="slide">
+  <h2 class="title-xl" data-step="3" style="width:100%;text-align:center">Pick one of these.</h2>
+  <img class="pk-logo pk-openai" data-step="1" data-move="3" src="gifs/logos/openai.png" alt="openai" style="left:1130px;top:292px">
+  <img class="pk-logo pk-claude" data-step="1" data-move="3" src="gifs/logos/claude.png" alt="claude" style="left:1182px;top:64px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/antigravity.png" alt="antigravity" style="left:45px;top:513px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/claude-code.png" alt="claude-code" style="left:644px;top:727px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/codex.png" alt="codex" style="left:310px;top:41px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/cohere.png" alt="cohere" style="left:575px;top:62px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/copilot.png" alt="copilot" style="left:1385px;top:495px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/cursor.png" alt="cursor" style="left:889px;top:36px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/deepseek.png" alt="deepseek" style="left:1437px;top:259px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/gemini.png" alt="gemini" style="left:909px;top:271px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/gemma.png" alt="gemma" style="left:109px;top:79px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/grok.png" alt="grok" style="left:593px;top:258px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/hermes.png" alt="hermes" style="left:1176px;top:513px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/huggingface.png" alt="huggingface" style="left:328px;top:500px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/kimi.png" alt="kimi" style="left:316px;top:737px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/meta.png" alt="meta" style="left:46px;top:288px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/microsoft.png" alt="microsoft" style="left:843px;top:741px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/minimax.png" alt="minimax" style="left:1394px;top:733px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/mistral.png" alt="mistral" style="left:638px;top:504px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/nvidia.png" alt="nvidia" style="left:344px;top:281px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/perplexity.png" alt="perplexity" style="left:910px;top:536px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/qwen.png" alt="qwen" style="left:1160px;top:725px">
+  <img class="pk-logo" data-step="1" data-hide="3" src="gifs/logos/zhipu.png" alt="zhipu" style="left:76px;top:717px">
+  <div class="pk-ring" data-step="2" data-hide="3" style="left:1108px;top:270px"></div>
+  <div class="pk-ring" data-step="2" data-hide="3" style="left:1160px;top:42px"></div>
+  <aside class="onscreen">
+    Pick one of these.
+    Logos of AI models and companies, scattered: Grok, Claude, Claude Code, OpenAI, Codex, Hermes, Gemini, Antigravity, DeepSeek, Qwen, Meta, Mistral, Gemma, Perplexity, Microsoft, Cohere, NVIDIA, Hugging Face, Kimi, Zhipu, MiniMax, Copilot, Cursor. Circle: OpenAI and Claude.
+  </aside>
+  <aside class="notes">Look at how many models and companies there are. [Click] Let's narrow it down: the two big names are OpenAI and Claude. [Click] Pick one of these. Either is a great place to start.</aside>
 </section>
 
 </div>

@@ -349,3 +349,17 @@ So let's put the pieces together. [Click] The model. The same dancer we met at t
 **Say**
 
 So let's name some names. [Click] On one side, chat. [Click] Claude, ChatGPT, Gemini, Grok: you type, it answers. [Click] On the other side, agents. [Click] Claude Code, Codex, Antigravity, Hermes: you give them a goal, and they use tools on your computer until it's done. The lines are blurring: the chat apps keep adding agent features. So don't worry about which box a product sits in. Ask one question. [Click] In a chat, you run the loop. [Click] With an agent, it runs the loop. Same brain inside. That's the whole difference.
+
+### What It Still Can'T Escape — What it still can't escape.
+
+**On screen**
+
+- What it still can't escape.
+- Tile 1 (red): haystack-dive GIF · Desk fills up (every tool result lands in the context window; long jobs get messy, lost in the middle)
+- Tile 2 (purple): Ghajini GIF · Forgets between chats (still stateless; it only "remembers" by writing notes to a file and reading them back)
+- Tile 3 (ice blue): no-internet dino GIF · Cutoff → 🔍 search (still has a knowledge cutoff; a web search tool is how it gets fresh info)
+- Tile 4 (yellow): ⚠️ · Ask before it acts (more freedom = more can go wrong; permissions and approvals)
+
+**Say**
+
+An agent is not magic, though. Everything you learned about the model today still applies, because the model inside hasn't changed. [Click] First: the desk fills up. Every search result, every file it reads, lands in the context window. On a long job the desk gets crowded, it gets lost in the middle, and the oldest stuff gets dropped. Same problem as three hours into one chat, just faster. [Click] Second: it's still Ghajini. It's stateless. Close the session and it remembers nothing. When an agent seems to "remember" you, it's because it wrote notes to a file and reads them back next time. [Click] Third: it still has a knowledge cutoff. The difference is, now it can fix that with a tool: give it web search and it can look up today's news. [Click] And fourth, the new one: an agent can actually do things. It can delete a file or send the wrong email. More freedom means more can go wrong. So good agents ask permission before anything risky, and you should keep it that way.
