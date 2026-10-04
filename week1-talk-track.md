@@ -66,19 +66,14 @@ A few expectations from my side. [Click] Ask a lot of questions. There are no du
 
 - The map
 - 01 How a model works
-- 02 Proprietary vs open weights
+- 02 Closed vs open models
 - 03 Tokens & the context window
-- 04 How do I get access?
-- 05 Which model, when?
-- 06 Model vs app vs agent harness
-- 07 Specialized vs general tools
-- 08 Skills & MCP
-- 09 AI slop: what makes you different
-- 10 Context engineering
+- 04 Getting access: plans & pricing
+- 05 Models vs agents
 
 **Say**
 
-Here's the route for today. Ten stops, and we'll take them in order. [Click] Stop 1: How a model works. [Click] Stop 2: Proprietary vs open weights. [Click] Stop 3: Tokens & the context window. [Click] Stop 4: How do I get access?. [Click] Stop 5: Which model, when?. [Click] Stop 6: Model vs app vs agent harness. [Click] Stop 7: Specialized vs general tools. [Click] Stop 8: Skills & MCP. [Click] Stop 9: AI slop: what makes you different. [Click] Stop 10: Context engineering. That's the whole journey. Every stop builds on the one before it, so if anything along the way doesn't land, stop me and ask.
+Here's the route for today. Five stops, and we'll take them in order. [Click] Stop 1: How a model works. [Click] Stop 2: Closed vs open models. [Click] Stop 3: Tokens & the context window. [Click] Stop 4: Getting access: plans & pricing. [Click] Stop 5: Models vs agents. Every stop builds on the one before it, so if anything along the way doesn't land, stop me and ask.
 
 ## 6. Section 01 — How a model works
 

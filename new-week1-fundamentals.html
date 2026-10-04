@@ -389,6 +389,7 @@ aside.notes,aside.onscreen{display:none}
 .mp-drop{width:56px;height:56px;background:var(--yellow,#FFD23F);border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(255,210,63,.25)}
 .mp-drop span{transform:rotate(45deg);color:#0A0A0A;font-weight:800;font-size:20px}
 .mp-lbl{margin-top:22px;display:inline-block;background:#151513;border:2px solid #2A2A28;border-radius:14px;padding:10px 16px;font-size:22px;font-weight:600;line-height:1.2;color:#F5F5F0}
+.mp-up .mp-lbl{position:absolute;left:0;right:0;bottom:calc(100% + 14px);margin:0 auto;width:fit-content}
 /* flip cards: [data-step] shows the GIF face, [data-move] flips to the visual */
 .flip{perspective:1400px;height:390px}
 .flip-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.2,.2,1)}
@@ -553,46 +554,31 @@ aside.notes,aside.onscreen{display:none}
   <h2 class="fu title-c" style="--d:.1s">The map</h2>
   <svg class="layer" viewBox="0 0 1600 900" style="pointer-events:none">
     <defs><pattern id="mpGrid" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.6" fill="#2A2A28"/></pattern></defs>
-    <rect x="0" y="190" width="1600" height="640" fill="url(#mpGrid)" opacity=".7"/>
-    <g fill="none" stroke="#3A3A37" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 16"><path d="M70 330 L200 330"/><path d="M200 330 C300 280 400 380 500 330"/><path d="M500 330 C600 380 700 280 800 330"/><path d="M800 330 C900 280 1000 380 1100 330"/><path d="M1100 330 C1200 380 1300 280 1400 330"/><path d="M1400 330 L1480 330 C1590 330 1590 650 1480 650 L1400 650"/><path d="M1400 650 C1300 700 1200 600 1100 650"/><path d="M1100 650 C1000 600 900 700 800 650"/><path d="M800 650 C700 700 600 600 500 650"/><path d="M500 650 C400 600 300 700 200 650"/><path d="M200 650 L80 650"/></g>
-    <path class="draw" pathLength="1" data-step="1" d="M70 330 L200 330" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
-    <path class="draw" pathLength="1" data-step="2" d="M200 330 C300 280 400 380 500 330" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
-    <path class="draw" pathLength="1" data-step="3" d="M500 330 C600 380 700 280 800 330" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
-    <path class="draw" pathLength="1" data-step="4" d="M800 330 C900 280 1000 380 1100 330" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
-    <path class="draw" pathLength="1" data-step="5" d="M1100 330 C1200 380 1300 280 1400 330" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
-    <path class="draw" pathLength="1" data-step="6" d="M1400 330 L1480 330 C1590 330 1590 650 1480 650 L1400 650" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
-    <path class="draw" pathLength="1" data-step="7" d="M1400 650 C1300 700 1200 600 1100 650" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
-    <path class="draw" pathLength="1" data-step="8" d="M1100 650 C1000 600 900 700 800 650" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
-    <path class="draw" pathLength="1" data-step="9" d="M800 650 C700 700 600 600 500 650" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
-    <path class="draw" pathLength="1" data-step="10" d="M500 650 C400 600 300 700 200 650" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
-    <text x="40" y="346" font-size="44" text-anchor="middle">🚩</text>
-    <text x="50" y="666" font-size="44" text-anchor="middle">🏁</text>
-    <text x="1500" y="800" font-size="64" text-anchor="middle" opacity=".55">🧭</text>
+    <rect x="0" y="200" width="1600" height="640" fill="url(#mpGrid)" opacity=".7"/>
+    <g fill="none" stroke="#3A3A37" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 16"><path d="M80 620 C155 620 155 620 230 620"/><path d="M230 620 C372 620 372 380 515 380"/><path d="M515 380 C658 380 658 620 800 620"/><path d="M800 620 C942 620 942 380 1085 380"/><path d="M1085 380 C1228 380 1228 620 1370 620"/><path d="M1370 620 C1445 620 1445 620 1520 620"/></g>
+    <path class="draw" pathLength="1" data-step="1" d="M80 620 C155 620 155 620 230 620" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="2" d="M230 620 C372 620 372 380 515 380" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="3" d="M515 380 C658 380 658 620 800 620" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="4" d="M800 620 C942 620 942 380 1085 380" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="5" d="M1085 380 C1228 380 1228 620 1370 620" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <text x="50" y="636" font-size="44" text-anchor="middle">🚩</text>
+    <text x="1550" y="636" font-size="44" text-anchor="middle">🏁</text>
+    <text x="1460" y="330" font-size="64" text-anchor="middle" opacity=".55">🧭</text>
   </svg>
-  <div class="mp-stop" data-step="1" style="left:70px;top:262px"><div class="mp-pin"><div class="mp-drop"><span>01</span></div></div><div class="mp-lbl">How a model works</div></div>
-  <div class="mp-stop" data-step="2" style="left:370px;top:262px"><div class="mp-pin"><div class="mp-drop"><span>02</span></div></div><div class="mp-lbl">Proprietary vs open weights</div></div>
-  <div class="mp-stop" data-step="3" style="left:670px;top:262px"><div class="mp-pin"><div class="mp-drop"><span>03</span></div></div><div class="mp-lbl">Tokens &amp; the context window</div></div>
-  <div class="mp-stop" data-step="4" style="left:970px;top:262px"><div class="mp-pin"><div class="mp-drop"><span>04</span></div></div><div class="mp-lbl">How do I get access?</div></div>
-  <div class="mp-stop" data-step="5" style="left:1270px;top:262px"><div class="mp-pin"><div class="mp-drop"><span>05</span></div></div><div class="mp-lbl">Which model, when?</div></div>
-  <div class="mp-stop" data-step="6" style="left:1270px;top:582px"><div class="mp-pin"><div class="mp-drop"><span>06</span></div></div><div class="mp-lbl">Model vs app vs agent harness</div></div>
-  <div class="mp-stop" data-step="7" style="left:970px;top:582px"><div class="mp-pin"><div class="mp-drop"><span>07</span></div></div><div class="mp-lbl">Specialized vs general tools</div></div>
-  <div class="mp-stop" data-step="8" style="left:670px;top:582px"><div class="mp-pin"><div class="mp-drop"><span>08</span></div></div><div class="mp-lbl">Skills &amp; MCP</div></div>
-  <div class="mp-stop" data-step="9" style="left:370px;top:582px"><div class="mp-pin"><div class="mp-drop"><span>09</span></div></div><div class="mp-lbl">AI slop: what makes <i>you</i> different</div></div>
-  <div class="mp-stop" data-step="10" style="left:70px;top:582px"><div class="mp-pin"><div class="mp-drop"><span>10</span></div></div><div class="mp-lbl">Context engineering</div></div>
+  <div class="mp-stop" data-step="1" style="left:100px;top:552px"><div class="mp-pin"><div class="mp-drop"><span>01</span></div></div><div class="mp-lbl">How a model works</div></div>
+  <div class="mp-stop mp-up" data-step="2" style="left:385px;top:312px"><div class="mp-pin"><div class="mp-drop"><span>02</span></div></div><div class="mp-lbl">Closed vs open models</div></div>
+  <div class="mp-stop" data-step="3" style="left:670px;top:552px"><div class="mp-pin"><div class="mp-drop"><span>03</span></div></div><div class="mp-lbl">Tokens &amp; the context window</div></div>
+  <div class="mp-stop mp-up" data-step="4" style="left:955px;top:312px"><div class="mp-pin"><div class="mp-drop"><span>04</span></div></div><div class="mp-lbl">Getting access: plans &amp; pricing</div></div>
+  <div class="mp-stop" data-step="5" style="left:1240px;top:552px"><div class="mp-pin"><div class="mp-drop"><span>05</span></div></div><div class="mp-lbl">Models vs agents</div></div>
   <aside class="onscreen">
     The map
     01 How a model works
-    02 Proprietary vs open weights
+    02 Closed vs open models
     03 Tokens & the context window
-    04 How do I get access?
-    05 Which model, when?
-    06 Model vs app vs agent harness
-    07 Specialized vs general tools
-    08 Skills & MCP
-    09 AI slop: what makes you different
-    10 Context engineering
+    04 Getting access: plans & pricing
+    05 Models vs agents
   </aside>
-  <aside class="notes">Here's the route for today. Ten stops, and we'll take them in order. [Click] Stop 1: How a model works. [Click] Stop 2: Proprietary vs open weights. [Click] Stop 3: Tokens & the context window. [Click] Stop 4: How do I get access?. [Click] Stop 5: Which model, when?. [Click] Stop 6: Model vs app vs agent harness. [Click] Stop 7: Specialized vs general tools. [Click] Stop 8: Skills & MCP. [Click] Stop 9: AI slop: what makes you different. [Click] Stop 10: Context engineering. That's the whole journey. Every stop builds on the one before it, so if anything along the way doesn't land, stop me and ask.</aside>
+  <aside class="notes">Here's the route for today. Five stops, and we'll take them in order. [Click] Stop 1: How a model works. [Click] Stop 2: Closed vs open models. [Click] Stop 3: Tokens & the context window. [Click] Stop 4: Getting access: plans & pricing. [Click] Stop 5: Models vs agents. Every stop builds on the one before it, so if anything along the way doesn't land, stop me and ask.</aside>
 </section>
 
 <!-- ============================ 6. SECTION 01 ============================ -->
