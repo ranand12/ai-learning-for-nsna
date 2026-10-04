@@ -382,6 +382,13 @@ aside.notes,aside.onscreen{display:none}
 .cmp td:first-child{color:var(--dim);width:26%}
 .cmp td:nth-child(2){width:37%}
 .consq{display:flex;flex-direction:column;gap:26px}
+/* agenda map: pins drop onto a winding road, one per click */
+.mp-stop{position:absolute;width:260px;text-align:center}
+.mp-pin{width:56px;height:56px;margin:0 auto;animation:mpDrop .6s cubic-bezier(.3,1.5,.5,1) .45s both}
+@keyframes mpDrop{from{transform:translateY(-70px);opacity:0}to{transform:none;opacity:1}}
+.mp-drop{width:56px;height:56px;background:var(--yellow,#FFD23F);border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(255,210,63,.25)}
+.mp-drop span{transform:rotate(45deg);color:#0A0A0A;font-weight:800;font-size:20px}
+.mp-lbl{margin-top:22px;display:inline-block;background:#151513;border:2px solid #2A2A28;border-radius:14px;padding:10px 16px;font-size:22px;font-weight:600;line-height:1.2;color:#F5F5F0}
 /* flip cards: [data-step] shows the GIF face, [data-move] flips to the visual */
 .flip{perspective:1400px;height:390px}
 .flip-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.2,.2,1)}
@@ -541,39 +548,51 @@ aside.notes,aside.onscreen{display:none}
   <aside class="notes">A few expectations from my side. [Click] Ask a lot of questions. There are no dumb questions here; if you're wondering about it, someone else is too. [Click] Interact. Jump in, react, use the chat. This works much better as a conversation than a lecture. [Click] And if possible, keep your camera on. It helps me see when something lands and when I've lost you.</aside>
 </section>
 
-<!-- ============================ 4. AGENDA ============================ -->
+<!-- ============================ 4. AGENDA (map) ============================ -->
 <section class="slide">
-  <div class="kicker fu">Today · 2 hours</div>
-  <h2 class="fu" style="--d:.1s">The map</h2>
-  <div class="agenda">
-    <div class="row now fu" style="--d:.20s"><span class="n">01</span><span class="t">How a model works</span><span class="m">20m</span></div>
-    <div class="row fu" style="--d:.25s"><span class="n">06</span><span class="t">Model vs app vs agent harness</span><span class="m">15m</span></div>
-    <div class="row now fu" style="--d:.30s"><span class="n">02</span><span class="t">Proprietary vs open weights</span><span class="m">10m</span></div>
-    <div class="row fu" style="--d:.35s"><span class="n">07</span><span class="t">Specialized vs general tools</span><span class="m">10m</span></div>
-    <div class="row now fu" style="--d:.40s"><span class="n">03</span><span class="t">Tokens &amp; the context window</span><span class="m">15m</span></div>
-    <div class="row fu" style="--d:.45s"><span class="n">08</span><span class="t">Skills &amp; MCP</span><span class="m">10m</span></div>
-    <div class="row fu" style="--d:.50s"><span class="n">04</span><span class="t">How do I get access?</span><span class="m">10m</span></div>
-    <div class="row fu" style="--d:.55s"><span class="n">09</span><span class="t">AI slop: what makes <i>you</i> different</span><span class="m">10m</span></div>
-    <div class="row fu" style="--d:.60s"><span class="n">05</span><span class="t">Which model, when?</span><span class="m">10m</span></div>
-    <div class="row fu" style="--d:.65s"><span class="n">10</span><span class="t">Context engineering</span><span class="m">10m</span></div>
-  </div>
-  <p class="foot fu" style="--d:.8s">Each hard idea gets followed by a short live demo.</p>
+  <h2 class="fu title-c" style="--d:.1s">The map</h2>
+  <svg class="layer" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><pattern id="mpGrid" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.6" fill="#2A2A28"/></pattern></defs>
+    <rect x="0" y="190" width="1600" height="640" fill="url(#mpGrid)" opacity=".7"/>
+    <g fill="none" stroke="#3A3A37" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 16"><path d="M70 330 L200 330"/><path d="M200 330 C300 280 400 380 500 330"/><path d="M500 330 C600 380 700 280 800 330"/><path d="M800 330 C900 280 1000 380 1100 330"/><path d="M1100 330 C1200 380 1300 280 1400 330"/><path d="M1400 330 L1480 330 C1590 330 1590 650 1480 650 L1400 650"/><path d="M1400 650 C1300 700 1200 600 1100 650"/><path d="M1100 650 C1000 600 900 700 800 650"/><path d="M800 650 C700 700 600 600 500 650"/><path d="M500 650 C400 600 300 700 200 650"/><path d="M200 650 L80 650"/></g>
+    <path class="draw" pathLength="1" data-step="1" d="M70 330 L200 330" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="2" d="M200 330 C300 280 400 380 500 330" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="3" d="M500 330 C600 380 700 280 800 330" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="4" d="M800 330 C900 280 1000 380 1100 330" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="5" d="M1100 330 C1200 380 1300 280 1400 330" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="6" d="M1400 330 L1480 330 C1590 330 1590 650 1480 650 L1400 650" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="7" d="M1400 650 C1300 700 1200 600 1100 650" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="8" d="M1100 650 C1000 600 900 700 800 650" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="9" d="M800 650 C700 700 600 600 500 650" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <path class="draw" pathLength="1" data-step="10" d="M500 650 C400 600 300 700 200 650" stroke="#FFD23F" stroke-width="6" stroke-linecap="round" fill="none" style="--t:.6s"/>
+    <text x="40" y="346" font-size="44" text-anchor="middle">🚩</text>
+    <text x="50" y="666" font-size="44" text-anchor="middle">🏁</text>
+    <text x="1500" y="800" font-size="64" text-anchor="middle" opacity=".55">🧭</text>
+  </svg>
+  <div class="mp-stop" data-step="1" style="left:70px;top:262px"><div class="mp-pin"><div class="mp-drop"><span>01</span></div></div><div class="mp-lbl">How a model works</div></div>
+  <div class="mp-stop" data-step="2" style="left:370px;top:262px"><div class="mp-pin"><div class="mp-drop"><span>02</span></div></div><div class="mp-lbl">Proprietary vs open weights</div></div>
+  <div class="mp-stop" data-step="3" style="left:670px;top:262px"><div class="mp-pin"><div class="mp-drop"><span>03</span></div></div><div class="mp-lbl">Tokens &amp; the context window</div></div>
+  <div class="mp-stop" data-step="4" style="left:970px;top:262px"><div class="mp-pin"><div class="mp-drop"><span>04</span></div></div><div class="mp-lbl">How do I get access?</div></div>
+  <div class="mp-stop" data-step="5" style="left:1270px;top:262px"><div class="mp-pin"><div class="mp-drop"><span>05</span></div></div><div class="mp-lbl">Which model, when?</div></div>
+  <div class="mp-stop" data-step="6" style="left:1270px;top:582px"><div class="mp-pin"><div class="mp-drop"><span>06</span></div></div><div class="mp-lbl">Model vs app vs agent harness</div></div>
+  <div class="mp-stop" data-step="7" style="left:970px;top:582px"><div class="mp-pin"><div class="mp-drop"><span>07</span></div></div><div class="mp-lbl">Specialized vs general tools</div></div>
+  <div class="mp-stop" data-step="8" style="left:670px;top:582px"><div class="mp-pin"><div class="mp-drop"><span>08</span></div></div><div class="mp-lbl">Skills &amp; MCP</div></div>
+  <div class="mp-stop" data-step="9" style="left:370px;top:582px"><div class="mp-pin"><div class="mp-drop"><span>09</span></div></div><div class="mp-lbl">AI slop: what makes <i>you</i> different</div></div>
+  <div class="mp-stop" data-step="10" style="left:70px;top:582px"><div class="mp-pin"><div class="mp-drop"><span>10</span></div></div><div class="mp-lbl">Context engineering</div></div>
   <aside class="onscreen">
-    Today · 2 hours
     The map
-    01How a model works20m
-    06Model vs app vs agent harness15m
-    02Proprietary vs open weights10m
-    07Specialized vs general tools10m
-    03Tokens &amp; the context window15m
-    08Skills &amp; MCP10m
-    04How do I get access?10m
-    09AI slop: what makes you different10m
-    05Which model, when?10m
-    10Context engineering10m
-    Each hard idea gets followed by a short live demo.
+    01 How a model works
+    02 Proprietary vs open weights
+    03 Tokens & the context window
+    04 How do I get access?
+    05 Which model, when?
+    06 Model vs app vs agent harness
+    07 Specialized vs general tools
+    08 Skills & MCP
+    09 AI slop: what makes you different
+    10 Context engineering
   </aside>
-  <aside class="notes">Ten stops. The three in green are the foundations, and everything after builds on them. Rule for today: every hard concept gets a short demo right after it, so you see it happen instead of just hearing about it.</aside>
+  <aside class="notes">Here's the route for today. Ten stops, and we'll take them in order. [Click] Stop 1: How a model works. [Click] Stop 2: Proprietary vs open weights. [Click] Stop 3: Tokens & the context window. [Click] Stop 4: How do I get access?. [Click] Stop 5: Which model, when?. [Click] Stop 6: Model vs app vs agent harness. [Click] Stop 7: Specialized vs general tools. [Click] Stop 8: Skills & MCP. [Click] Stop 9: AI slop: what makes you different. [Click] Stop 10: Context engineering. That's the whole journey. Every stop builds on the one before it, so if anything along the way doesn't land, stop me and ask.</aside>
 </section>
 
 <!-- ============================ 6. SECTION 01 ============================ -->

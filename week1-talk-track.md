@@ -60,27 +60,25 @@ How are we going to do this? [Click] Lots of memes and GIFs. A lot. [Click] No j
 
 A few expectations from my side. [Click] Ask a lot of questions. There are no dumb questions here; if you're wondering about it, someone else is too. [Click] Interact. Jump in, react, use the chat. This works much better as a conversation than a lecture. [Click] And if possible, keep your camera on. It helps me see when something lands and when I've lost you.
 
-## 5. Agenda — The map
+## 5. Agenda (Map) — The map
 
 **On screen**
 
-- Today · 2 hours
 - The map
-- 01How a model works20m
-- 06Model vs app vs agent harness15m
-- 02Proprietary vs open weights10m
-- 07Specialized vs general tools10m
-- 03Tokens & the context window15m
-- 08Skills & MCP10m
-- 04How do I get access?10m
-- 09AI slop: what makes you different10m
-- 05Which model, when?10m
-- 10Context engineering10m
-- Each hard idea gets followed by a short live demo.
+- 01 How a model works
+- 02 Proprietary vs open weights
+- 03 Tokens & the context window
+- 04 How do I get access?
+- 05 Which model, when?
+- 06 Model vs app vs agent harness
+- 07 Specialized vs general tools
+- 08 Skills & MCP
+- 09 AI slop: what makes you different
+- 10 Context engineering
 
 **Say**
 
-Ten stops. The three in green are the foundations, and everything after builds on them. Rule for today: every hard concept gets a short demo right after it, so you see it happen instead of just hearing about it.
+Here's the route for today. Ten stops, and we'll take them in order. [Click] Stop 1: How a model works. [Click] Stop 2: Proprietary vs open weights. [Click] Stop 3: Tokens & the context window. [Click] Stop 4: How do I get access?. [Click] Stop 5: Which model, when?. [Click] Stop 6: Model vs app vs agent harness. [Click] Stop 7: Specialized vs general tools. [Click] Stop 8: Skills & MCP. [Click] Stop 9: AI slop: what makes you different. [Click] Stop 10: Context engineering. That's the whole journey. Every stop builds on the one before it, so if anything along the way doesn't land, stop me and ask.
 
 ## 6. Section 01 — How a model works
 
