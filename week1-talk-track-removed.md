@@ -335,3 +335,20 @@ So let's put the two side by side. [Click] Same request as before: find me the c
 **Say**
 
 So let's put the pieces together. [Click] The model. The same dancer we met at the start of today: the file of numbers that guesses the next word. Nothing new. [Click] The context window: its desk, where the goal, the tool results and its own notes pile up. [Click] Tools: the things the app will run for it when it asks. [Click] And the loop: think, act, see, think again, until the job is done. [Click] Put all of that together and that's an AI agent. Model plus tools plus a loop. We'll draw agents as this spy from now on. The thing to remember: it's the same model you met an hour ago. It didn't get smarter. It just got hands and a loop.
+
+### Chat Vs Agent — Chat vs agent.
+
+**On screen**
+
+- Chat vs agent.
+- Left: 💃 (model, green circle) · Chat · logos: Claude · ChatGPT · Gemini · Grok
+- Divider
+- Right: 🕵️ (agent spy in green circle) · Agent · logos: Claude Code · Codex · Antigravity · Hermes
+- You run the loop. (left) · It runs the loop. (green, right)
+
+**Say**
+
+So let's name some names. [Click] On one side, chat. [Click] Claude, ChatGPT, Gemini, Grok: you type, it answers. [Click] On the other side, agents. [Click] Claude Code, Codex, Antigravity, Hermes: you give them a goal, and they use tools on your computer until it's done. The lines are blurring: the chat apps keep adding agent features. So don't worry about which box a product sits in. Ask one question. [Click] In a chat, you run the loop. [Click] With an agent, it runs the loop. Same brain inside. That's the whole difference.
+
+
+---

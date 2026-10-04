@@ -169,6 +169,12 @@ svg text{font-family:var(--font);fill:var(--fg)}
 .wa-row .d{display:inline-flex;width:50px;height:50px;border-radius:50%;background:var(--model);align-items:center;justify-content:center;font-size:30px;margin:0 auto}
 .wa-side{position:absolute;left:110px;width:150px;font-size:18px;font-weight:800;letter-spacing:.18em;text-align:center;border-radius:10px;padding:8px 0}
 .wa-head{position:absolute;top:205px;width:300px;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:32px;font-weight:800}
+.wa-list{position:absolute;top:350px;width:400px;display:flex;flex-direction:column;gap:12px}
+.wa-chip{display:flex;align-items:center;gap:14px;height:56px;border-radius:14px;padding:0 18px;font-size:26px;font-weight:700;white-space:nowrap;border:3px solid var(--harness);transition:box-shadow .4s,border-color .4s}
+.wa-chip.m{border-color:var(--model)}
+.wa-chip.m::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--model);flex:none}
+.wa-chip img{width:40px;height:40px;border-radius:10px;background:var(--fg);padding:5px;flex:none}
+.slide:has(.wa-cxmk.shown) .wa-cx{border-color:var(--dyk);box-shadow:0 0 0 5px rgba(255,210,63,.35)}
 /* agent loop */
 .ag-goal{position:absolute;left:200px;top:222px;background:var(--fg);color:#0A0A0A;border-radius:999px;padding:14px 28px;font-size:26px;font-weight:600;white-space:nowrap}
 .ag-user{position:absolute;left:110px;top:212px;font-size:60px;line-height:1}
@@ -1613,26 +1619,41 @@ aside.notes,aside.onscreen{display:none}
   <aside class="notes">Let's put the two side by side so the difference is crystal clear. [Click] An app on the left, an agent on the right. [Click] Inside: the model. Identical. Often literally the same model; Claude chat and Claude Code can run the very same Claude. [Click] Outside, both have a context window, both have hidden instructions, both can have memory. No difference there. [Click] Here's where they split. Tools: a chat app has a few, like web search; an agent has many, and can work with your files and apps. [Click] The loop: an app gives you one reply and waits for you. An agent keeps going until the job is done. [Click] And because it acts on its own, an agent asks permission before risky steps. One honest note: the line is blurring, and chat apps keep adding agent features. That's fine. Just ask: who runs the loop? [Click] So if you remember one thing: same brain inside, more hands outside. Everything that makes it an app or an agent lives outside the model.</aside>
 </section>
 
-<!-- ============================ 30h. CHAT VS AGENT ============================ -->
+<!-- ============================ 30m. MODELS, APPS, AGENTS ============================ -->
 <section class="slide">
-  <h2 class="fu title-xl" style="--d:.1s">Chat vs agent.</h2>
-  <div class="neq-dot" data-step="1" style="left:360px;top:250px;width:140px;height:140px;font-size:80px">💃</div>
-  <div class="cva-lbl" data-step="1" style="left:170px;top:410px">Chat</div>
-  <div class="wa-logos" data-step="2" style="left:170px"><img src="gifs/logos/claude.png" alt="Claude"><img src="gifs/logos/openai.png" alt="ChatGPT"><img src="gifs/logos/gemini.png" alt="Gemini"><img src="gifs/logos/grok.png" alt="Grok"></div>
-  <div class="cva-div" data-step="3" style="top:250px;height:560px"></div>
-  <div class="agcirc" data-step="3" style="left:1100px;top:250px;width:140px;height:140px"><img src="gifs/agent.png" alt=""></div>
-  <div class="cva-lbl" data-step="3" style="left:910px;top:410px">Agent</div>
-  <div class="wa-logos" data-step="4" style="left:910px"><img src="gifs/logos/claude-code.png" alt="Claude Code"><img src="gifs/logos/codex.png" alt="Codex"><img src="gifs/logos/antigravity.png" alt="Antigravity"><img src="gifs/logos/hermes.png" alt="Hermes"></div>
-  <div class="cva-punch" data-step="5" style="left:170px;top:710px;font-size:46px;color:var(--fg)">You run the loop.</div>
-  <div class="cva-punch" data-step="6" style="left:910px;top:710px;font-size:46px;color:var(--model)">It runs the loop.</div>
+  <h2 class="fu title-xl" style="--d:.1s">Models, apps, agents.</h2>
+  <div class="wa-head" data-step="1" style="left:180px;top:200px"><div class="neq-dot" style="position:relative;width:80px;height:80px;font-size:46px">💃</div>Models</div>
+  <div class="wa-list" data-step="2" style="left:130px">
+    <div class="wa-chip m">GPT-5.6</div>
+    <div class="wa-chip m">GPT-6.1</div>
+    <div class="wa-chip m">Astra</div>
+    <div class="wa-chip m">Claude Opus 5.5</div>
+    <div class="wa-chip m">Gemini</div>
+    <div class="wa-chip m">Grok</div>
+    <div class="wa-chip m">DeepSeek</div>
+  </div>
+  <div class="wa-head" data-step="3" style="left:650px;top:200px"><div class="wa-win" style="position:relative;width:96px;height:74px;border-radius:14px"><div class="wa-bar" style="height:20px;padding:0 8px;gap:5px;border-bottom-width:2px"><i style="width:7px;height:7px"></i><i style="width:7px;height:7px"></i><i style="width:7px;height:7px"></i></div></div>Apps</div>
+  <div class="wa-list" data-step="4" style="left:600px">
+    <div class="wa-chip"><img src="gifs/logos/openai.png" alt="">ChatGPT</div>
+    <div class="wa-chip"><img src="gifs/logos/claude.png" alt="">Claude</div>
+    <div class="wa-chip"><img src="gifs/logos/gemini.png" alt="">Gemini</div>
+    <div class="wa-chip wa-cx"><img src="gifs/logos/codex.png" alt="">Codex</div>
+  </div>
+  <div class="wa-head" data-step="5" style="left:1120px;top:200px"><div class="agcirc" style="position:relative;width:80px;height:80px"><img src="gifs/agent.png" alt=""></div>Agents</div>
+  <div class="wa-list" data-step="6" style="left:1070px">
+    <div class="wa-chip wa-cx"><img src="gifs/logos/codex.png" alt="">Codex</div>
+    <div class="wa-chip"><img src="gifs/logos/claude-code.png" alt="">Claude Code</div>
+    <div class="wa-chip"><img src="gifs/logos/hermes.png" alt="">Hermes</div>
+  </div>
+  <i class="wa-cxmk" data-step="7"></i>
   <aside class="onscreen">
-    Chat vs agent.
-    Left: 💃 (model, green circle) · Chat · logos: Claude · ChatGPT · Gemini · Grok
-    Divider
-    Right: 🕵️ (agent spy in green circle) · Agent · logos: Claude Code · Codex · Antigravity · Hermes
-    You run the loop. (left) · It runs the loop. (green, right)
+    Models, apps, agents.
+    Column 1 · 💃 Models (green chips): GPT-5.6 · GPT-6.1 · Astra · Claude Opus 5.5 · Gemini · Grok · DeepSeek
+    Column 2 · plain blue app box · Apps (logo chips): ChatGPT · Claude · Gemini · Codex
+    Column 3 · spy icon · Agents (logo chips): Codex · Claude Code · Hermes
+    Both Codex chips light up yellow (it's an app that is also an agent)
   </aside>
-  <aside class="notes">So let's name some names. [Click] On one side, chat. [Click] Claude, ChatGPT, Gemini, Grok: you type, it answers. [Click] On the other side, agents. [Click] Claude Code, Codex, Antigravity, Hermes: you give them a goal, and they use tools on your computer until it's done. The lines are blurring: the chat apps keep adding agent features. So don't worry about which box a product sits in. Ask one question. [Click] In a chat, you run the loop. [Click] With an agent, it runs the loop. Same brain inside. That's the whole difference.</aside>
+  <aside class="notes">Let's finish by putting real names on the three words. [Click] Models: the brains, the frozen files of numbers. [Click] GPT-5.6, GPT-6.1, Astra, Claude Opus, Gemini, Grok, DeepSeek. You never touch these directly; you reach them through something. [Click] Apps: the thing you actually open. [Click] ChatGPT, Claude, Gemini, Codex. Notice Gemini is both a model and an app name, and ChatGPT is the app while GPT is the model. Companies reuse names, which is why this gets confusing. [Click] Agents: apps that add tools, a loop and permissions. [Click] Codex, Claude Code, Hermes. [Click] And notice Codex shows up twice. That's not a mistake. An agent is just an app that does more on the outside, so the same product can be both. When you hear a new AI name, ask one question: is it the brain, the app, or an app that runs the loop for you?</aside>
 </section>
 
 </div>

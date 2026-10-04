@@ -563,19 +563,19 @@ An agent is not magic, though. Everything you learned about the model today stil
 
 Let's put the two side by side so the difference is crystal clear. [Click] An app on the left, an agent on the right. [Click] Inside: the model. Identical. Often literally the same model; Claude chat and Claude Code can run the very same Claude. [Click] Outside, both have a context window, both have hidden instructions, both can have memory. No difference there. [Click] Here's where they split. Tools: a chat app has a few, like web search; an agent has many, and can work with your files and apps. [Click] The loop: an app gives you one reply and waits for you. An agent keeps going until the job is done. [Click] And because it acts on its own, an agent asks permission before risky steps. One honest note: the line is blurring, and chat apps keep adding agent features. That's fine. Just ask: who runs the loop? [Click] So if you remember one thing: same brain inside, more hands outside. Everything that makes it an app or an agent lives outside the model.
 
-## 39. Chat Vs Agent — Chat vs agent.
+## 39. Models, Apps, Agents — Models, apps, agents.
 
 **On screen**
 
-- Chat vs agent.
-- Left: 💃 (model, green circle) · Chat · logos: Claude · ChatGPT · Gemini · Grok
-- Divider
-- Right: 🕵️ (agent spy in green circle) · Agent · logos: Claude Code · Codex · Antigravity · Hermes
-- You run the loop. (left) · It runs the loop. (green, right)
+- Models, apps, agents.
+- Column 1 · 💃 Models (green chips): GPT-5.6 · GPT-6.1 · Astra · Claude Opus 5.5 · Gemini · Grok · DeepSeek
+- Column 2 · plain blue app box · Apps (logo chips): ChatGPT · Claude · Gemini · Codex
+- Column 3 · spy icon · Agents (logo chips): Codex · Claude Code · Hermes
+- Both Codex chips light up yellow (it's an app that is also an agent)
 
 **Say**
 
-So let's name some names. [Click] On one side, chat. [Click] Claude, ChatGPT, Gemini, Grok: you type, it answers. [Click] On the other side, agents. [Click] Claude Code, Codex, Antigravity, Hermes: you give them a goal, and they use tools on your computer until it's done. The lines are blurring: the chat apps keep adding agent features. So don't worry about which box a product sits in. Ask one question. [Click] In a chat, you run the loop. [Click] With an agent, it runs the loop. Same brain inside. That's the whole difference.
+Let's finish by putting real names on the three words. [Click] Models: the brains, the frozen files of numbers. [Click] GPT-5.6, GPT-6.1, Astra, Claude Opus, Gemini, Grok, DeepSeek. You never touch these directly; you reach them through something. [Click] Apps: the thing you actually open. [Click] ChatGPT, Claude, Gemini, Codex. Notice Gemini is both a model and an app name, and ChatGPT is the app while GPT is the model. Companies reuse names, which is why this gets confusing. [Click] Agents: apps that add tools, a loop and permissions. [Click] Codex, Claude Code, Hermes. [Click] And notice Codex shows up twice. That's not a mistake. An agent is just an app that does more on the outside, so the same product can be both. When you hear a new AI name, ask one question: is it the brain, the app, or an app that runs the loop for you?
 
 
 ---
@@ -919,3 +919,20 @@ So let's put the two side by side. [Click] Same request as before: find me the c
 **Say**
 
 So let's put the pieces together. [Click] The model. The same dancer we met at the start of today: the file of numbers that guesses the next word. Nothing new. [Click] The context window: its desk, where the goal, the tool results and its own notes pile up. [Click] Tools: the things the app will run for it when it asks. [Click] And the loop: think, act, see, think again, until the job is done. [Click] Put all of that together and that's an AI agent. Model plus tools plus a loop. We'll draw agents as this spy from now on. The thing to remember: it's the same model you met an hour ago. It didn't get smarter. It just got hands and a loop.
+
+### Chat Vs Agent — Chat vs agent.
+
+**On screen**
+
+- Chat vs agent.
+- Left: 💃 (model, green circle) · Chat · logos: Claude · ChatGPT · Gemini · Grok
+- Divider
+- Right: 🕵️ (agent spy in green circle) · Agent · logos: Claude Code · Codex · Antigravity · Hermes
+- You run the loop. (left) · It runs the loop. (green, right)
+
+**Say**
+
+So let's name some names. [Click] On one side, chat. [Click] Claude, ChatGPT, Gemini, Grok: you type, it answers. [Click] On the other side, agents. [Click] Claude Code, Codex, Antigravity, Hermes: you give them a goal, and they use tools on your computer until it's done. The lines are blurring: the chat apps keep adding agent features. So don't worry about which box a product sits in. Ask one question. [Click] In a chat, you run the loop. [Click] With an agent, it runs the loop. Same brain inside. That's the whole difference.
+
+
+---
