@@ -677,6 +677,8 @@ aside.notes,aside.onscreen{display:none}
 .w2-pg .e{font-size:60px;line-height:1}
 .w2-pg b{font-size:30px;font-weight:800}
 .w2-pg i{font-style:normal;font-size:22px;color:var(--dim);font-weight:700}
+.w2-qopts{display:flex;flex-direction:column;align-items:center;gap:22px;margin-top:80px}
+.w2-qopt{min-width:760px;font-size:38px;padding:20px 36px;border-width:3px;border-radius:18px}
 /* purpose-built */
 .w2-tool{position:absolute;top:250px;width:300px;height:520px;border:3px solid #2A2A28;border-top:8px solid var(--dyk);border-radius:24px;background:#151515;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:20px;text-align:center}
 .w2-tool .e{font-size:120px;line-height:1}
@@ -721,7 +723,113 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 2. TWO KINDS OF TOOLS ============================ -->
+<!-- ============================ 2. RECAP WEEK 1 ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Last week.</h2>
+  <div class="rcards" style="grid-template-columns:repeat(4,1fr);margin-top:56px;row-gap:30px">
+    <div class="rcard" data-step="1" style="height:290px;padding:40px 14px 22px"><span class="rnum">1</span>
+      <div class="rvis" style="font-size:32px;gap:6px">📚<span style="color:var(--dim);font-size:22px">→</span><span class="mdot" style="width:52px;height:52px;font-size:30px">💃</span><span style="color:var(--dim);font-size:22px">→</span>💬</div>
+      <h3>Training &amp; inference</h3></div>
+    <div class="rcard" data-step="2" style="height:290px;padding:40px 14px 22px"><span class="rnum">2</span>
+      <div class="rvis" style="gap:16px"><div class="mcage jailed"><span class="mdot">💃</span></div><div class="mcage mopen"><span class="mdot">💃</span></div></div>
+      <h3>Closed vs open</h3></div>
+    <div class="rcard" data-step="3" style="height:290px;padding:40px 14px 22px"><span class="rnum">3</span>
+      <div class="rvis"><div class="rbars">
+        <div class="rbar win"><span>blue</span><i style="width:100%"></i></div>
+        <div class="rbar"><span>grey</span><i style="width:23%"></i></div>
+        <div class="rbar"><span>clear</span><i style="width:16%"></i></div>
+      </div></div>
+      <h3>Guess the next word</h3></div>
+    <div class="rcard" data-step="4" style="height:290px;padding:40px 14px 22px"><span class="rnum">4</span>
+      <div class="rvis" style="flex-direction:column;gap:18px"><span class="mcoin" style="width:56px;height:56px;border-width:3px"></span>
+        <div class="tokwords" style="font-size:22px;gap:3px"><span class="tk1" style="padding:2px 6px">un</span><span class="tk2" style="padding:2px 6px">believ</span><span class="tk3" style="padding:2px 6px">able</span></div></div>
+      <h3>Tokens</h3></div>
+    <div class="rcard" data-step="5" style="height:290px;padding:40px 14px 22px"><span class="rnum">5</span>
+      <div class="rvis"><div class="mctx"><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span><span class="mcoin"></span></div></div>
+      <h3>Context window</h3></div>
+    <div class="rcard" data-step="6" style="height:290px;padding:40px 14px 22px"><span class="rnum">6</span>
+      <div class="rvis"><img src="gifs/ghajini.gif" alt="" style="width:170px;height:110px;object-fit:cover;border-radius:12px;border:3px solid #2A2A28"></div>
+      <h3>Stateless</h3></div>
+    <div class="rcard" data-step="7" style="height:290px;padding:40px 14px 22px"><span class="rnum">7</span>
+      <div class="rvis" style="font-size:46px;gap:10px">📅<span class="mdot" style="width:58px;height:58px;font-size:32px;outline:4px dotted #BEE9FF;outline-offset:4px">💃</span>❄️</div>
+      <h3>Knowledge cutoff</h3></div>
+    <div class="rcard" data-step="8" style="height:290px;padding:40px 14px 22px"><span class="rnum">8</span>
+      <div class="rvis" style="gap:10px"><span class="mdot" style="width:52px;height:52px;font-size:30px">💃</span><span style="color:var(--dim);font-size:22px">→</span><span style="width:52px;height:42px;border:3px solid var(--harness);border-radius:8px"></span><span style="color:var(--dim);font-size:22px">→</span><span class="agcirc" style="position:relative;width:58px;height:58px"><img src="gifs/agent.png" alt=""></span></div>
+      <h3>Model → app → agent</h3></div>
+  </div>
+  <aside class="onscreen">
+    Last week.
+    Eight recap cards, one per click:
+    1 · Training &amp; inference (📚 → 💃 → 💬)
+    2 · Closed vs open (💃 in a cage, 💃 in an open door)
+    3 · Guess the next word (bars: blue · grey · clear)
+    4 · Tokens (a coin · un | believ | able)
+    5 · Context window (a desk full of token coins)
+    6 · Stateless (Ghajini GIF)
+    7 · Knowledge cutoff (📅 · frozen 💃 · ❄️)
+    8 · Model → app → agent (💃 → blue app box → spy)
+  </aside>
+  <aside class="notes">Before we start, sixty seconds on last week. [Click] One: training and inference. The model reads a huge library once, then it's frozen; every time you use it, that's inference. [Click] Two: closed versus open. Closed models you rent from the company; open models are a file you can download and run yourself. [Click] Three: it's all guessing the next word, from the odds. [Click] Four: tokens. The chunks it reads, and the currency you pay in. [Click] Five: the context window, its desk: everything it can see right now. [Click] Six: stateless. Like Ghajini, it forgets everything between chats. [Click] Seven: the knowledge cutoff. It only knows the world up to the day its training stopped. [Click] And eight: model, app, agent. The model is the brain; the app wraps it; give the app tools and a loop, and you get an agent: our spy. Today is all about that spy. Let's see what stuck.</aside>
+</section>
+
+
+<!-- ============================ 3. QUIZ 1 ============================ -->
+<section class="slide">
+  <span class="sticker" style="left:40px;top:28px;background:#FFD23F;border-color:#FFD23F;--r:-5deg">🧠 Quick quiz · 1/4</span>
+  <h2 class="fu title-c" style="--d:.1s;margin-top:40px">Does the AI remember yesterday's chat?</h2>
+  <div class="w2-qopts" data-step="1"><div class="opt w2-qopt" data-strike="2"><b>A</b>Yes, it learns from every chat</div><div class="opt w2-qopt" data-mark="2"><b>B</b>No, it starts fresh every time</div><div class="opt w2-qopt" data-strike="2"><b>C</b>Only if you pay</div></div>
+  <aside class="onscreen">
+    Sticker: 🧠 Quick quiz · 1/4
+    Does the AI remember yesterday's chat?
+    A Yes, it learns from every chat · B No, it starts fresh every time ✓ · C Only if you pay (the right answer turns green, the others are crossed out)
+  </aside>
+  <aside class="notes">Quick quiz. Shout out the answer. Does the AI remember yesterday's chat? [Click] A: yes, it learns from every chat. B: no, it starts fresh every time. C: only if you pay. [Click] B. The model is stateless, Ghajini. When an app seems to remember you, that's the app pasting notes onto the desk, not the model learning.</aside>
+</section>
+
+
+<!-- ============================ 4. QUIZ 2 ============================ -->
+<section class="slide">
+  <span class="sticker" style="left:40px;top:28px;background:#FFD23F;border-color:#FFD23F;--r:-5deg">🧠 Quick quiz · 2/4</span>
+  <h2 class="fu title-c" style="--d:.1s;margin-top:40px">A really long chat starts to…</h2>
+  <div class="w2-qopts" data-step="1"><div class="opt w2-qopt" data-mark="2"><b>A</b>Forget the beginning</div><div class="opt w2-qopt" data-strike="2"><b>B</b>Get smarter</div><div class="opt w2-qopt" data-strike="2"><b>C</b>Cost nothing</div></div>
+  <aside class="onscreen">
+    Sticker: 🧠 Quick quiz · 2/4
+    A really long chat starts to…
+    A Forget the beginning ✓ · B Get smarter · C Cost nothing (the right answer turns green, the others are crossed out)
+  </aside>
+  <aside class="notes">Next one. A really long chat starts to… [Click] A: forget the beginning. B: get smarter. C: cost nothing. [Click] A. The desk fills up, things in the middle get lost, and eventually the oldest messages fall off. That's why we start a fresh chat for a new topic.</aside>
+</section>
+
+
+<!-- ============================ 5. QUIZ 3 ============================ -->
+<section class="slide">
+  <span class="sticker" style="left:40px;top:28px;background:#FFD23F;border-color:#FFD23F;--r:-5deg">🧠 Quick quiz · 3/4</span>
+  <h2 class="fu title-c" style="--d:.1s;margin-top:40px">Ask about last week's news, with no web search.</h2>
+  <div class="w2-qopts" data-step="1"><div class="opt w2-qopt" data-strike="2"><b>A</b>It knows</div><div class="opt w2-qopt" data-mark="2"><b>B</b>It doesn't: it's frozen at a cutoff</div><div class="opt w2-qopt" data-strike="2"><b>C</b>It reads your mind</div></div>
+  <aside class="onscreen">
+    Sticker: 🧠 Quick quiz · 3/4
+    Ask about last week's news, with no web search.
+    A It knows · B It doesn't: it's frozen at a cutoff ✓ · C It reads your mind (the right answer turns green, the others are crossed out)
+  </aside>
+  <aside class="notes">Ask the AI about last week's news, with no web search turned on. [Click] A: it knows. B: it doesn't, it's frozen at a cutoff. C: it reads your mind. [Click] B. It only knows the world up to its training cutoff. And watch out: sometimes it will confidently guess anyway. That's why web search and deep research matter.</aside>
+</section>
+
+
+<!-- ============================ 6. QUIZ 4 ============================ -->
+<section class="slide">
+  <span class="sticker" style="left:40px;top:28px;background:#FFD23F;border-color:#FFD23F;--r:-5deg">🧠 Quick quiz · 4/4</span>
+  <h2 class="fu title-c" style="--d:.1s;margin-top:40px">What turns a model into an agent?</h2>
+  <div class="w2-qopts" data-step="1"><div class="opt w2-qopt" data-strike="2"><b>A</b>A bigger model</div><div class="opt w2-qopt" data-mark="2"><b>B</b>Tools and a loop</div><div class="opt w2-qopt" data-strike="2"><b>C</b>A nicer app</div></div>
+  <aside class="onscreen">
+    Sticker: 🧠 Quick quiz · 4/4
+    What turns a model into an agent?
+    A A bigger model · B Tools and a loop ✓ · C A nicer app (the right answer turns green, the others are crossed out)
+  </aside>
+  <aside class="notes">Last one, and it sets up today. What turns a model into an agent? [Click] A: a bigger model. B: tools and a loop. C: a nicer app. [Click] B. Same model inside; give it tools to act with and a loop to keep going until the job's done, and it becomes an agent. Today we'll see three kinds of agents and what each one can do for you.</aside>
+</section>
+
+
+<!-- ============================ 7. TWO KINDS OF TOOLS ============================ -->
 <section class="slide">
   <div class="title-swap">
     <h2 class="fu title-c" style="--d:.1s" data-hide="3">Two kinds of AI tools.</h2>
@@ -740,7 +848,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 3. THREE KINDS OF AGENTS ============================ -->
+<!-- ============================ 8. THREE KINDS OF AGENTS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Three kinds of agents.</h2>
   <div class="w2-gpframe"></div>
@@ -761,7 +869,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 4. KIND 1: CHAT ============================ -->
+<!-- ============================ 9. KIND 1: CHAT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">1 · Chat.</h2>
   <div class="w2-lvl ho" style="--fx:20px;--c:#F5F5F0"><span class="n">1</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero">💬</div><b>Chat</b><div class="acc"><span>💬</span></div></div>
@@ -786,7 +894,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 5. INSIDE: CHAT ============================ -->
+<!-- ============================ 10. INSIDE: CHAT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Inside a chatbot.</h2>
   <div class="wa-win" data-step="1" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
@@ -815,7 +923,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 6. EX D: LEARN A CONCEPT ============================ -->
+<!-- ============================ 11. EX D: LEARN A CONCEPT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Learn anything.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Explain how inflation works. Start like I'm 10, then go deeper. Then quiz me.”</span></div>
@@ -849,7 +957,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 7. EX L: ANALYZE VIDEO ============================ -->
+<!-- ============================ 12. EX L: ANALYZE VIDEO ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Watch a video for you.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's the 1-hour school board meeting. What got decided, and when?”</span></div>
@@ -887,7 +995,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 8. EX M: DEEP RESEARCH ============================ -->
+<!-- ============================ 13. EX M: DEEP RESEARCH ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Deep research.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Which family EV under $45k is best for road trips? Compare range, charging and safety.”</span></div>
@@ -923,7 +1031,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 9. EX Q: COMPARISON SHOPPING ============================ -->
+<!-- ============================ 14. EX Q: COMPARISON SHOPPING ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Shop smarter.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Find the best 65-inch TV under $800. Compare prices and real reviews across stores.”</span></div>
@@ -966,7 +1074,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 10. HIRE AN EXPERT ============================ -->
+<!-- ============================ 15. HIRE AN EXPERT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Hire an expert.</h2>
   <svg class="layer" data-step="1" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><line x1="310" y1="532" x2="310" y2="578" stroke="#FFD23F" stroke-width="6" stroke-dasharray="8 8"/></svg>
@@ -991,7 +1099,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 11. SKILLS ============================ -->
+<!-- ============================ 16. SKILLS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Skills: teach it once.</h2>
   <div class="ag-ctx" data-step="1" style="left:150px;top:260px;width:520px;height:500px">
@@ -1017,7 +1125,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 12. EX E: GRILL ME ============================ -->
+<!-- ============================ 17. EX E: GRILL ME ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Grill me.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Use grill-me: help me plan my daughter's 7th birthday party.”</span></div>
@@ -1056,7 +1164,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 13. PLUG-IN: CONNECTORS ============================ -->
+<!-- ============================ 18. PLUG-IN: CONNECTORS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Plug in access.</h2>
   <div class="w2-lvl ho" style="--fx:0px;--c:#4D9FFF"><span class="n">+</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero">🔌</div><b>Connectors</b><div class="acc"><span>📧</span><span>📅</span><span>📂</span></div></div>
@@ -1077,7 +1185,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 14. INSIDE: CHAT + CONNECTORS ============================ -->
+<!-- ============================ 19. INSIDE: CHAT + CONNECTORS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Inside: chat + connectors.</h2>
   <div class="wa-win" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
@@ -1108,7 +1216,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 15. HOW DOES IT CONNECT ============================ -->
+<!-- ============================ 20. HOW DOES IT CONNECT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">How does it connect?</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -1142,7 +1250,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 16. THREE WAYS IN ============================ -->
+<!-- ============================ 21. THREE WAYS IN ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Three ways in.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -1164,7 +1272,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 17. EX B: ORGANIZE EMAIL ============================ -->
+<!-- ============================ 22. EX B: ORGANIZE EMAIL ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Tame your inbox.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Sort my inbox into bills, school and junk. Draft replies to anything urgent.”</span></div>
@@ -1210,7 +1318,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 18. EX J: VOICE TO NOTES ============================ -->
+<!-- ============================ 23. EX J: VOICE TO NOTES ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Talk it out.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's my 20-minute voice memo from my walk. Turn it into notes, to-dos and bookmarks.”</span></div>
@@ -1245,7 +1353,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 19. KIND 2: ITS OWN COMPUTER ============================ -->
+<!-- ============================ 24. KIND 2: ITS OWN COMPUTER ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">2 · Its own computer.</h2>
   <div class="w2-lvl ho" style="--fx:350px;--c:#B69CFF"><span class="n">2</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero"><span>☁️</span><span style="font-size:70px">🖥️</span></div><b>Its own computer</b><div class="acc"><span>💬</span><span>☁️</span></div></div>
@@ -1268,7 +1376,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 20. INSIDE: ITS OWN COMPUTER ============================ -->
+<!-- ============================ 25. INSIDE: ITS OWN COMPUTER ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Inside: its own computer.</h2>
   <div class="wa-win" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
@@ -1301,7 +1409,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 21. EX A: DATA ANALYSIS ============================ -->
+<!-- ============================ 26. EX A: DATA ANALYSIS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Crunch the numbers.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's a year of my bank exports. Clean them up and show me where my money goes.”</span></div>
@@ -1342,7 +1450,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 22. EX K: PDF TO TABLE ============================ -->
+<!-- ============================ 27. EX K: PDF TO TABLE ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">PDFs to a table.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Pull the date, store and amount out of these 40 receipts into a spreadsheet.”</span></div>
@@ -1386,7 +1494,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 23. EX G: DICOM SCANS ============================ -->
+<!-- ============================ 28. EX G: DICOM SCANS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Read your scans.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's the CD from my knee MRI. Turn it into images I can see, and explain them simply.”</span></div>
@@ -1423,7 +1531,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 24. EX F: MANAGE MONEY + TRADE ============================ -->
+<!-- ============================ 29. EX F: MANAGE MONEY + TRADE ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Manage my money.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's $100k of paper money. Research the market, then manage it, or just place a trade.”</span></div>
@@ -1468,7 +1576,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 25. EX N: NJ DMV APPOINTMENT ============================ -->
+<!-- ============================ 30. EX N: NJ DMV APPOINTMENT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Beat the DMV.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Check the NJ MVC site every hour and grab the first license-renewal slot near Edison.”</span></div>
@@ -1507,7 +1615,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 26. EX O: COLLEGE RESEARCH ============================ -->
+<!-- ============================ 31. EX O: COLLEGE RESEARCH ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Find the right college.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Compare 12 colleges for my daughter who wants to study nursing: cost, fit and deadlines. Put it all in a spreadsheet.”</span></div>
@@ -1549,7 +1657,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 27. EX P: PRICE WATCHER ============================ -->
+<!-- ============================ 32. EX P: PRICE WATCHER ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Watch the price.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Watch flights from Newark to Chennai for December. Tell me the moment one drops under $1,100.”</span></div>
@@ -1589,7 +1697,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 28. KIND 3: YOUR COMPUTER ============================ -->
+<!-- ============================ 33. KIND 3: YOUR COMPUTER ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">3 · Your computer.</h2>
   <div class="w2-lvl ho" style="--fx:680px;--c:#FF7AD9"><span class="n">3</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero"><span>💻</span><span style="font-size:60px">📂</span></div><b>Your computer</b><div class="acc"><span>💬</span><span>💻</span></div></div>
@@ -1611,7 +1719,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 29. INSIDE: YOUR COMPUTER ============================ -->
+<!-- ============================ 34. INSIDE: YOUR COMPUTER ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Inside: your computer.</h2>
   <div class="wa-win" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
@@ -1641,7 +1749,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 30. EX C: CLEAN UP DESKTOP ============================ -->
+<!-- ============================ 35. EX C: CLEAN UP DESKTOP ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Clean up your desktop.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“My desktop is a mess. Sort everything into folders and bin the duplicates.”</span></div>
@@ -1684,7 +1792,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 31. EX R: RENAME PHOTOS ============================ -->
+<!-- ============================ 36. EX R: RENAME PHOTOS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Name your photos.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Rename my 500 trip photos by date and place, like '2024-03 Chennai - Marina Beach'.”</span></div>
@@ -1716,7 +1824,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 32. EX I: YOUTUBE TO BOOK ============================ -->
+<!-- ============================ 37. EX I: YOUTUBE TO BOOK ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Turn videos into a book.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Take this 12-video course playlist and turn it into a neat book with chapters.”</span></div>
@@ -1759,7 +1867,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 33. EX H: DAILY COLORING PAGE ============================ -->
+<!-- ============================ 38. EX H: DAILY COLORING PAGE ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">A coloring page every morning.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Every morning at 7, make a coloring page for Maya (6, loves dinosaurs and cricket) and print it.”</span></div>
@@ -1795,7 +1903,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 34. PURPOSE BUILT ============================ -->
+<!-- ============================ 39. PURPOSE BUILT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Now, purpose built.</h2>
   <div class="w2-box gp big" data-move="1" data-hide="2"><div class="e">🧰</div><b>General purpose</b><div class="row"><img src="gifs/logos/openai.png" alt=""><img src="gifs/logos/claude.png" alt=""><img src="gifs/logos/gemini.png" alt=""></div></div>
@@ -1814,7 +1922,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 35. LEARN YOUR WAY ============================ -->
+<!-- ============================ 40. LEARN YOUR WAY ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Learn Your Way.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -1840,7 +1948,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 36. AI STUDIO ============================ -->
+<!-- ============================ 41. AI STUDIO ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Google AI Studio.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -1866,7 +1974,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 37. ELEVENLABS ============================ -->
+<!-- ============================ 42. ELEVENLABS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">ElevenLabs.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -1889,7 +1997,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 38. THINK LIKE A CEO ============================ -->
+<!-- ============================ 43. THINK LIKE A CEO ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Think like a CEO.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -1924,7 +2032,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 39. DON'T THINK SMALL ============================ -->
+<!-- ============================ 44. DON'T THINK SMALL ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Don't think small.</h2>
   <div class="w2-idea" data-step="1" style="left:130px;width:220px;height:130px;--c:#8C8C86"><span class="e" style="font-size:44px">✍️</span><span style="font-size:22px">Fix my email</span></div>
@@ -1941,7 +2049,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 40. START HERE ============================ -->
+<!-- ============================ 45. START HERE ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Start here.</h2>
   <div class="w2-tool" data-step="1" style="left:155px;border-top-color:#FF5A3D"><span class="e">😤</span><b>Your most annoying task</b><i>Not the most impressive one</i></div>
