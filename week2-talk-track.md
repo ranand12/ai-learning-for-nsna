@@ -39,7 +39,7 @@ There are really two kinds of AI tools out there. [Click] General-purpose tools:
 
 **Say**
 
-Inside general purpose, there are really three kinds of agent. Same spy every time; what changes is where it gets to work. [Click] One: chat. ChatGPT, Claude, Gemini in a chat window. You ask, it answers. It has no computer; it can only talk. [Click] Two: its own computer. The company lends the agent a computer in the cloud, with a browser, files and a terminal. It can run programs, use websites, and keep going while you sleep. Grok Bot, Perplexity Computer and Gemini Spark work like this. [Click] Three: YOUR computer. Now the agent works right on your laptop: your files, your folders, your desktop, even your printer. Claude Cowork, Claude Code, Codex and OpenClaw. Each step, it can reach more: more useful, and you need to trust it more. And then there are two things you can plug into any of the three. [Click] Connectors give it access: your Gmail, your calendar, your Drive, your trading account. [Click] And skills give it expertise: like hiring an expert for one job. Three kinds, two plug-ins. Every example today is one of those.
+Inside general purpose, there are really three kinds of agent. Same spy every time; what changes is where it gets to work. [Click] One: chat. ChatGPT, Claude, Gemini in a chat window. You ask, it answers. It has no computer; it can only talk. [Click] Two: its own computer. The company lends the agent a computer in the cloud, with a browser, files and a terminal. It can run programs, use websites, and keep going while you sleep. Grok Bot and Gemini Spark work like this. [Click] Three: YOUR computer. Now the agent works right on your laptop: your files, your folders, your desktop, even your printer. Claude Cowork, Claude Code, Codex and OpenClaw. Each step, it can reach more: more useful, and you need to trust it more. And then there are two things you can plug into any of the three. [Click] Connectors give it access: your Gmail, your calendar, your Drive, your trading account. [Click] And skills give it expertise: like hiring an expert for one job. Three kinds, two plug-ins. Every example today is one of those.
 
 ## 4. Kind 1: Chat — 1 · Chat.
 
@@ -109,7 +109,7 @@ AI can watch video now, too. [Click] You say: here's the one-hour school board m
 - Deep research.
 - 🧑‍💻 “Which family EV under $45k is best for road trips? Compare range, charging and safety.”
 - Sticker (top left, Chat colour): 🔍 Research better
-- Logo badge on the agent: Perplexity
+- Logo badge on the agent: Gemini, with Perplexity as the second option
 - Input: a grid of 12 web pages 🌐 lighting up one by one · 🌐 The whole web
 - Agent badges: 🔍 Deep research · ⏱️ ~15 min
 - Output: report card 📑 Family EVs for road trips, with citations [1] [2] [3] … 84 sources
@@ -117,7 +117,7 @@ AI can watch video now, too. [Click] You say: here's the one-hour school board m
 
 **Say**
 
-Last example, and a big one. [Click] You say: which family electric car under forty-five thousand is best for road trips? Compare range, charging and safety. [Click] To answer that properly, you'd read dozens of reviews, spec sheets and safety ratings. [Click] Deep research mode. ChatGPT, Gemini, Claude and Perplexity all have it. Instead of answering in five seconds, the agent goes off for ten or twenty minutes, makes a plan, and reads page after page after page. [Click] You come back to a proper report, with sources for every claim. Eighty-plus sources, in the time it takes to make dinner. [Click] But: check the sources for anything important. Click the links. AI can still misread a page or cite something that doesn't say what it claims. It's a brilliant research assistant, not the final word.
+Last example, and a big one. [Click] You say: which family electric car under forty-five thousand is best for road trips? Compare range, charging and safety. [Click] To answer that properly, you'd read dozens of reviews, spec sheets and safety ratings. [Click] Here it's Gemini's Deep Research, and Perplexity is a great second option. Deep research mode. ChatGPT, Gemini, Claude and Perplexity all have it. Instead of answering in five seconds, the agent goes off for ten or twenty minutes, makes a plan, and reads page after page after page. [Click] You come back to a proper report, with sources for every claim. Eighty-plus sources, in the time it takes to make dinner. [Click] But: check the sources for anything important. Click the links. AI can still misread a page or cite something that doesn't say what it claims. It's a brilliant research assistant, not the final word.
 
 ## 9. Ex Q: Comparison Shopping — Shop smarter.
 
@@ -190,13 +190,13 @@ Here's that skill in action. [Click] You say: use grill-me, help me plan my daug
 
 - Plug in access.
 - Left: card + · 🔌 Connectors (📧📅📂)
-- Logos, one at a time, with lowest tier: ChatGPT $20/mo · Claude Free · Gemini Free · Perplexity $20/mo
+- Logos, one at a time, with lowest tier: ChatGPT $20/mo · Claude Free · Gemini Free
 - A dashed blue connector strip: 🔌 Gmail · Google Drive · Google Calendar · Notion · YouTube · Alpaca (logos)
 - What it can do, one at a time: 📥 Organize better · 🎙️ Capture better
 
 **Say**
 
-Now the other plug-in: access. Same chatbots, but now you plug in connectors to your own apps. The prices start to split here. [Click] ChatGPT: connecting your apps really starts on Plus, twenty dollars a month. The free plan gets a little, and it keeps changing. [Click] Claude: connectors like Gmail and Google Drive work on the free plan. [Click] Gemini: free, and it's already wired into Gmail, Drive and Calendar. [Click] Perplexity: searching your apps and files starts on Pro, twenty dollars. [Click] And these are the kinds of things it plugs into: Gmail, Google Drive, your calendar, Notion, YouTube, even a trading account. In the apps they're called connectors, or apps, or plugins. Once it can reach your stuff, here's what changes. [Click] Organize better. [Click] And capture better.
+Now the other plug-in: access. Same chatbots, but now you plug in connectors to your own apps. The prices start to split here. [Click] ChatGPT: connecting your apps really starts on Plus, twenty dollars a month. The free plan gets a little, and it keeps changing. [Click] Claude: connectors like Gmail and Google Drive work on the free plan. [Click] Gemini: free, and it's already wired into Gmail, Drive and Calendar. [Click] And these are the kinds of things it plugs into: Gmail, Google Drive, your calendar, Notion, YouTube, even a trading account. In the apps they're called connectors, or apps, or plugins. Once it can reach your stuff, here's what changes. [Click] Organize better. [Click] And capture better.
 
 ## 14. Inside: Chat + Connectors — Inside: chat + connectors.
 
@@ -278,12 +278,12 @@ Some of us think best out loud. [Click] You say: here's my twenty-minute voice m
 
 - 2 · Its own computer.
 - Left: card 2 · ☁️🖥️ Its own computer
-- Logos, one at a time, with lowest tier: Grok Bot $30/mo · Perplexity Computer $20/mo · Gemini Spark $20/mo
+- Logos, one at a time, with lowest tier: Grok Bot $30/mo · Gemini Spark $20/mo
 - What it can do, one at a time: 📊 Analyze better · 🧾 Work better · 🩻 Understand better · 💰 Invest better · 🗓️ Book better · 🎓 Plan better · 💸 Save better
 
 **Say**
 
-Kind two: the agent gets its own computer, in the cloud. Not yours: a computer the company lends it, with a browser, files and a terminal. It writes and runs little programs, opens websites, and keeps going even when your laptop is closed. This is where it starts to cost money. [Click] Grok Bot, from xAI: thirty dollars a month, on the X Premium plan. [Click] Perplexity Computer: included in Perplexity Pro, twenty dollars. [Click] Gemini Spark, now called Task mode in the Gemini app: Google AI Pro, twenty dollars. Here's what having its own computer unlocks. [Click] Analyze better. [Click] Work better: the boring paperwork. [Click] Understand better. [Click] Invest better. [Click] Book better: grab that appointment. [Click] Plan better. [Click] And save better.
+Kind two: the agent gets its own computer, in the cloud. Not yours: a computer the company lends it, with a browser, files and a terminal. It writes and runs little programs, opens websites, and keeps going even when your laptop is closed. This is where it starts to cost money. [Click] Grok Bot, from xAI: thirty dollars a month, on the X Premium plan. [Click] Gemini Spark, now called Task mode in the Gemini app: Google AI Pro, twenty dollars. Here's what having its own computer unlocks. [Click] Analyze better. [Click] Work better: the boring paperwork. [Click] Understand better. [Click] Invest better. [Click] Book better: grab that appointment. [Click] Plan better. [Click] And save better.
 
 ## 20. Inside: Its Own Computer — Inside: its own computer.
 
@@ -323,7 +323,7 @@ First: data. [Click] You say: here's a year of my bank exports, clean them up an
 - PDFs to a table.
 - 🧑‍💻 “Pull the date, store and amount out of these 40 receipts into a spreadsheet.”
 - Sticker (top left, Its own computer colour): 🧾 Work better
-- Logo badge on the agent: Perplexity Computer
+- Logo badge on the agent: Grok Bot
 - Input: a fanned stack of PDF receipts with a red × 40 badge
 - Agent badges: 📎 Upload · ☁️ Its own computer
 - Output: table Date · Store · Amount: Jan 4 Costco $182.40 · Jan 9 Shell $52.10 · Jan 12 CVS $18.75 · Jan 15 Home Depot $96.20 · ⋮ · Total 40 $2,318.55 (illustrative)
@@ -331,7 +331,7 @@ First: data. [Click] You say: here's a year of my bank exports, clean them up an
 
 **Say**
 
-Tax season special. [Click] You say: pull the date, store and amount out of these forty receipts into a spreadsheet. [Click] Forty PDFs: receipts, invoices, bills. Normally you open each one and type the numbers in by hand. [Click] Here it's Perplexity Computer. Upload them; the agent reads each one, and on its own computer it builds the spreadsheet. [Click] Date, store, amount, one row per receipt, with a total at the bottom. [Click] And you download a real spreadsheet file. Same trick works for bank statements, pay stubs, insurance documents, anything where the numbers are trapped in a PDF. One tip: spot-check a few rows against the originals. It's very good, but not perfect.
+Tax season special. [Click] You say: pull the date, store and amount out of these forty receipts into a spreadsheet. [Click] Forty PDFs: receipts, invoices, bills. Normally you open each one and type the numbers in by hand. [Click] Here it's Grok Bot. Upload them; the agent reads each one, and on its own computer it builds the spreadsheet. [Click] Date, store, amount, one row per receipt, with a total at the bottom. [Click] And you download a real spreadsheet file. Same trick works for bank statements, pay stubs, insurance documents, anything where the numbers are trapped in a PDF. One tip: spot-check a few rows against the originals. It's very good, but not perfect.
 
 ## 23. Ex G: Dicom Scans — Read your scans.
 
@@ -340,7 +340,7 @@ Tax season special. [Click] You say: pull the date, store and amount out of thes
 - Read your scans.
 - 🧑‍💻 “Here's the CD from my knee MRI. Turn it into images I can see, and explain them simply.”
 - Sticker (top left, Its own computer colour): 🩻 Understand better
-- Logo badge on the agent: Perplexity Computer
+- Logo badge on the agent: Gemini Spark
 - Input: a 💿 CD with files IMG0001.dcm · IMG0002.dcm · … × 240 files
 - Agent badge: ☁️ Its own computer
 - Output: a grid of 6 greyscale scan slices; one slice gets a yellow highlight box
@@ -348,7 +348,7 @@ Tax season special. [Click] You say: pull the date, store and amount out of thes
 
 **Say**
 
-Here's one most people don't know about. [Click] After an MRI or a CT scan, you often get a CD or a download link. You say: here's the CD from my knee MRI, turn it into images I can see, and explain them simply. [Click] And the CD is full of files called DICOM, hundreds of them, that your laptop can't even open. [Click] Here it's Perplexity Computer, which gives the job its own computer in the cloud. Kind two: the agent with its own computer. It writes a little program to read the DICOM files and turn them into normal pictures. [Click] Now you can actually see the slices of your knee. [Click] Ask it: what am I looking at here? It'll walk you through it: this is the bone, this is the cartilage. [Click] And the best use of all: help me prepare questions for my doctor. To be very clear: this is for understanding, not diagnosis. Your doctor reads the scan; AI helps you walk in with better questions.
+Here's one most people don't know about. [Click] After an MRI or a CT scan, you often get a CD or a download link. You say: here's the CD from my knee MRI, turn it into images I can see, and explain them simply. [Click] And the CD is full of files called DICOM, hundreds of them, that your laptop can't even open. [Click] Here it's Gemini Spark, which gives the job its own computer in Google's cloud. Kind two: the agent with its own computer. It writes a little program to read the DICOM files and turn them into normal pictures. [Click] Now you can actually see the slices of your knee. [Click] Ask it: what am I looking at here? It'll walk you through it: this is the bone, this is the cartilage. [Click] And the best use of all: help me prepare questions for my doctor. To be very clear: this is for understanding, not diagnosis. Your doctor reads the scan; AI helps you walk in with better questions.
 
 ## 24. Ex F: Manage Money + Trade — Manage my money.
 
@@ -367,7 +367,7 @@ Here's one most people don't know about. [Click] After an MRI or a CT scan, you 
 
 **Say**
 
-This one gets people's attention. [Click] You say: here's a hundred thousand dollars of paper money, research the market, then manage it, or just place a trade. You can hand it the whole portfolio, or just one trade. [Click] Here's the account, on Alpaca, a stock-trading app with an official MCP connector. And notice: paper. Paper trading means pretend money. A practice account. That's exactly where you start. [Click] Here it's Grok Bot, xAI's agent. It runs on its own computer in the cloud and keeps working after you close your laptop. It plugs into Alpaca, and it can also open any website it needs. Perplexity Computer or Gemini Spark could do the same. And it doesn't trade first. It researches first. [Click] It reads the news. [Click] It checks the latest earnings. [Click] It looks at the charts. [Click] Then it proposes an order: buy twenty-five shares of Apple, at market price, in the paper account. [Click] And a good agent stops here and asks: approve? Anything that spends money, you approve. Always. [Click] Filled. Not financial advice, please. The point is: an agent can now research and act in your real accounts. Which is exactly why you start with paper money and keep approvals on.
+This one gets people's attention. [Click] You say: here's a hundred thousand dollars of paper money, research the market, then manage it, or just place a trade. You can hand it the whole portfolio, or just one trade. [Click] Here's the account, on Alpaca, a stock-trading app with an official MCP connector. And notice: paper. Paper trading means pretend money. A practice account. That's exactly where you start. [Click] Here it's Grok Bot, xAI's agent. It runs on its own computer in the cloud and keeps working after you close your laptop. It plugs into Alpaca, and it can also open any website it needs. Gemini Spark could do the same. And it doesn't trade first. It researches first. [Click] It reads the news. [Click] It checks the latest earnings. [Click] It looks at the charts. [Click] Then it proposes an order: buy twenty-five shares of Apple, at market price, in the paper account. [Click] And a good agent stops here and asks: approve? Anything that spends money, you approve. Always. [Click] Filled. Not financial advice, please. The point is: an agent can now research and act in your real accounts. Which is exactly why you start with paper money and keep approvals on.
 
 ## 25. Ex N: Nj Dmv Appointment — Beat the DMV.
 
@@ -394,7 +394,7 @@ Anyone here tried to get an appointment at the New Jersey MVC? [Click] You say: 
 - Find the right college.
 - 🧑‍💻 “Compare 12 colleges for my daughter who wants to study nursing: cost, fit and deadlines. Put it all in a spreadsheet.”
 - Sticker (top left, Its own computer colour): 🎓 Plan better
-- Logo badge on the agent: Perplexity Computer
+- Logo badge on the agent: Gemini Spark
 - Input: 🎓 card with school chips: Rutgers · TCNJ · Penn State · Drexel · + 8 more
 - Agent badges: ☁️ Its own computer · 🔍 Hundreds of pages
 - Output: spreadsheet School · Nursing · Cost · Fit: Rutgers ✓ $ ⭐⭐⭐ · TCNJ ✓ $ ⭐⭐⭐ · Penn State ✓ $$$ ⭐⭐ · Drexel ✓ $$$ ⭐⭐ · ⋮ (illustrative)
@@ -403,7 +403,7 @@ Anyone here tried to get an appointment at the New Jersey MVC? [Click] You say: 
 
 **Say**
 
-For the parents in the room. [Click] You say: compare twelve colleges for my daughter, who wants to study nursing: cost, fit and deadlines, and put it all in a spreadsheet. [Click] Twelve schools. Normally that's weeks of tabs open on every college website. [Click] Here it's Perplexity Computer. On its own computer it opens every school's site, the admissions pages, the nursing program pages, the cost calculators. Hundreds of pages. [Click] And it builds you one table: does it have nursing, rough cost (in-state Rutgers and TCNJ are much cheaper than Penn State or Drexel for a New Jersey family), and how well each fits what you told it. [Click] As a real spreadsheet file you can sort and share. [Click] And it can put every application deadline on your calendar. Then you check the important numbers on the schools' own sites. It does the legwork; you make the call.
+For the parents in the room. [Click] You say: compare twelve colleges for my daughter, who wants to study nursing: cost, fit and deadlines, and put it all in a spreadsheet. [Click] Twelve schools. Normally that's weeks of tabs open on every college website. [Click] Here it's Gemini Spark. On its own computer it opens every school's site, the admissions pages, the nursing program pages, the cost calculators. Hundreds of pages. [Click] And it builds you one table: does it have nursing, rough cost (in-state Rutgers and TCNJ are much cheaper than Penn State or Drexel for a New Jersey family), and how well each fits what you told it. [Click] As a real spreadsheet file you can sort and share. [Click] And it can put every application deadline on your calendar. Then you check the important numbers on the schools' own sites. It does the legwork; you make the call.
 
 ## 27. Ex P: Price Watcher — Watch the price.
 
