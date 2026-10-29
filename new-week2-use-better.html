@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI From Zero — Week 2: Use AI Better</title>
+<style>
+:root{
+  --bg:#0A0A0A; --fg:#F5F5F0; --dim:#8C8C86; --faint:#2A2A28; --line:#F5F5F0;
+  /* sticker system */
+  --model:#2EE59D;     /* a raw model            */
+  --harness:#4D9FFF;   /* app / agent / harness  */
+  --dyk:#FFD23F;       /* did you know           */
+  --ask:#FF7AD9;       /* ask AI                 */
+  --demo:#FF5A3D;      /* live demo              */
+  --guess:#B69CFF;     /* your guess? (reveal)   */
+  --font: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#000;overflow:hidden}
+body{font-family:var(--font);color:var(--fg);-webkit-font-smoothing:antialiased}
+
+/* ---------- stage: fixed 1600x900, scaled to fit ---------- */
+#stage{position:absolute;width:1600px;height:900px;left:50%;top:50%;transform-origin:center;background:var(--bg);overflow:hidden}
+.slide{position:absolute;inset:0;padding:80px 110px 70px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .35s ease}
+.slide.active{opacity:1;pointer-events:auto}
+.slide.center{align-items:center;justify-content:center;text-align:center}
+
+/* ---------- type ---------- */
+.kicker{font-size:18px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);font-weight:600;margin-bottom:22px}
+h1{font-size:120px;line-height:.95;font-weight:800;letter-spacing:-.045em}
+h2{font-size:64px;line-height:1.02;font-weight:800;letter-spacing:-.035em;max-width:1250px}
+h3{font-size:30px;font-weight:700;letter-spacing:-.01em;margin-bottom:10px}
+p,li{font-size:28px;line-height:1.4;color:var(--fg)}
+.dim{color:var(--dim)}
+.small{font-size:22px}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.hl-model{color:var(--model)} .hl-harness{color:var(--harness)} .hl-dyk{color:var(--dyk)} .hl-demo{color:var(--demo)}
+.rule{height:2px;background:var(--fg);width:80px;margin:28px 0}
+.foot{position:absolute;left:110px;bottom:40px;font-size:18px;color:var(--dim);letter-spacing:.02em}
+
+/* ---------- layout ---------- */
+.body{flex:1;display:flex;align-items:center;margin-top:30px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex:1;margin-top:30px}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:60px}
+.cols4{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:50px}
+svg{overflow:visible}
+svg text{font-family:var(--font);fill:var(--fg)}
+
+/* ---------- stickers ---------- */
+.sticker{position:absolute;display:inline-flex;align-items:center;gap:10px;padding:12px 24px 12px 18px;border-radius:999px;
+  font-size:21px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0A0A0A;border:4px solid #fff;
+  box-shadow:0 8px 0 rgba(0,0,0,.45);transform:rotate(var(--r,-6deg));white-space:nowrap;z-index:5}
+.sticker svg{width:22px;height:22px;fill:#0A0A0A}
+.sticker .emo{font-size:26px;line-height:1;transform:translateY(-1px)}
+.sticker.inline{position:relative}
+.sticker.model{background:var(--model)}
+.sticker.harness{background:var(--harness)}
+.sticker.dyk{background:var(--dyk)}
+.sticker.ask{background:var(--ask)}
+.sticker.demo{background:var(--demo)}
+.sticker.guess{background:var(--guess)}
+.sticker.free{background:#fff;border-color:#fff}
+.sticker.paid{background:#0A0A0A;color:#fff;border-color:#fff}
+.sticker.paid svg{fill:#fff}
+.active .sticker{animation:stickIn .55s cubic-bezier(.3,1.7,.5,1) var(--sd,.7s) both}
+@keyframes stickIn{from{transform:rotate(-40deg) scale(0)}to{transform:rotate(var(--r,-6deg)) scale(1)}}
+
+/* ---------- animation primitives ---------- */
+.active .fu{animation:fu .7s cubic-bezier(.2,.7,.2,1) var(--d,0s) both}
+@keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.active .fi{animation:fi .8s ease var(--d,0s) both}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.draw{stroke-dasharray:1;stroke-dashoffset:1}
+.ahead{opacity:0}
+.active .ahead{animation:fi .15s linear var(--d) forwards}
+.active .draw{animation:draw var(--t,1.2s) ease var(--d,0s) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.active .pop{animation:pop .5s cubic-bezier(.3,1.6,.5,1) var(--d,0s) both;transform-box:fill-box;transform-origin:center}
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+
+/* ---------- ask-then-reveal: → shows [data-step] pieces before advancing ---------- */
+[data-step]{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+[data-step].shown{opacity:1;transform:none}
+[data-step].shown.gone,.gone{opacity:0!important}
+[data-step]:not(.shown),[data-step]:not(.shown) *{animation-play-state:paused!important}
+.opts{display:flex;gap:18px;margin-top:40px}
+.opt{white-space:nowrap;border:2px solid #555;border-radius:12px;padding:14px 24px;font-size:27px;font-weight:600;transition:all .4s}
+.opt b{color:var(--dim);margin-right:12px}
+.opt.marked{background:var(--model);border-color:var(--model);color:#0A0A0A}
+.opt.marked b{color:#0A0A0A}
+.opt.struck{opacity:.3;text-decoration:line-through}
+.answer{font-size:44px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+
+/* what is an agent (wa-) */
+.wa-you{position:absolute;font-size:120px;line-height:1;text-align:center}
+.wa-tag{position:absolute;font-size:30px;font-weight:700;color:var(--dim);text-align:center}
+.wa-q{position:absolute;width:60px;height:60px;border-radius:50%;background:var(--fg);color:#0A0A0A;font-size:36px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.wa-ans{position:absolute;width:110px;height:76px;border-radius:12px;background:var(--model);padding:14px 14px;display:flex;flex-direction:column;justify-content:space-between}
+.wa-ans i{display:block;height:8px;border-radius:4px;background:#0A0A0A;opacity:.55}
+.wa-ans i:nth-child(2){width:80%} .wa-ans i:nth-child(3){width:60%}
+.wa-apps{position:absolute;border:4px solid var(--fg);border-radius:22px;display:flex;align-items:center;justify-content:center;gap:26px;font-size:64px;line-height:1}
+.wa-ring{position:absolute;border-radius:50%;border:6px dashed var(--dyk);animation:agSpin 8s linear infinite}
+.wa-badge{position:absolute;font-size:64px;line-height:1;animation:agSpin 3s linear infinite}
+.wa-cant{position:absolute;width:150px;height:150px;border:4px solid #555;border-radius:26px;display:flex;align-items:center;justify-content:center;font-size:80px;line-height:1}
+.wa-cant::after{content:"✕";position:absolute;right:-22px;top:-26px;font-size:64px;font-weight:900;color:var(--demo)}
+.wa-cant b{position:absolute;top:166px;left:-60px;width:270px;text-align:center;font-size:26px;font-weight:700;color:var(--dim)}
+.wa-bub{position:absolute;background:var(--fg);color:#0A0A0A;border-radius:22px;padding:16px 28px;font-size:30px;font-weight:700;text-align:center;white-space:nowrap}
+.wa-bub::before{content:"";position:absolute;left:50%;top:-18px;margin-left:-14px;border:14px solid transparent;border-top:0;border-bottom:18px solid var(--fg)}
+.wa-tool{position:absolute;height:110px;border:4px solid var(--harness);border-radius:18px;box-shadow:0 0 34px rgba(77,159,255,.3);display:flex;align-items:center;justify-content:center;gap:14px;font-size:28px;font-weight:700}
+.wa-tool .e{font-size:48px}
+.wa-tool[data-step]:not(.shown){transform:translateY(-60px)}
+.wa-pill{position:absolute;height:64px;border-radius:999px;background:var(--fg);color:#0A0A0A;display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:700;white-space:nowrap}
+.wa-hex{position:absolute;background:var(--harness);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0A0A0A;font-size:30px;font-weight:800;line-height:1.1}
+.wa-hex .e{font-size:44px}
+.wa-res{position:absolute;height:64px;border-radius:10px;background:var(--harness);color:#0A0A0A;display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:700;white-space:nowrap}
+.wa-act{position:absolute;width:150px;height:150px;border:5px solid var(--harness);border-radius:28px;background:var(--bg);box-shadow:0 0 40px rgba(77,159,255,.35)}
+.wa-act span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:76px;line-height:1}
+.wa-see{position:absolute;width:150px;height:150px;border-radius:50%;background:var(--fg);display:flex;align-items:center;justify-content:center;font-size:76px;line-height:1}
+.wa-tname{position:absolute;font-size:26px;font-weight:700;color:var(--harness);white-space:nowrap}
+.wa-spin{position:absolute;width:120px;text-align:center;font-size:72px;line-height:1;animation:agSpin 3s linear infinite}
+.wa-done{position:absolute;height:70px;border-radius:16px;background:var(--model);color:#0A0A0A;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800}
+.wa-ctx{position:absolute;border:5px solid var(--demo);border-radius:14px;box-shadow:0 0 0 7px rgba(255,90,61,.18),0 0 40px rgba(255,90,61,.3);padding:16px;display:flex;flex-direction:column;gap:12px}
+.wa-ctx i{display:block;height:30px;border-radius:6px}
+.wa-frame{position:absolute;border:4px dashed var(--harness);border-radius:28px;background:rgba(77,159,255,.05);box-shadow:0 0 50px rgba(77,159,255,.25);pointer-events:none}
+.wa-grid{position:absolute;display:grid;grid-template-columns:100px 100px;gap:20px}
+.wa-grid span{width:100px;height:100px;border:4px solid var(--harness);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:50px;line-height:1;box-shadow:0 0 24px rgba(77,159,255,.3)}
+.wa-loopring{transform-box:fill-box;transform-origin:center;animation:agSpin 10s linear infinite}
+.wa-tile{position:absolute;top:260px;width:330px;height:500px;border:3px solid #2A2A28;border-top:8px solid var(--c);border-radius:24px;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:20px}
+.wa-tile .m{height:230px;display:flex;align-items:center;justify-content:center;font-size:150px;line-height:1}
+.wa-tile img{border-radius:16px;border:3px solid #2A2A28}
+.wa-tile b{font-size:34px;font-weight:800;text-align:center;line-height:1.15;letter-spacing:-.02em}
+.pk-logo{position:absolute;width:110px;height:110px;border-radius:26px;background:var(--fg);padding:16px;transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1),left .9s cubic-bezier(.5,0,.2,1),top .9s cubic-bezier(.5,0,.2,1),width .9s cubic-bezier(.5,0,.2,1),height .9s cubic-bezier(.5,0,.2,1),padding .9s ease,border-radius .9s ease}
+.pk-ring{position:absolute;width:154px;height:154px;border-radius:50%;border:7px solid var(--yellow,#FFD23F)}
+.pk-logo.pk-openai.moved{left:330px!important;top:370px!important;width:340px;height:340px;padding:50px;border-radius:70px}
+.pk-logo.pk-claude.moved{left:930px!important;top:370px!important;width:340px;height:340px;padding:50px;border-radius:70px}
+.wa-logos{position:absolute;top:530px;width:520px;display:flex;justify-content:center;gap:22px}
+.wa-logos img{width:100px;height:100px;border-radius:24px;background:var(--fg);padding:14px}
+.wa-win{position:absolute;border:4px solid var(--harness);border-radius:24px;background:rgba(77,159,255,.05);box-shadow:0 0 40px rgba(77,159,255,.2)}
+.wa-bar{position:absolute;left:0;right:0;top:0;height:52px;border-bottom:3px solid var(--harness);display:flex;align-items:center;gap:10px;padding:0 20px}
+.wa-bar i{width:14px;height:14px;border-radius:50%;background:var(--harness);opacity:.6}
+.wa-winlbl{position:absolute;font-size:28px;font-weight:800;color:var(--harness);white-space:nowrap;display:flex;align-items:center;gap:12px}
+.wa-mini{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:30px;color:var(--harness);font-size:30px;font-weight:800;line-height:1.1}
+.wa-mini .wa-bar{height:30px;padding:0 12px;gap:6px}
+.wa-mini .wa-bar i{width:9px;height:9px}
+.wa-mini .e{font-size:44px}
+.wa-core{position:absolute;border-radius:50%;background:var(--model)}
+.wa-core>*{position:absolute;left:0;width:100%;text-align:center;line-height:1}
+.wa-core b{font-size:24px;font-weight:800;color:#0A0A0A}
+.wa-ice{position:absolute;border-radius:50%;border:7px dotted #BEE9FF;box-shadow:0 0 0 18px rgba(190,233,255,.1)}
+.wa-ice::before{content:"❄️";position:absolute;left:10px;top:10px;font-size:46px}
+.wa-ice::after{content:"🧊";position:absolute;right:6px;top:14px;font-size:50px}
+.wa-cap{position:absolute;font-size:24px;font-weight:700;color:var(--dim);text-align:center}
+.wa-note{position:absolute;background:var(--dyk);color:#0A0A0A;border-radius:6px;padding:14px 16px;font-size:23px;font-weight:700;line-height:1.25;box-shadow:0 8px 0 rgba(0,0,0,.4)}
+.wa-note[data-step].shown{transform:rotate(-3deg)}
+.wa-instr{position:absolute;background:#8C8C86;color:#0A0A0A;border-radius:12px;padding:16px 20px;font-size:23px;font-weight:700;line-height:1.3}
+.wa-instr .lock{position:absolute;right:-14px;top:-18px;font-size:36px}
+.wa-chat{position:absolute;border:3px solid #555;border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.wa-chat span{border-radius:12px;padding:8px 14px;font-size:20px;font-weight:700;color:#0A0A0A;width:max-content;max-width:100%}
+.wa-chat .u{background:var(--fg);align-self:flex-end} .wa-chat .a{background:var(--model)}
+.wa-shield{position:absolute;height:80px;border:4px solid var(--dyk);border-radius:18px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:24px;font-weight:800;color:var(--dyk)}
+.wa-shield .e{font-size:40px}
+.wa-mtools{position:absolute;display:flex;gap:16px}
+.wa-mtools span{width:80px;height:80px;border:4px solid var(--harness);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:40px;line-height:1;box-shadow:0 0 20px rgba(77,159,255,.3)}
+.wa-row{position:absolute;left:280px;width:1040px;height:58px;display:grid;grid-template-columns:300px 440px 300px;align-items:center;text-align:center;border-bottom:2px solid #2A2A28;font-size:27px;font-weight:700}
+.wa-row .k{color:var(--dim)}
+.wa-row .y{color:var(--model);font-size:34px;font-weight:900}
+.wa-row .n{color:#555}
+.wa-row .d{display:inline-flex;width:50px;height:50px;border-radius:50%;background:var(--model);align-items:center;justify-content:center;font-size:30px;margin:0 auto}
+.wa-side{position:absolute;left:110px;width:150px;font-size:18px;font-weight:800;letter-spacing:.18em;text-align:center;border-radius:10px;padding:8px 0}
+.wa-head{position:absolute;top:205px;width:300px;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:32px;font-weight:800}
+.wa-list{position:absolute;top:350px;width:400px;display:flex;flex-direction:column;gap:12px}
+.wa-chip{display:flex;align-items:center;gap:14px;height:56px;border-radius:14px;padding:0 18px;font-size:26px;font-weight:700;white-space:nowrap;border:3px solid var(--harness);transition:box-shadow .4s,border-color .4s}
+.wa-chip.m{border-color:var(--model)}
+.wa-chip.m::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--model);flex:none}
+.wa-chip img{width:40px;height:40px;border-radius:10px;background:var(--fg);padding:5px;flex:none}
+.wa-ltr{width:40px;height:40px;border-radius:10px;background:var(--fg);color:#0A0A0A;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;flex:none}
+.slide:has(.wa-cxmk.shown) .wa-cx{border-color:var(--dyk);box-shadow:0 0 0 5px rgba(255,210,63,.35)}
+/* agent loop */
+.ag-goal{position:absolute;left:200px;top:222px;background:var(--fg);color:#0A0A0A;border-radius:999px;padding:14px 28px;font-size:26px;font-weight:600;white-space:nowrap}
+.ag-user{position:absolute;left:110px;top:212px;font-size:60px;line-height:1}
+.ag-cap{position:absolute;left:110px;top:316px;font-size:18px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--demo)}
+.ag-ctx{position:absolute;left:110px;top:350px;width:580px;height:490px;border:5px solid var(--demo);border-radius:14px;box-shadow:0 0 0 8px rgba(255,90,61,.18),0 0 60px rgba(255,90,61,.3);padding:18px;display:flex;flex-direction:column;gap:12px}
+.ag-blk{border-radius:8px;padding:11px 16px;font-size:22px;font-weight:600;color:#0A0A0A;white-space:nowrap}
+.ag-blk[data-step]:not(.shown){transform:translateX(60px)}
+.ag-frame{position:absolute;left:80px;top:300px;width:1430px;height:565px;border:4px dashed var(--harness);border-radius:28px;background:rgba(77,159,255,.05);box-shadow:0 0 50px rgba(77,159,255,.25);pointer-events:none}
+.ag-spy{position:absolute;left:1390px;top:196px;width:130px;height:130px}
+.agcirc{border-radius:50%;background:var(--model);overflow:hidden;position:absolute}
+.agcirc img{position:absolute;left:-8%;top:4%;width:116%;height:116%}
+.neq-dot{position:absolute;border-radius:50%;background:var(--model);display:flex;align-items:center;justify-content:center;line-height:1}
+.neq-sign{position:absolute;font-size:200px;font-weight:800;color:var(--fg);text-align:center;line-height:1}
+.ag-name{position:absolute;left:1180px;top:240px;font-size:34px;font-weight:800;color:var(--harness)}
+.ag-you{background:var(--fg)} .ag-ai{background:var(--model)} .ag-tool{background:var(--harness)}
+.ag-card{position:absolute;left:960px;top:650px;width:380px;height:120px;border:4px solid var(--harness);border-radius:18px;background:var(--bg);box-shadow:0 0 40px rgba(77,159,255,.3);display:flex;align-items:center;justify-content:center;gap:16px;font-size:30px;font-weight:700}
+.ag-card .e{font-size:50px}
+.ag-lbl{position:absolute;font-size:30px;font-weight:700;color:var(--dim)}
+.ag-rep{position:absolute;left:830px;top:520px;width:140px;text-align:center;font-size:24px;font-weight:700;color:var(--dyk)}
+.ag-rep span{display:block;font-size:64px;line-height:1.1;animation:agSpin 3s linear infinite}
+@keyframes agSpin{to{transform:rotate(360deg)}}
+.active .ag-think{animation:agBob 1.6s ease-in-out infinite}
+@keyframes agBob{50%{transform:translateY(-8px)}}
+.cva-goal{position:absolute;left:0;top:212px;width:1600px;display:flex;align-items:center;justify-content:center;gap:18px}
+.cva-goal .u{font-size:56px;line-height:1}
+.cva-goal .p{background:var(--fg);color:#0A0A0A;border-radius:999px;padding:14px 28px;font-size:26px;font-weight:600;white-space:nowrap}
+.cva-div{position:absolute;left:798px;top:310px;width:4px;height:450px;background:#2A2A28;border-radius:2px}
+.cva-lbl{position:absolute;top:472px;width:520px;text-align:center;font-size:34px;font-weight:800;color:var(--dim)}
+.cva-say{position:absolute;left:170px;top:540px;width:520px;background:var(--fg);color:#0A0A0A;border-radius:22px 22px 22px 6px;padding:16px 24px;font-size:25px;font-weight:600;line-height:1.35}
+.cva-meh{position:absolute;left:170px;top:680px;width:520px;text-align:center;font-size:28px;font-weight:700;color:var(--dim)}
+.cva-meh .e{font-size:44px;vertical-align:middle;margin-right:10px}
+.cva-loop{position:absolute;left:910px;top:546px;width:520px;display:flex;align-items:center;justify-content:center;gap:14px}
+.cva-loop .spin{font-size:52px;line-height:1;animation:agSpin 3s linear infinite}
+.cva-loop .t{width:84px;height:84px;border:4px solid var(--harness);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:42px;box-shadow:0 0 24px rgba(77,159,255,.3)}
+.cva-loop .ar{font-size:30px;color:var(--dim);font-weight:800}
+.cva-done{position:absolute;left:910px;top:672px;width:520px;background:var(--model);color:#0A0A0A;border-radius:16px;padding:16px 24px;text-align:center;font-size:27px;font-weight:700}
+.cva-punch{position:absolute;top:768px;width:520px;text-align:center;font-size:60px;font-weight:800;letter-spacing:-.03em;line-height:1}
+
+/* ---------- chrome ---------- */
+#progress{position:fixed;left:0;bottom:0;height:4px;background:var(--fg);transition:width .3s;z-index:20}
+#count{position:fixed;right:18px;bottom:12px;font:14px var(--font);color:#555;z-index:20}
+#notes{position:fixed;left:0;right:0;bottom:0;max-height:42vh;overflow:auto;background:#141414;border-top:1px solid #333;
+  padding:18px 28px 28px;font:18px/1.55 var(--font);color:#ddd;display:none;z-index:30}
+#notes.on{display:block}
+#notes b{color:#fff;letter-spacing:.12em;font-size:12px;text-transform:uppercase;display:block;margin-bottom:6px;color:#888}
+aside.notes,aside.onscreen{display:none}
+
+/* ---------- slide-specific ---------- */
+/* title */
+.title-mark{position:absolute;right:120px;top:50%;transform:translateY(-50%)}
+/* agenda */
+.agenda{display:grid;grid-template-columns:1fr 1fr;column-gap:90px;row-gap:14px;margin-top:40px}
+.agenda .row{display:flex;align-items:baseline;gap:22px;padding:14px 0;border-bottom:1px solid var(--faint);font-size:27px}
+.agenda .n{font-size:18px;color:var(--dim);width:34px;font-weight:700}
+.agenda .t{flex:1}
+.agenda .m{font-size:18px;color:var(--dim)}
+.agenda .row.now .t{color:var(--model)}
+/* legend */
+.legend{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px 60px;margin-top:50px}
+.legend .item{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.legend p{font-size:23px;color:var(--dim)}
+/* next word */
+.nw{display:flex;align-items:center;gap:22px;font-size:72px;font-weight:700;letter-spacing:-.03em}
+.blank{display:inline-block;min-width:200px;border-bottom:6px solid var(--fg);text-align:center;position:relative;height:84px}
+.blank span{color:var(--model)}
+.bars{margin-top:60px;display:flex;flex-direction:column;gap:18px;width:900px}
+.bar{display:grid;grid-template-columns:140px 1fr 90px;align-items:center;gap:22px;font-size:28px}
+.bar .track{height:30px;background:var(--faint);border-radius:4px;overflow:hidden}
+.bar .fill{height:100%;width:0;background:var(--fg)}
+.bar.win .fill{background:var(--model)}
+.active .bar .fill{animation:grow 1s cubic-bezier(.2,.7,.2,1) var(--d) forwards}
+@keyframes grow{to{width:var(--w)}}
+.bar .pct{color:var(--dim);text-align:right}
+/* dots converging */
+.book{font-size:30px}
+.active .book{animation:converge var(--t) ease-in var(--d) infinite}
+@keyframes converge{0%{transform:translate(var(--x),var(--y)) rotate(var(--rot));opacity:0}15%{opacity:1}80%{opacity:1}100%{transform:translate(0,0) rotate(0) scale(.3);opacity:0}}
+.active .q-in{animation:qin 3s cubic-bezier(.4,0,.6,1) var(--d) infinite both}
+@keyframes qin{0%{transform:translateX(0);opacity:0}12%{opacity:1}70%{opacity:1}85%,100%{transform:translateX(170px) scale(.4);opacity:0}}
+.active .a-out{animation:aout 3s cubic-bezier(.4,0,.6,1) var(--d) infinite both}
+@keyframes aout{0%{transform:translateX(-40px) scale(.4);opacity:0}15%{opacity:1;transform:translateX(0) scale(1)}75%{opacity:1}100%{transform:translateX(130px);opacity:0}}
+/* dials */
+.title-xl{font-size:104px;line-height:1;letter-spacing:-.045em;max-width:none}
+.slide h2{text-align:center;max-width:none;width:100%}
+.needle{transform:rotate(var(--a1))}
+.active .needle{animation:tune var(--spd) ease-in-out var(--d) infinite alternate}
+@keyframes tune{from{transform:rotate(var(--a1))}to{transform:rotate(var(--a2))}}
+.dial circle{transition:stroke .8s}
+.flow{stroke-dasharray:16 14}
+.active .flow{animation:flow .8s linear infinite}
+.active .flow.back{animation-direction:reverse}
+@keyframes flow{to{stroke-dashoffset:-30}}
+.arrows{transition:opacity .6s}
+/* frozen: stop the dials, ice them over, drop the arrows */
+#s-weights:has(.frost.shown) .needle{animation-play-state:paused}
+#s-weights:has(.frost.shown) .dial circle{stroke:#BEE9FF}
+#s-weights:has(.frost.shown) .arrows{opacity:0}
+/* closed vs open: frozen model hands off from the weights slide, then splits into a cell and a doorway */
+.fm{position:absolute;width:180px;height:180px;border-radius:50%;background:var(--model);display:flex;align-items:center;justify-content:center;font-size:104px;line-height:1;
+  outline:7px dotted #BEE9FF;outline-offset:8px;box-shadow:0 0 0 22px rgba(190,233,255,.12);z-index:2}
+.fm::before{content:"❄️";position:absolute;left:-26px;top:-22px;font-size:40px}
+.fm::after{content:"🧊";position:absolute;right:-30px;top:-18px;font-size:44px}
+.fm.center{left:710px;top:220px}
+.active .fm.center{animation:handoff 1.3s cubic-bezier(.5,0,.2,1) .15s both}
+@keyframes handoff{from{transform:translate(410px,130px) scale(1.22)}to{transform:none}}
+/* a cage is the cell or doorway box; its model copy and bars sit inside it so they always line up */
+.cage{position:absolute;top:200px;width:300px;height:300px;border:5px solid var(--fg);border-radius:6px}
+.cage.l{left:230px;background:#141414} .cage.r{left:1070px;border-bottom:none;border-radius:6px 6px 0 0;background:rgba(255,210,63,.16);perspective:1600px}
+.cage .fm{left:55px;top:55px;transform:scale(.8)}
+.shown .cage.l .fm.fly{animation:flyL 1s cubic-bezier(.5,0,.2,1) .1s both}
+.shown .cage.r .fm.fly{animation:flyR 1s cubic-bezier(.5,0,.2,1) .5s both}
+@keyframes flyL{from{transform:translate(420px,-40px) scale(1)}to{transform:scale(.8)}}
+@keyframes flyR{from{transform:translate(-420px,-40px) scale(1)}to{transform:scale(.8)}}
+.layer{position:absolute;inset:0}
+.cg-you{position:absolute;width:180px;height:180px;border-radius:50%;background:#1A1A18;border:4px solid #F5F5F0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:88px;line-height:1}
+.cg-you b{font-size:24px;font-weight:800;margin-top:4px}
+.cg-gen{position:absolute;width:180px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.cg-gen i{font-style:normal;width:120px;height:120px;border-radius:50%;border:4px solid var(--model);background:rgba(46,229,157,.12);display:flex;align-items:center;justify-content:center;font-size:62px}
+.cg-gen b{font-size:22px;font-weight:700;white-space:nowrap;background:#0A0A0A;padding:0 6px}
+.cg-crowd span{position:absolute}
+.fm.center{transition:opacity .5s ease}
+.slide:has(> .layer.shown) .fm.center{opacity:0;transition-delay:1.5s}
+.jail{position:absolute;inset:-5px;z-index:3;transform-origin:top;border-radius:6px;
+  background:repeating-linear-gradient(90deg,transparent 0 30px,#F5F5F0 30px 38px);border-top:16px solid var(--fg);border-bottom:16px solid var(--fg)}
+.shown .jail.drop{animation:barsDown .55s cubic-bezier(.3,1.4,.5,1) 1.2s both}
+@keyframes barsDown{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.door{position:absolute;inset:0;background:#2A2A28;border:3px solid #8C8C86;transform-origin:left;transform:rotateY(-70deg);z-index:1}
+.door::after{content:"";position:absolute;right:18px;top:50%;width:14px;height:14px;border-radius:50%;background:var(--dyk)}
+.shown .door.swing{animation:swing .8s cubic-bezier(.3,1.2,.5,1) .1s both}
+@keyframes swing{from{transform:rotateY(0)}to{transform:rotateY(-70deg)}}
+.gif{position:absolute;top:540px;height:220px;border-radius:14px;border:3px solid #2A2A28;object-fit:cover}
+.title-c{font-size:72px;line-height:1;letter-spacing:-.04em;max-width:none;width:100%;text-align:center}
+/* renting a closed model: caged model glides to centre, API calls in, answers out, then everything but the model fades */
+.rentbox{position:absolute;left:650px;top:250px;width:300px;height:300px;perspective:1400px}
+.rent-in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.4,.2,.2,1)}
+.rentbox.moved .rent-in{transform:rotateY(180deg)}
+.rent-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:5px solid var(--fg);border-radius:6px;background:#141414}
+.rent-face.open-face{transform:rotateY(180deg);border-bottom:none;border-radius:6px 6px 0 0;background:rgba(255,210,63,.16)}
+.door-flat{position:absolute;left:-5px;top:-34px;width:90px;height:340px;background:#2A2A28;border:3px solid #8C8C86;clip-path:polygon(0 10%,100% 0,100% 100%,0 90%)}
+.title-swap{position:relative}
+.title-swap h2+h2{position:absolute;left:0;top:0}
+.fm.solo{left:710px;top:310px;transform:scale(.9)}
+.active .rentbox{animation:boxIn 1.2s cubic-bezier(.5,0,.2,1) .1s both}
+.active .fm.solo{animation:soloIn 1.2s cubic-bezier(.5,0,.2,1) .1s both}
+@keyframes boxIn{from{transform:translate(-420px,-50px)}to{transform:none}}
+@keyframes soloIn{from{transform:translate(-420px,-50px) scale(.8)}to{transform:scale(.9)}}
+.pkt{opacity:0}
+.active .pkt.req{animation:req 2.8s cubic-bezier(.4,0,.6,1) var(--d) infinite}
+.active .pkt.resp{animation:resp 2.8s cubic-bezier(.4,0,.6,1) var(--d) infinite}
+@keyframes req{0%{transform:translateX(0);opacity:0}10%,75%{opacity:1}90%,100%{transform:translateX(250px);opacity:0}}
+@keyframes resp{0%{transform:translateX(0);opacity:0}10%,75%{opacity:1}90%,100%{transform:translateX(-250px);opacity:0}}
+.money{font-size:72px}
+/* frozen model, alone */
+.fm.fm-big{left:710px;top:360px;transform:scale(1.5)}
+.active .fm.fm-big{animation:fmBig .7s cubic-bezier(.3,1.5,.5,1) .15s both}
+@keyframes fmBig{from{transform:scale(0)}to{transform:scale(1.5)}}
+/* LLM temperature: same next-word odds, sharpened (temperature 0) or flattened (temperature 2); three regenerate runs show deterministic vs random picks */
+.story{position:absolute;left:110px;top:515px;width:920px;display:flex;flex-wrap:wrap;gap:8px}
+.story .chip{font-size:22px;padding:5px 11px;border-radius:7px}
+.tsent{display:flex;align-items:center;gap:22px;font-size:64px;font-weight:700;letter-spacing:-.03em;margin-top:44px}
+.tblank{position:relative;display:inline-block;min-width:240px;height:80px;border-bottom:6px solid var(--fg)}
+.tblank span{position:absolute;left:0;right:0;bottom:6px;text-align:center;color:var(--model);opacity:0;transition:opacity .4s}
+.tblank .m{opacity:1}
+.tbars{display:flex;flex-direction:column;gap:16px;width:900px;margin-top:44px}
+.tbar{display:grid;grid-template-columns:140px 1fr 90px;align-items:center;gap:22px;font-size:28px}
+.tbar .track{height:30px;background:var(--faint);border-radius:4px;overflow:hidden}
+.tbar .fill{height:100%;width:var(--m);background:var(--fg);transition:width .9s cubic-bezier(.2,.7,.2,1)}
+.tbars:not(.shown) .fill{width:0}
+.tbar.win .fill{background:var(--model)}
+.tbar .pct{color:var(--dim);text-align:right}
+.tbar .pct span{display:none} .tbar .pct .m{display:inline}
+.tslider{position:absolute;left:1090px;top:300px;width:400px}
+.tslider .lbl{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:28px;display:flex;justify-content:space-between;align-items:baseline}
+.tval{position:relative;display:inline-block;width:70px;height:34px;color:var(--model);font-weight:700}
+.tval span{position:absolute;right:0;opacity:0;transition:opacity .4s} .tval .m{opacity:1}
+.tslider .track{position:relative;height:10px;border-radius:5px;margin-top:26px;background:linear-gradient(90deg,var(--harness),var(--fg),var(--demo))}
+.tknob{position:absolute;top:50%;left:50%;width:34px;height:34px;border-radius:50%;background:var(--fg);border:5px solid #0A0A0A;box-shadow:0 0 0 3px var(--fg);transform:translate(-50%,-50%);transition:left 1s cubic-bezier(.2,.7,.2,1)}
+.tslider .ends{display:flex;justify-content:space-between;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:20px;color:var(--dim);margin-top:18px}
+.truns{position:absolute;left:1090px;top:470px;width:400px;display:flex;flex-direction:column;gap:14px}
+.trun{display:flex;align-items:center;gap:16px;font-size:30px;font-weight:700}
+.trun .ico{font-size:28px}
+.trun .w{position:relative;flex:1;height:52px;border:2px solid #333;border-radius:10px}
+.trun .w span{position:absolute;inset:0;display:flex;align-items:center;padding-left:20px;opacity:0;transition:opacity .4s}
+.temp:has(.t-low.shown:not(.gone)) .tknob{left:0%}
+.temp:has(.t-high.shown) .tknob{left:100%}
+.temp:has(.t-low.shown:not(.gone)) .tval .m,.temp:has(.t-high.shown) .tval .m{opacity:0}
+.temp:has(.t-low.shown:not(.gone)) .tval .l,.temp:has(.t-high.shown) .tval .h{opacity:1}
+.temp:has(.t-low.shown:not(.gone)) .trun .l,.temp:has(.t-high.shown) .trun .h{opacity:1}
+.temp:has(.t-low.shown:not(.gone)) .fill{width:var(--lo)}
+.temp:has(.t-high.shown) .fill{width:var(--hi)}
+.temp:has(.t-low.shown:not(.gone)) .tblank .m,.temp:has(.t-high.shown) .tblank .m{opacity:0}
+.temp:has(.t-low.shown:not(.gone)) .tblank .l,.temp:has(.t-high.shown) .tblank .h{opacity:1}
+.temp:has(.t-low.shown:not(.gone)) .pct .m,.temp:has(.t-high.shown) .pct .m{display:none}
+.temp:has(.t-low.shown:not(.gone)) .pct .l,.temp:has(.t-high.shown) .pct .h{display:inline}
+/* recap: five cards, each a condensed visual from its section */
+.rcards{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:70px}
+.rcard{position:relative;height:400px;background:#141414;border:3px solid #2A2A28;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:44px 16px 26px}
+.rnum{position:absolute;left:-14px;top:-14px;width:44px;height:44px;border-radius:50%;background:var(--model);color:#0A0A0A;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.rvis{flex:1;width:100%;display:flex;align-items:center;justify-content:center;gap:10px}
+.rcard h3{margin:0;font-size:26px;text-align:center;line-height:1.15}
+.mdot{width:64px;height:64px;border-radius:50%;background:var(--model);display:inline-flex;align-items:center;justify-content:center;font-size:38px;line-height:1}
+.mcage{position:relative;flex:none;width:100px;height:100px;border:3px solid var(--fg);border-radius:5px;display:flex;align-items:center;justify-content:center;background:#141414}
+.mcage.jailed::after{content:"";position:absolute;inset:-3px;border-radius:5px;background:repeating-linear-gradient(90deg,transparent 0 11px,#F5F5F0 11px 14px);border-top:6px solid var(--fg);border-bottom:6px solid var(--fg)}
+.mcage.mopen{border-bottom:none;border-radius:5px 5px 0 0;background:rgba(255,210,63,.16)}
+.mcage .mdot{flex:none;width:52px;height:52px;font-size:30px}
+.rbars{width:100%;display:flex;flex-direction:column;gap:10px}
+.rbar{display:grid;grid-template-columns:52px 1fr;gap:8px;align-items:center;font-size:16px;color:var(--dim)}
+.rbar i{display:block;height:16px;border-radius:3px;background:var(--fg)}
+.rbar.win{color:var(--model)} .rbar.win i{background:var(--model)}
+.mcoin{display:inline-block;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFF6C2 0 12%,#FFD23F 38%,#E0A800 72%,#9C7400 100%);border:2px solid #7A5A00}
+.mctx{width:190px;height:150px;border:4px solid var(--demo);border-radius:10px;box-shadow:0 0 0 5px rgba(255,90,61,.18),0 0 30px rgba(255,90,61,.3);padding:10px;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}
+/* sort game: each name appears centre stage, then moves to its side on the next click ([data-move]) */
+.pick{position:absolute;left:800px;top:350px;font-size:26px;font-weight:700;padding:10px 24px;border:2px solid var(--fg);border-radius:999px;white-space:nowrap;z-index:4;
+  transition:opacity .5s ease,transform .8s cubic-bezier(.5,0,.2,1),left .8s cubic-bezier(.5,0,.2,1),top .8s cubic-bezier(.5,0,.2,1),background .5s,color .5s,border-color .5s}
+.pick[data-step]{transform:translate(-50%,-30%) scale(1.3)}
+.pick[data-step].shown{transform:translate(-50%,-50%) scale(1.6)}
+.pick[data-step].shown.moved{left:var(--x);top:var(--y);transform:translate(-50%,-50%) scale(1)}
+.pick.closed.moved{background:#2A2A28;border-color:#8C8C86}
+.pick.open.moved{border-color:var(--model);color:var(--model)}
+/* token chips */
+.chips{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.chip{font-size:40px;font-weight:600;padding:12px 20px;border:2px solid var(--fg);border-radius:10px;letter-spacing:-.01em}
+.chip.gen{background:var(--model);color:#0A0A0A;border-color:var(--model)}
+.tokwords{display:flex;gap:4px;font-size:92px;font-weight:800;letter-spacing:-.03em}
+.tokwords span{padding:4px 12px;border-radius:12px}
+.tk1{background:rgba(46,229,157,.22);color:var(--model)} .tk2{background:rgba(77,159,255,.22);color:var(--harness)} .tk3{background:rgba(255,210,63,.22);color:var(--dyk)} .tk4{background:rgba(255,122,217,.22);color:var(--ask)}
+/* context desk */
+/* context window: a glowing box that fills with 🪙 token coins, one batch per click */
+.ctxbox{position:absolute;left:240px;top:280px;width:880px;height:440px;border:5px solid var(--fg);border-radius:14px;padding:18px;display:flex;flex-wrap:wrap;align-content:flex-start;transition:box-shadow .6s,border-color .6s}
+.slide:has(.ctx-hl.shown) .ctxbox{border-color:var(--demo);box-shadow:0 0 0 8px rgba(255,90,61,.18),0 0 60px rgba(255,90,61,.35)}
+.tok{width:28px;height:28px;border-radius:50%;margin:3px 9px 9px 3px;background:radial-gradient(circle at 35% 30%,#FFF6C2 0 12%,#FFD23F 38%,#E0A800 72%,#9C7400 100%);border:2px solid #7A5A00;box-shadow:0 0 0 3px var(--ring)}
+.tok.sys{--ring:#8C8C86} .tok.you{--ring:#F5F5F0} .tok.ai{--ring:#2EE59D} .tok.doc{--ring:#3a3a37;outline:2px dashed #888;outline-offset:3px}
+.active .tok{animation:coinIn .45s cubic-bezier(.3,1.6,.5,1) var(--d) both}
+@keyframes coinIn{from{transform:scale(0)}to{transform:scale(1)}}
+/* context window sizes: slide-20 window shrinks right, a big window grows from 200K to 1M */
+.ctxbox.ctxmini{border-color:var(--demo);box-shadow:0 0 0 8px rgba(255,90,61,.18),0 0 60px rgba(255,90,61,.35);transform-origin:0 0;transform:translate(1030px,140px) scale(.25)}
+.ctxmini .tok{animation:none!important}
+.active .ctxmini{animation:ctxShrink 1.2s cubic-bezier(.5,0,.2,1) .2s both}
+@keyframes ctxShrink{from{transform:none}to{transform:translate(1030px,140px) scale(.25)}}
+.bigwin{position:absolute;left:110px;top:330px;width:480px;height:260px;border:5px solid var(--demo);border-radius:16px;box-shadow:0 0 0 8px rgba(255,90,61,.15),0 0 60px rgba(255,90,61,.3);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transition:opacity .5s ease,transform .6s ease,left 1.1s cubic-bezier(.5,0,.2,1),top 1.1s cubic-bezier(.5,0,.2,1),width 1.1s cubic-bezier(.5,0,.2,1),height 1.1s cubic-bezier(.5,0,.2,1)}
+.slide:has(.bw-1m.shown) .bigwin{top:210px;width:1070px;height:580px}
+.bwlbl{position:relative;height:96px;width:100%}
+.bwlbl div{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s}
+.bwlbl b{font-size:64px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.bwlbl span{font-size:28px;color:var(--dim);margin-top:8px}
+.bwlbl .b1m{opacity:0}
+.slide:has(.bw-1m.shown) .bwlbl .b200{opacity:0}
+.slide:has(.bw-1m.shown) .bwlbl .b1m{opacity:1}
+.slide:has(.bw-1m.shown) .bwlbl b{font-size:96px}
+.tsrc{position:absolute;left:110px;width:110px;display:flex;align-items:center;gap:12px;font-size:44px}
+.tsrc i{display:inline-block;width:26px;height:20px;border-radius:5px}
+.gauge{position:absolute;left:1150px;top:280px;width:44px;height:440px;border:4px solid var(--fg);border-radius:10px;overflow:hidden;display:flex;flex-direction:column-reverse}
+.gseg{width:100%;transition:opacity .5s,transform .6s}
+.gpct{position:absolute;left:1132px;top:232px;width:80px;height:40px;text-align:center;font-size:30px;font-weight:800;color:#FFD23F}
+.gpct span{position:absolute;left:0;right:0;transition:opacity .4s}
+.ctx{position:relative;width:640px;height:560px;border:3px solid var(--fg);border-radius:8px;display:flex;flex-direction:column-reverse;padding:14px;gap:10px}
+.ctx .blk{border-radius:5px;padding:10px 16px;font-size:20px;font-weight:600;color:#0A0A0A}
+.ctx .sys{background:#8C8C86}
+.ctx .you{background:var(--fg)}
+.ctx .ai{background:var(--model)}
+.ctx .doc{background:#3a3a37;color:var(--fg);border:2px dashed #777}
+.ctx .cap{position:absolute;top:-40px;left:0;font-size:18px;color:var(--dim);letter-spacing:.15em;text-transform:uppercase}
+/* stateless rows */
+.turns{display:flex;flex-direction:column;gap:26px;margin-top:50px}
+.turn{display:flex;align-items:center;gap:14px}
+.turn .lbl{width:170px;font-size:22px;color:var(--dim);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.turn .b{height:54px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#0A0A0A;padding:0 18px}
+.turn .q{background:var(--fg)} .turn .a{background:var(--model)} .turn .empty{border:2px dashed #555;color:#777;background:transparent}
+.turn .arrow{font-size:30px;color:var(--dim);margin:0 10px}
+.turns.compact .turn{gap:10px}
+.cwin{position:relative;display:inline-flex;gap:8px;padding:7px;border:3px solid var(--demo);border-radius:10px;box-shadow:0 0 18px rgba(255,90,61,.3)}
+.cwin.first::before{content:"context window";position:absolute;left:0;top:-30px;font-size:17px;font-weight:800;color:var(--demo);letter-spacing:.04em;white-space:nowrap}
+.turns.compact .lbl{width:130px}
+.turns.compact .arrow{margin:0 4px}
+.mdl.eqsign{width:130px;height:130px;border-radius:50%;background:var(--model);display:inline-flex;align-items:center;justify-content:center;font-size:80px}
+.turn .mdl{width:54px;height:54px;border-radius:50%;background:var(--model);display:inline-flex;align-items:center;justify-content:center;font-size:32px;line-height:1}
+/* tiers */
+.tiers{display:flex;align-items:flex-end;gap:70px;margin-top:40px}
+.tier{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.tier .sq{border:3px solid var(--fg)}
+.tier .sq.big{background:repeating-linear-gradient(45deg,transparent 0 10px,rgba(245,245,240,.08) 10px 12px)}
+.tier b{font-size:30px}
+.tier span{font-size:21px;color:var(--dim);line-height:1.35}
+/* demo slides */
+.demo-steps{counter-reset:s;list-style:none;margin-top:44px;display:flex;flex-direction:column;gap:26px}
+.demo-steps li{counter-increment:s;display:flex;gap:26px;align-items:baseline;font-size:32px}
+.demo-steps li::before{content:counter(s);font-size:20px;font-weight:800;color:#0A0A0A;background:var(--demo);width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:none;transform:translateY(-4px)}
+.prompt{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:26px;background:#161616;border:1px solid #333;border-radius:8px;padding:6px 14px;color:var(--fg)}
+/* comparison */
+.cmp{width:100%;border-collapse:collapse;margin-top:40px}
+.cmp th{font-size:20px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);text-align:left;padding:0 0 18px;font-weight:700}
+.cmp td{font-size:26px;padding:17px 0;border-top:1px solid var(--faint);vertical-align:top}
+.cmp td:first-child{color:var(--dim);width:26%}
+.cmp td:nth-child(2){width:37%}
+.consq{display:flex;flex-direction:column;gap:26px}
+/* agenda map: pins drop onto a winding road, one per click */
+.mp-stop{position:absolute;width:260px;text-align:center}
+.mp-pin{width:56px;height:56px;margin:0 auto;animation:mpDrop .6s cubic-bezier(.3,1.5,.5,1) .45s both}
+@keyframes mpDrop{from{transform:translateY(-70px);opacity:0}to{transform:none;opacity:1}}
+.mp-drop{width:56px;height:56px;background:var(--yellow,#FFD23F);border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(255,210,63,.25)}
+.mp-drop span{transform:rotate(45deg);color:#0A0A0A;font-weight:800;font-size:20px}
+.mp-lbl{margin-top:22px;display:inline-block;background:#151513;border:2px solid #2A2A28;border-radius:14px;padding:10px 16px;font-size:22px;font-weight:600;line-height:1.2;color:#F5F5F0}
+.mp-up .mp-lbl{position:absolute;left:0;right:0;bottom:calc(100% + 14px);margin:0 auto;width:fit-content}
+/* flip cards: [data-step] shows the GIF face, [data-move] flips to the visual */
+.flip{perspective:1400px;height:390px}
+.flip-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.2,.2,1)}
+.flip.moved .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;overflow:hidden;border:3px solid #2A2A28}
+.face img{width:100%;height:100%;object-fit:cover;display:block}
+.face.back-face{transform:rotateY(180deg);background:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:30px;text-align:center}
+.back-face svg{height:150px;width:240px}
+.consq svg{height:150px}
+.big-q{font-size:92px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.take{display:flex;gap:30px;align-items:flex-start;padding:30px 0;border-bottom:1px solid var(--faint)}
+.take .n{font-size:64px;font-weight:800;color:var(--model);line-height:1;width:70px}
+.take p{font-size:34px}
+/* journey: four stacked building blocks */
+.blocks{flex:1;display:flex;align-items:flex-end;justify-content:center;gap:30px;padding-bottom:20px}
+.brick{position:relative;width:300px;border-radius:12px;padding:26px 28px;display:flex;flex-direction:column;justify-content:space-between;background:var(--c);color:#0A0A0A}
+.brick::before,.brick::after{content:"";position:absolute;top:-20px;width:64px;height:22px;border-radius:8px 8px 0 0;background:var(--c)}
+.brick::before{left:48px} .brick::after{right:48px}
+.brick svg{width:56px;height:56px;fill:none;stroke:#0A0A0A;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.brick h3{font-size:32px;line-height:1.1;font-weight:800;margin:0}
+.swap{position:relative;height:28px;font-size:20px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.swap span{position:absolute;left:0;top:0;white-space:nowrap}
+.swap .w{transition:opacity .4s ease,transform .5s cubic-bezier(.2,.7,.2,1)}
+.swap .m.shown ~ .w{opacity:0;transform:translateY(-20px)}
+
+/* ===================== week 2 additions (w2-) ===================== */
+.w2-box{position:absolute;top:250px;width:560px;height:500px;border:4px solid var(--c);border-radius:28px;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
+  transition:opacity .6s ease,transform .9s cubic-bezier(.5,0,.2,1)}
+.w2-box .e{font-size:130px;line-height:1}
+.w2-box b{font-size:46px;font-weight:800;letter-spacing:-.02em;color:var(--c)}
+.w2-box .row{display:flex;gap:18px}
+.w2-box .row img{width:90px;height:90px;border-radius:22px;background:var(--fg);padding:12px}
+.w2-box .row span{width:90px;height:90px;border-radius:22px;border:3px solid var(--c);display:flex;align-items:center;justify-content:center;font-size:48px;line-height:1}
+.w2-box.gp{left:190px;--c:var(--model);box-shadow:0 0 50px rgba(46,229,157,.18)}
+.w2-box.pb{left:850px;--c:var(--dyk);box-shadow:0 0 50px rgba(255,210,63,.16)}
+.w2-box.gp.moved,.w2-box.gp.big{transform:translate(330px,0) scale(1.2)}
+.w2-box.pb.moved,.w2-box.pb.small{transform:translate(340px,120px) scale(.32);opacity:.35}
+.w2-box.gp.big.moved{transform:translate(-340px,120px) scale(.32);opacity:.35}
+.w2-box.pb.small.moved{transform:translate(-330px,0) scale(1.2);opacity:1}
+
+.w2-gpframe{position:absolute;left:110px;top:190px;width:1380px;height:660px;border:4px solid var(--model);border-radius:28px;background:#0F0F0F;box-shadow:0 0 50px rgba(46,229,157,.15)}
+.active .w2-gpframe{animation:w2grow 1.1s cubic-bezier(.5,0,.2,1) .1s both}
+@keyframes w2grow{from{left:464px;top:200px;width:672px;height:600px}to{left:110px;top:190px;width:1380px;height:660px}}
+.w2-gplbl{position:absolute;left:150px;top:170px;padding:4px 18px;background:var(--bg);font-size:28px;font-weight:800;color:var(--model)}
+
+.w2-lvl{position:absolute;top:240px;width:300px;height:570px;border:3px solid #2A2A28;border-top:8px solid var(--c);border-radius:24px;background:#151515;display:flex;flex-direction:column;align-items:center;padding:40px 20px 28px;gap:22px}
+.w2-lvl .n{position:absolute;left:20px;top:14px;font-size:26px;font-weight:800;color:var(--c)}
+.w2-lvl .agcirc{position:relative;width:120px;height:120px;flex:none}
+.w2-lvl .hero{height:150px;display:flex;align-items:center;justify-content:center;gap:4px;font-size:100px;line-height:1}
+.w2-lvl b{font-size:32px;font-weight:800;text-align:center;line-height:1.1;letter-spacing:-.02em;color:var(--c);min-height:72px;display:flex;align-items:center}
+.w2-lvl .acc{display:flex;gap:10px;margin-top:auto}
+.w2-lvl .acc span{width:54px;height:54px;border-radius:14px;border:3px solid #444;display:flex;align-items:center;justify-content:center;font-size:28px;line-height:1}
+
+.w2-app{position:absolute;width:110px;height:110px;border-radius:24px;border:4px solid #555;background:#151515;display:flex;align-items:center;justify-content:center;font-size:56px;line-height:1;z-index:2}
+.w2-app b{position:absolute;top:120px;left:-30px;width:170px;text-align:center;font-size:22px;font-weight:700;color:var(--dim)}
+.w2-hub{position:absolute;border:5px solid var(--harness);border-radius:22px;background:#0F1A2A;box-shadow:0 0 40px rgba(77,159,255,.35);display:flex;align-items:center;justify-content:center;gap:12px;font-size:42px;font-weight:800;color:var(--harness);z-index:2}
+.w2-hub .e{font-size:54px;line-height:1}
+.w2-url{position:absolute;left:110px;right:20px;top:9px;height:34px;border-radius:999px;background:#1E1E1E;color:var(--dim);font-size:19px;font-weight:600;display:flex;align-items:center;padding:0 16px}
+.w2-ln{position:absolute;height:16px;border-radius:6px;background:#2F2F2D}
+.w2-btn{position:absolute;padding:12px 30px;border-radius:12px;background:var(--model);color:#0A0A0A;font-size:24px;font-weight:800}
+.w2-cursor{position:absolute;left:0;top:0;width:40px;height:52px;z-index:4;animation:w2cur 4.5s ease-in-out infinite}
+@keyframes w2cur{0%{transform:translate(60px,90px)}30%{transform:translate(220px,120px)}55%{transform:translate(415px,212px)}60%{transform:translate(415px,212px) scale(.8)}65%,90%{transform:translate(415px,212px)}100%{transform:translate(60px,90px)}}
+.w2-say{position:absolute;font-size:28px;font-weight:800;text-align:center;white-space:nowrap}
+
+.w2-way{position:absolute;top:220px;width:340px;height:240px;border:4px solid var(--c);border-radius:24px;background:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.w2-way .e{font-size:84px;line-height:1}
+.w2-way b{font-size:36px;font-weight:800;color:var(--c)}
+.w2-way i{font-style:normal;font-size:30px;letter-spacing:6px}
+
+/* example slides: you ask → agent → result */
+.w2-ask{position:absolute;left:110px;top:196px;right:110px;display:flex;align-items:center;gap:20px}
+.w2-ask .u{font-size:64px;line-height:1}
+.w2-ask .p{background:var(--fg);color:#0A0A0A;border-radius:22px;padding:14px 26px;font-size:27px;font-weight:700;line-height:1.3}
+.w2-ring{position:absolute;left:675px;top:455px;width:250px;height:250px;border-radius:50%;border:6px dashed var(--dyk);animation:agSpin 8s linear infinite}
+.w2-tags{position:absolute;left:540px;top:728px;width:520px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.w2-tag{padding:7px 16px;border-radius:999px;border:3px solid var(--c,#F5F5F0);color:var(--c,#F5F5F0);font-size:21px;font-weight:800;white-space:nowrap;background:#0A0A0A}
+.w2-card{position:absolute;border:3px solid #2A2A28;border-radius:20px;background:#141414}
+.w2-lbl{position:absolute;font-size:24px;font-weight:700;color:var(--dim);text-align:center;white-space:nowrap}
+.w2-emo{position:absolute;line-height:1;text-align:center}
+.w2-tbl{border-collapse:collapse;font-size:21px;font-weight:600;width:100%}
+.w2-tbl td,.w2-tbl th{border:2px solid #333;padding:8px 10px;text-align:left;white-space:nowrap}
+.w2-tbl th{color:var(--dim);font-size:17px;letter-spacing:.08em;text-transform:uppercase}
+.w2-tbl .bad{color:var(--demo);background:rgba(255,90,61,.14)}
+.w2-tbl .tot td{color:var(--model);font-weight:800}
+.w2-chart .w2-bar{position:absolute;bottom:80px;width:80px;border-radius:10px 10px 0 0;background:var(--c);transform-origin:bottom;animation:w2bar 1s cubic-bezier(.2,.7,.2,1) .3s both}
+.w2-bar b{position:absolute;top:-34px;left:-20px;width:120px;text-align:center;font-size:22px;font-weight:800;color:var(--fg)}
+.w2-bar span{position:absolute;bottom:-60px;left:0;width:80px;text-align:center;font-size:40px;line-height:1}
+@keyframes w2bar{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.w2-badge{position:absolute;padding:6px 16px;border-radius:999px;background:var(--demo);color:#fff;font-size:28px;font-weight:800}
+.w2-tray{position:absolute;white-space:nowrap;left:1020px;width:470px;height:86px;border:3px solid var(--c,#555);border-radius:18px;background:#141414;display:flex;align-items:center;gap:16px;padding:0 24px;font-size:30px;font-weight:800}
+.w2-tray .e{font-size:44px;line-height:1}
+.w2-tray b{margin-left:auto;color:var(--c,var(--dim))}
+.w2-file{position:absolute;left:var(--fx);top:var(--fy);width:130px;display:flex;flex-direction:column;align-items:center;font-size:54px;line-height:1;z-index:3;
+  transition:opacity .5s ease,left 1s cubic-bezier(.5,0,.2,1),top 1s cubic-bezier(.5,0,.2,1),transform 1s cubic-bezier(.5,0,.2,1)}
+.w2-file b{font-size:15px;font-weight:600;color:var(--dim);margin-top:6px;white-space:nowrap}
+.w2-file.moved{left:var(--tx);top:var(--ty);transform:scale(.4);opacity:0;transition:opacity .3s ease .85s,left 1s cubic-bezier(.5,0,.2,1),top 1s cubic-bezier(.5,0,.2,1),transform 1s cubic-bezier(.5,0,.2,1)}
+.w2-fold{position:absolute;width:170px;text-align:center;font-size:90px;line-height:1}
+.w2-fold b{display:block;font-size:24px;font-weight:800;margin-top:8px}
+.w2-stair{position:absolute;width:150px;border:3px solid var(--c);border-bottom:none;border-radius:16px 16px 0 0;background:#141414;display:flex;flex-direction:column;align-items:center;padding-top:14px;gap:6px;font-size:22px;font-weight:800;color:var(--c)}
+.w2-stair .e{font-size:56px;line-height:1}
+.w2-skill{position:absolute;width:420px;height:76px;border:4px solid var(--dyk);border-radius:16px;background:#1A1608;display:flex;align-items:center;gap:14px;padding:0 20px;font-size:27px;font-weight:800;color:var(--dyk);z-index:3;
+  transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1),left 1s cubic-bezier(.5,0,.2,1),top 1s cubic-bezier(.5,0,.2,1)}
+.w2-skill .e{font-size:36px;line-height:1}
+.w2-skill.moved{left:var(--tx)!important;top:var(--ty)!important;box-shadow:0 0 40px rgba(255,210,63,.45)}
+.slide:has(.w2-skill.moved) .w2-skill:not(.moved){opacity:.3}
+.w2-shelf{position:absolute;border:3px solid #333;border-radius:24px;background:#111}
+.w2-shelf b{position:absolute;left:30px;top:18px;font-size:28px;font-weight:800;color:var(--dyk)}
+.w2-blk{height:56px;border-radius:10px;display:flex;align-items:center;padding:0 18px;font-size:24px;font-weight:800;color:#0A0A0A;flex:none}
+.w2-qb{position:absolute;left:1020px;width:470px;padding:16px 24px;border-radius:20px;background:var(--ask);color:#0A0A0A;font-size:27px;font-weight:800}
+.w2-meter{display:flex;gap:10px}
+.w2-seg{width:80px;height:30px;border-radius:8px;background:#2A2A28;transition:background .6s ease,box-shadow .6s ease}
+.w2-seg.moved{background:var(--model);box-shadow:0 0 18px rgba(46,229,157,.5)}
+.w2-ticket{position:absolute;border:3px solid #2A2A28;border-radius:20px;background:#141414;padding:18px 26px;display:flex;flex-direction:column;gap:10px}
+.w2-ticket .h{font-size:20px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);font-weight:800}
+.w2-ticket .r{display:flex;justify-content:space-between;font-size:27px;font-weight:600;color:var(--dim)}
+.w2-ticket .r b{color:var(--fg);font-weight:800}
+.w2-scan{display:grid;grid-template-columns:repeat(3,140px);gap:12px}
+.w2-scan i{width:140px;height:140px;border-radius:12px;background:radial-gradient(ellipse var(--w,42%) var(--h,36%) at var(--x,50%) 52%,#dcdcdc 0 28%,#8a8a8a 52%,#2a2a2a 78%,#000 100%)}
+.w2-hiring{position:absolute;border:5px solid var(--dyk);border-radius:16px;box-shadow:0 0 30px rgba(255,210,63,.5)}
+.w2-page{position:absolute;background:#FAFAF5;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.5);z-index:1;display:flex;align-items:center;justify-content:center;animation:w2print 1.4s cubic-bezier(.3,.7,.3,1) .1s both}
+@keyframes w2print{from{transform:translateY(-150px);opacity:0}30%{opacity:1}to{transform:none;opacity:1}}
+.w2-uncol{filter:grayscale(1) contrast(1.4) brightness(1.15);transition:filter 1.4s ease}
+.w2-page.moved .w2-uncol{filter:none}
+.w2-vid{position:absolute;width:300px;height:170px;border-radius:16px;border:3px solid #333;background:linear-gradient(135deg,#2c2c2c,#141414);display:flex;align-items:center;justify-content:center}
+.w2-vid b{position:absolute;left:14px;bottom:10px;font-size:20px;font-weight:800;color:var(--dim)}
+.w2-yt{font-style:normal;width:76px;height:54px;border-radius:14px;background:#FF0033;color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px}
+.w2-book{position:absolute;background:#F3EAD7;color:#1A1A1A;border-radius:6px 18px 18px 6px;border-left:22px solid var(--harness);padding:26px 30px;display:flex;flex-direction:column;gap:12px;box-shadow:0 14px 40px rgba(0,0,0,.5)}
+.w2-book h4{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+.w2-book div{display:flex;font-size:22px;font-weight:600}
+.w2-book div span:nth-child(2){flex:1;border-bottom:2px dotted #999;margin:0 8px 6px}
+.w2-wave{display:flex;align-items:center;gap:5px;height:90px}
+.w2-wave i{width:6px;height:var(--h);border-radius:3px;background:var(--c,var(--ask));animation:w2wave 1.1s ease-in-out var(--d) infinite alternate}
+@keyframes w2wave{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+.w2-note{position:absolute;left:1020px;width:470px;border:3px solid #2A2A28;border-left:8px solid var(--c);border-radius:16px;background:#141414;padding:14px 22px;display:flex;flex-direction:column;gap:6px}
+.w2-note h5{font-size:24px;font-weight:800;color:var(--c)}
+.w2-note span{font-size:22px;font-weight:600}
+.w2-pdf{position:absolute;width:170px;height:220px;border-radius:12px;background:#EDEDE8;box-shadow:0 8px 20px rgba(0,0,0,.5);padding:18px 16px;display:flex;flex-direction:column;gap:12px}
+.w2-pdf b{align-self:flex-start;background:#E5322D;color:#fff;font-size:18px;font-weight:800;padding:3px 10px;border-radius:6px}
+.w2-pdf i{display:block;height:10px;border-radius:4px;background:#BDBDB6}
+.w2-mark{position:absolute;left:1020px;width:470px;height:86px;border-left:8px solid var(--c);background:#141414;border-radius:12px;display:flex;align-items:center;gap:16px;padding:0 20px;font-size:26px;font-weight:700}
+.w2-mark .t{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:var(--c);font-size:24px}
+.w2-dot{position:absolute;width:18px;height:18px;border-radius:50%;background:var(--c);box-shadow:0 0 14px var(--c)}
+.w2-web{position:absolute;display:grid;grid-template-columns:repeat(4,92px);gap:14px}
+.w2-web span{height:72px;border-radius:10px;border:2px solid #333;background:#181818;display:flex;align-items:center;justify-content:center;font-size:32px;animation:w2read 2.6s ease-in-out var(--d) infinite}
+@keyframes w2read{0%,70%,100%{border-color:#333;box-shadow:none}80%{border-color:var(--dyk);box-shadow:0 0 18px rgba(255,210,63,.5)}}
+.w2-report{position:absolute;border:3px solid #2A2A28;border-radius:20px;background:#141414;padding:22px 26px;display:flex;flex-direction:column;gap:14px}
+.w2-report h4{font-size:27px;font-weight:800}
+.w2-report i{display:block;height:12px;border-radius:5px;background:#3A3A38}
+.w2-report .cites{display:flex;gap:10px;margin-top:4px}
+.w2-report .cites span{font-size:20px;font-weight:800;color:var(--harness);border:2px solid var(--harness);border-radius:8px;padding:2px 10px}
+.w2-cloud{border:4px dashed #8C8C86;border-radius:120px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:70px;line-height:1}
+
+/* purpose-built */
+.w2-tool{position:absolute;top:250px;width:300px;height:520px;border:3px solid #2A2A28;border-top:8px solid var(--dyk);border-radius:24px;background:#151515;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:20px;text-align:center}
+.w2-tool .e{font-size:120px;line-height:1}
+.w2-tool b{font-size:36px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.w2-tool i{font-style:normal;font-size:24px;color:var(--dim);font-weight:600;line-height:1.3}
+.w2-tool.tbd{border:4px dashed #555;background:transparent}
+.w2-out{position:absolute;width:210px;height:200px;border:3px solid var(--c);border-radius:22px;background:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;font-size:26px;font-weight:800;color:var(--c)}
+.w2-out .e{font-size:76px;line-height:1}
+.w2-tbk{position:absolute;border:3px solid #2A2A28;border-radius:16px;background:#F3EAD7;color:#1A1A1A;padding:26px 28px;display:flex;flex-direction:column;gap:14px}
+.w2-tbk h4{font-size:26px;font-weight:800}
+.w2-tbk i{display:block;height:11px;border-radius:4px;background:#C9BFA9}
+.w2-chip{position:absolute;padding:12px 24px;border-radius:999px;border:3px solid var(--c);color:var(--c);font-size:26px;font-weight:800;white-space:nowrap;background:#0A0A0A}
+.w2-hubc{position:absolute;border-radius:50%;background:var(--dyk);display:flex;align-items:center;justify-content:center;line-height:1;box-shadow:0 0 50px rgba(255,210,63,.35)}
+.w2-flash{position:absolute;perspective:1200px}
+.w2-flash .fi2{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.2,.2,1)}
+.w2-flash.moved .fi2{transform:rotateY(180deg)}
+.w2-flash .fc{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:800;background:var(--fg);color:#0A0A0A}
+.w2-flash .fc.bk{transform:rotateY(180deg);background:var(--model)}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- ============================ 1. TITLE ============================ -->
+<section class="slide">
+  <div style="margin-top:auto;margin-bottom:auto">
+    <h1 class="fu" style="--d:.15s">Use AI,<br>better.</h1>
+    <div class="rule fu" style="--d:.3s"></div>
+    <p class="dim fu" style="--d:.4s">Week 2 · From chatting to getting things done.</p>
+  </div>
+  <svg class="title-mark" width="520" height="520" viewBox="0 0 520 520">
+    <circle class="draw" pathLength="1" cx="260" cy="260" r="220" fill="none" stroke="#F5F5F0" stroke-width="3" style="--t:1.6s"/>
+    <line class="draw" pathLength="1" x1="40" y1="260" x2="480" y2="260" stroke="#F5F5F0" stroke-width="3" style="--d:.9s;--t:.8s"/>
+    <g class="pop" style="--d:1.5s"><circle cx="260" cy="260" r="46" fill="#2EE59D"/><text x="260" y="262" text-anchor="middle" dominant-baseline="central" font-size="53">💃</text></g>
+  </svg>
+  <aside class="onscreen">
+    Use AI,
+    better.
+    Week 2 · From chatting to getting things done.
+  </aside>
+  <aside class="notes">Welcome back. Last week was how AI works: the frozen model, tokens, the desk, and the spy agent at the end. This week is about using it. Not just asking a chatbot questions, but getting real work done: your spreadsheets, your inbox, your desktop, even placing a trade. By the end of today you'll know which kind of tool to reach for, and you'll have seen a dozen things you can try tonight.</aside>
+</section>
+
+
+<!-- ============================ 2. TWO KINDS OF TOOLS ============================ -->
+<section class="slide">
+  <div class="title-swap">
+    <h2 class="fu title-c" style="--d:.1s" data-hide="3">Two kinds of AI tools.</h2>
+    <h2 class="title-c" data-step="3">Let's start here.</h2>
+  </div>
+  <div class="w2-box gp" data-step="1" data-move="3"><div class="e">🧰</div><b>General purpose</b><div class="row"><img src="gifs/logos/openai.png" alt=""><img src="gifs/logos/claude.png" alt=""><img src="gifs/logos/gemini.png" alt=""></div></div>
+  <div class="w2-box pb" data-step="2" data-move="3"><div class="e">🎯</div><b>Purpose built</b><div class="row"><span>🎓</span><span>🧪</span><span>🎙️</span></div></div>
+  <aside class="onscreen">
+    Two kinds of AI tools.
+    Left box (green): 🧰 General purpose, with ChatGPT · Claude · Gemini logos
+    Right box (yellow): 🎯 Purpose built, with 🎓 🧪 🎙️
+    Then: right box shrinks off to the side, General purpose zooms to the centre
+    Title changes to: Let's start here.
+  </aside>
+  <aside class="notes">There are really two kinds of AI tools out there. [Click] General-purpose tools: ChatGPT, Claude, Gemini. Think of them as a Swiss army knife. You can throw almost anything at them: write, analyse, plan, research. [Click] And purpose-built tools. They do one job, and they do it brilliantly: turning a textbook into lessons, building an app, making a voice. Like a specialist doctor versus your family doctor. [Click] We'll come back to the specialists at the end. Let's start with the general-purpose ones, because that's where most of your day will be.</aside>
+</section>
+
+
+<!-- ============================ 3. FOUR KINDS OF AGENTS ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Four kinds of agents.</h2>
+  <div class="w2-gpframe"></div>
+  <div class="w2-gplbl fu" style="--d:1.1s">🧰 General purpose</div>
+  <div class="w2-lvl" data-step="1" style="left:155px;--c:#F5F5F0"><span class="n">1</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero">💬</div><b>Chatbot</b><div class="acc"><span>💬</span></div></div>
+  <div class="w2-lvl" data-step="2" style="left:485px;--c:#4D9FFF"><span class="n">2</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero">🔌</div><b>+ Tools</b><div class="acc"><span>💬</span><span>🔌</span></div></div>
+  <div class="w2-lvl" data-step="3" style="left:815px;--c:#B69CFF"><span class="n">3</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero"><span>☁️</span><span style="font-size:70px">🖥️</span></div><b>+ Its own computer</b><div class="acc"><span>💬</span><span>🔌</span><span>☁️</span></div></div>
+  <div class="w2-lvl" data-step="4" style="left:1145px;--c:#FF7AD9"><span class="n">4</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero"><span>💻</span><span style="font-size:60px">📂</span></div><b>+ Your computer</b><div class="acc"><span>💬</span><span>🔌</span><span>💻</span></div></div>
+  <aside class="onscreen">
+    Four kinds of agents.
+    The General purpose box from the last slide grows into a big green frame: 🧰 General purpose
+    Four cards, each with the spy agent on top:
+    1 · 💬 Chatbot
+    2 · 🔌 + Tools
+    3 · ☁️🖥️ + Its own computer
+    4 · 💻📂 + Your computer
+    Small icons at the bottom of each card stack up: 💬 → 💬🔌 → 💬🔌☁️ → 💬🔌💻
+  </aside>
+  <aside class="notes">Inside general purpose, there are really four kinds of agent. Same spy every time; what changes is what it can reach. [Click] One: the chatbot. ChatGPT, Claude, Gemini in a chat window. You ask, it answers. It can only talk. [Click] Two: the same agent, plus tools. Now it can connect to things outside: your Gmail, your calendar, your Google Drive, a stock-trading account. It's not just talking any more; it can look things up and do things. [Click] Three: tools, plus its own computer. The company gives the agent a computer of its own, in the cloud. It can write a little program and run it, open files, crunch a spreadsheet, browse websites, all on that computer, not yours. ChatGPT's agent mode and Manus work like this. [Click] Four: tools, plus YOUR computer. Now the agent works right on your laptop: your files, your folders, your desktop, even your printer. Claude Cowork and ChatGPT Work are examples. Notice the pattern: each step, it can reach more. More useful, and you need to trust it more. Keep these four in mind; every example today is one of them.</aside>
+</section>
+
+
+<!-- ============================ 4. HOW DOES IT CONNECT ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">How does it connect?</h2>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A4" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="2"><path class="draw" pathLength="1" d="M684 310 L1385 310" fill="none" stroke="#4D9FFF" stroke-width="8" stroke-linecap="round" style="--t:.6s;--d:.3s"/></g>
+    <g data-step="2"><path class="draw" pathLength="1" d="M262 440 C330 350 390 315 462 312" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A4)" style="--t:.4s;--d:.1s"/></g>
+    <g data-step="3" data-hide="4"><path d="M262 560 C380 680 600 690 852 680" fill="none" stroke="#FF5A3D" stroke-width="6" stroke-dasharray="14 12" stroke-linecap="round"/><text x="507" y="672" text-anchor="middle" dominant-baseline="central" font-size="64" font-weight="900" style="fill:#FF5A3D">✕</text></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M262 560 C380 680 600 690 852 680" fill="none" stroke="#FF7AD9" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A4)" style="--t:.6s;--d:.1s"/></g>
+  </svg>
+  <div class="agcirc" data-step="1" style="left:110px;top:420px;width:160px;height:160px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-app" data-step="1" style="left:860px;top:255px">📧<b>Email</b></div>
+  <div class="w2-app" data-step="1" style="left:1000px;top:255px">📅<b>Calendar</b></div>
+  <div class="w2-app" data-step="1" style="left:1140px;top:255px">📂<b>Drive</b></div>
+  <div class="w2-app" data-step="1" style="left:1280px;top:255px">📈<b>Trading</b></div>
+  <div class="w2-hub" data-step="2" style="left:470px;top:250px;width:210px;height:120px"><span class="e">🔌</span>MCP</div>
+  <div class="wa-win" data-step="3" style="left:860px;top:540px;width:530px;height:280px"><div class="wa-bar"><i></i><i></i><i></i></div><div class="w2-url">🔒 tickets.example.com</div>
+    <div class="w2-ln" style="left:30px;top:84px;width:300px"></div><div class="w2-ln" style="left:30px;top:116px;width:420px"></div><div class="w2-ln" style="left:30px;top:148px;width:360px"></div>
+    <div class="w2-btn" style="left:380px;top:200px">Book</div>
+    <svg class="w2-cursor" data-step="4" viewBox="0 0 40 52"><path d="M4 3 L4 42 L14 32 L21 48 L28 45 L21 29 L35 29 Z" fill="#F5F5F0" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="w2-say" data-step="3" data-hide="4" style="left:357px;top:720px;width:300px;color:var(--demo)">No connector</div>
+  <div class="w2-say" data-step="4" style="left:357px;top:720px;width:300px;color:var(--ask)">🖱️ Browser use</div>
+  <aside class="onscreen">
+    How does it connect?
+    Spy agent (left). Four app tiles (top right): 📧 Email · 📅 Calendar · 📂 Drive · 📈 Trading
+    Blue 🔌 MCP plug between the agent and the apps, with one blue cable running through all four
+    A website with no connector (browser window: tickets.example.com, a green Book button): red dashed line with ✕ · No connector
+    Then: pink arrow instead, and a mouse pointer moving and clicking Book · 🖱️ Browser use
+  </aside>
+  <aside class="notes">So how does the agent actually reach your stuff? [Click] Here's our agent, and here are the apps it wants to use: your email, your calendar, your Drive, your trading account. [Click] The main way is called MCP. Don't worry about the letters. Think of it as USB-C for AI: one standard plug. Any app that offers an MCP connector, the agent can plug straight into. In ChatGPT and Claude you'll see these listed as "connectors". One plug, every app. [Click] But what if the site you need has no connector? Your kid's school portal, an old ticketing site, your company's expense system. No plug. [Click] Then the agent does what you'd do: it opens a browser, looks at the page, moves the mouse and clicks the buttons. That's called browser use, or computer use. It's slower and clumsier than a connector, but it works on almost any website.</aside>
+</section>
+
+
+<!-- ============================ 5. THREE WAYS IN ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Three ways in.</h2>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <g data-step="2"><path d="M360 470 C380 600 600 690 712 690" fill="none" stroke="#4D9FFF" stroke-width="4" stroke-opacity=".45"/><circle r="9" fill="#4D9FFF"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" path="M360 470 C380 600 600 690 712 690"/></circle><circle r="9" fill="#4D9FFF"><animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite" path="M360 470 C380 600 600 690 712 690"/></circle><circle r="9" fill="#4D9FFF"><animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite" path="M360 470 C380 600 600 690 712 690"/></circle></g>
+    <g data-step="3"><path d="M800 470 L800 596" fill="none" stroke="#FFD23F" stroke-width="4" stroke-opacity=".45"/><circle r="9" fill="#FFD23F"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" path="M800 470 L800 596"/></circle><circle r="9" fill="#FFD23F"><animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite" path="M800 470 L800 596"/></circle><circle r="9" fill="#FFD23F"><animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite" path="M800 470 L800 596"/></circle></g>
+    <g data-step="4"><path d="M1240 470 C1220 600 1000 690 888 690" fill="none" stroke="#FF7AD9" stroke-width="4" stroke-opacity=".45"/><circle r="9" fill="#FF7AD9"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" path="M1240 470 C1220 600 1000 690 888 690"/></circle><circle r="9" fill="#FF7AD9"><animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite" path="M1240 470 C1220 600 1000 690 888 690"/></circle><circle r="9" fill="#FF7AD9"><animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite" path="M1240 470 C1220 600 1000 690 888 690"/></circle></g>
+  </svg>
+  <div class="agcirc" data-step="1" style="left:710px;top:600px;width:180px;height:180px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-way" data-step="2" style="left:190px;--c:#4D9FFF"><span class="e">🔌</span><b>MCP</b><i>📧📅📂</i></div>
+  <div class="w2-way" data-step="3" style="left:630px;--c:#FFD23F"><span class="e">🧩</span><b>Plugins</b><i>🔌🃏⚙️</i></div>
+  <div class="w2-way" data-step="4" style="left:1070px;--c:#FF7AD9"><span class="e">🖱️</span><b>Browser use</b><i>🌐</i></div>
+  <aside class="onscreen">
+    Three ways in.
+    Spy agent at the bottom centre
+    Three cards above, each feeding a stream of dots into the agent:
+    🔌 MCP (📧📅📂) · 🧩 Plugins (🔌🃏⚙️) · 🖱️ Browser use (🌐)
+  </aside>
+  <aside class="notes">So, recap: how does outside stuff get into the agent? [Click] Here's the agent. [Click] One: MCP connectors. A clean, official plug into an app: Gmail, Calendar, Drive. [Click] Two: plugins. A plugin is a bundle: one install gives the agent a set of connectors, plus instructions on how to use them, plus a few shortcuts. In ChatGPT these show up as apps; in Claude they're called plugins. Same idea: install once, and the agent gains a whole new ability. [Click] Three: browser use. No plug at all; the agent just uses the website like a person would. Those are the three ways in. Now let's see what you can actually do with all this.</aside>
+</section>
+
+
+<!-- ============================ 6. WHAT CAN YOU DO ============================ -->
+<section class="slide center">
+  <h2 class="fu title-xl" style="--d:.1s">So what can you actually do?</h2>
+  <aside class="onscreen">
+    So what can you actually do?
+  </aside>
+  <aside class="notes">Enough theory. Let's go through real examples, everyday stuff, not programmer stuff. For each one, watch three things: what you ask, which kind of agent does it, and what you get back. I'll demo as many of these live as we have time for.</aside>
+</section>
+
+
+<!-- ============================ 7. EX A: DATA ANALYSIS ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Crunch the numbers.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's a year of my bank exports. Clean them up and show me where my money goes.”</span></div>
+  <div class="w2-card" data-step="2" style="left:110px;top:375px;width:480px;padding:14px">
+    <table class="w2-tbl"><tr><th>Date</th><th>Desc</th><th>Amt</th></tr>
+      <tr><td>01/03/25</td><td>AMZN Mktp</td><td>-23.99</td></tr>
+      <tr><td class="bad">3 Jan</td><td>amazon.com</td><td>$41</td></tr>
+      <tr><td>2025-01-04</td><td>TRADER JOE'S</td><td class="bad"></td></tr>
+      <tr><td>01/05/25</td><td class="bad">??? POS 8812</td><td>-6.50</td></tr>
+      <tr><td class="bad">Jan 6</td><td>Shell Oil</td><td>52.10</td></tr></table></div>
+  <div class="w2-lbl" data-step="2" style="left:110px;top:705px;width:480px">📄 × 12 messy files</div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A7" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A7)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A7)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#B69CFF">☁️ Its own computer</span></div>
+  <div class="w2-card w2-chart" data-step="4" style="left:1020px;top:340px;width:470px;height:420px">
+    <div class="w2-bar" style="left:40px;height:250px;--c:#2EE59D"><b>$4.2k</b><span>🛒</span></div>
+    <div class="w2-bar" style="left:145px;height:185px;--c:#FFD23F"><b>$3.1k</b><span>🍽️</span></div>
+    <div class="w2-bar" style="left:250px;height:155px;--c:#FF7AD9"><b>$2.6k</b><span>🛍️</span></div>
+    <div class="w2-bar" style="left:355px;height:90px;--c:#4D9FFF"><b>$1.5k</b><span>✈️</span></div></div>
+  <aside class="onscreen">
+    Crunch the numbers.
+    🧑‍💻 “Here's a year of my bank exports. Clean them up and show me where my money goes.”
+    Input: messy spreadsheet (mixed date formats, 'AMZN Mktp' vs 'amazon.com', blanks and '??? POS 8812' in red) · 📄 × 12 messy files
+    Agent badge: ☁️ Its own computer
+    Output: bar chart of spending: 🛒 $4.2k · 🍽️ $3.1k · 🛍️ $2.6k · ✈️ $1.5k (illustrative numbers)
+  </aside>
+  <aside class="notes">First: data. [Click] You say: here's a year of my bank exports, clean them up and show me where my money goes. [Click] And this is what bank exports really look like. Dates in three formats, Amazon spelled two ways, blanks, mystery codes. Normally that's a whole Saturday in Excel. [Click] This is kind number three: the agent with its own computer. Behind the scenes it writes a small program and runs it on its own machine: it fixes the dates, merges the duplicates, fills the categories. You never see the code unless you ask. [Click] And you get this: where your money actually went. Groceries, dining, shopping, travel. Then you just keep talking: break dining down by month, which subscriptions am I paying for twice? Works in ChatGPT, Claude and Gemini; just upload the file.</aside>
+</section>
+
+
+<!-- ============================ 8. EX B: ORGANIZE EMAIL ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Tame your inbox.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Sort my inbox into bills, school and junk. Draft replies to anything urgent.”</span></div>
+  <div class="layer" data-step="2">
+    <span class="w2-emo" style="left:150px;top:420px;font-size:88px;transform:rotate(-14deg)">✉️</span>
+    <span class="w2-emo" style="left:270px;top:390px;font-size:88px;transform:rotate(9deg)">📧</span>
+    <span class="w2-emo" style="left:390px;top:430px;font-size:88px;transform:rotate(-5deg)">✉️</span>
+    <span class="w2-emo" style="left:180px;top:540px;font-size:88px;transform:rotate(12deg)">📨</span>
+    <span class="w2-emo" style="left:300px;top:520px;font-size:88px;transform:rotate(-10deg)">✉️</span>
+    <span class="w2-emo" style="left:420px;top:560px;font-size:88px;transform:rotate(16deg)">📧</span>
+    <span class="w2-emo" style="left:160px;top:660px;font-size:88px;transform:rotate(-4deg)">📧</span>
+    <span class="w2-emo" style="left:290px;top:650px;font-size:88px;transform:rotate(7deg)">✉️</span>
+    <span class="w2-emo" style="left:410px;top:680px;font-size:88px;transform:rotate(-12deg)">📨</span>
+    <div class="w2-badge" style="left:450px;top:360px">1,284</div>
+  </div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A8" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A8)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A8)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#4D9FFF">🔌 MCP · Gmail</span></div>
+  <div class="w2-tray" data-step="4" style="top:330px"><span class="e">🧾</span>Bills<b>12</b></div>
+  <div class="w2-tray" data-step="5" style="top:430px"><span class="e">🏫</span>School<b>5</b></div>
+  <div class="w2-tray" data-step="6" style="top:530px"><span class="e">🗑️</span>Junk<b>1,031</b></div>
+  <div class="w2-tray" data-step="7" style="top:630px;--c:var(--model)"><span class="e">✍️</span>Drafts ready<b>3</b></div>
+  <div class="wa-shield" data-step="8" style="left:1020px;top:740px;width:470px"><span class="e">✋</span>You hit send</div>
+  <aside class="onscreen">
+    Tame your inbox.
+    🧑‍💻 “Sort my inbox into bills, school and junk. Draft replies to anything urgent.”
+    Input: a messy pile of envelopes ✉️📧📨 with a red unread badge: 1,284
+    Agent badge: 🔌 MCP · Gmail
+    Output, one tray at a time: 🧾 Bills 12 · 🏫 School 5 · 🗑️ Junk 1,031 · ✍️ Drafts ready 3
+    Yellow shield: ✋ You hit send
+  </aside>
+  <aside class="notes">Next: email. [Click] You say: sort my inbox into bills, school and junk, and draft replies to anything urgent. [Click] Be honest, how many unread emails do you have right now? [Click] This is kind number two: the agent plus tools. It plugs into Gmail through an MCP connector, the plug we just saw. [Click] Bills. [Click] School. [Click] Junk; most of it, as usual. [Click] And three replies drafted for the urgent ones. [Click] But notice: drafted, not sent. You read them and you hit send. Good habit: let the agent prepare, and you approve anything that goes out with your name on it.</aside>
+</section>
+
+
+<!-- ============================ 9. EX C: CLEAN UP DESKTOP ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Clean up your desktop.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“My desktop is a mess. Sort everything into folders and bin the duplicates.”</span></div>
+  <div class="wa-win" data-step="2" style="left:110px;top:340px;width:480px;height:450px;border-color:#555;background:#121212;box-shadow:none"><div class="wa-bar" style="border-color:#555"><i style="background:#888"></i><i style="background:#888"></i><i style="background:#888"></i></div></div>
+  <div class="w2-file" data-step="2" data-move="5" style="--fx:140px;--fy:410px;--tx:1060px;--ty:360px">🖼️<b>IMG_2231.jpg</b></div>
+  <div class="w2-file" data-step="2" data-move="5" style="--fx:300px;--fy:425px;--tx:1300px;--ty:360px">🧾<b>tax_2025.pdf</b></div>
+  <div class="w2-file" data-step="2" data-move="5" style="--fx:440px;--fy:405px;--tx:1300px;--ty:550px">📄<b>Resume_v3.docx</b></div>
+  <div class="w2-file" data-step="2" data-move="5" style="--fx:160px;--fy:560px;--tx:1180px;--ty:700px">🖼️<b>IMG_2231 (1).jpg</b></div>
+  <div class="w2-file" data-step="2" data-move="5" style="--fx:310px;--fy:570px;--tx:1060px;--ty:550px">🍲<b>biryani.pdf</b></div>
+  <div class="w2-file" data-step="2" data-move="5" style="--fx:450px;--fy:555px;--tx:1180px;--ty:700px">📄<b>Resume_v3 copy.docx</b></div>
+  <div class="w2-file" data-step="2" data-move="5" style="--fx:170px;--fy:690px;--tx:1300px;--ty:360px">🧾<b>W-2.pdf</b></div>
+  <div class="w2-file" data-step="2" data-move="5" style="--fx:330px;--fy:690px;--tx:1060px;--ty:360px">🖼️<b>beach.png</b></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A9" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A9)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A9)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#FF7AD9">💻 Your computer</span></div>
+  <div class="w2-fold" data-step="4" style="left:1040px;top:340px">📁<b>Photos</b></div>
+  <div class="w2-fold" data-step="4" style="left:1280px;top:340px">📁<b>Taxes</b></div>
+  <div class="w2-fold" data-step="4" style="left:1040px;top:530px">📁<b>Recipes</b></div>
+  <div class="w2-fold" data-step="4" style="left:1280px;top:530px">📁<b>Resumes</b></div>
+  <div class="w2-fold" data-step="4" style="left:1160px;top:690px;font-size:76px">🗑️<b style="color:var(--demo)">Duplicates</b></div>
+  <aside class="onscreen">
+    Clean up your desktop.
+    🧑‍💻 “My desktop is a mess. Sort everything into folders and bin the duplicates.”
+    Input: a messy desktop window with scattered files: IMG_2231.jpg · tax_2025.pdf · Resume_v3.docx · IMG_2231 (1).jpg · biryani.pdf · Resume_v3 copy.docx · W-2.pdf · beach.png
+    Agent badge: 💻 Your computer
+    Output: folders 📁 Photos · 📁 Taxes · 📁 Recipes · 📁 Resumes · 🗑️ Duplicates
+    Then the files fly from the desktop into their folders; the two copies go to the bin
+  </aside>
+  <aside class="notes">Everyone's favourite. [Click] You say: my desktop is a mess, sort everything into folders and bin the duplicates. [Click] Look familiar? IMG something, resume v3, resume v3 copy, a biryani recipe next to your tax forms. [Click] This one needs kind number four: the agent on YOUR computer, because the files are on your laptop. Claude Cowork or ChatGPT Work. You point it at the folder and give it permission. [Click] It decides on folders: photos, taxes, recipes, resumes, and a bin for duplicates. [Click] And everything goes where it belongs, and the copies go in the bin. Tip: the first time, ask it to show you the plan before it moves anything. A good agent will ask before it deletes.</aside>
+</section>
+
+
+<!-- ============================ 10. EX D: LEARN A CONCEPT ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Learn anything.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Explain how inflation works. Start like I'm 10, then go deeper. Then quiz me.”</span></div>
+  <div class="w2-card" data-step="2" style="left:160px;top:380px;width:370px;height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px"><span style="font-size:110px;line-height:1">📈</span><b style="font-size:38px">Inflation</b><span style="font-size:60px;line-height:1">😵‍💫</span></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A10" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A10)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A10)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#F5F5F0">💬 Chatbot</span></div>
+  <div class="w2-stair" data-step="4" style="left:1020px;top:500px;height:140px;--c:#F5F5F0"><span class="e">🧒</span>Age 10</div>
+  <div class="w2-stair" data-step="5" style="left:1180px;top:420px;height:220px;--c:#FFD23F"><span class="e">🧑</span>Age 15</div>
+  <div class="w2-stair" data-step="6" style="left:1340px;top:340px;height:300px;--c:#2EE59D"><span class="e">🎓</span>Expert</div>
+  <div class="w2-card" data-step="7" style="left:1020px;top:660px;width:470px;padding:14px 20px"><div style="font-size:22px;font-weight:800;color:var(--ask)">❓ Quiz</div><div style="font-size:22px;font-weight:600;margin-top:6px;line-height:1.3">Prices up 10%, pay up 5%. Richer or poorer?</div></div>
+  <aside class="onscreen">
+    Learn anything.
+    🧑‍💻 “Explain how inflation works. Start like I'm 10, then go deeper. Then quiz me.”
+    Input: card 📈 Inflation 😵‍💫
+    Agent badge: 💬 Chatbot
+    Output: a staircase of depth: 🧒 Age 10 → 🧑 Age 15 → 🎓 Expert
+    Quiz card: ❓ Quiz · Prices up 10%, pay up 5%. Richer or poorer?
+  </aside>
+  <aside class="notes">Now learning. [Click] You say: explain how inflation works, start like I'm ten, then go deeper, then quiz me. [Click] Pick anything that's always confused you. Inflation, mortgages, how vaccines work, your kid's maths homework. [Click] This one is just kind number one, the plain chatbot. No tools needed. [Click] First, like you're ten: your ice cream used to cost a dollar, now it costs a dollar twenty. [Click] Then like a teenager. [Click] Then the expert version, with interest rates and central banks. You climb the stairs at your own speed, and you can stop anywhere and say: wait, explain that bit again. It never gets tired of you. [Click] And then the magic part: quiz me. Answering questions is how you actually learn, not just reading. It'll tell you what you got wrong, and why.</aside>
+</section>
+
+
+<!-- ============================ 11. SKILLS ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Skills: teach it once.</h2>
+  <div class="ag-ctx" data-step="1" style="left:150px;top:260px;width:520px;height:500px">
+    <div class="w2-blk" style="background:#8C8C86">📝 Instructions</div>
+    <div class="w2-blk" data-step="7" style="background:var(--fg)">🧑‍💻 Grill me on my party plan</div>
+  </div>
+  <div class="wa-cap" data-step="1" style="left:150px;top:775px;width:520px">Context window</div>
+  <div class="agcirc" data-step="2" style="left:740px;top:435px;width:130px;height:130px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-shelf" data-step="3" style="left:960px;top:260px;width:520px;height:500px"><b>🃏 Skills</b></div>
+  <div class="w2-skill" data-step="3" style="left:1010px;top:340px"><span class="e">✍️</span>Write like me</div>
+  <div class="w2-skill" data-step="4" style="left:1010px;top:440px"><span class="e">🧾</span>Expense report</div>
+  <div class="w2-skill" data-step="5" data-move="8" style="left:1010px;top:540px;--tx:173px;--ty:419px"><span class="e">🎤</span>Grill me</div>
+  <div class="w2-skill" data-step="6" style="left:1010px;top:640px"><span class="e">🎨</span>Coloring page</div>
+  <aside class="onscreen">
+    Skills: teach it once.
+    Left: Context window (red box) with 📝 Instructions
+    Middle: spy agent
+    Right: a shelf labelled 🃏 Skills with yellow recipe cards: ✍️ Write like me · 🧾 Expense report · 🎤 Grill me · 🎨 Coloring page
+    A request lands on the desk: 🧑‍💻 Grill me on my party plan
+    Only the 🎤 Grill me card slides off the shelf onto the desk; the rest dim
+  </aside>
+  <aside class="notes">Before the next example, one new idea: skills. [Click] Remember the desk, the context window? Whatever is on the desk is all the AI can see. [Click] Here's our agent. [Click] Now imagine a shelf next to the desk with recipe cards on it. Each card is a skill: written instructions for one job, done your way. Write like me. [Click] Do my expense report the way my company wants it. [Click] Grill me. [Click] Make a coloring page. You write each one once. [Click] Now a request comes in: grill me on my party plan. [Click] The agent looks at the shelf, picks the one card that matches, and puts only that card on the desk. The others stay on the shelf, so the desk stays clean. That's the difference from a saved prompt: you don't paste it in. The agent picks the right skill by itself, when it needs it. Claude calls them Skills; ChatGPT and Gemini have their own versions, custom GPTs and Gems. And a skill is just a text file. You can write one in five minutes, or ask the AI to write it for you.</aside>
+</section>
+
+
+<!-- ============================ 12. EX E: GRILL ME ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Grill me.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Use grill-me: help me plan my daughter's 7th birthday party.”</span></div>
+  <div class="w2-card" data-step="2" style="left:120px;top:360px;width:460px;height:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px">
+    <div class="w2-cloud" style="width:380px;height:190px">🎂❓🎈</div>
+    <div style="font-size:22px;font-weight:700;color:var(--dim)">How well the AI gets you</div>
+    <div class="w2-meter"><i class="w2-seg" data-move="4"></i><i class="w2-seg" data-move="5"></i><i class="w2-seg" data-move="6"></i><i class="w2-seg" data-move="7"></i></div>
+  </div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A12" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A12)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A12)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#FFD23F">🃏 Skill · grill-me</span></div>
+  <div class="w2-qb" data-step="4" style="top:330px">❓ How many kids?</div>
+  <div class="w2-qb" data-step="5" style="top:420px">❓ What's the budget?</div>
+  <div class="w2-qb" data-step="6" style="top:510px">❓ Indoor or outdoor?</div>
+  <div class="w2-qb" data-step="7" style="top:600px">❓ Any allergies?</div>
+  <div class="wa-done" data-step="8" style="left:1020px;top:700px;width:470px;height:auto;padding:14px 20px;font-size:25px;text-align:center">📋 12 kids · $300 · backyard · nut-free</div>
+  <aside class="onscreen">
+    Grill me.
+    🧑‍💻 “Use grill-me: help me plan my daughter's 7th birthday party.”
+    Input: a foggy dashed thought cloud 🎂❓🎈 · meter: How well the AI gets you (4 empty segments)
+    Agent badge: 🃏 Skill · grill-me
+    Output: pink questions one at a time: ❓ How many kids? · ❓ What's the budget? · ❓ Indoor or outdoor? · ❓ Any allergies? (each one fills a meter segment green)
+    Green plan card: 📋 12 kids · $300 · backyard · nut-free
+  </aside>
+  <aside class="notes">Here's that skill in action. [Click] You say: use grill-me, help me plan my daughter's seventh birthday party. [Click] Right now, the idea is a fog in your head. And the AI knows even less than you do. If it just starts answering, you get a generic party plan for a generic kid. [Click] So the grill-me skill flips it around. Instead of answering, the agent interviews you first, one question at a time. [Click] How many kids? [Click] What's the budget? [Click] Indoor or outdoor? [Click] Any allergies? Watch the meter: every answer, it understands you better. [Click] And only then does it plan, and the plan fits YOUR party. Use this for anything big: a trip, a business idea, a hard email. Let it grill you first.</aside>
+</section>
+
+
+<!-- ============================ 13. EX F: PLACE A TRADE ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Place a trade.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Buy 1 share of Apple in my paper-trading account.”</span></div>
+  <div class="w2-card" data-step="2" style="left:130px;top:380px;width:440px;height:310px;padding:22px 24px">
+    <div style="font-size:36px;font-weight:800">AAPL <span style="color:var(--model);font-size:26px">▲</span></div>
+    <svg width="390" height="200" viewBox="0 0 390 200" style="margin-top:12px"><polyline points="0,160 40,138 80,148 120,104 160,120 200,82 240,98 280,60 320,72 360,34 390,40" fill="none" stroke="#2EE59D" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A13" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A13)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A13)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#4D9FFF">🔌 MCP · Alpaca</span></div>
+  <div class="w2-ticket" data-step="4" style="left:1020px;top:330px;width:470px">
+    <div class="h">Order</div>
+    <div class="r"><span>Side</span><b style="color:var(--model)">BUY</b></div>
+    <div class="r"><span>Stock</span><b>1 × AAPL</b></div>
+    <div class="r"><span>Type</span><b>Market</b></div>
+    <div class="r"><span>Account</span><b style="color:var(--dyk)">🧪 Paper</b></div></div>
+  <div class="wa-shield" data-step="5" style="left:1020px;top:610px;width:470px"><span class="e">✋</span>Approve?</div>
+  <div class="wa-done" data-step="6" style="left:1020px;top:715px;width:470px">✅ Filled</div>
+  <aside class="onscreen">
+    Place a trade.
+    🧑‍💻 “Buy 1 share of Apple in my paper-trading account.”
+    Input: AAPL stock card with a green line chart
+    Agent badge: 🔌 MCP · Alpaca
+    Output: order ticket: Side BUY · Stock 1 × AAPL · Type Market · Account 🧪 Paper
+    Yellow shield: ✋ Approve?
+    Green: ✅ Filled
+  </aside>
+  <aside class="notes">This one gets people's attention. [Click] You say: buy one share of Apple in my paper-trading account. [Click] Here's the stock. [Click] Kind number two again, agent plus tools. Alpaca is a stock-trading app with an official MCP connector, so the agent can plug straight into your account. [Click] It fills in the order: buy, one share, Apple, at market price. And notice the account: paper. Paper trading means pretend money. It's a practice account, and that's exactly where you should start. [Click] And a good agent stops here and asks: approve? Anything that spends money, you approve. Always. [Click] Filled. Not financial advice, please. The point is: the same chat window that writes your emails can now act in your real accounts. Which is exactly why you start with paper money and keep approvals on.</aside>
+</section>
+
+
+<!-- ============================ 14. EX G: DICOM SCANS ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Read your scans.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's the CD from my knee MRI. Turn it into images I can see, and explain them simply.”</span></div>
+  <div class="w2-card" data-step="2" style="left:130px;top:370px;width:440px;height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px">
+    <span style="font-size:130px;line-height:1">💿</span>
+    <div style="display:flex;gap:10px;font-size:19px;font-weight:700;color:var(--dim)"><span class="w2-tag" style="--c:#8C8C86">IMG0001.dcm</span><span class="w2-tag" style="--c:#8C8C86">IMG0002.dcm</span></div>
+    <div style="font-size:26px;font-weight:800;color:var(--dim)">… × 240 files</div></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A14" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A14)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A14)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#B69CFF">☁️ Its own computer</span></div>
+  <div class="w2-card" data-step="4" style="left:1020px;top:330px;width:470px;padding:13px">
+    <div class="w2-scan"><i style="--w:40%;--h:34%"></i><i style="--w:46%;--h:38%"></i><i style="--w:50%;--h:40%"></i><i style="--w:44%;--h:36%;--x:46%"></i><i style="--w:38%;--h:32%;--x:54%"></i><i style="--w:34%;--h:28%"></i></div></div>
+  <div class="w2-hiring" data-step="5" style="left:1179px;top:337px;width:156px;height:156px"></div>
+  <div class="w2-card" data-step="6" style="left:1020px;top:675px;width:470px;padding:14px 20px"><div style="font-size:23px;font-weight:800;color:var(--model)">🩺 Ask your doctor</div><div style="font-size:21px;font-weight:600;margin-top:6px">• Is that swelling normal for my age?</div></div>
+  <aside class="onscreen">
+    Read your scans.
+    🧑‍💻 “Here's the CD from my knee MRI. Turn it into images I can see, and explain them simply.”
+    Input: a 💿 CD with files IMG0001.dcm · IMG0002.dcm · … × 240 files
+    Agent badge: ☁️ Its own computer
+    Output: a grid of 6 greyscale scan slices; one slice gets a yellow highlight box
+    Card: 🩺 Ask your doctor · Is that swelling normal for my age?
+  </aside>
+  <aside class="notes">Here's one most people don't know about. [Click] After an MRI or a CT scan, you often get a CD or a download link. You say: here's the CD from my knee MRI, turn it into images I can see, and explain them simply. [Click] And the CD is full of files called DICOM, hundreds of them, that your laptop can't even open. [Click] Kind number three: the agent with its own computer. It writes a little program to read the DICOM files and turn them into normal pictures. [Click] Now you can actually see the slices of your knee. [Click] Ask it: what am I looking at here? It'll walk you through it: this is the bone, this is the cartilage. [Click] And the best use of all: help me prepare questions for my doctor. To be very clear: this is for understanding, not diagnosis. Your doctor reads the scan; AI helps you walk in with better questions.</aside>
+</section>
+
+
+<!-- ============================ 15. EX H: DAILY COLORING PAGE ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">A coloring page every morning.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Every morning at 7, make a coloring page for Maya (6, loves dinosaurs and cricket) and print it.”</span></div>
+  <div class="w2-card" data-step="2" style="left:130px;top:370px;width:440px;height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px">
+    <div style="font-size:44px;font-weight:800">⏰ 7:00 AM</div>
+    <span style="font-size:110px;line-height:1">👧</span>
+    <div style="font-size:30px;font-weight:800">Maya · 6 · 🦕 🏏</div></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A15" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A15)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A15)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#2EE59D">⏰ Every morning</span><span class="w2-tag" style="--c:#FF7AD9">💻 Your computer</span></div>
+  <div class="w2-emo" data-step="4" style="left:1165px;top:315px;width:190px;font-size:130px;z-index:2">🖨️</div>
+  <div class="w2-page" data-step="5" data-move="6" style="left:1130px;top:445px;width:260px;height:330px;flex-direction:column;gap:6px"><span class="w2-uncol" style="font-size:140px;line-height:1">🦕</span><span class="w2-uncol" style="font-size:70px;line-height:1">🏏</span></div>
+  <div class="w2-emo" data-step="6" style="left:1400px;top:660px;font-size:80px;transform:rotate(-20deg)">🖍️</div>
+  <aside class="onscreen">
+    A coloring page every morning.
+    🧑‍💻 “Every morning at 7, make a coloring page for Maya (6, loves dinosaurs and cricket) and print it.”
+    Input: card ⏰ 7:00 AM · 👧 Maya · 6 · 🦕 🏏
+    Agent badges: ⏰ Every morning · 💻 Your computer
+    Output: 🖨️ printer, a page slides out with a grey (uncoloured) 🦕 and 🏏
+    Then 🖍️ crayons appear and the dinosaur fills with colour
+  </aside>
+  <aside class="notes">This one's my favourite. [Click] You say: every morning at seven, make a coloring page for Maya, she's six and loves dinosaurs and cricket, and print it. [Click] Seven o'clock, Maya, dinosaurs, cricket. [Click] Two new things here. It runs every morning on a schedule; you set it once. And it's on your computer, because it needs your printer. [Click] At seven, the printer wakes up. [Click] Out comes a fresh page: a dinosaur playing cricket, drawn just for her. A new one every day, never the same. [Click] And by breakfast, she's coloured it in. Once you've set something like this up, you start seeing small daily jobs everywhere that an agent could just quietly do.</aside>
+</section>
+
+
+<!-- ============================ 16. EX I: YOUTUBE TO BOOK ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Turn videos into a book.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Take this 12-video course playlist and turn it into a neat book with chapters.”</span></div>
+  <div class="layer" data-step="2">
+    <div class="w2-vid" style="left:150px;top:370px"><i class="w2-yt">▶</i><b>Ep 1</b></div>
+    <div class="w2-vid" style="left:200px;top:450px"><i class="w2-yt">▶</i><b>Ep 2</b></div>
+    <div class="w2-vid" style="left:250px;top:530px;box-shadow:0 10px 30px rgba(0,0,0,.6)"><i class="w2-yt">▶</i><b>Ep 12</b></div>
+    <div class="w2-badge" style="left:470px;top:720px;background:#FF0033">× 12</div>
+  </div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A16" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A16)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A16)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#4D9FFF">🔌 YouTube transcripts</span></div>
+  <div class="w2-book" data-step="4" style="left:1040px;top:330px;width:430px;height:390px">
+    <h4>📖 My Course Book</h4>
+    <div><span>1 · Getting started</span><span></span><span>3</span></div>
+    <div><span>2 · The basics</span><span></span><span>11</span></div>
+    <div><span>3 · Your first project</span><span></span><span>24</span></div>
+    <div><span>⋮</span><span style="border:none"></span><span></span></div>
+    <div><span>12 · Wrap-up</span><span></span><span>141</span></div></div>
+  <div class="wa-done" data-step="5" style="left:1040px;top:745px;width:430px;height:64px;font-size:26px">📲 Sent to Kindle</div>
+  <aside class="onscreen">
+    Turn videos into a book.
+    🧑‍💻 “Take this 12-video course playlist and turn it into a neat book with chapters.”
+    Input: three stacked YouTube video thumbnails (Ep 1 · Ep 2 · Ep 12) with a red × 12 badge
+    Agent badge: 🔌 YouTube transcripts
+    Output: a book 📖 My Course Book, contents: 1 · Getting started 3 · 2 · The basics 11 · 3 · Your first project 24 · ⋮ · 12 · Wrap-up 141
+    Green: 📲 Sent to Kindle
+  </aside>
+  <aside class="notes">Here's one for the learners. [Click] You say: take this twelve-video course playlist and turn it into a neat book with chapters. [Click] Twelve videos, hours of watching, and you can't easily skim a video or underline it. [Click] Every YouTube video has a transcript, the words that were spoken. The agent uses a tool to pull those transcripts, all twelve. [Click] Then it does what a good editor would: removes the ums and the 'smash that like button', puts it in a sensible order, adds chapter titles and headings. Now you have a book you can skim, search and highlight. [Click] And it can even send it straight to your Kindle. Twelve hours of video, read on the couch in an evening.</aside>
+</section>
+
+
+<!-- ============================ 17. EX J: VOICE TO NOTES ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Talk it out.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's my 20-minute voice memo from my walk. Turn it into notes, to-dos and bookmarks.”</span></div>
+  <div class="w2-card" data-step="2" style="left:120px;top:380px;width:460px;height:320px;padding:24px;display:flex;flex-direction:column;gap:18px">
+    <div style="font-size:30px;font-weight:800">🎙️ Voice memo <span style="color:var(--dim);font-size:24px;margin-left:10px">20:14</span></div>
+    <div class="w2-wave"><i style="--h:61px;--d:-0.95s"></i><i style="--h:70px;--d:-0.65s"></i><i style="--h:29px;--d:-0.82s"></i><i style="--h:32px;--d:-0.37s"></i><i style="--h:27px;--d:-0.91s"></i><i style="--h:47px;--d:-0.04s"></i><i style="--h:75px;--d:-0.42s"></i><i style="--h:50px;--d:-0.09s"></i><i style="--h:74px;--d:-0.06s"></i><i style="--h:35px;--d:-0.95s"></i><i style="--h:27px;--d:-0.58s"></i><i style="--h:70px;--d:-0.05s"></i><i style="--h:48px;--d:-0.05s"></i><i style="--h:37px;--d:-0.29s"></i><i style="--h:38px;--d:-0.54s"></i><i style="--h:59px;--d:-0.56s"></i><i style="--h:43px;--d:-0.10s"></i><i style="--h:44px;--d:-0.37s"></i><i style="--h:28px;--d:-0.56s"></i><i style="--h:46px;--d:-0.50s"></i><i style="--h:88px;--d:-0.43s"></i><i style="--h:60px;--d:-0.47s"></i><i style="--h:78px;--d:-0.36s"></i><i style="--h:51px;--d:-0.79s"></i><i style="--h:51px;--d:-0.08s"></i><i style="--h:58px;--d:-0.53s"></i><i style="--h:63px;--d:-0.73s"></i><i style="--h:56px;--d:-0.61s"></i><i style="--h:29px;--d:-0.12s"></i><i style="--h:73px;--d:-0.16s"></i><i style="--h:63px;--d:-0.15s"></i><i style="--h:82px;--d:-0.42s"></i><i style="--h:29px;--d:-0.76s"></i><i style="--h:60px;--d:-0.34s"></i><i style="--h:64px;--d:-0.59s"></i><i style="--h:78px;--d:-0.07s"></i><i style="--h:31px;--d:-0.94s"></i><i style="--h:80px;--d:-0.70s"></i><i style="--h:28px;--d:-0.06s"></i><i style="--h:59px;--d:-0.65s"></i><i style="--h:77px;--d:-0.28s"></i><i style="--h:69px;--d:-0.89s"></i><i style="--h:64px;--d:-0.02s"></i><i style="--h:79px;--d:-0.36s"></i></div>
+    <div style="font-size:24px;font-style:italic;color:var(--dim)">“um… so… oh, and also…”</div></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A17" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A17)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A17)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#F5F5F0">🎙️ Transcribe</span><span class="w2-tag" style="--c:#4D9FFF">🔌 Your notes app</span></div>
+  <div class="w2-note" data-step="4" style="top:330px;--c:var(--dyk)"><h5>💡 Ideas</h5><span>• Parents' weekend workshop</span><span>• Start a family recipe book</span></div>
+  <div class="w2-note" data-step="5" style="top:485px;--c:var(--model)"><h5>✅ To-do</h5><span>☐ Call the plumber</span><span>☐ Book Chennai flights</span></div>
+  <div class="w2-note" data-step="6" style="top:640px;--c:var(--harness)"><h5>🔖 Bookmarks</h5><span>🔗 That podcast on sleep</span><span>🔗 The recipe Anu mentioned</span></div>
+  <aside class="onscreen">
+    Talk it out.
+    🧑‍💻 “Here's my 20-minute voice memo from my walk. Turn it into notes, to-dos and bookmarks.”
+    Input: 🎙️ Voice memo 20:14, a moving pink waveform, “um… so… oh, and also…”
+    Agent badges: 🎙️ Transcribe · 🔌 Your notes app
+    Output, one card at a time: 💡 Ideas (• Parents' weekend workshop · • Start a family recipe book) · ✅ To-do (☐ Call the plumber · ☐ Book Chennai flights) · 🔖 Bookmarks (🔗 That podcast on sleep · 🔗 The recipe Anu mentioned)
+  </aside>
+  <aside class="notes">Some of us think best out loud. [Click] You say: here's my twenty-minute voice memo from my walk, turn it into notes, to-dos and bookmarks. [Click] And the memo is exactly how we talk: um, so, oh and also, jumping between five topics. [Click] The agent first transcribes it, turns speech into text, and then uses a connector to save the results into your notes app. [Click] Your ideas, pulled out and cleaned up. [Click] Your to-dos, as real checkboxes. [Click] And the things you said you'd look up: that podcast, that recipe. It finds the links and bookmarks them. You just walk and talk. The organising happens for you.</aside>
+</section>
+
+
+<!-- ============================ 18. EX K: PDF TO TABLE ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">PDFs to a table.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Pull the date, store and amount out of these 40 receipts into a spreadsheet.”</span></div>
+  <div class="layer" data-step="2">
+    <div class="w2-pdf" style="left:150px;top:420px;transform:rotate(-12deg)"><b>PDF</b><i style="width:90%"></i><i style="width:70%"></i><i style="width:80%"></i><i style="width:55%"></i><i style="width:75%"></i></div>
+    <div class="w2-pdf" style="left:240px;top:400px;transform:rotate(-3deg)"><b>PDF</b><i style="width:90%"></i><i style="width:70%"></i><i style="width:80%"></i><i style="width:55%"></i><i style="width:75%"></i></div>
+    <div class="w2-pdf" style="left:330px;top:415px;transform:rotate(8deg)"><b>PDF</b><i style="width:90%"></i><i style="width:70%"></i><i style="width:80%"></i><i style="width:55%"></i><i style="width:75%"></i></div>
+    <div class="w2-badge" style="left:460px;top:660px">× 40</div>
+  </div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A18" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A18)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A18)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#F5F5F0">📎 Upload</span><span class="w2-tag" style="--c:#B69CFF">☁️ Its own computer</span></div>
+  <div class="w2-card" data-step="4" style="left:1020px;top:330px;width:470px;padding:14px">
+    <table class="w2-tbl"><tr><th>Date</th><th>Store</th><th>Amount</th></tr>
+      <tr><td>Jan 4</td><td>Costco</td><td>$182.40</td></tr>
+      <tr><td>Jan 9</td><td>Shell</td><td>$52.10</td></tr>
+      <tr><td>Jan 12</td><td>CVS</td><td>$18.75</td></tr>
+      <tr><td>Jan 15</td><td>Home Depot</td><td>$96.20</td></tr>
+      <tr><td>⋮</td><td></td><td></td></tr>
+      <tr class="tot"><td>Total</td><td>40</td><td>$2,318.55</td></tr></table></div>
+  <div class="wa-done" data-step="5" style="left:1020px;top:740px;width:470px;height:64px;font-size:26px">📊 receipts.xlsx</div>
+  <aside class="onscreen">
+    PDFs to a table.
+    🧑‍💻 “Pull the date, store and amount out of these 40 receipts into a spreadsheet.”
+    Input: a fanned stack of PDF receipts with a red × 40 badge
+    Agent badges: 📎 Upload · ☁️ Its own computer
+    Output: table Date · Store · Amount: Jan 4 Costco $182.40 · Jan 9 Shell $52.10 · Jan 12 CVS $18.75 · Jan 15 Home Depot $96.20 · ⋮ · Total 40 $2,318.55 (illustrative)
+    Green: 📊 receipts.xlsx
+  </aside>
+  <aside class="notes">Tax season special. [Click] You say: pull the date, store and amount out of these forty receipts into a spreadsheet. [Click] Forty PDFs: receipts, invoices, bills. Normally you open each one and type the numbers in by hand. [Click] Upload them; the agent reads each one, and on its own computer it builds the spreadsheet. [Click] Date, store, amount, one row per receipt, with a total at the bottom. [Click] And you download a real spreadsheet file. Same trick works for bank statements, pay stubs, insurance documents, anything where the numbers are trapped in a PDF. One tip: spot-check a few rows against the originals. It's very good, but not perfect.</aside>
+</section>
+
+
+<!-- ============================ 19. EX L: ANALYZE VIDEO ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Watch a video for you.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's the 1-hour school board meeting. What got decided, and when?”</span></div>
+  <div class="w2-card" data-step="2" style="left:120px;top:380px;width:460px;height:300px;padding:20px">
+    <div style="height:200px;border-radius:12px;background:linear-gradient(135deg,#2c2c2c,#121212);display:flex;align-items:center;justify-content:center"><span style="width:80px;height:80px;border-radius:50%;background:var(--fg);color:#0A0A0A;display:flex;align-items:center;justify-content:center;font-size:34px;padding-left:6px">▶</span></div>
+    <div style="height:8px;border-radius:4px;background:#333;margin-top:22px"></div>
+    <div style="font-size:20px;font-weight:700;color:var(--dim);margin-top:10px;text-align:right" class="mono">1:02:10</div></div>
+  <div class="w2-dot" data-step="4" style="left:158px;top:625px;--c:#2EE59D"></div>
+  <div class="w2-dot" data-step="5" style="left:268px;top:625px;--c:#FFD23F"></div>
+  <div class="w2-dot" data-step="6" style="left:434px;top:625px;--c:#FF7AD9"></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A19" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A19)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A19)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#F5F5F0">💬 Chatbot</span></div>
+  <div class="w2-mark" data-step="4" style="top:350px;--c:#2EE59D"><span class="t">04:12</span>💰 Budget approved</div>
+  <div class="w2-mark" data-step="5" style="top:460px;--c:#FFD23F"><span class="t">21:40</span>🚌 New bus route</div>
+  <div class="w2-mark" data-step="6" style="top:570px;--c:#FF7AD9"><span class="t">48:05</span>⏰ Later start time</div>
+  <aside class="onscreen">
+    Watch a video for you.
+    🧑‍💻 “Here's the 1-hour school board meeting. What got decided, and when?”
+    Input: a video player (▶) with a timeline, 1:02:10
+    Agent badge: 💬 Chatbot
+    Output, one at a time (with a matching coloured dot on the timeline): 04:12 💰 Budget approved · 21:40 🚌 New bus route · 48:05 ⏰ Later start time
+  </aside>
+  <aside class="notes">AI can watch video now, too. [Click] You say: here's the one-hour school board meeting, what got decided, and when? [Click] An hour long. Nobody has time for that. [Click] This is just the chatbot. Gemini is especially good at this: paste a YouTube link, or upload the video, and it actually watches it, the pictures and the sound. [Click] Four minutes in: the budget was approved. [Click] Twenty-one minutes: a new bus route. [Click] Forty-eight minutes: they voted on a later start time. And it gives you the timestamps, so you can jump straight to the part that matters and check it yourself. Works for lectures, how-to videos, your own recorded meetings, even your golf swing.</aside>
+</section>
+
+
+<!-- ============================ 20. EX M: DEEP RESEARCH ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Deep research.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Which family EV under $45k is best for road trips? Compare range, charging and safety.”</span></div>
+  <div class="w2-web" data-step="2" style="left:130px;top:410px"><span style="--d:0.00s">🌐</span><span style="--d:0.21s">🌐</span><span style="--d:0.42s">🌐</span><span style="--d:0.63s">🌐</span><span style="--d:0.84s">🌐</span><span style="--d:1.05s">🌐</span><span style="--d:1.26s">🌐</span><span style="--d:1.47s">🌐</span><span style="--d:1.68s">🌐</span><span style="--d:1.89s">🌐</span><span style="--d:2.10s">🌐</span><span style="--d:2.31s">🌐</span></div>
+  <div class="w2-lbl" data-step="2" style="left:130px;top:690px;width:410px">🌐 The whole web</div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A20" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A20)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A20)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#4D9FFF">🔍 Deep research</span><span class="w2-tag" style="--c:#FFD23F">⏱️ ~15 min</span></div>
+  <div class="w2-report" data-step="4" style="left:1020px;top:330px;width:470px;height:380px">
+    <h4>📑 Family EVs for road trips</h4>
+    <i style="width:95%"></i><i style="width:80%"></i><i style="width:88%"></i><i style="width:60%"></i><i style="width:90%"></i><i style="width:72%"></i>
+    <div class="cites"><span>[1]</span><span>[2]</span><span>[3]</span><span style="border:none;color:var(--dim)">… 84 sources</span></div></div>
+  <div class="wa-shield" data-step="5" style="left:1020px;top:730px;width:470px"><span class="e">🔎</span>Check the sources</div>
+  <aside class="onscreen">
+    Deep research.
+    🧑‍💻 “Which family EV under $45k is best for road trips? Compare range, charging and safety.”
+    Input: a grid of 12 web pages 🌐 lighting up one by one · 🌐 The whole web
+    Agent badges: 🔍 Deep research · ⏱️ ~15 min
+    Output: report card 📑 Family EVs for road trips, with citations [1] [2] [3] … 84 sources
+    Yellow shield: 🔎 Check the sources
+  </aside>
+  <aside class="notes">Last example, and a big one. [Click] You say: which family electric car under forty-five thousand is best for road trips? Compare range, charging and safety. [Click] To answer that properly, you'd read dozens of reviews, spec sheets and safety ratings. [Click] Deep research mode. ChatGPT, Gemini, Claude and Perplexity all have it. Instead of answering in five seconds, the agent goes off for ten or twenty minutes, makes a plan, and reads page after page after page. [Click] You come back to a proper report, with sources for every claim. Eighty-plus sources, in the time it takes to make dinner. [Click] But: check the sources for anything important. Click the links. AI can still misread a page or cite something that doesn't say what it claims. It's a brilliant research assistant, not the final word.</aside>
+</section>
+
+
+<!-- ============================ 21. PURPOSE BUILT ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Now, purpose built.</h2>
+  <div class="w2-box gp big" data-move="1" data-hide="2"><div class="e">🧰</div><b>General purpose</b><div class="row"><img src="gifs/logos/openai.png" alt=""><img src="gifs/logos/claude.png" alt=""><img src="gifs/logos/gemini.png" alt=""></div></div>
+  <div class="w2-box pb small" data-move="1" data-hide="2"><div class="e">🎯</div><b>Purpose built</b><div class="row"><span>🎓</span><span>🧪</span><span>🎙️</span></div></div>
+  <div class="w2-tool" data-step="2" style="left:155px"><span class="e">🎓</span><b>Learn Your Way</b><i>Textbook → your lesson</i></div>
+  <div class="w2-tool" data-step="3" style="left:485px"><span class="e">🧪</span><b>AI Studio</b><i>Try it, build it</i></div>
+  <div class="w2-tool" data-step="4" style="left:815px"><span class="e">🎙️</span><b>ElevenLabs</b><i>Any voice</i></div>
+  <div class="w2-tool tbd" data-step="5" style="left:1145px"><span class="e">❔</span><b style="color:var(--dim)">…</b></div>
+  <aside class="onscreen">
+    Now, purpose built.
+    Starts where slide 2 ended: General purpose big in the centre, Purpose built small on the right
+    Then they swap: General purpose shrinks to the side, Purpose built zooms to the centre
+    Then four cards: 🎓 Learn Your Way · Textbook → your lesson | 🧪 AI Studio · Try it, build it | 🎙️ ElevenLabs · Any voice | ❔ … (placeholder, still to pick)
+  </aside>
+  <aside class="notes">Remember the two boxes from the start? We've spent the whole session in the general-purpose box. [Click] Now let's open the other one: purpose-built tools. Each one does a single job, and does it better than any chatbot. [Click] Learn Your Way, from Google: it turns a textbook into lessons made for you. [Click] Google AI Studio: a free playground to try Google's newest models and build little apps just by describing them. [Click] ElevenLabs: voices. Any voice, any language, even your own. [Click] And there are hundreds more. A new one launches every week. Let's look at these three quickly.</aside>
+</section>
+
+
+<!-- ============================ 22. LEARN YOUR WAY ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Learn Your Way.</h2>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A22" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M500 510 L680 510" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A22)" style="--t:.35s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M925 470 C960 430 980 410 1020 400" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A22)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="6"><path class="draw" pathLength="1" d="M925 550 C960 590 980 610 1020 620" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A22)" style="--t:.3s;--d:.1s"/></g>
+  </svg>
+  <div class="w2-tbk" data-step="1" style="left:150px;top:300px;width:330px;height:410px"><h4>📖 Ch. 7: Photosynthesis</h4><i style="width:95%"></i><i style="width:88%"></i><i style="width:92%"></i><i style="width:70%"></i><i style="width:90%"></i><i style="width:85%"></i><i style="width:60%"></i><i style="width:93%"></i><i style="width:78%"></i></div>
+  <div class="w2-chip" data-step="2" style="left:150px;top:735px;--c:var(--ask)">🧑‍🎓 Grade 7 · loves ⚽</div>
+  <div class="w2-hubc" data-step="3" style="left:700px;top:410px;width:200px;height:200px;font-size:110px">🎓</div>
+  <div class="w2-out" data-step="4" style="left:1040px;top:290px;--c:#2EE59D"><span class="e">🧠</span>Mind map</div>
+  <div class="w2-out" data-step="5" style="left:1270px;top:290px;--c:#FFD23F"><span class="e">🎞️</span>Slides</div>
+  <div class="w2-out" data-step="6" style="left:1040px;top:520px;--c:#4D9FFF"><span class="e">🎧</span>Audio lesson</div>
+  <div class="w2-out" data-step="7" style="left:1270px;top:520px;--c:#FF7AD9"><span class="e">❓</span>Quiz</div>
+  <aside class="onscreen">
+    Learn Your Way.
+    Left: a textbook page 📖 Ch. 7: Photosynthesis · chip: 🧑‍🎓 Grade 7 · loves ⚽
+    Middle: big yellow circle 🎓 (Learn Your Way)
+    Right, one at a time: 🧠 Mind map · 🎞️ Slides · 🎧 Audio lesson · ❓ Quiz
+  </aside>
+  <aside class="notes">Learn Your Way is an experiment from Google. [Click] You start with a normal textbook chapter. Photosynthesis, say. Dense, grey, boring. [Click] Then you tell it about the learner: grade seven, loves football. [Click] And it rewrites the chapter for that student, at their level, with examples from football. [Click] It makes a mind map, so you see the big picture. [Click] Slides, with narration. [Click] An audio lesson you can listen to in the car. [Click] And quizzes along the way, to check it's sinking in. Same textbook, but built for one kid. That's the advantage of a purpose-built tool: you'd need ten clever prompts to get this out of a chatbot. Here it's one button.</aside>
+</section>
+
+
+<!-- ============================ 23. AI STUDIO ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Google AI Studio.</h2>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A23" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M730 560 L850 560" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A23)" style="--t:.35s;--d:.1s"/></g>
+  </svg>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Build me a Spanish flashcard app for my son.”</span></div>
+  <div class="wa-win" data-step="2" style="left:150px;top:330px;width:560px;height:460px;border-color:var(--dyk);background:rgba(255,210,63,.04);box-shadow:0 0 40px rgba(255,210,63,.15)"><div class="wa-bar" style="border-color:var(--dyk)"><i style="background:var(--dyk)"></i><i style="background:var(--dyk)"></i><i style="background:var(--dyk)"></i></div>
+    <div style="position:absolute;left:0;right:0;top:120px;text-align:center;font-size:120px;line-height:1">🧪</div>
+    <div style="position:absolute;left:0;right:0;top:270px;text-align:center;font-size:36px;font-weight:800;color:var(--dyk)">AI Studio</div></div>
+  <div class="wa-win" data-step="3" style="left:870px;top:330px;width:580px;height:460px"><div class="wa-bar"><i></i><i></i><i></i></div>
+    <div style="position:absolute;right:28px;top:76px;font-size:24px;font-weight:800;color:var(--harness)">⭐ 7 / 20</div></div>
+  <div class="w2-flash" data-step="4" data-move="5" style="left:990px;top:440px;width:340px;height:220px"><div class="fi2"><div class="fc">perro</div><div class="fc bk">🐶 dog</div></div></div>
+  <div class="w2-chip" data-step="6" style="left:320px;top:690px;--c:var(--model)">🆓 Free to try</div>
+  <aside class="onscreen">
+    Google AI Studio.
+    🧑‍💻 “Build me a Spanish flashcard app for my son.”
+    Left: yellow window 🧪 AI Studio
+    Right: blue app window with ⭐ 7 / 20 and a flashcard: perro → flips to 🐶 dog
+    Chip: 🆓 Free to try
+  </aside>
+  <aside class="notes">Second: Google AI Studio. [Click] Here's a fun one to try at home. You type: build me a Spanish flashcard app for my son. [Click] AI Studio is Google's playground. It's where Google puts its newest models first, and you can try them directly. [Click] It has a build mode: you describe an app in plain English, and it builds a working one in front of you. [Click] Here's the flashcard: perro. [Click] Tap it, and it flips: dog. Want a score counter? A sound when he gets it right? Just ask. [Click] And it's free to try. You don't need to know any code. We'll go much deeper into building things like this in week three.</aside>
+</section>
+
+
+<!-- ============================ 24. ELEVENLABS ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">ElevenLabs.</h2>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A24" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="2"><path class="draw" pathLength="1" d="M500 470 L590 470" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A24)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="3"><path class="draw" pathLength="1" d="M960 470 L1030 470" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A24)" style="--t:.3s;--d:.1s"/></g>
+  </svg>
+  <div class="w2-card" data-step="1" style="left:130px;top:330px;width:360px;height:280px;padding:26px;font-size:30px;font-weight:700;line-height:1.35;font-style:italic">“Once upon a time, a tiny hedgehog named Pip…”</div>
+  <div class="w2-card" data-step="2" style="left:600px;top:330px;width:350px;height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px"><span style="font-size:64px;line-height:1">🔊</span><div class="w2-wave" style="height:130px"><i style="--h:81px;--d:-0.87s;--c:var(--dyk)"></i><i style="--h:83px;--d:-0.45s;--c:var(--dyk)"></i><i style="--h:99px;--d:-0.19s;--c:var(--dyk)"></i><i style="--h:89px;--d:-0.48s;--c:var(--dyk)"></i><i style="--h:102px;--d:-0.79s;--c:var(--dyk)"></i><i style="--h:36px;--d:-0.45s;--c:var(--dyk)"></i><i style="--h:42px;--d:-0.09s;--c:var(--dyk)"></i><i style="--h:112px;--d:-0.63s;--c:var(--dyk)"></i><i style="--h:100px;--d:-0.98s;--c:var(--dyk)"></i><i style="--h:81px;--d:-0.65s;--c:var(--dyk)"></i><i style="--h:102px;--d:-0.65s;--c:var(--dyk)"></i><i style="--h:103px;--d:-0.02s;--c:var(--dyk)"></i><i style="--h:91px;--d:-0.06s;--c:var(--dyk)"></i><i style="--h:28px;--d:-0.19s;--c:var(--dyk)"></i><i style="--h:54px;--d:-0.60s;--c:var(--dyk)"></i><i style="--h:83px;--d:-0.33s;--c:var(--dyk)"></i><i style="--h:99px;--d:-0.84s;--c:var(--dyk)"></i><i style="--h:90px;--d:-0.23s;--c:var(--dyk)"></i><i style="--h:61px;--d:-0.50s;--c:var(--dyk)"></i><i style="--h:108px;--d:-0.08s;--c:var(--dyk)"></i><i style="--h:107px;--d:-0.28s;--c:var(--dyk)"></i><i style="--h:94px;--d:-1.00s;--c:var(--dyk)"></i><i style="--h:34px;--d:-0.71s;--c:var(--dyk)"></i><i style="--h:64px;--d:-0.76s;--c:var(--dyk)"></i><i style="--h:89px;--d:-0.29s;--c:var(--dyk)"></i><i style="--h:32px;--d:-0.56s;--c:var(--dyk)"></i><i style="--h:37px;--d:-0.40s;--c:var(--dyk)"></i><i style="--h:61px;--d:-0.39s;--c:var(--dyk)"></i><i style="--h:26px;--d:-0.85s;--c:var(--dyk)"></i><i style="--h:24px;--d:-0.21s;--c:var(--dyk)"></i></div></div>
+  <div class="w2-tray" data-step="3" style="left:1020px;top:300px;width:470px;--c:var(--dyk)"><span class="e">🗣️</span>Any voice<b style="font-size:36px">👵🧔👧</b></div>
+  <div class="w2-tray" data-step="4" style="left:1020px;top:420px;width:470px;--c:var(--harness);gap:12px"><span class="e">🌍</span>Languages<b style="font-size:20px;color:var(--fg)">தமிழ் · Español</b></div>
+  <div class="w2-tray" data-step="5" style="left:1020px;top:540px;width:470px;--c:var(--ask)"><span class="e">🧬</span>Your own voice<b style="font-size:36px">🧑→🔊</b></div>
+  <aside class="onscreen">
+    ElevenLabs.
+    Text card: “Once upon a time, a tiny hedgehog named Pip…”
+    → 🔊 a moving yellow sound wave
+    → 🗣️ Any voice 👵🧔👧 · 🌍 Languages தமிழ் · Español · 🧬 Your own voice 🧑→🔊
+  </aside>
+  <aside class="notes">Third: ElevenLabs, for voices. [Click] Remember Pip the hedgehog from last week's bedtime story? You type the story. [Click] And ElevenLabs reads it aloud, and it sounds like a real person: pauses, emotion, a little laugh in the right place. [Click] Pick any voice: a grandma, a deep movie-trailer voice, a child. [Click] Any language. Here's the fun part: the same story in Tamil, in Spanish, in almost any language. You can even dub a whole video into another language. [Click] And you can clone your own voice from a short recording. Imagine your kid's bedtime story read in your voice while you're travelling. Which, yes, also means: be careful. If a phone call sounds exactly like your family member asking for money, call them back on a number you know.</aside>
+</section>
+
+</div>
+
+<div id="progress"></div>
+<div id="count"></div>
+<div id="notes"></div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const stage=document.getElementById('stage');
+const notesEl=document.getElementById('notes');
+let cur=0;
+
+function fit(){const s=Math.min(innerWidth/1600,innerHeight/900);stage.style.transform=`translate(-50%,-50%) scale(${s})`;}
+addEventListener('resize',fit);fit();
+
+/* ask-then-reveal: [data-step=k] appears on the k-th press; [data-mark=k] / [data-strike=k] mark answer options; [data-move=k] adds .moved; [data-hide=k] adds .gone */
+let step=0;
+const maxStep=sl=>Math.max(0,...[...sl.querySelectorAll('[data-step],[data-mark],[data-strike],[data-move],[data-hide]')].map(e=>+(e.dataset.hide||e.dataset.move||e.dataset.step||e.dataset.mark||e.dataset.strike)));
+function paint(){
+  const sl=slides[cur];
+  sl.querySelectorAll('[data-step]').forEach(e=>e.classList.toggle('shown',step>=+e.dataset.step));
+  sl.querySelectorAll('[data-mark]').forEach(e=>e.classList.toggle('marked',step>=+e.dataset.mark));
+  sl.querySelectorAll('[data-strike]').forEach(e=>e.classList.toggle('struck',step>=+e.dataset.strike));
+  sl.querySelectorAll('[data-move]').forEach(e=>e.classList.toggle('moved',step>=+e.dataset.move));
+  sl.querySelectorAll('[data-hide]').forEach(e=>e.classList.toggle('gone',step>=+e.dataset.hide));
+  document.getElementById('count').textContent=`${cur+1} / ${slides.length}`+(step<maxStep(sl)?'  ▸':'');
+}
+function show(i,atEnd){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  step=atEnd?maxStep(slides[cur]):0;
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  document.getElementById('progress').style.width=((cur+1)/slides.length*100)+'%';
+  const n=slides[cur].querySelector('aside.notes');
+  notesEl.innerHTML='<b>Speaker notes · slide '+(cur+1)+'</b>'+(n?n.innerHTML:'—');
+  history.replaceState(null,'','#'+(cur+1));
+  paint();
+}
+function next(){step<maxStep(slides[cur])?(step++,paint()):show(cur+1);}
+function prev(){step>0?(step--,paint()):show(cur-1,true);}
+addEventListener('keydown',e=>{
+  if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();next();}
+  else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev();}
+  else if(e.key==='Home')show(0);
+  else if(e.key==='End')show(slides.length-1);
+  else if(e.key==='n'||e.key==='N')notesEl.classList.toggle('on');
+  else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}
+});
+stage.addEventListener('click',e=>{const r=stage.getBoundingClientRect();e.clientX>r.left+r.width/3?next():prev();});
+
+/* ---- generated geometry ---- */
+const NS='http://www.w3.org/2000/svg';
+const rand=(a,b)=>a+Math.random()*(b-a);
+// drawn arrows: SVG markers ignore the draw animation, so swap each marker for a real arrowhead that appears when the line finishes
+document.querySelectorAll('.draw[marker-end]').forEach(el=>{
+  const id=(el.getAttribute('marker-end').match(/#([^)]+)/)||[])[1], mk=id&&document.getElementById(id);
+  const fill=mk?(mk.querySelector('path')||{}).getAttribute?.('fill')||el.getAttribute('stroke'):el.getAttribute('stroke');
+  const mw=mk?+(mk.getAttribute('markerWidth')||3):3, sw=+(el.getAttribute('stroke-width')||1), size=mw*sw;
+  const pl=el.getAttribute('pathLength'); if(pl)el.removeAttribute('pathLength');
+  const L=el.getTotalLength(), p=el.getPointAtLength(L), q=el.getPointAtLength(Math.max(0,L-3));
+  if(pl)el.setAttribute('pathLength',pl);
+  const ang=Math.atan2(p.y-q.y,p.x-q.x)*180/Math.PI, cs=getComputedStyle(el);
+  const sec=v=>parseFloat(v)||0, t=cs.getPropertyValue('--t').trim(), d=cs.getPropertyValue('--d').trim();
+  const h=document.createElementNS(NS,'path');
+  h.setAttribute('d',`M${size*.4} 0 L${-size*.6} ${size/2} L${-size*.6} ${-size/2} Z`);
+  h.setAttribute('fill',fill);h.setAttribute('class','ahead');
+  h.setAttribute('transform',`translate(${p.x},${p.y}) rotate(${ang})`);
+  h.style.setProperty('--d',(sec(d)+(t?sec(t):1.2)).toFixed(2)+'s');
+  el.removeAttribute('marker-end');el.after(h);
+});
+addEventListener('hashchange',()=>{const i=parseInt(location.hash.slice(1),10)-1;if(i!==cur)show(i);});
+show(parseInt(location.hash.slice(1)||'1',10)-1);
+</script>
+</body>
+</html>
