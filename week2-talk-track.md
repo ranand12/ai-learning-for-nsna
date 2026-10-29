@@ -43,7 +43,7 @@ There are really two kinds of AI tools out there. [Click] General-purpose tools:
 
 **Say**
 
-Inside general purpose, there are really four kinds of agent. Same spy every time; what changes is what it can reach. [Click] One: the chatbot. ChatGPT, Claude, Gemini in a chat window. You ask, it answers. It can only talk. [Click] Two: the same agent, plus tools. Now it can connect to things outside: your Gmail, your calendar, your Google Drive, a stock-trading account. It's not just talking any more; it can look things up and do things. [Click] Three: tools, plus its own computer. The company gives the agent a computer of its own, in the cloud. It can write a little program and run it, open files, crunch a spreadsheet, browse websites, all on that computer, not yours. ChatGPT agent, Grok Bot and Manus work like this. [Click] Four: tools, plus YOUR computer. Now the agent works right on your laptop: your files, your folders, your desktop, even your printer. Claude Cowork, Claude Code, Codex and OpenClaw are examples. Notice the pattern: each step, it can reach more. More useful, and you need to trust it more. Keep these four in mind; every example today is one of them.
+Inside general purpose, there are really four kinds of agent. Same spy every time; what changes is what it can reach. [Click] One: the chatbot. ChatGPT, Claude, Gemini in a chat window. You ask, it answers. It can only talk. [Click] Two: the same agent, plus tools. Now it can connect to things outside: your Gmail, your calendar, your Google Drive, a stock-trading account. It's not just talking any more; it can look things up and do things. [Click] Three: tools, plus its own computer. The company gives the agent a computer of its own, in the cloud. It can write a little program and run it, open files, crunch a spreadsheet, browse websites, all on that computer, not yours. Grok Bot, Perplexity Computer and Gemini Spark work like this. [Click] Four: tools, plus YOUR computer. Now the agent works right on your laptop: your files, your folders, your desktop, even your printer. Claude Cowork, Claude Code, Codex and OpenClaw are examples. Notice the pattern: each step, it can reach more. More useful, and you need to trust it more. Keep these four in mind; every example today is one of them.
 
 ## 4. Kind 1: Chatbot — 1 · Chatbot.
 
@@ -51,14 +51,29 @@ Inside general purpose, there are really four kinds of agent. Same spy every tim
 
 - 1 · Chatbot.
 - Left: card 1 · 💬 Chatbot (slides over from the four-kinds slide)
-- Logos, one at a time: ChatGPT · Claude · Gemini · Grok · Meta AI · Copilot
+- Logos, one at a time, each with its lowest tier: ChatGPT Free · Claude Free · Gemini Free · Grok Free · Meta AI Free · Copilot Free
 - What it can do, one at a time: 📚 Learn better · 🎤 Think better · 🎬 Watch better
 
 **Say**
 
-Let's take the four kinds one at a time, starting with the simplest. Kind one: the chatbot. You type, it answers. It can only talk. And you already know the names. [Click] ChatGPT. [Click] Claude. [Click] Gemini. [Click] Grok. [Click] Meta AI, inside WhatsApp and Instagram. [Click] Microsoft Copilot. Just talking doesn't sound like much, but it's already enough to change how you do three things. [Click] Learn better. [Click] Think better. [Click] And watch better: it can even watch videos for you. Let's see each one.
+Let's take the four kinds one at a time, starting with the simplest. Kind one: the chatbot. You type, it answers. It can only talk. And you already know the names. Look at the little tags under each one: green means you can start free. [Click] ChatGPT, free. [Click] Claude, free. [Click] Gemini, free. [Click] Grok, free. [Click] Meta AI, inside WhatsApp and Instagram, free. [Click] Microsoft Copilot, free. Every single chatbot has a free tier. The paid plans, usually twenty dollars a month, give you smarter models and higher limits. Just talking doesn't sound like much, but it's already enough to change how you do three things. [Click] Learn better. [Click] Think better. [Click] And watch better: it can even watch videos for you.
 
-## 5. Ex D: Learn A Concept — Learn anything.
+## 5. Inside: Chatbot — Inside a chatbot.
+
+**On screen**
+
+- Inside a chatbot.
+- App window (blue box, label App, spy in a white-ringed green circle at the corner)
+- Inside: ❄️ frozen 💃 Model · Context window (red box) · Chat screen (Hi! / Hello 👋)
+- Grey dashed ring around the model: 🔁 One reply
+- Tools: 🔍 · 📎
+- Environment (dashed grey panel, right): 💬 Just the chat · ✕ No computer
+
+**Say**
+
+So what's actually inside each kind? Let's open them up. Same pieces as last week. [Click] The app: what you open on your phone or laptop. Our spy in the corner. [Click] Inside it, the model. The frozen dancer from week one. [Click] The context window, the desk: everything the model can see right now. [Click] The chat screen, where you type. [Click] The loop: for a chatbot it's just one round. You ask, it replies, it waits for you. [Click] Tools: very few. Most chatbots can search the web and read a file you upload. That's about it. [Click] And the environment, meaning where it can actually do things: nowhere. It has no computer. All it can do is talk.
+
+## 6. Ex D: Learn A Concept — Learn anything.
 
 **On screen**
 
@@ -75,7 +90,7 @@ Let's take the four kinds one at a time, starting with the simplest. Kind one: t
 
 Now learning. [Click] You say: explain how inflation works, start like I'm ten, then go deeper, then quiz me. [Click] Pick anything that's always confused you. Inflation, mortgages, how vaccines work, your kid's maths homework. [Click] Here I'm using ChatGPT, but Claude, Gemini or Grok will all do this. This one is just kind number one, the plain chatbot. No tools needed. [Click] First, like you're ten: your ice cream used to cost a dollar, now it costs a dollar twenty. [Click] Then like a teenager. [Click] Then the expert version, with interest rates and central banks. You climb the stairs at your own speed, and you can stop anywhere and say: wait, explain that bit again. It never gets tired of you. [Click] And then the magic part: quiz me. Answering questions is how you actually learn, not just reading. It'll tell you what you got wrong, and why.
 
-## 6. Skills — Skills: teach it once.
+## 7. Skills — Skills: teach it once.
 
 **On screen**
 
@@ -90,7 +105,7 @@ Now learning. [Click] You say: explain how inflation works, start like I'm ten, 
 
 Before the next example, one new idea: skills. [Click] Remember the desk, the context window? Whatever is on the desk is all the AI can see. [Click] Here's our agent. [Click] Now imagine a shelf next to the desk with recipe cards on it. Each card is a skill: written instructions for one job, done your way. Write like me. [Click] Do my expense report the way my company wants it. [Click] Grill me. [Click] Make a coloring page. You write each one once. [Click] Now a request comes in: grill me on my party plan. [Click] The agent looks at the shelf, picks the one card that matches, and puts only that card on the desk. The others stay on the shelf, so the desk stays clean. That's the difference from a saved prompt: you don't paste it in. The agent picks the right skill by itself, when it needs it. Claude calls them Skills; ChatGPT and Gemini have their own versions, custom GPTs and Gems. And a skill is just a text file. You can write one in five minutes, or ask the AI to write it for you.
 
-## 7. Ex E: Grill Me — Grill me.
+## 8. Ex E: Grill Me — Grill me.
 
 **On screen**
 
@@ -107,7 +122,7 @@ Before the next example, one new idea: skills. [Click] Remember the desk, the co
 
 Here's that skill in action. [Click] You say: use grill-me, help me plan my daughter's seventh birthday party. [Click] Right now, the idea is a fog in your head. And the AI knows even less than you do. If it just starts answering, you get a generic party plan for a generic kid. [Click] Here it's Claude, which has Skills built in. So the grill-me skill flips it around. Instead of answering, the agent interviews you first, one question at a time. [Click] How many kids? [Click] What's the budget? [Click] Indoor or outdoor? [Click] Any allergies? Watch the meter: every answer, it understands you better. [Click] And only then does it plan, and the plan fits YOUR party. Use this for anything big: a trip, a business idea, a hard email. Let it grill you first.
 
-## 8. Ex L: Analyze Video — Watch a video for you.
+## 9. Ex L: Analyze Video — Watch a video for you.
 
 **On screen**
 
@@ -123,21 +138,35 @@ Here's that skill in action. [Click] You say: use grill-me, help me plan my daug
 
 AI can watch video now, too. [Click] You say: here's the one-hour school board meeting, what got decided, and when? [Click] An hour long. Nobody has time for that. [Click] This is just the chatbot. Gemini is especially good at this: paste a YouTube link, or upload the video, and it actually watches it, the pictures and the sound. [Click] Four minutes in: the budget was approved. [Click] Twenty-one minutes: a new bus route. [Click] Forty-eight minutes: they voted on a later start time. And it gives you the timestamps, so you can jump straight to the part that matters and check it yourself. Works for lectures, how-to videos, your own recorded meetings, even your golf swing.
 
-## 9. Kind 2: + Tools — 2 · Plus tools.
+## 10. Kind 2: + Tools — 2 · Plus tools.
 
 **On screen**
 
 - 2 · Plus tools.
 - Left: card 2 · 🔌 + Tools
-- Logos, one at a time: ChatGPT · Claude · Gemini · Perplexity
+- Logos, one at a time, with lowest tier: ChatGPT $20/mo · Claude Free · Gemini Free · Perplexity $20/mo
 - A dashed blue connector strip: 🔌 Gmail · Google Drive · Google Calendar · Notion · YouTube · Alpaca (logos)
-- What it can do, one at a time: 📥 Organize better · 🎙️ Capture better · 📖 Read better · 🔍 Research better
+- What it can do, one at a time: 📥 Organize better · 🎙️ Capture better · 📖 Read better · 🔍 Research better · 🛒 Shop better
 
 **Say**
 
-Kind two: the same chatbots, plus tools. [Click] ChatGPT. [Click] Claude. [Click] Gemini. [Click] Perplexity. Same apps you just saw, but now they can reach outside the chat. [Click] Into your Gmail, your Google Drive, your calendar, Notion, YouTube, even a trading account. In the apps these are called connectors, or apps. Once it can reach your stuff, here's what changes. [Click] Organize better. [Click] Capture better. [Click] Read better. [Click] Research better. First, how does it actually connect?
+Kind two: the same chatbots, plus tools. The prices start to split here. [Click] ChatGPT: connecting your apps really starts on Plus, twenty dollars a month. The free plan gets a little, and it keeps changing. [Click] Claude: connectors like Gmail and Google Drive work on the free plan. [Click] Gemini: free, and it's already wired into Gmail, Drive and Calendar. [Click] Perplexity: searching your apps and files starts on Pro, twenty dollars. [Click] And these are the kinds of things it plugs into: Gmail, Google Drive, your calendar, Notion, YouTube, even a trading account. In the apps they're called connectors, or apps, or plugins. Once it can reach your stuff, here's what changes. [Click] Organize better. [Click] Capture better. [Click] Read better. [Click] Research better. [Click] Shop better.
 
-## 10. How Does It Connect — How does it connect?
+## 11. Inside: + Tools — Inside: plus tools.
+
+**On screen**
+
+- Inside: plus tools.
+- Same app, model, context window and chat screen as the chatbot
+- New tools glow yellow: Gmail · Google Drive · Google Calendar · Notion · YouTube (logos)
+- Loop changes: 🔁 One reply → 🔁 Until done (ring turns yellow and spins)
+- Environment swaps to a blue panel: 🌐 Your apps, online (Gmail · Drive · Calendar · Notion logos) · via connectors
+
+**Say**
+
+Same app, same model, same desk. Watch what changes. [Click] New tools: connectors to Gmail, Google Drive, your calendar, Notion, YouTube. [Click] And the loop wakes up. Instead of one reply, it keeps going until the job is done: check email, read, sort, check again. [Click] And now it has somewhere to act: your apps, online. It still has no computer of its own; it reaches your apps through the connectors. Notice what didn't change: the model. Same frozen dancer.
+
+## 12. How Does It Connect — How does it connect?
 
 **On screen**
 
@@ -151,7 +180,7 @@ Kind two: the same chatbots, plus tools. [Click] ChatGPT. [Click] Claude. [Click
 
 So how does the agent actually reach your stuff? [Click] Here's our agent, and here are the apps it wants to use: your email, your calendar, your Drive, your trading account. [Click] The main way is called MCP. Don't worry about the letters. Think of it as USB-C for AI: one standard plug. Any app that offers an MCP connector, the agent can plug straight into. In ChatGPT and Claude you'll see these listed as "connectors". One plug, every app. [Click] But what if the site you need has no connector? Your kid's school portal, an old ticketing site, your company's expense system. No plug. [Click] Then the agent does what you'd do: it opens a browser, looks at the page, moves the mouse and clicks the buttons. That's called browser use, or computer use. It's slower and clumsier than a connector, but it works on almost any website.
 
-## 11. Three Ways In — Three ways in.
+## 13. Three Ways In — Three ways in.
 
 **On screen**
 
@@ -164,7 +193,7 @@ So how does the agent actually reach your stuff? [Click] Here's our agent, and h
 
 So, recap: how does outside stuff get into the agent? [Click] Here's the agent. [Click] One: MCP connectors. A clean, official plug into an app: Gmail, Calendar, Drive. [Click] Two: plugins. A plugin is a bundle: one install gives the agent a set of connectors, plus instructions on how to use them, plus a few shortcuts. In ChatGPT these show up as apps; in Claude they're called plugins. Same idea: install once, and the agent gains a whole new ability. [Click] Three: browser use. No plug at all; the agent just uses the website like a person would. Those are the three ways in. Now let's see what you can actually do with all this.
 
-## 12. Ex B: Organize Email — Tame your inbox.
+## 14. Ex B: Organize Email — Tame your inbox.
 
 **On screen**
 
@@ -181,7 +210,7 @@ So, recap: how does outside stuff get into the agent? [Click] Here's the agent. 
 
 Next: email. [Click] You say: sort my inbox into bills, school and junk, and draft replies to anything urgent. [Click] Be honest, how many unread emails do you have right now? [Click] Here it's Gemini, which plugs straight into your Gmail. ChatGPT and Claude have Gmail connectors too. This is kind number two: the agent plus tools. It plugs into Gmail through an MCP connector, the plug we just saw. [Click] Bills. [Click] School. [Click] Junk; most of it, as usual. [Click] And three replies drafted for the urgent ones. [Click] But notice: drafted, not sent. You read them and you hit send. Good habit: let the agent prepare, and you approve anything that goes out with your name on it.
 
-## 13. Ex J: Voice To Notes — Talk it out.
+## 15. Ex J: Voice To Notes — Talk it out.
 
 **On screen**
 
@@ -197,7 +226,7 @@ Next: email. [Click] You say: sort my inbox into bills, school and junk, and dra
 
 Some of us think best out loud. [Click] You say: here's my twenty-minute voice memo from my walk, turn it into notes, to-dos and bookmarks. [Click] And the memo is exactly how we talk: um, so, oh and also, jumping between five topics. [Click] Here it's ChatGPT with the Notion connector. The agent first transcribes it, turns speech into text, and then uses a connector to save the results into your notes app. [Click] Your ideas, pulled out and cleaned up. [Click] Your to-dos, as real checkboxes. [Click] And the things you said you'd look up: that podcast, that recipe. It finds the links and bookmarks them. You just walk and talk. The organising happens for you.
 
-## 14. Ex I: Youtube To Book — Turn videos into a book.
+## 16. Ex I: Youtube To Book — Turn videos into a book.
 
 **On screen**
 
@@ -214,7 +243,7 @@ Some of us think best out loud. [Click] You say: here's my twenty-minute voice m
 
 Here's one for the learners. [Click] You say: take this twelve-video course playlist and turn it into a neat book with chapters. [Click] Twelve videos, hours of watching, and you can't easily skim a video or underline it. [Click] Here it's Claude with a YouTube connector. Every YouTube video has a transcript, the words that were spoken. The agent uses a tool to pull those transcripts, all twelve. [Click] Then it does what a good editor would: removes the ums and the 'smash that like button', puts it in a sensible order, adds chapter titles and headings. Now you have a book you can skim, search and highlight. [Click] And it can even send it straight to your Kindle. Twelve hours of video, read on the couch in an evening.
 
-## 15. Ex M: Deep Research — Deep research.
+## 17. Ex M: Deep Research — Deep research.
 
 **On screen**
 
@@ -231,43 +260,76 @@ Here's one for the learners. [Click] You say: take this twelve-video course play
 
 Last example, and a big one. [Click] You say: which family electric car under forty-five thousand is best for road trips? Compare range, charging and safety. [Click] To answer that properly, you'd read dozens of reviews, spec sheets and safety ratings. [Click] Deep research mode. ChatGPT, Gemini, Claude and Perplexity all have it. Instead of answering in five seconds, the agent goes off for ten or twenty minutes, makes a plan, and reads page after page after page. [Click] You come back to a proper report, with sources for every claim. Eighty-plus sources, in the time it takes to make dinner. [Click] But: check the sources for anything important. Click the links. AI can still misread a page or cite something that doesn't say what it claims. It's a brilliant research assistant, not the final word.
 
-## 16. Kind 3: + Its Own Computer — 3 · Its own computer.
+## 18. Ex Q: Comparison Shopping — Shop smarter.
+
+**On screen**
+
+- Shop smarter.
+- 🧑‍💻 “Find the best 65-inch TV under $800. Compare prices and real reviews across stores.”
+- Sticker (top left, + Tools colour): 🛒 Shop better
+- Logo badge on the agent: ChatGPT
+- Input: 🛒 with store chips Amazon · Best Buy · Costco · Walmart · Target · ⭐ thousands of reviews
+- Agent badge: 🔍 Web search
+- Output: table TV · Store · Price · ⭐: TV A Costco $649 4.7 · TV B Best Buy $699 4.5 · TV C Amazon $779 4.4 (illustrative)
+- Yellow box around TV A + chip 🥇 Best pick
+- Green: 🔗 Links to buy
+
+**Say**
+
+Shopping. [Click] You say: find the best sixty-five-inch TV under eight hundred dollars, and compare prices and real reviews across stores. [Click] Five stores, dozens of models, thousands of reviews, half of them fake. [Click] This is kind two: ChatGPT with web search, and its shopping research mode. It asks you a couple of questions first, like: is it for sports or movies, is the room bright? Then it goes and reads. [Click] One clean table: the TV, the store, the price, the rating. [Click] And a clear pick, with the reason why. [Click] With links to buy. Do check the price on the store's own page before you pay; prices change by the hour.
+
+## 19. Kind 3: + Its Own Computer — 3 · Its own computer.
 
 **On screen**
 
 - 3 · Its own computer.
 - Left: card 3 · ☁️🖥️ + Its own computer
-- Logos, one at a time: ChatGPT agent · Grok Bot · Manus · Perplexity Computer · Gemini Spark
-- What it can do, one at a time: 📊 Analyze better · 🧾 Work better · 🩻 Understand better · 💰 Invest better
+- Logos, one at a time, with lowest tier: Grok Bot $30/mo · Perplexity Computer $20/mo · Gemini Spark $20/mo
+- What it can do, one at a time: 📊 Analyze better · 🧾 Work better · 🩻 Understand better · 💰 Invest better · 🗓️ Book better · 🎓 Plan better · 💸 Save better
 
 **Say**
 
-Kind three: the agent gets its own computer, in the cloud. Not yours: a computer the company lends it, with a browser, files and a terminal. It writes and runs little programs, opens websites, and keeps going even when your laptop is closed. [Click] ChatGPT agent. [Click] Grok Bot, from xAI. [Click] Manus. [Click] Perplexity Computer. [Click] And Gemini Spark, which now lives in the Gemini app as Task mode. Here's what having its own computer unlocks. [Click] Analyze better. [Click] Work better: the boring paperwork. [Click] Understand better. [Click] And invest better.
+Kind three: the agent gets its own computer, in the cloud. Not yours: a computer the company lends it, with a browser, files and a terminal. It writes and runs little programs, opens websites, and keeps going even when your laptop is closed. This is where it starts to cost money. [Click] Grok Bot, from xAI: thirty dollars a month, on the X Premium plan. [Click] Perplexity Computer: included in Perplexity Pro, twenty dollars. [Click] Gemini Spark, now called Task mode in the Gemini app: Google AI Pro, twenty dollars. Here's what having its own computer unlocks. [Click] Analyze better. [Click] Work better: the boring paperwork. [Click] Understand better. [Click] Invest better. [Click] Book better: grab that appointment. [Click] Plan better. [Click] And save better.
 
-## 17. Ex A: Data Analysis — Crunch the numbers.
+## 20. Inside: + Its Own Computer — Inside: its own computer.
+
+**On screen**
+
+- Inside: its own computer.
+- Same app, model, context window, chat screen and connector tools
+- New tools glow yellow: 🌐 · ⌨️ · 📁
+- Loop changes: 🔁 Until done → 🔁 For hours
+- Environment swaps to a purple panel: ☁️ Its cloud computer · 🌐 Browser · 📁 Files · ⌨️ Terminal
+- Chip: 🌙 Works while you sleep
+
+**Say**
+
+Kind three. Again, same app, same model. [Click] New tools: a web browser it can click around in, a terminal to run programs, and files it can create and edit. [Click] And the loop gets long. Not minutes: it can keep going for hours. [Click] Because now the environment is a whole computer, in the company's cloud. Its browser, its files, its terminal. Not yours. [Click] And because it's not your laptop, it keeps working while you sleep. You close the lid, it carries on.
+
+## 21. Ex A: Data Analysis — Crunch the numbers.
 
 **On screen**
 
 - Crunch the numbers.
 - 🧑‍💻 “Here's a year of my bank exports. Clean them up and show me where my money goes.”
 - Sticker (top left, + Its own computer colour): 📊 Analyze better
-- Logo badge on the agent: ChatGPT
+- Logo badge on the agent: Gemini Spark
 - Input: messy spreadsheet (mixed date formats, 'AMZN Mktp' vs 'amazon.com', blanks and '??? POS 8812' in red) · 📄 × 12 messy files
 - Agent badge: ☁️ Its own computer
 - Output: bar chart of spending: 🛒 $4.2k · 🍽️ $3.1k · 🛍️ $2.6k · ✈️ $1.5k (illustrative numbers)
 
 **Say**
 
-First: data. [Click] You say: here's a year of my bank exports, clean them up and show me where my money goes. [Click] And this is what bank exports really look like. Dates in three formats, Amazon spelled two ways, blanks, mystery codes. Normally that's a whole Saturday in Excel. [Click] Here it's ChatGPT, but Claude and Gemini do this too. This is kind number three: the agent with its own computer. Behind the scenes it writes a small program and runs it on its own machine: it fixes the dates, merges the duplicates, fills the categories. You never see the code unless you ask. [Click] And you get this: where your money actually went. Groceries, dining, shopping, travel. Then you just keep talking: break dining down by month, which subscriptions am I paying for twice? Works in ChatGPT, Claude and Gemini; just upload the file.
+First: data. [Click] You say: here's a year of my bank exports, clean them up and show me where my money goes. [Click] And this is what bank exports really look like. Dates in three formats, Amazon spelled two ways, blanks, mystery codes. Normally that's a whole Saturday in Excel. [Click] Here it's Gemini Spark, Google's agent, which can drop the result straight into Google Sheets. This is kind number three: the agent with its own computer. Behind the scenes it writes a small program and runs it on its own machine: it fixes the dates, merges the duplicates, fills the categories. You never see the code unless you ask. [Click] And you get this: where your money actually went. Groceries, dining, shopping, travel. Then you just keep talking: break dining down by month, which subscriptions am I paying for twice? ChatGPT, Claude and Gemini can do a simpler version right in the chat; just upload the file.
 
-## 18. Ex K: Pdf To Table — PDFs to a table.
+## 22. Ex K: Pdf To Table — PDFs to a table.
 
 **On screen**
 
 - PDFs to a table.
 - 🧑‍💻 “Pull the date, store and amount out of these 40 receipts into a spreadsheet.”
 - Sticker (top left, + Its own computer colour): 🧾 Work better
-- Logo badge on the agent: Claude
+- Logo badge on the agent: Perplexity Computer
 - Input: a fanned stack of PDF receipts with a red × 40 badge
 - Agent badges: 📎 Upload · ☁️ Its own computer
 - Output: table Date · Store · Amount: Jan 4 Costco $182.40 · Jan 9 Shell $52.10 · Jan 12 CVS $18.75 · Jan 15 Home Depot $96.20 · ⋮ · Total 40 $2,318.55 (illustrative)
@@ -275,16 +337,16 @@ First: data. [Click] You say: here's a year of my bank exports, clean them up an
 
 **Say**
 
-Tax season special. [Click] You say: pull the date, store and amount out of these forty receipts into a spreadsheet. [Click] Forty PDFs: receipts, invoices, bills. Normally you open each one and type the numbers in by hand. [Click] Here it's Claude. Upload them; the agent reads each one, and on its own computer it builds the spreadsheet. [Click] Date, store, amount, one row per receipt, with a total at the bottom. [Click] And you download a real spreadsheet file. Same trick works for bank statements, pay stubs, insurance documents, anything where the numbers are trapped in a PDF. One tip: spot-check a few rows against the originals. It's very good, but not perfect.
+Tax season special. [Click] You say: pull the date, store and amount out of these forty receipts into a spreadsheet. [Click] Forty PDFs: receipts, invoices, bills. Normally you open each one and type the numbers in by hand. [Click] Here it's Perplexity Computer. Upload them; the agent reads each one, and on its own computer it builds the spreadsheet. [Click] Date, store, amount, one row per receipt, with a total at the bottom. [Click] And you download a real spreadsheet file. Same trick works for bank statements, pay stubs, insurance documents, anything where the numbers are trapped in a PDF. One tip: spot-check a few rows against the originals. It's very good, but not perfect.
 
-## 19. Ex G: Dicom Scans — Read your scans.
+## 23. Ex G: Dicom Scans — Read your scans.
 
 **On screen**
 
 - Read your scans.
 - 🧑‍💻 “Here's the CD from my knee MRI. Turn it into images I can see, and explain them simply.”
 - Sticker (top left, + Its own computer colour): 🩻 Understand better
-- Logo badge on the agent: Manus
+- Logo badge on the agent: Perplexity Computer
 - Input: a 💿 CD with files IMG0001.dcm · IMG0002.dcm · … × 240 files
 - Agent badge: ☁️ Its own computer
 - Output: a grid of 6 greyscale scan slices; one slice gets a yellow highlight box
@@ -292,9 +354,9 @@ Tax season special. [Click] You say: pull the date, store and amount out of thes
 
 **Say**
 
-Here's one most people don't know about. [Click] After an MRI or a CT scan, you often get a CD or a download link. You say: here's the CD from my knee MRI, turn it into images I can see, and explain them simply. [Click] And the CD is full of files called DICOM, hundreds of them, that your laptop can't even open. [Click] Here it's Manus, which gives every task its own computer in the cloud. Kind number three: the agent with its own computer. It writes a little program to read the DICOM files and turn them into normal pictures. [Click] Now you can actually see the slices of your knee. [Click] Ask it: what am I looking at here? It'll walk you through it: this is the bone, this is the cartilage. [Click] And the best use of all: help me prepare questions for my doctor. To be very clear: this is for understanding, not diagnosis. Your doctor reads the scan; AI helps you walk in with better questions.
+Here's one most people don't know about. [Click] After an MRI or a CT scan, you often get a CD or a download link. You say: here's the CD from my knee MRI, turn it into images I can see, and explain them simply. [Click] And the CD is full of files called DICOM, hundreds of them, that your laptop can't even open. [Click] Here it's Perplexity Computer, which gives the job its own computer in the cloud. Kind number three: the agent with its own computer. It writes a little program to read the DICOM files and turn them into normal pictures. [Click] Now you can actually see the slices of your knee. [Click] Ask it: what am I looking at here? It'll walk you through it: this is the bone, this is the cartilage. [Click] And the best use of all: help me prepare questions for my doctor. To be very clear: this is for understanding, not diagnosis. Your doctor reads the scan; AI helps you walk in with better questions.
 
-## 20. Ex F: Manage Money + Trade — Manage my money.
+## 24. Ex F: Manage Money + Trade — Manage my money.
 
 **On screen**
 
@@ -311,22 +373,90 @@ Here's one most people don't know about. [Click] After an MRI or a CT scan, you 
 
 **Say**
 
-This one gets people's attention. [Click] You say: here's a hundred thousand dollars of paper money, research the market, then manage it, or just place a trade. You can hand it the whole portfolio, or just one trade. [Click] Here's the account, on Alpaca, a stock-trading app with an official MCP connector. And notice: paper. Paper trading means pretend money. A practice account. That's exactly where you start. [Click] Here it's Grok Bot, xAI's agent. It runs on its own computer in the cloud and keeps working after you close your laptop. It plugs into Alpaca, and it can also open any website it needs. ChatGPT agent or Manus could do the same. And it doesn't trade first. It researches first. [Click] It reads the news. [Click] It checks the latest earnings. [Click] It looks at the charts. [Click] Then it proposes an order: buy twenty-five shares of Apple, at market price, in the paper account. [Click] And a good agent stops here and asks: approve? Anything that spends money, you approve. Always. [Click] Filled. Not financial advice, please. The point is: an agent can now research and act in your real accounts. Which is exactly why you start with paper money and keep approvals on.
+This one gets people's attention. [Click] You say: here's a hundred thousand dollars of paper money, research the market, then manage it, or just place a trade. You can hand it the whole portfolio, or just one trade. [Click] Here's the account, on Alpaca, a stock-trading app with an official MCP connector. And notice: paper. Paper trading means pretend money. A practice account. That's exactly where you start. [Click] Here it's Grok Bot, xAI's agent. It runs on its own computer in the cloud and keeps working after you close your laptop. It plugs into Alpaca, and it can also open any website it needs. Perplexity Computer or Gemini Spark could do the same. And it doesn't trade first. It researches first. [Click] It reads the news. [Click] It checks the latest earnings. [Click] It looks at the charts. [Click] Then it proposes an order: buy twenty-five shares of Apple, at market price, in the paper account. [Click] And a good agent stops here and asks: approve? Anything that spends money, you approve. Always. [Click] Filled. Not financial advice, please. The point is: an agent can now research and act in your real accounts. Which is exactly why you start with paper money and keep approvals on.
 
-## 21. Kind 4: + Your Computer — 4 · Your computer.
+## 25. Ex N: Nj Dmv Appointment — Beat the DMV.
+
+**On screen**
+
+- Beat the DMV.
+- 🧑‍💻 “Check the NJ MVC site every hour and grab the first license-renewal slot near Edison.”
+- Sticker (top left, + Its own computer colour): 🗓️ Book better
+- Logo badge on the agent: Grok Bot
+- Input: browser window 🔒 telegov.njportal.com · Appointments · a grid of red ✕ · No appointments available
+- Agent badges: ☁️ Its own computer · 🖱️ Browser use
+- Output, one at a time: 9:00 ✕ Nothing · 10:00 ✕ Nothing · 11:00 ✅ Edison · Thu 9:20 AM (illustrative)
+- Yellow shield: ✋ Book it?
+- Green: 📅 Booked · on your calendar
+
+**Say**
+
+Anyone here tried to get an appointment at the New Jersey MVC? [Click] You say: check the NJ MVC site every hour and grab the first license-renewal slot near Edison. [Click] And this is what you normally see: no appointments available. Slots only pop up when someone cancels, at random times. People literally sit there hitting refresh. [Click] Here it's Grok Bot, which can sign in and work on websites that have no connector. There's no connector for the MVC site, so the agent uses its own computer and its own browser, and clicks through the site just like you would. Every hour, even at two in the morning. [Click] Nine o'clock: nothing. [Click] Ten: nothing. [Click] Eleven: a slot in Edison, Thursday morning. [Click] Booking needs your personal details, so it stops and asks: book it? [Click] Booked, and it's on your calendar. This works for any website you keep checking: passport appointments, restaurant reservations, camp sign-ups.
+
+## 26. Ex O: College Research — Find the right college.
+
+**On screen**
+
+- Find the right college.
+- 🧑‍💻 “Compare 12 colleges for my daughter who wants to study nursing: cost, fit and deadlines. Put it all in a spreadsheet.”
+- Sticker (top left, + Its own computer colour): 🎓 Plan better
+- Logo badge on the agent: Perplexity Computer
+- Input: 🎓 card with school chips: Rutgers · TCNJ · Penn State · Drexel · + 8 more
+- Agent badges: ☁️ Its own computer · 🔍 Hundreds of pages
+- Output: spreadsheet School · Nursing · Cost · Fit: Rutgers ✓ $ ⭐⭐⭐ · TCNJ ✓ $ ⭐⭐⭐ · Penn State ✓ $$$ ⭐⭐ · Drexel ✓ $$$ ⭐⭐ · ⋮ (illustrative)
+- Green: 📊 colleges.xlsx
+- Chip: 📅 Deadlines → your calendar
+
+**Say**
+
+For the parents in the room. [Click] You say: compare twelve colleges for my daughter, who wants to study nursing: cost, fit and deadlines, and put it all in a spreadsheet. [Click] Twelve schools. Normally that's weeks of tabs open on every college website. [Click] Here it's Perplexity Computer. On its own computer it opens every school's site, the admissions pages, the nursing program pages, the cost calculators. Hundreds of pages. [Click] And it builds you one table: does it have nursing, rough cost (in-state Rutgers and TCNJ are much cheaper than Penn State or Drexel for a New Jersey family), and how well each fits what you told it. [Click] As a real spreadsheet file you can sort and share. [Click] And it can put every application deadline on your calendar. Then you check the important numbers on the schools' own sites. It does the legwork; you make the call.
+
+## 27. Ex P: Price Watcher — Watch the price.
+
+**On screen**
+
+- Watch the price.
+- 🧑‍💻 “Watch flights from Newark to Chennai for December. Tell me the moment one drops under $1,100.”
+- Sticker (top left, + Its own computer colour): 💸 Save better
+- Logo badge on the agent: Gemini Spark
+- Input: ✈️ EWR → MAA · December · round trip · $1,340 (red)
+- Agent badges: ☁️ Its own computer · ⏰ Checks daily
+- Output: price line falling over the days, crossing a dashed yellow $1,100 line
+- Green alert: 🔔 Dropped to $1,060! (illustrative)
+- Yellow shield: ✋ You book it
+
+**Say**
+
+Who's flying to India this December? [Click] You say: watch flights from Newark to Chennai for December, and tell me the moment one drops under eleven hundred dollars. [Click] Today it's thirteen-forty. [Click] Here it's Gemini Spark, now Task mode in the Gemini app. Its own computer checks the prices every day, while you get on with your life. No more checking Google Flights every morning. [Click] Watch the price wobble, and then dip under your line. [Click] And you get a ping: dropped to ten-sixty. [Click] You still book it yourself, with your card. Same trick for anything: a TV on sale, concert tickets, a used car listing, hotel prices.
+
+## 28. Kind 4: + Your Computer — 4 · Your computer.
 
 **On screen**
 
 - 4 · Your computer.
 - Left: card 4 · 💻📂 + Your computer
-- Logos, one at a time: Claude Cowork · Claude Code · Codex · OpenClaw
-- What it can do, one at a time: 🗂️ Tidy better · 🖍️ Parent better
+- Logos, one at a time, with lowest tier: Claude Cowork $20/mo · Claude Code $20/mo · Codex Free · OpenClaw Free + AI fees
+- What it can do, one at a time: 🗂️ Tidy better · 📸 Remember better · 🖍️ Parent better
 
 **Say**
 
-Kind four: the agent works on YOUR computer. Your files, your folders, your apps, your printer. Most powerful, and it needs the most trust. [Click] Claude Cowork: point it at a folder and it gets to work. [Click] Claude Code. [Click] OpenAI's Codex. These two started as tools for programmers, but people now use them for all kinds of everyday computer chores. [Click] And OpenClaw, the open-source one that went viral this year. You install it on your own machine and text it from WhatsApp or iMessage. What does that unlock? [Click] Tidy better. [Click] And, my favourite, parent better.
+Kind four: the agent works on YOUR computer. Your files, your folders, your apps, your printer. Most powerful, and it needs the most trust. [Click] Claude Cowork: point it at a folder and it gets to work. Claude Pro, twenty dollars. [Click] Claude Code: same Pro plan. [Click] OpenAI's Codex: included even on the free ChatGPT plan, with tight limits, in the desktop app. Claude Code and Codex started as tools for programmers, but people now use them for all kinds of everyday computer chores. [Click] And OpenClaw, the open-source one that went viral this year. The software is free; you pay for the AI model it uses, often five to twenty dollars a month. You install it on your own machine and text it from WhatsApp or iMessage. What does that unlock? [Click] Tidy better. [Click] Remember better. [Click] And, my favourite, parent better.
 
-## 22. Ex C: Clean Up Desktop — Clean up your desktop.
+## 29. Inside: + Your Computer — Inside: your computer.
+
+**On screen**
+
+- Inside: your computer.
+- Same app, model, context window, chat screen, tools and 🔁 For hours loop
+- New tool glows yellow: 🖱️
+- Environment swaps to a pink panel: 💻 Your computer · 📁 Your files · 🌐 Your browser · 🖨️ Your printer
+- Chip: 🛡️ Asks first
+
+**Say**
+
+And kind four. Same app, same model, same loop. [Click] One more tool: it can move your mouse and type on your keyboard, so it can use any app you can. [Click] And the environment is now your computer. Your files, your browser where you're already logged in, your printer. That's why it's so useful, and why you need to trust it. [Click] So a good one always asks first, before it deletes, sends or buys anything. One picture to remember: across all four kinds the model never changed. What changed is everything around it: the tools, the loop, and where it's allowed to work.
+
+## 30. Ex C: Clean Up Desktop — Clean up your desktop.
 
 **On screen**
 
@@ -343,7 +473,24 @@ Kind four: the agent works on YOUR computer. Your files, your folders, your apps
 
 Everyone's favourite. [Click] You say: my desktop is a mess, sort everything into folders and bin the duplicates. [Click] Look familiar? IMG something, resume v3, resume v3 copy, a biryani recipe next to your tax forms. [Click] This one needs kind number four: the agent on YOUR computer, because the files are on your laptop. Here it's Claude Cowork. You point it at the folder and give it permission. [Click] It decides on folders: photos, taxes, recipes, resumes, and a bin for duplicates. [Click] And everything goes where it belongs, and the copies go in the bin. Tip: the first time, ask it to show you the plan before it moves anything. A good agent will ask before it deletes.
 
-## 23. Ex H: Daily Coloring Page — A coloring page every morning.
+## 31. Ex R: Rename Photos — Name your photos.
+
+**On screen**
+
+- Name your photos.
+- 🧑‍💻 “Rename my 500 trip photos by date and place, like '2024-03 Chennai - Marina Beach'.”
+- Sticker (top left, + Your computer colour): 📸 Remember better
+- Logo badge on the agent: Codex
+- Input: file list 🖼️ IMG_4421.jpg · IMG_4422.jpg · DSC_0091.jpg · PXL_20240314.jpg · IMG_4423 (1).jpg · … × 500
+- Agent badges: 💻 Your computer · 👀 Looks at each photo
+- Output: renamed list (green border): 2024-03 Chennai - Marina Beach · 2024-03 Chennai - Kapaleeshwarar · 2024-03 Madurai - Meenakshi Temple · 2024-11 Edison - Diwali party · …
+- Green: 📁 Sorted into 6 trip folders
+
+**Say**
+
+Every phone names photos like this. [Click] You say: rename my five hundred trip photos by date and place, like 2024-03 Chennai, Marina Beach. [Click] IMG 4421, DSC 0091, PXL something. Try finding the Meenakshi temple photos in that. [Click] Here it's Codex, on your own computer, which even the free plan can try. It reads the date and location hidden inside each photo file, and it actually looks at each photo to work out what's in it. [Click] Now they have names a human can read and search: Marina Beach, Kapaleeshwarar temple, Meenakshi temple, the Diwali party. [Click] And it sorts them into a folder per trip. Tip: ask it to show you ten example names first, and say go only when you like them.
+
+## 32. Ex H: Daily Coloring Page — A coloring page every morning.
 
 **On screen**
 
@@ -360,7 +507,7 @@ Everyone's favourite. [Click] You say: my desktop is a mess, sort everything int
 
 This one's my favourite. [Click] You say: every morning at seven, make a coloring page for Maya, she's six and loves dinosaurs and cricket, and print it. [Click] Seven o'clock, Maya, dinosaurs, cricket. [Click] Here it's OpenClaw, the open-source agent that lives on your own computer. Two new things here. It runs every morning on a schedule; you set it once. And it's on your computer, because it needs your printer. [Click] At seven, the printer wakes up. [Click] Out comes a fresh page: a dinosaur playing cricket, drawn just for her. A new one every day, never the same. [Click] And by breakfast, she's coloured it in. Once you've set something like this up, you start seeing small daily jobs everywhere that an agent could just quietly do.
 
-## 24. Purpose Built — Now, purpose built.
+## 33. Purpose Built — Now, purpose built.
 
 **On screen**
 
@@ -373,7 +520,7 @@ This one's my favourite. [Click] You say: every morning at seven, make a colorin
 
 Remember the two boxes from the start? We've spent the whole session in the general-purpose box. [Click] Now let's open the other one: purpose-built tools. Each one does a single job, and does it better than any chatbot. [Click] Learn Your Way, from Google: it turns a textbook into lessons made for you. [Click] Google AI Studio: a free playground to try Google's newest models and build little apps just by describing them. [Click] ElevenLabs: voices. Any voice, any language, even your own. [Click] And there are hundreds more. A new one launches every week. Let's look at these three quickly.
 
-## 25. Learn Your Way — Learn Your Way.
+## 34. Learn Your Way — Learn Your Way.
 
 **On screen**
 
@@ -386,7 +533,7 @@ Remember the two boxes from the start? We've spent the whole session in the gene
 
 Learn Your Way is an experiment from Google. [Click] You start with a normal textbook chapter. Photosynthesis, say. Dense, grey, boring. [Click] Then you tell it about the learner: grade seven, loves football. [Click] And it rewrites the chapter for that student, at their level, with examples from football. [Click] It makes a mind map, so you see the big picture. [Click] Slides, with narration. [Click] An audio lesson you can listen to in the car. [Click] And quizzes along the way, to check it's sinking in. Same textbook, but built for one kid. That's the advantage of a purpose-built tool: you'd need ten clever prompts to get this out of a chatbot. Here it's one button.
 
-## 26. Ai Studio — Google AI Studio.
+## 35. Ai Studio — Google AI Studio.
 
 **On screen**
 
@@ -400,7 +547,7 @@ Learn Your Way is an experiment from Google. [Click] You start with a normal tex
 
 Second: Google AI Studio. [Click] Here's a fun one to try at home. You type: build me a Spanish flashcard app for my son. [Click] AI Studio is Google's playground. It's where Google puts its newest models first, and you can try them directly. [Click] It has a build mode: you describe an app in plain English, and it builds a working one in front of you. [Click] Here's the flashcard: perro. [Click] Tap it, and it flips: dog. Want a score counter? A sound when he gets it right? Just ask. [Click] And it's free to try. You don't need to know any code. We'll go much deeper into building things like this in week three.
 
-## 27. Elevenlabs — ElevenLabs.
+## 36. Elevenlabs — ElevenLabs.
 
 **On screen**
 
@@ -412,6 +559,43 @@ Second: Google AI Studio. [Click] Here's a fun one to try at home. You type: bui
 **Say**
 
 Third: ElevenLabs, for voices. [Click] Remember Pip the hedgehog from last week's bedtime story? You type the story. [Click] And ElevenLabs reads it aloud, and it sounds like a real person: pauses, emotion, a little laugh in the right place. [Click] Pick any voice: a grandma, a deep movie-trailer voice, a child. [Click] Any language. Here's the fun part: the same story in Tamil, in Spanish, in almost any language. You can even dub a whole video into another language. [Click] And you can clone your own voice from a short recording. Imagine your kid's bedtime story read in your voice while you're travelling. Which, yes, also means: be careful. If a phone call sounds exactly like your family member asking for money, call them back on a number you know.
+
+## 37. Think Like A Ceo — Think like a CEO.
+
+**On screen**
+
+- Think like a CEO.
+- 🧑‍💼 ← You
+- → spy with a gold ring: Chief of staff
+- → four named specialist spies, one per click: 📥 Inbox Ida · ✈️ Travel Tara · 🧾 Tax Tom · 🎓 College Cara
+- Everyone gets a chief of staff now.
+
+**Say**
+
+So how should you be thinking about all this? Not one task at a time. One level higher. Like a CEO. [Click] Here's you. A CEO doesn't do every task themselves; they delegate. [Click] And the first thing most busy CEOs hire is a chief of staff: one person you talk to, who makes sure everything else gets done. That's what these agents give you. You talk to one, and it hands out the work. [Click] One agent owns your inbox. Give it a name: Inbox Ida. [Click] Travel Tara handles trips and prices. [Click] Tax Tom collects receipts and paperwork. [Click] College Cara runs the college research. One agent, one job: that's the number-one tip from the team that built Grok Bot. Narrow jobs, given real names, because a teammate with a name gets delegated to, and a 'task 3' gets micromanaged. They call it teammates, not tasks. [Click] Until now, only CEOs had a chief of staff. Now every one of us can have one, for about the price of a Netflix subscription.
+
+## 38. Don'T Think Small — Don't think small.
+
+**On screen**
+
+- Don't think small.
+- Idea cards growing left to right, one per click: ✍️ Fix my email · 🗂️ Run the family paperwork · 🏪 Run my side business · 🚀 Your crazy idea (biggest, glowing yellow)
+- Green bar: 💡 Bring it. In Week 3, we build it.
+
+**Say**
+
+Second mindset shift: don't think small. [Click] Most people start here: fix my email. Fine. [Click] Then they realise it can run the family paperwork. [Click] Then: it could run my side business, the orders, the invoices, the follow-ups. [Click] And then there's the idea you haven't even let yourself think of yet, because until now it would have needed a team of ten people. Here's a line from one of the people running a whole team of these agents: "The thing probably holding you back is you thinking about what is actually possible." Most of us are limited by our imagination, not by the tools. You can do things now you haven't even thought of. [Click] So here's my ask: write your crazy idea down and bring it. Week three is building with AI. We'll pick some of your ideas and actually try to build them, live. No idea is too big.
+
+## 39. Start Here — Start here.
+
+**On screen**
+
+- Start here.
+- Four cards, one per click: 😤 Your most annoying task (Not the most impressive one) · 🎙️ Talk for 15 minutes (Your life, your job, what's broken) · 🔌 Connect your apps (Email, calendar, Drive) · 👀 Watch first, then let it act (Read → draft → do)
+
+**Say**
+
+So where do you start this week? This comes straight from the Grok Bot team's own advice after building a whole product with agents in three days. [Click] One: pick the most annoying part of your day. Not the most impressive one, the most annoying one. That's where you'll actually feel the difference. [Click] Two: record a fifteen-minute voice memo. Who you are, what your job is, what's broken, what you wish someone else would do. Give it to the AI and ask it to propose a plan. You'll be surprised. [Click] Three: connect your apps first: email, calendar, Drive. Connectors are faster, cheaper and more reliable than letting it click around websites. [Click] Four: start it read-only. First it just reads and summarises. Then it drafts, and you send. Only when you trust it do you let it act on its own. That's your homework. And bring your crazy ideas next week.
 
 
 ---

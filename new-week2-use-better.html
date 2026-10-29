@@ -554,7 +554,7 @@ aside.notes,aside.onscreen{display:none}
 .w2-ask .u{font-size:64px;line-height:1}
 .w2-ask .p{background:var(--fg);color:#0A0A0A;border-radius:22px;padding:14px 26px;font-size:27px;font-weight:700;line-height:1.3}
 .w2-ring{position:absolute;left:675px;top:455px;width:250px;height:250px;border-radius:50%;border:6px dashed var(--dyk);animation:agSpin 8s linear infinite}
-.w2-tags{position:absolute;left:540px;top:728px;width:520px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.w2-tags{position:absolute;left:575px;top:728px;width:450px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
 .w2-tag{padding:7px 16px;border-radius:999px;border:3px solid var(--c,#F5F5F0);color:var(--c,#F5F5F0);font-size:21px;font-weight:800;white-space:nowrap;background:#0A0A0A}
 .w2-card{position:absolute;border:3px solid #2A2A28;border-radius:20px;background:#141414}
 .w2-lbl{position:absolute;font-size:24px;font-weight:700;color:var(--dim);text-align:center;white-space:nowrap}
@@ -641,14 +641,33 @@ aside.notes,aside.onscreen{display:none}
 .w2-lvl.ho{left:150px}
 .active .w2-lvl.ho{animation:w2ho 1s cubic-bezier(.5,0,.2,1) .15s both}
 @keyframes w2ho{from{transform:translateX(var(--fx))}to{transform:none}}
-.w2-logo{position:absolute;top:250px;width:150px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.w2-logo{position:absolute;top:235px;width:150px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
 .w2-logo img{width:110px;height:110px;border-radius:26px;background:var(--fg);padding:16px;object-fit:contain}
 .w2-logo b{font-size:21px;font-weight:800;line-height:1.15}
-.w2-plugs{position:absolute;left:540px;top:440px;display:flex;align-items:center;gap:16px;padding:14px 22px;border:3px dashed var(--harness);border-radius:22px}
+.w2-plugs{position:absolute;left:540px;top:465px;display:flex;align-items:center;gap:16px;padding:14px 22px;border:3px dashed var(--harness);border-radius:22px}
 .w2-plugs .e{font-size:44px;line-height:1;margin-right:4px}
 .w2-plugs img{width:64px;height:64px;border-radius:16px;background:var(--fg);padding:11px;object-fit:contain}
-.w2-better{position:absolute;width:460px;height:86px;border-radius:22px;border:4px solid var(--c);background:#111;display:flex;align-items:center;gap:16px;padding:0 26px;font-size:34px;font-weight:800;color:var(--c);white-space:nowrap}
+.w2-better{position:absolute;width:460px;height:80px;border-radius:22px;border:4px solid var(--c);background:#111;display:flex;align-items:center;gap:16px;padding:0 26px;font-size:34px;font-weight:800;color:var(--c);white-space:nowrap}
 .w2-better .e{font-size:44px;line-height:1}
+.w2-price{font-size:17px;font-weight:800;padding:3px 12px;border-radius:999px;border:2px solid var(--pc);color:var(--pc);white-space:nowrap}
+.w2-env{position:absolute;left:1060px;top:190px;width:430px;height:660px;border:4px solid var(--c);border-radius:24px;background:#101010;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:30px}
+.w2-env>b{position:absolute;left:28px;top:20px;font-size:24px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
+.w2-env .big{font-size:120px;line-height:1}
+.w2-env .t{font-size:32px;font-weight:800;text-align:center}
+.w2-env .grid{display:grid;grid-template-columns:repeat(2,110px);gap:18px}
+.w2-env .grid img{width:110px;height:110px;border-radius:24px;background:var(--fg);padding:20px;object-fit:contain}
+.w2-env .rows{display:flex;flex-direction:column;gap:12px;width:100%}
+.w2-env .rows span{border:3px solid #333;border-radius:14px;padding:12px 20px;font-size:26px;font-weight:700}
+.w2-tools{position:absolute;left:150px;top:690px;display:flex;gap:10px}
+.w2-tl{width:62px;height:62px;border:4px solid var(--harness);border-radius:16px;background:#0A0A0A;display:flex;align-items:center;justify-content:center;font-size:36px;line-height:1;box-shadow:0 0 20px rgba(77,159,255,.3)}
+.w2-tl img{width:40px;height:40px;background:#fff;border-radius:10px;padding:6px;object-fit:contain}
+.w2-tl.new{border-color:var(--dyk);box-shadow:0 0 26px rgba(255,210,63,.6)}
+.w2-cal{position:absolute;display:grid;grid-template-columns:repeat(5,72px);gap:10px}
+.w2-cal i{height:62px;border-radius:10px;background:rgba(255,90,61,.12);border:2px solid rgba(255,90,61,.5);color:var(--demo);font-style:normal;font-size:28px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.w2-files{padding:20px 24px;display:flex;flex-direction:column;gap:12px}
+.w2-files span{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:19px;font-weight:600;white-space:nowrap}
+.w2-idea{position:absolute;bottom:140px;border:4px solid var(--c);border-radius:24px;background:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;font-weight:800;color:var(--c);padding:16px;line-height:1.15}
+.w2-idea .e{line-height:1}
 /* purpose-built */
 .w2-tool{position:absolute;top:250px;width:300px;height:520px;border:3px solid #2A2A28;border-top:8px solid var(--dyk);border-radius:24px;background:#151515;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:20px;text-align:center}
 .w2-tool .e{font-size:120px;line-height:1}
@@ -731,7 +750,7 @@ aside.notes,aside.onscreen{display:none}
     4 · 💻📂 + Your computer
     Small icons at the bottom of each card stack up: 💬 → 💬🔌 → 💬🔌☁️ → 💬🔌💻
   </aside>
-  <aside class="notes">Inside general purpose, there are really four kinds of agent. Same spy every time; what changes is what it can reach. [Click] One: the chatbot. ChatGPT, Claude, Gemini in a chat window. You ask, it answers. It can only talk. [Click] Two: the same agent, plus tools. Now it can connect to things outside: your Gmail, your calendar, your Google Drive, a stock-trading account. It's not just talking any more; it can look things up and do things. [Click] Three: tools, plus its own computer. The company gives the agent a computer of its own, in the cloud. It can write a little program and run it, open files, crunch a spreadsheet, browse websites, all on that computer, not yours. ChatGPT agent, Grok Bot and Manus work like this. [Click] Four: tools, plus YOUR computer. Now the agent works right on your laptop: your files, your folders, your desktop, even your printer. Claude Cowork, Claude Code, Codex and OpenClaw are examples. Notice the pattern: each step, it can reach more. More useful, and you need to trust it more. Keep these four in mind; every example today is one of them.</aside>
+  <aside class="notes">Inside general purpose, there are really four kinds of agent. Same spy every time; what changes is what it can reach. [Click] One: the chatbot. ChatGPT, Claude, Gemini in a chat window. You ask, it answers. It can only talk. [Click] Two: the same agent, plus tools. Now it can connect to things outside: your Gmail, your calendar, your Google Drive, a stock-trading account. It's not just talking any more; it can look things up and do things. [Click] Three: tools, plus its own computer. The company gives the agent a computer of its own, in the cloud. It can write a little program and run it, open files, crunch a spreadsheet, browse websites, all on that computer, not yours. Grok Bot, Perplexity Computer and Gemini Spark work like this. [Click] Four: tools, plus YOUR computer. Now the agent works right on your laptop: your files, your folders, your desktop, even your printer. Claude Cowork, Claude Code, Codex and OpenClaw are examples. Notice the pattern: each step, it can reach more. More useful, and you need to trust it more. Keep these four in mind; every example today is one of them.</aside>
 </section>
 
 
@@ -739,26 +758,55 @@ aside.notes,aside.onscreen{display:none}
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">1 · Chatbot.</h2>
   <div class="w2-lvl ho" style="--fx:5px;--c:#F5F5F0"><span class="n">1</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero">💬</div><b>Chatbot</b><div class="acc"><span>💬</span></div></div>
-  <div class="w2-logo" data-step="1" style="left:540px"><img src="gifs/logos/openai.png" alt=""><b>ChatGPT</b></div>
-  <div class="w2-logo" data-step="2" style="left:700px"><img src="gifs/logos/claude.png" alt=""><b>Claude</b></div>
-  <div class="w2-logo" data-step="3" style="left:860px"><img src="gifs/logos/gemini.png" alt=""><b>Gemini</b></div>
-  <div class="w2-logo" data-step="4" style="left:1020px"><img src="gifs/logos/grok.png" alt=""><b>Grok</b></div>
-  <div class="w2-logo" data-step="5" style="left:1180px"><img src="gifs/logos/meta.png" alt=""><b>Meta AI</b></div>
-  <div class="w2-logo" data-step="6" style="left:1340px"><img src="gifs/logos/copilot.png" alt=""><b>Copilot</b></div>
-  <div class="w2-better" data-step="7" style="left:540px;top:480px;--c:#F5F5F0"><span class="e">📚</span>Learn better</div>
-  <div class="w2-better" data-step="8" style="left:1030px;top:480px;--c:#F5F5F0"><span class="e">🎤</span>Think better</div>
-  <div class="w2-better" data-step="9" style="left:540px;top:590px;--c:#F5F5F0"><span class="e">🎬</span>Watch better</div>
+  <div class="w2-logo" data-step="1" style="left:540px"><img src="gifs/logos/openai.png" alt=""><b>ChatGPT</b><span class="w2-price" style="--pc:#2EE59D">Free</span></div>
+  <div class="w2-logo" data-step="2" style="left:700px"><img src="gifs/logos/claude.png" alt=""><b>Claude</b><span class="w2-price" style="--pc:#2EE59D">Free</span></div>
+  <div class="w2-logo" data-step="3" style="left:860px"><img src="gifs/logos/gemini.png" alt=""><b>Gemini</b><span class="w2-price" style="--pc:#2EE59D">Free</span></div>
+  <div class="w2-logo" data-step="4" style="left:1020px"><img src="gifs/logos/grok.png" alt=""><b>Grok</b><span class="w2-price" style="--pc:#2EE59D">Free</span></div>
+  <div class="w2-logo" data-step="5" style="left:1180px"><img src="gifs/logos/meta.png" alt=""><b>Meta AI</b><span class="w2-price" style="--pc:#2EE59D">Free</span></div>
+  <div class="w2-logo" data-step="6" style="left:1340px"><img src="gifs/logos/copilot.png" alt=""><b>Copilot</b><span class="w2-price" style="--pc:#2EE59D">Free</span></div>
+  <div class="w2-better" data-step="7" style="left:540px;top:490px;--c:#F5F5F0"><span class="e">📚</span>Learn better</div>
+  <div class="w2-better" data-step="8" style="left:1030px;top:490px;--c:#F5F5F0"><span class="e">🎤</span>Think better</div>
+  <div class="w2-better" data-step="9" style="left:540px;top:586px;--c:#F5F5F0"><span class="e">🎬</span>Watch better</div>
   <aside class="onscreen">
     1 · Chatbot.
     Left: card 1 · 💬 Chatbot (slides over from the four-kinds slide)
-    Logos, one at a time: ChatGPT · Claude · Gemini · Grok · Meta AI · Copilot
+    Logos, one at a time, each with its lowest tier: ChatGPT Free · Claude Free · Gemini Free · Grok Free · Meta AI Free · Copilot Free
     What it can do, one at a time: 📚 Learn better · 🎤 Think better · 🎬 Watch better
   </aside>
-  <aside class="notes">Let's take the four kinds one at a time, starting with the simplest. Kind one: the chatbot. You type, it answers. It can only talk. And you already know the names. [Click] ChatGPT. [Click] Claude. [Click] Gemini. [Click] Grok. [Click] Meta AI, inside WhatsApp and Instagram. [Click] Microsoft Copilot. Just talking doesn't sound like much, but it's already enough to change how you do three things. [Click] Learn better. [Click] Think better. [Click] And watch better: it can even watch videos for you. Let's see each one.</aside>
+  <aside class="notes">Let's take the four kinds one at a time, starting with the simplest. Kind one: the chatbot. You type, it answers. It can only talk. And you already know the names. Look at the little tags under each one: green means you can start free. [Click] ChatGPT, free. [Click] Claude, free. [Click] Gemini, free. [Click] Grok, free. [Click] Meta AI, inside WhatsApp and Instagram, free. [Click] Microsoft Copilot, free. Every single chatbot has a free tier. The paid plans, usually twenty dollars a month, give you smarter models and higher limits. Just talking doesn't sound like much, but it's already enough to change how you do three things. [Click] Learn better. [Click] Think better. [Click] And watch better: it can even watch videos for you.</aside>
 </section>
 
 
-<!-- ============================ 5. EX D: LEARN A CONCEPT ============================ -->
+<!-- ============================ 5. INSIDE: CHATBOT ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Inside a chatbot.</h2>
+  <div class="wa-win" data-step="1" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
+  <div class="wa-winlbl" data-step="1" style="left:210px;top:198px">App</div>
+  <div class="agcirc" data-step="1" style="left:60px;top:145px;width:100px;height:100px;border:4px solid #F5F5F0"><img src="gifs/agent.png" alt=""></div>
+  <div class="fm" data-step="2" style="left:495px;top:330px">💃</div>
+  <div class="wa-cap" data-step="2" style="left:435px;top:578px;width:300px;color:var(--model)">Model</div>
+  <div class="ag-ctx" data-step="3" style="left:150px;top:290px;width:250px;height:190px;padding:14px;gap:10px"><i style="display:block;height:26px;border-radius:5px;background:#8C8C86"></i><i style="display:block;height:26px;border-radius:5px;background:var(--dyk);width:70%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--fg);width:85%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--model);width:60%"></i></div>
+  <div class="wa-cap" data-step="3" style="left:150px;top:490px;width:250px">Context window</div>
+  <div class="wa-chat" data-step="4" style="left:790px;top:290px;width:190px;height:150px"><span class="u">Hi!</span><span class="a">Hello 👋</span></div>
+  <div class="wa-cap" data-step="4" style="left:790px;top:450px;width:190px">Chat screen</div>
+  <svg class="layer" data-step="5" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle cx="585" cy="420" r="140" fill="none" stroke="#555" stroke-width="6" stroke-dasharray="26 18"/></svg>
+  <div class="wa-cap" data-step="5" style="left:435px;top:612px;width:300px;color:var(--dim)">🔁 One reply</div>
+  <div class="wa-cap" style="left:150px;top:650px;width:200px;text-align:left;color:var(--harness)" data-step="6">Tools</div>
+  <div class="w2-tools"><span class="w2-tl" data-step="6">🔍</span><span class="w2-tl" data-step="6">📎</span></div>
+  <div class="layer" data-step="7"><div class="w2-env" style="--c:#555;border-style:dashed"><b>Environment</b><span class="big">💬</span><span class="t">Just the chat</span><span class="t" style="color:var(--demo)">✕ No computer</span></div></div>
+  <aside class="onscreen">
+    Inside a chatbot.
+    App window (blue box, label App, spy in a white-ringed green circle at the corner)
+    Inside: ❄️ frozen 💃 Model · Context window (red box) · Chat screen (Hi! / Hello 👋)
+    Grey dashed ring around the model: 🔁 One reply
+    Tools: 🔍 · 📎
+    Environment (dashed grey panel, right): 💬 Just the chat · ✕ No computer
+  </aside>
+  <aside class="notes">So what's actually inside each kind? Let's open them up. Same pieces as last week. [Click] The app: what you open on your phone or laptop. Our spy in the corner. [Click] Inside it, the model. The frozen dancer from week one. [Click] The context window, the desk: everything the model can see right now. [Click] The chat screen, where you type. [Click] The loop: for a chatbot it's just one round. You ask, it replies, it waits for you. [Click] Tools: very few. Most chatbots can search the web and read a file you upload. That's about it. [Click] And the environment, meaning where it can actually do things: nowhere. It has no computer. All it can do is talk.</aside>
+</section>
+
+
+<!-- ============================ 6. EX D: LEARN A CONCEPT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Learn anything.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Explain how inflation works. Start like I'm 10, then go deeper. Then quiz me.”</span></div>
@@ -792,7 +840,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 6. SKILLS ============================ -->
+<!-- ============================ 7. SKILLS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Skills: teach it once.</h2>
   <div class="ag-ctx" data-step="1" style="left:150px;top:260px;width:520px;height:500px">
@@ -818,7 +866,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 7. EX E: GRILL ME ============================ -->
+<!-- ============================ 8. EX E: GRILL ME ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Grill me.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Use grill-me: help me plan my daughter's 7th birthday party.”</span></div>
@@ -857,7 +905,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 8. EX L: ANALYZE VIDEO ============================ -->
+<!-- ============================ 9. EX L: ANALYZE VIDEO ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Watch a video for you.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's the 1-hour school board meeting. What got decided, and when?”</span></div>
@@ -895,31 +943,63 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 9. KIND 2: + TOOLS ============================ -->
+<!-- ============================ 10. KIND 2: + TOOLS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">2 · Plus tools.</h2>
   <div class="w2-lvl ho" style="--fx:335px;--c:#4D9FFF"><span class="n">2</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero">🔌</div><b>+ Tools</b><div class="acc"><span>💬</span><span>🔌</span></div></div>
-  <div class="w2-logo" data-step="1" style="left:540px"><img src="gifs/logos/openai.png" alt=""><b>ChatGPT</b></div>
-  <div class="w2-logo" data-step="2" style="left:700px"><img src="gifs/logos/claude.png" alt=""><b>Claude</b></div>
-  <div class="w2-logo" data-step="3" style="left:860px"><img src="gifs/logos/gemini.png" alt=""><b>Gemini</b></div>
-  <div class="w2-logo" data-step="4" style="left:1020px"><img src="gifs/logos/perplexity.png" alt=""><b>Perplexity</b></div>
+  <div class="w2-logo" data-step="1" style="left:540px"><img src="gifs/logos/openai.png" alt=""><b>ChatGPT</b><span class="w2-price" style="--pc:#FFD23F">$20/mo</span></div>
+  <div class="w2-logo" data-step="2" style="left:700px"><img src="gifs/logos/claude.png" alt=""><b>Claude</b><span class="w2-price" style="--pc:#2EE59D">Free</span></div>
+  <div class="w2-logo" data-step="3" style="left:860px"><img src="gifs/logos/gemini.png" alt=""><b>Gemini</b><span class="w2-price" style="--pc:#2EE59D">Free</span></div>
+  <div class="w2-logo" data-step="4" style="left:1020px"><img src="gifs/logos/perplexity.png" alt=""><b>Perplexity</b><span class="w2-price" style="--pc:#FFD23F">$20/mo</span></div>
   <div class="w2-plugs" data-step="5"><span class="e">🔌</span><img src="gifs/logos/gmail.svg" alt=""><img src="gifs/logos/googledrive.svg" alt=""><img src="gifs/logos/googlecalendar.svg" alt=""><img src="gifs/logos/notion.png" alt=""><img src="gifs/logos/youtube.svg" alt=""><img src="gifs/logos/alpaca.png" alt=""></div>
   <div class="w2-better" data-step="6" style="left:540px;top:570px;--c:#4D9FFF"><span class="e">📥</span>Organize better</div>
   <div class="w2-better" data-step="7" style="left:1030px;top:570px;--c:#4D9FFF"><span class="e">🎙️</span>Capture better</div>
-  <div class="w2-better" data-step="8" style="left:540px;top:680px;--c:#4D9FFF"><span class="e">📖</span>Read better</div>
-  <div class="w2-better" data-step="9" style="left:1030px;top:680px;--c:#4D9FFF"><span class="e">🔍</span>Research better</div>
+  <div class="w2-better" data-step="8" style="left:540px;top:666px;--c:#4D9FFF"><span class="e">📖</span>Read better</div>
+  <div class="w2-better" data-step="9" style="left:1030px;top:666px;--c:#4D9FFF"><span class="e">🔍</span>Research better</div>
+  <div class="w2-better" data-step="10" style="left:540px;top:762px;--c:#4D9FFF"><span class="e">🛒</span>Shop better</div>
   <aside class="onscreen">
     2 · Plus tools.
     Left: card 2 · 🔌 + Tools
-    Logos, one at a time: ChatGPT · Claude · Gemini · Perplexity
+    Logos, one at a time, with lowest tier: ChatGPT $20/mo · Claude Free · Gemini Free · Perplexity $20/mo
     A dashed blue connector strip: 🔌 Gmail · Google Drive · Google Calendar · Notion · YouTube · Alpaca (logos)
-    What it can do, one at a time: 📥 Organize better · 🎙️ Capture better · 📖 Read better · 🔍 Research better
+    What it can do, one at a time: 📥 Organize better · 🎙️ Capture better · 📖 Read better · 🔍 Research better · 🛒 Shop better
   </aside>
-  <aside class="notes">Kind two: the same chatbots, plus tools. [Click] ChatGPT. [Click] Claude. [Click] Gemini. [Click] Perplexity. Same apps you just saw, but now they can reach outside the chat. [Click] Into your Gmail, your Google Drive, your calendar, Notion, YouTube, even a trading account. In the apps these are called connectors, or apps. Once it can reach your stuff, here's what changes. [Click] Organize better. [Click] Capture better. [Click] Read better. [Click] Research better. First, how does it actually connect?</aside>
+  <aside class="notes">Kind two: the same chatbots, plus tools. The prices start to split here. [Click] ChatGPT: connecting your apps really starts on Plus, twenty dollars a month. The free plan gets a little, and it keeps changing. [Click] Claude: connectors like Gmail and Google Drive work on the free plan. [Click] Gemini: free, and it's already wired into Gmail, Drive and Calendar. [Click] Perplexity: searching your apps and files starts on Pro, twenty dollars. [Click] And these are the kinds of things it plugs into: Gmail, Google Drive, your calendar, Notion, YouTube, even a trading account. In the apps they're called connectors, or apps, or plugins. Once it can reach your stuff, here's what changes. [Click] Organize better. [Click] Capture better. [Click] Read better. [Click] Research better. [Click] Shop better.</aside>
 </section>
 
 
-<!-- ============================ 10. HOW DOES IT CONNECT ============================ -->
+<!-- ============================ 11. INSIDE: + TOOLS ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Inside: plus tools.</h2>
+  <div class="wa-win" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
+  <div class="wa-winlbl" style="left:210px;top:198px">App</div>
+  <div class="agcirc" style="left:60px;top:145px;width:100px;height:100px;border:4px solid #4D9FFF"><img src="gifs/agent.png" alt=""></div>
+  <div class="fm" style="left:495px;top:330px">💃</div>
+  <div class="wa-cap" style="left:435px;top:578px;width:300px;color:var(--model)">Model</div>
+  <div class="ag-ctx" style="left:150px;top:290px;width:250px;height:190px;padding:14px;gap:10px"><i style="display:block;height:26px;border-radius:5px;background:#8C8C86"></i><i style="display:block;height:26px;border-radius:5px;background:var(--dyk);width:70%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--fg);width:85%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--model);width:60%"></i></div>
+  <div class="wa-cap" style="left:150px;top:490px;width:250px">Context window</div>
+  <div class="wa-chat" style="left:790px;top:290px;width:190px;height:150px"><span class="u">Hi!</span><span class="a">Hello 👋</span></div>
+  <div class="wa-cap" style="left:790px;top:450px;width:190px">Chat screen</div>
+  <svg class="layer" data-hide="2" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle cx="585" cy="420" r="140" fill="none" stroke="#555" stroke-width="6" stroke-dasharray="26 18"/></svg>
+  <svg class="layer" data-step="2" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle class="wa-loopring" cx="585" cy="420" r="140" fill="none" stroke="#FFD23F" stroke-width="6" stroke-dasharray="26 18"/></svg>
+  <div class="wa-cap" data-hide="2" style="left:435px;top:612px;width:300px;color:var(--dim)">🔁 One reply</div>
+  <div class="wa-cap" data-step="2" style="left:435px;top:612px;width:300px;color:var(--dyk)">🔁 Until done</div>
+  <div class="wa-cap" style="left:150px;top:650px;width:200px;text-align:left;color:var(--harness)">Tools</div>
+  <div class="w2-tools"><span class="w2-tl">🔍</span><span class="w2-tl">📎</span><span class="w2-tl new" data-step="1"><img src="gifs/logos/gmail.svg" alt=""></span><span class="w2-tl new" data-step="1"><img src="gifs/logos/googledrive.svg" alt=""></span><span class="w2-tl new" data-step="1"><img src="gifs/logos/googlecalendar.svg" alt=""></span><span class="w2-tl new" data-step="1"><img src="gifs/logos/notion.png" alt=""></span><span class="w2-tl new" data-step="1"><img src="gifs/logos/youtube.svg" alt=""></span></div>
+  <div class="layer" data-hide="3"><div class="w2-env" style="--c:#555;border-style:dashed"><b>Environment</b><span class="big">💬</span><span class="t">Just the chat</span><span class="t" style="color:var(--demo)">✕ No computer</span></div></div>
+  <div class="layer" data-step="3"><div class="w2-env" style="--c:#4D9FFF"><b>Environment</b><span class="t">🌐 Your apps, online</span><div class="grid"><img src="gifs/logos/gmail.svg" alt=""><img src="gifs/logos/googledrive.svg" alt=""><img src="gifs/logos/googlecalendar.svg" alt=""><img src="gifs/logos/notion.png" alt=""></div><span class="t" style="color:var(--dim)">via connectors</span></div></div>
+  <aside class="onscreen">
+    Inside: plus tools.
+    Same app, model, context window and chat screen as the chatbot
+    New tools glow yellow: Gmail · Google Drive · Google Calendar · Notion · YouTube (logos)
+    Loop changes: 🔁 One reply → 🔁 Until done (ring turns yellow and spins)
+    Environment swaps to a blue panel: 🌐 Your apps, online (Gmail · Drive · Calendar · Notion logos) · via connectors
+  </aside>
+  <aside class="notes">Same app, same model, same desk. Watch what changes. [Click] New tools: connectors to Gmail, Google Drive, your calendar, Notion, YouTube. [Click] And the loop wakes up. Instead of one reply, it keeps going until the job is done: check email, read, sort, check again. [Click] And now it has somewhere to act: your apps, online. It still has no computer of its own; it reaches your apps through the connectors. Notice what didn't change: the model. Same frozen dancer.</aside>
+</section>
+
+
+<!-- ============================ 12. HOW DOES IT CONNECT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">How does it connect?</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -953,7 +1033,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 11. THREE WAYS IN ============================ -->
+<!-- ============================ 13. THREE WAYS IN ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Three ways in.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -975,7 +1055,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 12. EX B: ORGANIZE EMAIL ============================ -->
+<!-- ============================ 14. EX B: ORGANIZE EMAIL ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Tame your inbox.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Sort my inbox into bills, school and junk. Draft replies to anything urgent.”</span></div>
@@ -1021,7 +1101,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 13. EX J: VOICE TO NOTES ============================ -->
+<!-- ============================ 15. EX J: VOICE TO NOTES ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Talk it out.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's my 20-minute voice memo from my walk. Turn it into notes, to-dos and bookmarks.”</span></div>
@@ -1056,7 +1136,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 14. EX I: YOUTUBE TO BOOK ============================ -->
+<!-- ============================ 16. EX I: YOUTUBE TO BOOK ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Turn videos into a book.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Take this 12-video course playlist and turn it into a neat book with chapters.”</span></div>
@@ -1099,7 +1179,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 15. EX M: DEEP RESEARCH ============================ -->
+<!-- ============================ 17. EX M: DEEP RESEARCH ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Deep research.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Which family EV under $45k is best for road trips? Compare range, charging and safety.”</span></div>
@@ -1135,30 +1215,107 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 16. KIND 3: + ITS OWN COMPUTER ============================ -->
+<!-- ============================ 18. EX Q: COMPARISON SHOPPING ============================ -->
 <section class="slide">
-  <h2 class="fu title-c" style="--d:.1s">3 · Its own computer.</h2>
-  <div class="w2-lvl ho" style="--fx:665px;--c:#B69CFF"><span class="n">3</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero"><span>☁️</span><span style="font-size:70px">🖥️</span></div><b>+ Its own computer</b><div class="acc"><span>💬</span><span>🔌</span><span>☁️</span></div></div>
-  <div class="w2-logo" data-step="1" style="left:540px"><img src="gifs/logos/openai.png" alt=""><b>ChatGPT agent</b></div>
-  <div class="w2-logo" data-step="2" style="left:700px"><img src="gifs/logos/grok.png" alt=""><b>Grok Bot</b></div>
-  <div class="w2-logo" data-step="3" style="left:860px"><img src="gifs/logos/manus.png" alt=""><b>Manus</b></div>
-  <div class="w2-logo" data-step="4" style="left:1020px"><img src="gifs/logos/perplexity.png" alt=""><b>Perplexity Computer</b></div>
-  <div class="w2-logo" data-step="5" style="left:1180px"><img src="gifs/logos/gemini.png" alt=""><b>Gemini Spark</b></div>
-  <div class="w2-better" data-step="6" style="left:540px;top:480px;--c:#B69CFF"><span class="e">📊</span>Analyze better</div>
-  <div class="w2-better" data-step="7" style="left:1030px;top:480px;--c:#B69CFF"><span class="e">🧾</span>Work better</div>
-  <div class="w2-better" data-step="8" style="left:540px;top:590px;--c:#B69CFF"><span class="e">🩻</span>Understand better</div>
-  <div class="w2-better" data-step="9" style="left:1030px;top:590px;--c:#B69CFF"><span class="e">💰</span>Invest better</div>
+  <h2 class="fu title-c" style="--d:.1s">Shop smarter.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Find the best 65-inch TV under $800. Compare prices and real reviews across stores.”</span></div>
+  <div class="layer" data-step="2">
+    <span class="w2-emo" style="left:270px;top:370px;font-size:110px">🛒</span>
+    <div style="position:absolute;left:130px;top:520px;width:440px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px"><span class="w2-tag">Amazon</span><span class="w2-tag">Best Buy</span><span class="w2-tag">Costco</span><span class="w2-tag">Walmart</span><span class="w2-tag">Target</span></div>
+    <div class="w2-lbl" style="left:130px;top:640px;width:440px">⭐ thousands of reviews</div>
+  </div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A33" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A33)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A33)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/openai.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#4D9FFF">🔍 Web search</span></div>
+  <div class="w2-card" data-step="4" style="left:1020px;top:330px;width:470px;padding:14px">
+    <table class="w2-tbl"><tr><th>TV</th><th>Store</th><th>Price</th><th>⭐</th></tr>
+      <tr><td>TV A</td><td>Costco</td><td>$649</td><td>4.7</td></tr>
+      <tr><td>TV B</td><td>Best Buy</td><td>$699</td><td>4.5</td></tr>
+      <tr><td>TV C</td><td>Amazon</td><td>$779</td><td>4.4</td></tr></table></div>
+  <div class="w2-hiring" data-step="5" style="left:1026px;top:382px;width:458px;height:50px"></div>
+  <div class="w2-chip" data-step="5" style="left:1150px;top:560px;--c:var(--dyk)">🥇 Best pick</div>
+  <div class="wa-done" data-step="6" style="left:1020px;top:660px;width:470px;height:64px;font-size:26px">🔗 Links to buy</div>
+  <span class="sticker" style="left:40px;top:28px;background:#4D9FFF;border-color:#4D9FFF;--r:-5deg">🛒 Shop better</span>
   <aside class="onscreen">
-    3 · Its own computer.
-    Left: card 3 · ☁️🖥️ + Its own computer
-    Logos, one at a time: ChatGPT agent · Grok Bot · Manus · Perplexity Computer · Gemini Spark
-    What it can do, one at a time: 📊 Analyze better · 🧾 Work better · 🩻 Understand better · 💰 Invest better
+    Shop smarter.
+    🧑‍💻 “Find the best 65-inch TV under $800. Compare prices and real reviews across stores.”
+    Sticker (top left, + Tools colour): 🛒 Shop better
+    Logo badge on the agent: ChatGPT
+    Input: 🛒 with store chips Amazon · Best Buy · Costco · Walmart · Target · ⭐ thousands of reviews
+    Agent badge: 🔍 Web search
+    Output: table TV · Store · Price · ⭐: TV A Costco $649 4.7 · TV B Best Buy $699 4.5 · TV C Amazon $779 4.4 (illustrative)
+    Yellow box around TV A + chip 🥇 Best pick
+    Green: 🔗 Links to buy
   </aside>
-  <aside class="notes">Kind three: the agent gets its own computer, in the cloud. Not yours: a computer the company lends it, with a browser, files and a terminal. It writes and runs little programs, opens websites, and keeps going even when your laptop is closed. [Click] ChatGPT agent. [Click] Grok Bot, from xAI. [Click] Manus. [Click] Perplexity Computer. [Click] And Gemini Spark, which now lives in the Gemini app as Task mode. Here's what having its own computer unlocks. [Click] Analyze better. [Click] Work better: the boring paperwork. [Click] Understand better. [Click] And invest better.</aside>
+  <aside class="notes">Shopping. [Click] You say: find the best sixty-five-inch TV under eight hundred dollars, and compare prices and real reviews across stores. [Click] Five stores, dozens of models, thousands of reviews, half of them fake. [Click] This is kind two: ChatGPT with web search, and its shopping research mode. It asks you a couple of questions first, like: is it for sports or movies, is the room bright? Then it goes and reads. [Click] One clean table: the TV, the store, the price, the rating. [Click] And a clear pick, with the reason why. [Click] With links to buy. Do check the price on the store's own page before you pay; prices change by the hour.</aside>
 </section>
 
 
-<!-- ============================ 17. EX A: DATA ANALYSIS ============================ -->
+<!-- ============================ 19. KIND 3: + ITS OWN COMPUTER ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">3 · Its own computer.</h2>
+  <div class="w2-lvl ho" style="--fx:665px;--c:#B69CFF"><span class="n">3</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero"><span>☁️</span><span style="font-size:70px">🖥️</span></div><b>+ Its own computer</b><div class="acc"><span>💬</span><span>🔌</span><span>☁️</span></div></div>
+  <div class="w2-logo" data-step="1" style="left:540px"><img src="gifs/logos/grok.png" alt=""><b>Grok Bot</b><span class="w2-price" style="--pc:#FFD23F">$30/mo</span></div>
+  <div class="w2-logo" data-step="2" style="left:700px"><img src="gifs/logos/perplexity.png" alt=""><b>Perplexity Computer</b><span class="w2-price" style="--pc:#FFD23F">$20/mo</span></div>
+  <div class="w2-logo" data-step="3" style="left:860px"><img src="gifs/logos/gemini.png" alt=""><b>Gemini Spark</b><span class="w2-price" style="--pc:#FFD23F">$20/mo</span></div>
+  <div class="w2-better" data-step="4" style="left:540px;top:490px;--c:#B69CFF"><span class="e">📊</span>Analyze better</div>
+  <div class="w2-better" data-step="5" style="left:1030px;top:490px;--c:#B69CFF"><span class="e">🧾</span>Work better</div>
+  <div class="w2-better" data-step="6" style="left:540px;top:586px;--c:#B69CFF"><span class="e">🩻</span>Understand better</div>
+  <div class="w2-better" data-step="7" style="left:1030px;top:586px;--c:#B69CFF"><span class="e">💰</span>Invest better</div>
+  <div class="w2-better" data-step="8" style="left:540px;top:682px;--c:#B69CFF"><span class="e">🗓️</span>Book better</div>
+  <div class="w2-better" data-step="9" style="left:1030px;top:682px;--c:#B69CFF"><span class="e">🎓</span>Plan better</div>
+  <div class="w2-better" data-step="10" style="left:540px;top:778px;--c:#B69CFF"><span class="e">💸</span>Save better</div>
+  <aside class="onscreen">
+    3 · Its own computer.
+    Left: card 3 · ☁️🖥️ + Its own computer
+    Logos, one at a time, with lowest tier: Grok Bot $30/mo · Perplexity Computer $20/mo · Gemini Spark $20/mo
+    What it can do, one at a time: 📊 Analyze better · 🧾 Work better · 🩻 Understand better · 💰 Invest better · 🗓️ Book better · 🎓 Plan better · 💸 Save better
+  </aside>
+  <aside class="notes">Kind three: the agent gets its own computer, in the cloud. Not yours: a computer the company lends it, with a browser, files and a terminal. It writes and runs little programs, opens websites, and keeps going even when your laptop is closed. This is where it starts to cost money. [Click] Grok Bot, from xAI: thirty dollars a month, on the X Premium plan. [Click] Perplexity Computer: included in Perplexity Pro, twenty dollars. [Click] Gemini Spark, now called Task mode in the Gemini app: Google AI Pro, twenty dollars. Here's what having its own computer unlocks. [Click] Analyze better. [Click] Work better: the boring paperwork. [Click] Understand better. [Click] Invest better. [Click] Book better: grab that appointment. [Click] Plan better. [Click] And save better.</aside>
+</section>
+
+
+<!-- ============================ 20. INSIDE: + ITS OWN COMPUTER ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Inside: its own computer.</h2>
+  <div class="wa-win" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
+  <div class="wa-winlbl" style="left:210px;top:198px">App</div>
+  <div class="agcirc" style="left:60px;top:145px;width:100px;height:100px;border:4px solid #B69CFF"><img src="gifs/agent.png" alt=""></div>
+  <div class="fm" style="left:495px;top:330px">💃</div>
+  <div class="wa-cap" style="left:435px;top:578px;width:300px;color:var(--model)">Model</div>
+  <div class="ag-ctx" style="left:150px;top:290px;width:250px;height:190px;padding:14px;gap:10px"><i style="display:block;height:26px;border-radius:5px;background:#8C8C86"></i><i style="display:block;height:26px;border-radius:5px;background:var(--dyk);width:70%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--fg);width:85%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--model);width:60%"></i></div>
+  <div class="wa-cap" style="left:150px;top:490px;width:250px">Context window</div>
+  <div class="wa-chat" style="left:790px;top:290px;width:190px;height:150px"><span class="u">Hi!</span><span class="a">Hello 👋</span></div>
+  <div class="wa-cap" style="left:790px;top:450px;width:190px">Chat screen</div>
+  <svg class="layer" data-hide="2" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle class="wa-loopring" cx="585" cy="420" r="140" fill="none" stroke="#FFD23F" stroke-width="6" stroke-dasharray="26 18"/></svg>
+  <svg class="layer" data-step="2" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle class="wa-loopring" cx="585" cy="420" r="140" fill="none" stroke="#FFD23F" stroke-width="6" stroke-dasharray="26 18"/></svg>
+  <div class="wa-cap" data-hide="2" style="left:435px;top:612px;width:300px;color:var(--dyk)">🔁 Until done</div>
+  <div class="wa-cap" data-step="2" style="left:435px;top:612px;width:300px;color:var(--dyk)">🔁 For hours</div>
+  <div class="wa-cap" style="left:150px;top:650px;width:200px;text-align:left;color:var(--harness)">Tools</div>
+  <div class="w2-tools"><span class="w2-tl">🔍</span><span class="w2-tl">📎</span><span class="w2-tl"><img src="gifs/logos/gmail.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/googledrive.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/googlecalendar.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/notion.png" alt=""></span><span class="w2-tl"><img src="gifs/logos/youtube.svg" alt=""></span><span class="w2-tl new" data-step="1">🌐</span><span class="w2-tl new" data-step="1">⌨️</span><span class="w2-tl new" data-step="1">📁</span></div>
+  <div class="layer" data-hide="3"><div class="w2-env" style="--c:#4D9FFF"><b>Environment</b><span class="t">🌐 Your apps, online</span><div class="grid"><img src="gifs/logos/gmail.svg" alt=""><img src="gifs/logos/googledrive.svg" alt=""><img src="gifs/logos/googlecalendar.svg" alt=""><img src="gifs/logos/notion.png" alt=""></div><span class="t" style="color:var(--dim)">via connectors</span></div></div>
+  <div class="layer" data-step="3"><div class="w2-env" style="--c:#B69CFF"><b>Environment</b><span class="big">☁️</span><span class="t">Its cloud computer</span><div class="rows"><span>🌐 Browser</span><span>📁 Files</span><span>⌨️ Terminal</span></div></div></div>
+  <div class="w2-chip" data-step="4" style="left:1095px;top:770px;--c:var(--guess)">🌙 Works while you sleep</div>
+  <aside class="onscreen">
+    Inside: its own computer.
+    Same app, model, context window, chat screen and connector tools
+    New tools glow yellow: 🌐 · ⌨️ · 📁
+    Loop changes: 🔁 Until done → 🔁 For hours
+    Environment swaps to a purple panel: ☁️ Its cloud computer · 🌐 Browser · 📁 Files · ⌨️ Terminal
+    Chip: 🌙 Works while you sleep
+  </aside>
+  <aside class="notes">Kind three. Again, same app, same model. [Click] New tools: a web browser it can click around in, a terminal to run programs, and files it can create and edit. [Click] And the loop gets long. Not minutes: it can keep going for hours. [Click] Because now the environment is a whole computer, in the company's cloud. Its browser, its files, its terminal. Not yours. [Click] And because it's not your laptop, it keeps working while you sleep. You close the lid, it carries on.</aside>
+</section>
+
+
+<!-- ============================ 21. EX A: DATA ANALYSIS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Crunch the numbers.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's a year of my bank exports. Clean them up and show me where my money goes.”</span></div>
@@ -1178,7 +1335,7 @@ aside.notes,aside.onscreen{display:none}
   </svg>
   <div class="w2-ring" data-step="3"></div>
   <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
-  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/openai.png" alt=""></div>
+  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/gemini.png" alt=""></div>
   <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#B69CFF">☁️ Its own computer</span></div>
   <div class="w2-card w2-chart" data-step="4" style="left:1020px;top:340px;width:470px;height:420px">
     <div class="w2-bar" style="left:40px;height:250px;--c:#2EE59D"><b>$4.2k</b><span>🛒</span></div>
@@ -1190,16 +1347,16 @@ aside.notes,aside.onscreen{display:none}
     Crunch the numbers.
     🧑‍💻 “Here's a year of my bank exports. Clean them up and show me where my money goes.”
     Sticker (top left, + Its own computer colour): 📊 Analyze better
-    Logo badge on the agent: ChatGPT
+    Logo badge on the agent: Gemini Spark
     Input: messy spreadsheet (mixed date formats, 'AMZN Mktp' vs 'amazon.com', blanks and '??? POS 8812' in red) · 📄 × 12 messy files
     Agent badge: ☁️ Its own computer
     Output: bar chart of spending: 🛒 $4.2k · 🍽️ $3.1k · 🛍️ $2.6k · ✈️ $1.5k (illustrative numbers)
   </aside>
-  <aside class="notes">First: data. [Click] You say: here's a year of my bank exports, clean them up and show me where my money goes. [Click] And this is what bank exports really look like. Dates in three formats, Amazon spelled two ways, blanks, mystery codes. Normally that's a whole Saturday in Excel. [Click] Here it's ChatGPT, but Claude and Gemini do this too. This is kind number three: the agent with its own computer. Behind the scenes it writes a small program and runs it on its own machine: it fixes the dates, merges the duplicates, fills the categories. You never see the code unless you ask. [Click] And you get this: where your money actually went. Groceries, dining, shopping, travel. Then you just keep talking: break dining down by month, which subscriptions am I paying for twice? Works in ChatGPT, Claude and Gemini; just upload the file.</aside>
+  <aside class="notes">First: data. [Click] You say: here's a year of my bank exports, clean them up and show me where my money goes. [Click] And this is what bank exports really look like. Dates in three formats, Amazon spelled two ways, blanks, mystery codes. Normally that's a whole Saturday in Excel. [Click] Here it's Gemini Spark, Google's agent, which can drop the result straight into Google Sheets. This is kind number three: the agent with its own computer. Behind the scenes it writes a small program and runs it on its own machine: it fixes the dates, merges the duplicates, fills the categories. You never see the code unless you ask. [Click] And you get this: where your money actually went. Groceries, dining, shopping, travel. Then you just keep talking: break dining down by month, which subscriptions am I paying for twice? ChatGPT, Claude and Gemini can do a simpler version right in the chat; just upload the file.</aside>
 </section>
 
 
-<!-- ============================ 18. EX K: PDF TO TABLE ============================ -->
+<!-- ============================ 22. EX K: PDF TO TABLE ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">PDFs to a table.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Pull the date, store and amount out of these 40 receipts into a spreadsheet.”</span></div>
@@ -1217,7 +1374,7 @@ aside.notes,aside.onscreen{display:none}
   </svg>
   <div class="w2-ring" data-step="3"></div>
   <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
-  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/claude.png" alt=""></div>
+  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/perplexity.png" alt=""></div>
   <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#F5F5F0">📎 Upload</span><span class="w2-tag" style="--c:#B69CFF">☁️ Its own computer</span></div>
   <div class="w2-card" data-step="4" style="left:1020px;top:330px;width:470px;padding:14px">
     <table class="w2-tbl"><tr><th>Date</th><th>Store</th><th>Amount</th></tr>
@@ -1233,17 +1390,17 @@ aside.notes,aside.onscreen{display:none}
     PDFs to a table.
     🧑‍💻 “Pull the date, store and amount out of these 40 receipts into a spreadsheet.”
     Sticker (top left, + Its own computer colour): 🧾 Work better
-    Logo badge on the agent: Claude
+    Logo badge on the agent: Perplexity Computer
     Input: a fanned stack of PDF receipts with a red × 40 badge
     Agent badges: 📎 Upload · ☁️ Its own computer
     Output: table Date · Store · Amount: Jan 4 Costco $182.40 · Jan 9 Shell $52.10 · Jan 12 CVS $18.75 · Jan 15 Home Depot $96.20 · ⋮ · Total 40 $2,318.55 (illustrative)
     Green: 📊 receipts.xlsx
   </aside>
-  <aside class="notes">Tax season special. [Click] You say: pull the date, store and amount out of these forty receipts into a spreadsheet. [Click] Forty PDFs: receipts, invoices, bills. Normally you open each one and type the numbers in by hand. [Click] Here it's Claude. Upload them; the agent reads each one, and on its own computer it builds the spreadsheet. [Click] Date, store, amount, one row per receipt, with a total at the bottom. [Click] And you download a real spreadsheet file. Same trick works for bank statements, pay stubs, insurance documents, anything where the numbers are trapped in a PDF. One tip: spot-check a few rows against the originals. It's very good, but not perfect.</aside>
+  <aside class="notes">Tax season special. [Click] You say: pull the date, store and amount out of these forty receipts into a spreadsheet. [Click] Forty PDFs: receipts, invoices, bills. Normally you open each one and type the numbers in by hand. [Click] Here it's Perplexity Computer. Upload them; the agent reads each one, and on its own computer it builds the spreadsheet. [Click] Date, store, amount, one row per receipt, with a total at the bottom. [Click] And you download a real spreadsheet file. Same trick works for bank statements, pay stubs, insurance documents, anything where the numbers are trapped in a PDF. One tip: spot-check a few rows against the originals. It's very good, but not perfect.</aside>
 </section>
 
 
-<!-- ============================ 19. EX G: DICOM SCANS ============================ -->
+<!-- ============================ 23. EX G: DICOM SCANS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Read your scans.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's the CD from my knee MRI. Turn it into images I can see, and explain them simply.”</span></div>
@@ -1259,7 +1416,7 @@ aside.notes,aside.onscreen{display:none}
   </svg>
   <div class="w2-ring" data-step="3"></div>
   <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
-  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/manus.png" alt=""></div>
+  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/perplexity.png" alt=""></div>
   <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#B69CFF">☁️ Its own computer</span></div>
   <div class="w2-card" data-step="4" style="left:1020px;top:330px;width:470px;padding:13px">
     <div class="w2-scan"><i style="--w:40%;--h:34%"></i><i style="--w:46%;--h:38%"></i><i style="--w:50%;--h:40%"></i><i style="--w:44%;--h:36%;--x:46%"></i><i style="--w:38%;--h:32%;--x:54%"></i><i style="--w:34%;--h:28%"></i></div></div>
@@ -1270,17 +1427,17 @@ aside.notes,aside.onscreen{display:none}
     Read your scans.
     🧑‍💻 “Here's the CD from my knee MRI. Turn it into images I can see, and explain them simply.”
     Sticker (top left, + Its own computer colour): 🩻 Understand better
-    Logo badge on the agent: Manus
+    Logo badge on the agent: Perplexity Computer
     Input: a 💿 CD with files IMG0001.dcm · IMG0002.dcm · … × 240 files
     Agent badge: ☁️ Its own computer
     Output: a grid of 6 greyscale scan slices; one slice gets a yellow highlight box
     Card: 🩺 Ask your doctor · Is that swelling normal for my age?
   </aside>
-  <aside class="notes">Here's one most people don't know about. [Click] After an MRI or a CT scan, you often get a CD or a download link. You say: here's the CD from my knee MRI, turn it into images I can see, and explain them simply. [Click] And the CD is full of files called DICOM, hundreds of them, that your laptop can't even open. [Click] Here it's Manus, which gives every task its own computer in the cloud. Kind number three: the agent with its own computer. It writes a little program to read the DICOM files and turn them into normal pictures. [Click] Now you can actually see the slices of your knee. [Click] Ask it: what am I looking at here? It'll walk you through it: this is the bone, this is the cartilage. [Click] And the best use of all: help me prepare questions for my doctor. To be very clear: this is for understanding, not diagnosis. Your doctor reads the scan; AI helps you walk in with better questions.</aside>
+  <aside class="notes">Here's one most people don't know about. [Click] After an MRI or a CT scan, you often get a CD or a download link. You say: here's the CD from my knee MRI, turn it into images I can see, and explain them simply. [Click] And the CD is full of files called DICOM, hundreds of them, that your laptop can't even open. [Click] Here it's Perplexity Computer, which gives the job its own computer in the cloud. Kind number three: the agent with its own computer. It writes a little program to read the DICOM files and turn them into normal pictures. [Click] Now you can actually see the slices of your knee. [Click] Ask it: what am I looking at here? It'll walk you through it: this is the bone, this is the cartilage. [Click] And the best use of all: help me prepare questions for my doctor. To be very clear: this is for understanding, not diagnosis. Your doctor reads the scan; AI helps you walk in with better questions.</aside>
 </section>
 
 
-<!-- ============================ 20. EX F: MANAGE MONEY + TRADE ============================ -->
+<!-- ============================ 24. EX F: MANAGE MONEY + TRADE ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Manage my money.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's $100k of paper money. Research the market, then manage it, or just place a trade.”</span></div>
@@ -1321,31 +1478,183 @@ aside.notes,aside.onscreen{display:none}
     Yellow shield: ✋ Approve?
     Green: ✅ Filled
   </aside>
-  <aside class="notes">This one gets people's attention. [Click] You say: here's a hundred thousand dollars of paper money, research the market, then manage it, or just place a trade. You can hand it the whole portfolio, or just one trade. [Click] Here's the account, on Alpaca, a stock-trading app with an official MCP connector. And notice: paper. Paper trading means pretend money. A practice account. That's exactly where you start. [Click] Here it's Grok Bot, xAI's agent. It runs on its own computer in the cloud and keeps working after you close your laptop. It plugs into Alpaca, and it can also open any website it needs. ChatGPT agent or Manus could do the same. And it doesn't trade first. It researches first. [Click] It reads the news. [Click] It checks the latest earnings. [Click] It looks at the charts. [Click] Then it proposes an order: buy twenty-five shares of Apple, at market price, in the paper account. [Click] And a good agent stops here and asks: approve? Anything that spends money, you approve. Always. [Click] Filled. Not financial advice, please. The point is: an agent can now research and act in your real accounts. Which is exactly why you start with paper money and keep approvals on.</aside>
+  <aside class="notes">This one gets people's attention. [Click] You say: here's a hundred thousand dollars of paper money, research the market, then manage it, or just place a trade. You can hand it the whole portfolio, or just one trade. [Click] Here's the account, on Alpaca, a stock-trading app with an official MCP connector. And notice: paper. Paper trading means pretend money. A practice account. That's exactly where you start. [Click] Here it's Grok Bot, xAI's agent. It runs on its own computer in the cloud and keeps working after you close your laptop. It plugs into Alpaca, and it can also open any website it needs. Perplexity Computer or Gemini Spark could do the same. And it doesn't trade first. It researches first. [Click] It reads the news. [Click] It checks the latest earnings. [Click] It looks at the charts. [Click] Then it proposes an order: buy twenty-five shares of Apple, at market price, in the paper account. [Click] And a good agent stops here and asks: approve? Anything that spends money, you approve. Always. [Click] Filled. Not financial advice, please. The point is: an agent can now research and act in your real accounts. Which is exactly why you start with paper money and keep approvals on.</aside>
 </section>
 
 
-<!-- ============================ 21. KIND 4: + YOUR COMPUTER ============================ -->
+<!-- ============================ 25. EX N: NJ DMV APPOINTMENT ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Beat the DMV.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Check the NJ MVC site every hour and grab the first license-renewal slot near Edison.”</span></div>
+  <div class="wa-win" data-step="2" style="left:120px;top:350px;width:470px;height:410px"><div class="wa-bar"><i></i><i></i><i></i></div><div class="w2-url">🔒 telegov.njportal.com</div>
+    <div style="position:absolute;left:28px;top:72px;font-size:24px;font-weight:800">Appointments</div>
+    <div class="w2-cal" style="left:28px;top:116px"><i>✕</i><i>✕</i><i>✕</i><i>✕</i><i>✕</i><i>✕</i><i>✕</i><i>✕</i><i>✕</i><i>✕</i><i>✕</i><i>✕</i><i>✕</i><i>✕</i><i>✕</i></div>
+    <div style="position:absolute;left:28px;top:350px;font-size:21px;font-weight:800;color:var(--demo)">No appointments available</div></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A30" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A30)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A30)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/grok.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#B69CFF">☁️ Its own computer</span><span class="w2-tag" style="--c:#FF7AD9">🖱️ Browser use</span></div>
+  <div class="w2-mark" data-step="4" style="top:330px;--c:#555;color:var(--dim)"><span class="t">9:00</span>✕ Nothing</div>
+  <div class="w2-mark" data-step="5" style="top:430px;--c:#555;color:var(--dim)"><span class="t">10:00</span>✕ Nothing</div>
+  <div class="w2-mark" data-step="6" style="top:530px;--c:#2EE59D"><span class="t">11:00</span>✅ Edison · Thu 9:20 AM</div>
+  <div class="wa-shield" data-step="7" style="left:1020px;top:640px;width:470px"><span class="e">✋</span>Book it?</div>
+  <div class="wa-done" data-step="8" style="left:1020px;top:740px;width:470px;font-size:26px">📅 Booked + on your calendar</div>
+  <span class="sticker" style="left:40px;top:28px;background:#B69CFF;border-color:#B69CFF;--r:-5deg">🗓️ Book better</span>
+  <aside class="onscreen">
+    Beat the DMV.
+    🧑‍💻 “Check the NJ MVC site every hour and grab the first license-renewal slot near Edison.”
+    Sticker (top left, + Its own computer colour): 🗓️ Book better
+    Logo badge on the agent: Grok Bot
+    Input: browser window 🔒 telegov.njportal.com · Appointments · a grid of red ✕ · No appointments available
+    Agent badges: ☁️ Its own computer · 🖱️ Browser use
+    Output, one at a time: 9:00 ✕ Nothing · 10:00 ✕ Nothing · 11:00 ✅ Edison · Thu 9:20 AM (illustrative)
+    Yellow shield: ✋ Book it?
+    Green: 📅 Booked · on your calendar
+  </aside>
+  <aside class="notes">Anyone here tried to get an appointment at the New Jersey MVC? [Click] You say: check the NJ MVC site every hour and grab the first license-renewal slot near Edison. [Click] And this is what you normally see: no appointments available. Slots only pop up when someone cancels, at random times. People literally sit there hitting refresh. [Click] Here it's Grok Bot, which can sign in and work on websites that have no connector. There's no connector for the MVC site, so the agent uses its own computer and its own browser, and clicks through the site just like you would. Every hour, even at two in the morning. [Click] Nine o'clock: nothing. [Click] Ten: nothing. [Click] Eleven: a slot in Edison, Thursday morning. [Click] Booking needs your personal details, so it stops and asks: book it? [Click] Booked, and it's on your calendar. This works for any website you keep checking: passport appointments, restaurant reservations, camp sign-ups.</aside>
+</section>
+
+
+<!-- ============================ 26. EX O: COLLEGE RESEARCH ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Find the right college.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Compare 12 colleges for my daughter who wants to study nursing: cost, fit and deadlines. Put it all in a spreadsheet.”</span></div>
+  <div class="w2-card" data-step="2" style="left:130px;top:370px;width:440px;height:390px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+    <span style="font-size:100px;line-height:1">🎓</span>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:0 20px"><span class="w2-tag">Rutgers</span><span class="w2-tag">TCNJ</span><span class="w2-tag">Penn State</span><span class="w2-tag">Drexel</span><span class="w2-tag" style="--c:#8C8C86">+ 8 more</span></div></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A31" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A31)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A31)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/perplexity.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#B69CFF">☁️ Its own computer</span><span class="w2-tag" style="--c:#4D9FFF">🔍 Hundreds of pages</span></div>
+  <div class="w2-card" data-step="4" style="left:1020px;top:320px;width:470px;padding:14px">
+    <table class="w2-tbl"><tr><th>School</th><th>Nursing</th><th>Cost</th><th>Fit</th></tr>
+      <tr><td>Rutgers</td><td style="color:var(--model)">✓</td><td>$</td><td>⭐⭐⭐</td></tr>
+      <tr><td>TCNJ</td><td style="color:var(--model)">✓</td><td>$</td><td>⭐⭐⭐</td></tr>
+      <tr><td>Penn State</td><td style="color:var(--model)">✓</td><td>$$$</td><td>⭐⭐</td></tr>
+      <tr><td>Drexel</td><td style="color:var(--model)">✓</td><td>$$$</td><td>⭐⭐</td></tr>
+      <tr><td>⋮</td><td></td><td></td><td></td></tr></table></div>
+  <div class="wa-done" data-step="5" style="left:1020px;top:660px;width:470px;height:64px;font-size:26px">📊 colleges.xlsx</div>
+  <div class="w2-chip" data-step="6" style="left:1060px;top:745px;--c:var(--dyk)">📅 Deadlines → your calendar</div>
+  <span class="sticker" style="left:40px;top:28px;background:#B69CFF;border-color:#B69CFF;--r:-5deg">🎓 Plan better</span>
+  <aside class="onscreen">
+    Find the right college.
+    🧑‍💻 “Compare 12 colleges for my daughter who wants to study nursing: cost, fit and deadlines. Put it all in a spreadsheet.”
+    Sticker (top left, + Its own computer colour): 🎓 Plan better
+    Logo badge on the agent: Perplexity Computer
+    Input: 🎓 card with school chips: Rutgers · TCNJ · Penn State · Drexel · + 8 more
+    Agent badges: ☁️ Its own computer · 🔍 Hundreds of pages
+    Output: spreadsheet School · Nursing · Cost · Fit: Rutgers ✓ $ ⭐⭐⭐ · TCNJ ✓ $ ⭐⭐⭐ · Penn State ✓ $$$ ⭐⭐ · Drexel ✓ $$$ ⭐⭐ · ⋮ (illustrative)
+    Green: 📊 colleges.xlsx
+    Chip: 📅 Deadlines → your calendar
+  </aside>
+  <aside class="notes">For the parents in the room. [Click] You say: compare twelve colleges for my daughter, who wants to study nursing: cost, fit and deadlines, and put it all in a spreadsheet. [Click] Twelve schools. Normally that's weeks of tabs open on every college website. [Click] Here it's Perplexity Computer. On its own computer it opens every school's site, the admissions pages, the nursing program pages, the cost calculators. Hundreds of pages. [Click] And it builds you one table: does it have nursing, rough cost (in-state Rutgers and TCNJ are much cheaper than Penn State or Drexel for a New Jersey family), and how well each fits what you told it. [Click] As a real spreadsheet file you can sort and share. [Click] And it can put every application deadline on your calendar. Then you check the important numbers on the schools' own sites. It does the legwork; you make the call.</aside>
+</section>
+
+
+<!-- ============================ 27. EX P: PRICE WATCHER ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Watch the price.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Watch flights from Newark to Chennai for December. Tell me the moment one drops under $1,100.”</span></div>
+  <div class="w2-card" data-step="2" style="left:130px;top:380px;width:440px;height:330px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px">
+    <span style="font-size:80px;line-height:1">✈️</span>
+    <div style="font-size:50px;font-weight:800;letter-spacing:-.02em">EWR → MAA</div>
+    <div style="font-size:24px;font-weight:700;color:var(--dim)">December · round trip</div>
+    <div style="font-size:40px;font-weight:800;color:var(--demo)">$1,340</div></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A32" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A32)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A32)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/gemini.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#B69CFF">☁️ Its own computer</span><span class="w2-tag" style="--c:#2EE59D">⏰ Checks daily</span></div>
+  <div class="w2-card" data-step="4" style="left:1020px;top:320px;width:470px;height:280px;padding:20px">
+    <svg width="430" height="240" viewBox="0 0 430 240"><line x1="0" y1="150" x2="430" y2="150" stroke="#FFD23F" stroke-width="3" stroke-dasharray="10 8"/><text x="426" y="140" text-anchor="end" font-size="20" font-weight="800" style="fill:#FFD23F">$1,100</text>
+      <polyline points="0,60 50,52 100,70 150,58 200,90 250,84 300,110 350,128 400,172" fill="none" stroke="#F5F5F0" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="400" cy="172" r="10" fill="#2EE59D"/></svg></div>
+  <div class="wa-done" data-step="5" style="left:1020px;top:620px;width:470px;height:76px;font-size:28px">🔔 Dropped to $1,060!</div>
+  <div class="wa-shield" data-step="6" style="left:1020px;top:715px;width:470px"><span class="e">✋</span>You book it</div>
+  <span class="sticker" style="left:40px;top:28px;background:#B69CFF;border-color:#B69CFF;--r:-5deg">💸 Save better</span>
+  <aside class="onscreen">
+    Watch the price.
+    🧑‍💻 “Watch flights from Newark to Chennai for December. Tell me the moment one drops under $1,100.”
+    Sticker (top left, + Its own computer colour): 💸 Save better
+    Logo badge on the agent: Gemini Spark
+    Input: ✈️ EWR → MAA · December · round trip · $1,340 (red)
+    Agent badges: ☁️ Its own computer · ⏰ Checks daily
+    Output: price line falling over the days, crossing a dashed yellow $1,100 line
+    Green alert: 🔔 Dropped to $1,060! (illustrative)
+    Yellow shield: ✋ You book it
+  </aside>
+  <aside class="notes">Who's flying to India this December? [Click] You say: watch flights from Newark to Chennai for December, and tell me the moment one drops under eleven hundred dollars. [Click] Today it's thirteen-forty. [Click] Here it's Gemini Spark, now Task mode in the Gemini app. Its own computer checks the prices every day, while you get on with your life. No more checking Google Flights every morning. [Click] Watch the price wobble, and then dip under your line. [Click] And you get a ping: dropped to ten-sixty. [Click] You still book it yourself, with your card. Same trick for anything: a TV on sale, concert tickets, a used car listing, hotel prices.</aside>
+</section>
+
+
+<!-- ============================ 28. KIND 4: + YOUR COMPUTER ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">4 · Your computer.</h2>
   <div class="w2-lvl ho" style="--fx:995px;--c:#FF7AD9"><span class="n">4</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero"><span>💻</span><span style="font-size:60px">📂</span></div><b>+ Your computer</b><div class="acc"><span>💬</span><span>🔌</span><span>💻</span></div></div>
-  <div class="w2-logo" data-step="1" style="left:540px"><img src="gifs/logos/claude.png" alt=""><b>Claude Cowork</b></div>
-  <div class="w2-logo" data-step="2" style="left:700px"><img src="gifs/logos/claude-code.png" alt=""><b>Claude Code</b></div>
-  <div class="w2-logo" data-step="3" style="left:860px"><img src="gifs/logos/codex.png" alt=""><b>Codex</b></div>
-  <div class="w2-logo" data-step="4" style="left:1020px"><img src="gifs/logos/openclaw.png" alt=""><b>OpenClaw</b></div>
-  <div class="w2-better" data-step="5" style="left:540px;top:480px;--c:#FF7AD9"><span class="e">🗂️</span>Tidy better</div>
-  <div class="w2-better" data-step="6" style="left:1030px;top:480px;--c:#FF7AD9"><span class="e">🖍️</span>Parent better</div>
+  <div class="w2-logo" data-step="1" style="left:540px"><img src="gifs/logos/claude.png" alt=""><b>Claude Cowork</b><span class="w2-price" style="--pc:#FFD23F">$20/mo</span></div>
+  <div class="w2-logo" data-step="2" style="left:700px"><img src="gifs/logos/claude-code.png" alt=""><b>Claude Code</b><span class="w2-price" style="--pc:#FFD23F">$20/mo</span></div>
+  <div class="w2-logo" data-step="3" style="left:860px"><img src="gifs/logos/codex.png" alt=""><b>Codex</b><span class="w2-price" style="--pc:#2EE59D">Free</span></div>
+  <div class="w2-logo" data-step="4" style="left:1020px"><img src="gifs/logos/openclaw.png" alt=""><b>OpenClaw</b><span class="w2-price" style="--pc:#2EE59D">Free + AI fees</span></div>
+  <div class="w2-better" data-step="5" style="left:540px;top:490px;--c:#FF7AD9"><span class="e">🗂️</span>Tidy better</div>
+  <div class="w2-better" data-step="6" style="left:1030px;top:490px;--c:#FF7AD9"><span class="e">📸</span>Remember better</div>
+  <div class="w2-better" data-step="7" style="left:540px;top:586px;--c:#FF7AD9"><span class="e">🖍️</span>Parent better</div>
   <aside class="onscreen">
     4 · Your computer.
     Left: card 4 · 💻📂 + Your computer
-    Logos, one at a time: Claude Cowork · Claude Code · Codex · OpenClaw
-    What it can do, one at a time: 🗂️ Tidy better · 🖍️ Parent better
+    Logos, one at a time, with lowest tier: Claude Cowork $20/mo · Claude Code $20/mo · Codex Free · OpenClaw Free + AI fees
+    What it can do, one at a time: 🗂️ Tidy better · 📸 Remember better · 🖍️ Parent better
   </aside>
-  <aside class="notes">Kind four: the agent works on YOUR computer. Your files, your folders, your apps, your printer. Most powerful, and it needs the most trust. [Click] Claude Cowork: point it at a folder and it gets to work. [Click] Claude Code. [Click] OpenAI's Codex. These two started as tools for programmers, but people now use them for all kinds of everyday computer chores. [Click] And OpenClaw, the open-source one that went viral this year. You install it on your own machine and text it from WhatsApp or iMessage. What does that unlock? [Click] Tidy better. [Click] And, my favourite, parent better.</aside>
+  <aside class="notes">Kind four: the agent works on YOUR computer. Your files, your folders, your apps, your printer. Most powerful, and it needs the most trust. [Click] Claude Cowork: point it at a folder and it gets to work. Claude Pro, twenty dollars. [Click] Claude Code: same Pro plan. [Click] OpenAI's Codex: included even on the free ChatGPT plan, with tight limits, in the desktop app. Claude Code and Codex started as tools for programmers, but people now use them for all kinds of everyday computer chores. [Click] And OpenClaw, the open-source one that went viral this year. The software is free; you pay for the AI model it uses, often five to twenty dollars a month. You install it on your own machine and text it from WhatsApp or iMessage. What does that unlock? [Click] Tidy better. [Click] Remember better. [Click] And, my favourite, parent better.</aside>
 </section>
 
 
-<!-- ============================ 22. EX C: CLEAN UP DESKTOP ============================ -->
+<!-- ============================ 29. INSIDE: + YOUR COMPUTER ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Inside: your computer.</h2>
+  <div class="wa-win" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
+  <div class="wa-winlbl" style="left:210px;top:198px">App</div>
+  <div class="agcirc" style="left:60px;top:145px;width:100px;height:100px;border:4px solid #FF7AD9"><img src="gifs/agent.png" alt=""></div>
+  <div class="fm" style="left:495px;top:330px">💃</div>
+  <div class="wa-cap" style="left:435px;top:578px;width:300px;color:var(--model)">Model</div>
+  <div class="ag-ctx" style="left:150px;top:290px;width:250px;height:190px;padding:14px;gap:10px"><i style="display:block;height:26px;border-radius:5px;background:#8C8C86"></i><i style="display:block;height:26px;border-radius:5px;background:var(--dyk);width:70%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--fg);width:85%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--model);width:60%"></i></div>
+  <div class="wa-cap" style="left:150px;top:490px;width:250px">Context window</div>
+  <div class="wa-chat" style="left:790px;top:290px;width:190px;height:150px"><span class="u">Hi!</span><span class="a">Hello 👋</span></div>
+  <div class="wa-cap" style="left:790px;top:450px;width:190px">Chat screen</div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle class="wa-loopring" cx="585" cy="420" r="140" fill="none" stroke="#FFD23F" stroke-width="6" stroke-dasharray="26 18"/></svg>
+  <div class="wa-cap" style="left:435px;top:612px;width:300px;color:var(--dyk)">🔁 For hours</div>
+  <div class="wa-cap" style="left:150px;top:650px;width:200px;text-align:left;color:var(--harness)">Tools</div>
+  <div class="w2-tools"><span class="w2-tl">🔍</span><span class="w2-tl">📎</span><span class="w2-tl"><img src="gifs/logos/gmail.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/googledrive.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/googlecalendar.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/notion.png" alt=""></span><span class="w2-tl"><img src="gifs/logos/youtube.svg" alt=""></span><span class="w2-tl">🌐</span><span class="w2-tl">⌨️</span><span class="w2-tl">📁</span><span class="w2-tl new" data-step="1">🖱️</span></div>
+  <div class="layer" data-hide="2"><div class="w2-env" style="--c:#B69CFF"><b>Environment</b><span class="big">☁️</span><span class="t">Its cloud computer</span><div class="rows"><span>🌐 Browser</span><span>📁 Files</span><span>⌨️ Terminal</span></div></div></div>
+  <div class="layer" data-step="2"><div class="w2-env" style="--c:#FF7AD9"><b>Environment</b><span class="big">💻</span><span class="t">Your computer</span><div class="rows"><span>📁 Your files</span><span>🌐 Your browser</span><span>🖨️ Your printer</span></div></div></div>
+  <div class="w2-chip" data-step="3" style="left:1140px;top:770px;--c:var(--dyk)">🛡️ Asks first</div>
+  <aside class="onscreen">
+    Inside: your computer.
+    Same app, model, context window, chat screen, tools and 🔁 For hours loop
+    New tool glows yellow: 🖱️
+    Environment swaps to a pink panel: 💻 Your computer · 📁 Your files · 🌐 Your browser · 🖨️ Your printer
+    Chip: 🛡️ Asks first
+  </aside>
+  <aside class="notes">And kind four. Same app, same model, same loop. [Click] One more tool: it can move your mouse and type on your keyboard, so it can use any app you can. [Click] And the environment is now your computer. Your files, your browser where you're already logged in, your printer. That's why it's so useful, and why you need to trust it. [Click] So a good one always asks first, before it deletes, sends or buys anything. One picture to remember: across all four kinds the model never changed. What changed is everything around it: the tools, the loop, and where it's allowed to work.</aside>
+</section>
+
+
+<!-- ============================ 30. EX C: CLEAN UP DESKTOP ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Clean up your desktop.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“My desktop is a mess. Sort everything into folders and bin the duplicates.”</span></div>
@@ -1388,7 +1697,39 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 23. EX H: DAILY COLORING PAGE ============================ -->
+<!-- ============================ 31. EX R: RENAME PHOTOS ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Name your photos.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Rename my 500 trip photos by date and place, like '2024-03 Chennai - Marina Beach'.”</span></div>
+  <div class="w2-card w2-files" data-step="2" style="left:120px;top:370px;width:470px;height:360px"><span>🖼️ IMG_4421.jpg</span><span>🖼️ IMG_4422.jpg</span><span>🖼️ DSC_0091.jpg</span><span>🖼️ PXL_20240314.jpg</span><span>🖼️ IMG_4423 (1).jpg</span><span style="color:var(--dim)">… × 500</span></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A34" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A34)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A34)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/codex.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#FF7AD9">💻 Your computer</span><span class="w2-tag" style="--c:#F5F5F0">👀 Looks at each photo</span></div>
+  <div class="w2-card w2-files" data-step="4" style="left:1020px;top:330px;width:470px;height:300px;border-color:var(--model)"><span>2024-03 Chennai - Marina Beach</span><span>2024-03 Chennai - Kapaleeshwarar</span><span>2024-03 Madurai - Meenakshi Temple</span><span>2024-11 Edison - Diwali party</span><span style="color:var(--dim)">…</span></div>
+  <div class="wa-done" data-step="5" style="left:1020px;top:660px;width:470px;height:64px;font-size:26px">📁 Sorted into 6 trip folders</div>
+  <span class="sticker" style="left:40px;top:28px;background:#FF7AD9;border-color:#FF7AD9;--r:-5deg">📸 Remember better</span>
+  <aside class="onscreen">
+    Name your photos.
+    🧑‍💻 “Rename my 500 trip photos by date and place, like '2024-03 Chennai - Marina Beach'.”
+    Sticker (top left, + Your computer colour): 📸 Remember better
+    Logo badge on the agent: Codex
+    Input: file list 🖼️ IMG_4421.jpg · IMG_4422.jpg · DSC_0091.jpg · PXL_20240314.jpg · IMG_4423 (1).jpg · … × 500
+    Agent badges: 💻 Your computer · 👀 Looks at each photo
+    Output: renamed list (green border): 2024-03 Chennai - Marina Beach · 2024-03 Chennai - Kapaleeshwarar · 2024-03 Madurai - Meenakshi Temple · 2024-11 Edison - Diwali party · …
+    Green: 📁 Sorted into 6 trip folders
+  </aside>
+  <aside class="notes">Every phone names photos like this. [Click] You say: rename my five hundred trip photos by date and place, like 2024-03 Chennai, Marina Beach. [Click] IMG 4421, DSC 0091, PXL something. Try finding the Meenakshi temple photos in that. [Click] Here it's Codex, on your own computer, which even the free plan can try. It reads the date and location hidden inside each photo file, and it actually looks at each photo to work out what's in it. [Click] Now they have names a human can read and search: Marina Beach, Kapaleeshwarar temple, Meenakshi temple, the Diwali party. [Click] And it sorts them into a folder per trip. Tip: ask it to show you ten example names first, and say go only when you like them.</aside>
+</section>
+
+
+<!-- ============================ 32. EX H: DAILY COLORING PAGE ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">A coloring page every morning.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Every morning at 7, make a coloring page for Maya (6, loves dinosaurs and cricket) and print it.”</span></div>
@@ -1424,7 +1765,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 24. PURPOSE BUILT ============================ -->
+<!-- ============================ 33. PURPOSE BUILT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Now, purpose built.</h2>
   <div class="w2-box gp big" data-move="1" data-hide="2"><div class="e">🧰</div><b>General purpose</b><div class="row"><img src="gifs/logos/openai.png" alt=""><img src="gifs/logos/claude.png" alt=""><img src="gifs/logos/gemini.png" alt=""></div></div>
@@ -1443,7 +1784,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 25. LEARN YOUR WAY ============================ -->
+<!-- ============================ 34. LEARN YOUR WAY ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Learn Your Way.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -1469,7 +1810,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 26. AI STUDIO ============================ -->
+<!-- ============================ 35. AI STUDIO ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Google AI Studio.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -1495,7 +1836,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 27. ELEVENLABS ============================ -->
+<!-- ============================ 36. ELEVENLABS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">ElevenLabs.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -1515,6 +1856,73 @@ aside.notes,aside.onscreen{display:none}
     → 🗣️ Any voice 👵🧔👧 · 🌍 Languages தமிழ் · Español · 🧬 Your own voice 🧑→🔊
   </aside>
   <aside class="notes">Third: ElevenLabs, for voices. [Click] Remember Pip the hedgehog from last week's bedtime story? You type the story. [Click] And ElevenLabs reads it aloud, and it sounds like a real person: pauses, emotion, a little laugh in the right place. [Click] Pick any voice: a grandma, a deep movie-trailer voice, a child. [Click] Any language. Here's the fun part: the same story in Tamil, in Spanish, in almost any language. You can even dub a whole video into another language. [Click] And you can clone your own voice from a short recording. Imagine your kid's bedtime story read in your voice while you're travelling. Which, yes, also means: be careful. If a phone call sounds exactly like your family member asking for money, call them back on a number you know.</aside>
+</section>
+
+
+<!-- ============================ 37. THINK LIKE A CEO ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Think like a CEO.</h2>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A40" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="2"><path class="draw" pathLength="1" d="M800 330 L800 372" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A40)" style="--t:.25s;--d:.1s"/></g>
+    <g data-step="3"><path class="draw" pathLength="1" d="M730 520 C600 560 380 570 300 592" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A40)" style="--t:.35s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M775 535 C740 560 660 575 635 592" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A40)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="5"><path class="draw" pathLength="1" d="M825 535 C860 560 940 575 965 592" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A40)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="6"><path class="draw" pathLength="1" d="M870 520 C1000 560 1220 570 1300 592" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A40)" style="--t:.35s;--d:.1s"/></g>
+  </svg>
+  <div class="w2-emo" data-step="1" style="left:720px;top:190px;width:160px;font-size:100px">🧑‍💼</div>
+  <div class="w2-say" data-step="1" style="left:1000px;top:230px;width:auto;color:var(--dim)">← You</div>
+  <div class="agcirc" data-step="2" style="left:725px;top:380px;width:150px;height:150px;border:6px solid #FFD23F;box-shadow:0 0 40px rgba(255,210,63,.4)"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-say" data-step="2" style="left:900px;top:430px;width:auto;color:var(--dyk)">Chief of staff</div>
+  <div class="agcirc" data-step="3" style="left:240px;top:600px;width:100px;height:100px;border:4px solid #4D9FFF"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-say" data-step="3" style="left:140px;top:712px;width:300px;font-size:26px;color:#4D9FFF">📥 Inbox Ida</div>
+  <div class="agcirc" data-step="4" style="left:580px;top:600px;width:100px;height:100px;border:4px solid #B69CFF"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-say" data-step="4" style="left:480px;top:712px;width:300px;font-size:26px;color:#B69CFF">✈️ Travel Tara</div>
+  <div class="agcirc" data-step="5" style="left:920px;top:600px;width:100px;height:100px;border:4px solid #B69CFF"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-say" data-step="5" style="left:820px;top:712px;width:300px;font-size:26px;color:#B69CFF">🧾 Tax Tom</div>
+  <div class="agcirc" data-step="6" style="left:1260px;top:600px;width:100px;height:100px;border:4px solid #FF7AD9"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-say" data-step="6" style="left:1160px;top:712px;width:300px;font-size:26px;color:#FF7AD9">🎓 College Cara</div>
+  <div class="cva-punch" data-step="7" style="left:0;width:1600px;top:785px;font-size:46px">Everyone gets a <span style="color:var(--dyk)">chief of staff</span> now.</div>
+  <aside class="onscreen">
+    Think like a CEO.
+    🧑‍💼 ← You
+    → spy with a gold ring: Chief of staff
+    → four named specialist spies, one per click: 📥 Inbox Ida · ✈️ Travel Tara · 🧾 Tax Tom · 🎓 College Cara
+    Everyone gets a chief of staff now.
+  </aside>
+  <aside class="notes">So how should you be thinking about all this? Not one task at a time. One level higher. Like a CEO. [Click] Here's you. A CEO doesn't do every task themselves; they delegate. [Click] And the first thing most busy CEOs hire is a chief of staff: one person you talk to, who makes sure everything else gets done. That's what these agents give you. You talk to one, and it hands out the work. [Click] One agent owns your inbox. Give it a name: Inbox Ida. [Click] Travel Tara handles trips and prices. [Click] Tax Tom collects receipts and paperwork. [Click] College Cara runs the college research. One agent, one job: that's the number-one tip from the team that built Grok Bot. Narrow jobs, given real names, because a teammate with a name gets delegated to, and a 'task 3' gets micromanaged. They call it teammates, not tasks. [Click] Until now, only CEOs had a chief of staff. Now every one of us can have one, for about the price of a Netflix subscription.</aside>
+</section>
+
+
+<!-- ============================ 38. DON'T THINK SMALL ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Don't think small.</h2>
+  <div class="w2-idea" data-step="1" style="left:130px;width:220px;height:130px;--c:#8C8C86"><span class="e" style="font-size:44px">✍️</span><span style="font-size:22px">Fix my email</span></div>
+  <div class="w2-idea" data-step="2" style="left:390px;width:270px;height:200px;--c:#4D9FFF"><span class="e" style="font-size:64px">🗂️</span><span style="font-size:26px">Run the family paperwork</span></div>
+  <div class="w2-idea" data-step="3" style="left:700px;width:320px;height:280px;--c:#B69CFF"><span class="e" style="font-size:84px">🏪</span><span style="font-size:30px">Run my side business</span></div>
+  <div class="w2-idea" data-step="4" style="left:1060px;width:410px;height:390px;--c:#FFD23F;box-shadow:0 0 60px rgba(255,210,63,.35)"><span class="e" style="font-size:120px">🚀</span><span style="font-size:38px">Your crazy idea</span></div>
+  <div class="wa-done" data-step="5" style="left:330px;top:790px;width:940px;height:72px;font-size:30px">💡 Bring it. In Week 3, we build it.</div>
+  <aside class="onscreen">
+    Don't think small.
+    Idea cards growing left to right, one per click: ✍️ Fix my email · 🗂️ Run the family paperwork · 🏪 Run my side business · 🚀 Your crazy idea (biggest, glowing yellow)
+    Green bar: 💡 Bring it. In Week 3, we build it.
+  </aside>
+  <aside class="notes">Second mindset shift: don't think small. [Click] Most people start here: fix my email. Fine. [Click] Then they realise it can run the family paperwork. [Click] Then: it could run my side business, the orders, the invoices, the follow-ups. [Click] And then there's the idea you haven't even let yourself think of yet, because until now it would have needed a team of ten people. Here's a line from one of the people running a whole team of these agents: "The thing probably holding you back is you thinking about what is actually possible." Most of us are limited by our imagination, not by the tools. You can do things now you haven't even thought of. [Click] So here's my ask: write your crazy idea down and bring it. Week three is building with AI. We'll pick some of your ideas and actually try to build them, live. No idea is too big.</aside>
+</section>
+
+
+<!-- ============================ 39. START HERE ============================ -->
+<section class="slide">
+  <h2 class="fu title-c" style="--d:.1s">Start here.</h2>
+  <div class="w2-tool" data-step="1" style="left:155px;border-top-color:#FF5A3D"><span class="e">😤</span><b>Your most annoying task</b><i>Not the most impressive one</i></div>
+  <div class="w2-tool" data-step="2" style="left:485px;border-top-color:#FF7AD9"><span class="e">🎙️</span><b>Talk for 15 minutes</b><i>Your life, your job, what's broken</i></div>
+  <div class="w2-tool" data-step="3" style="left:815px;border-top-color:#4D9FFF"><span class="e">🔌</span><b>Connect your apps</b><i>Email, calendar, Drive</i></div>
+  <div class="w2-tool" data-step="4" style="left:1145px;border-top-color:#2EE59D"><span class="e">👀</span><b>Watch first, then let it act</b><i>Read → draft → do</i></div>
+  <aside class="onscreen">
+    Start here.
+    Four cards, one per click: 😤 Your most annoying task (Not the most impressive one) · 🎙️ Talk for 15 minutes (Your life, your job, what's broken) · 🔌 Connect your apps (Email, calendar, Drive) · 👀 Watch first, then let it act (Read → draft → do)
+  </aside>
+  <aside class="notes">So where do you start this week? This comes straight from the Grok Bot team's own advice after building a whole product with agents in three days. [Click] One: pick the most annoying part of your day. Not the most impressive one, the most annoying one. That's where you'll actually feel the difference. [Click] Two: record a fifteen-minute voice memo. Who you are, what your job is, what's broken, what you wish someone else would do. Give it to the AI and ask it to propose a plan. You'll be surprised. [Click] Three: connect your apps first: email, calendar, Drive. Connectors are faster, cheaper and more reliable than letting it click around websites. [Click] Four: start it read-only. First it just reads and summarises. Then it drafts, and you send. Only when you trust it do you let it act on its own. That's your homework. And bring your crazy ideas next week.</aside>
 </section>
 
 </div>
