@@ -147,3 +147,17 @@ Now the other plug-in: access. Same chatbots, but now you plug in connectors to 
 **Say**
 
 Same model, same layout. Watch what changes. [Click] New tools: connectors to Gmail, Google Drive, your calendar, Notion, YouTube. [Click] And now it has somewhere to act: your apps, online. It still has no computer of its own; it reaches your apps through the connectors. Notice what didn't change: the model. Same frozen dancer.
+
+
+## 7. Three Ways In — Three ways in.
+
+**On screen**
+
+- Three ways in.
+- Spy agent at the bottom centre
+- Three cards above, each feeding a stream of dots into the agent:
+- 🔌 MCP (📧📅📂) · 🧩 Plugins (🔌🎓⚙️) · 🖱️ Browser use (🌐)
+
+**Say**
+
+So, recap: how does outside stuff get into the agent? [Click] Here's the agent. [Click] One: MCP connectors. A clean, official plug into an app: Gmail, Calendar, Drive. [Click] Two: plugins. A plugin is a bundle: one install gives the agent a set of connectors, plus instructions on how to use them, plus a few shortcuts. In ChatGPT these show up as apps; in Claude they're called plugins. Same idea: install once, and the agent gains a whole new ability. [Click] Three: browser use. No plug at all; the agent just uses the website like a person would. Those are the three ways in. But wait. There's a catch.
