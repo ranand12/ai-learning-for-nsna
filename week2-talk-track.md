@@ -80,13 +80,13 @@ So what does that enable? Tools connect the model to systems and data outside it
 
 - How does it connect?
 - Spy agent (left). Four app tiles (top right): 📧 Email · 📅 Calendar · 📂 Drive · 📈 Trading
-- Blue 🔌 MCP plug between the agent and the apps, with one blue cable running through all four
+- Blue 🔧 Tools plug between the agent and the apps, with one blue cable running through all four
 - A website with no connector (browser window: tickets.example.com, a green Book button): red dashed line with ✕ · No connector
 - Then: pink arrow instead, and a mouse pointer moving and clicking Book · 🖱️ Browser use
 
 **Say**
 
-So how does the agent actually reach your stuff? [Click] Here's our agent, and here are the apps it wants to use: your email, your calendar, your Drive, your trading account. [Click] The main way is called MCP. Don't worry about the letters. Think of it as USB-C for AI: one standard plug. Any app that offers an MCP connector, the agent can plug straight into. In ChatGPT and Claude you'll see these listed as "connectors". One plug, every app. [Click] But what if the site you need has no connector? Your kid's school portal, an old ticketing site, your company's expense system. No plug. [Click] Then the agent does what you'd do: it opens a browser, looks at the page, moves the mouse and clicks the buttons. That's called browser use, or computer use. It's slower and clumsier than a connector, but it works on almost any website.
+So how does the agent actually reach your stuff? [Click] Here's our agent, and here are the apps it wants to use: your email, your calendar, your Drive, your trading account. [Click] The main way is tools. Think of it as USB-C for AI: one standard plug. Any app that offers one, the agent can plug straight into. In ChatGPT and Claude you'll see these listed as "connectors". One plug, every app. [Click] But what if the site you need has no connector? Your kid's school portal, an old ticketing site, your company's expense system. No plug. [Click] Then the agent does what you'd do: it opens a browser, looks at the page, moves the mouse and clicks the buttons. That's called browser use, or computer use. It's slower and clumsier than a connector, but it works on almost any website.
 
 ## 7. Three Ways In — Three ways in.
 
