@@ -215,11 +215,11 @@ So how does plugging in a chip actually work? [Click] Remember the desk, the con
 
 Here's that skill in action. [Click] You say: use grill-me, help me plan my daughter's seventh birthday party. [Click] Right now, the idea is a fog in your head. And the AI knows even less than you do. If it just starts answering, you get a generic party plan for a generic kid. [Click] Here it's Claude, which has Skills built in. So the grill-me skill flips it around. Instead of answering, the agent interviews you first, one question at a time. [Click] How many kids? [Click] What's the budget? [Click] Indoor or outdoor? [Click] Any allergies? Watch the meter: every answer, it understands you better. [Click] And only then does it plan, and the plan fits YOUR party. Use this for anything big: a trip, a business idea, a hard email. Let it grill you first. So that's tools and skills. Now let's look at the AI apps you'll actually use them in.
 
-## 16. Two Kinds Of Tools — Two kinds of AI tools.
+## 16. Two Kinds Of Agents — Two kinds of AI agents.
 
 **On screen**
 
-- Two kinds of AI tools.
+- Two kinds of AI agents.
 - Left box (green): 🧰 General purpose, with ChatGPT · Claude · Gemini logos
 - Right box (yellow): 🎯 Purpose built, with 🎓 🧪 🎙️
 - Then: right box shrinks off to the side, General purpose zooms to the centre
@@ -227,7 +227,7 @@ Here's that skill in action. [Click] You say: use grill-me, help me plan my daug
 
 **Say**
 
-There are really two kinds of AI tools out there. [Click] General-purpose tools: ChatGPT, Claude, Gemini. Think of them as a Swiss army knife. You can throw almost anything at them: write, analyse, plan, research. [Click] And purpose-built tools. They do one job, and they do it brilliantly: turning a textbook into lessons, building an app, making a voice. Like a specialist doctor versus your family doctor. [Click] We'll come back to the specialists at the end. Let's start with the general-purpose ones, because that's where most of your day will be.
+There are really two kinds of AI agents out there. [Click] General-purpose agents: ChatGPT, Claude, Gemini. Think of them as a Swiss army knife. You can throw almost anything at them: write, analyse, plan, research. [Click] And purpose-built agents. They do one job, and they do it brilliantly: turning your documents into a podcast, a textbook into lessons, an idea into an app. Like a specialist doctor versus your family doctor. [Click] We'll come back to the specialists at the end. Let's start with the general-purpose ones, because that's where most of your day will be.
 
 ## 17. Three Kinds Of Agents — Three kinds of agents.
 
