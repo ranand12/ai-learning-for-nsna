@@ -469,31 +469,31 @@ We've done the chatbot, and the agent with its own computer in the cloud. Now th
 
 Kind three: the agent works on YOUR computer. Your files, your folders, your apps, your printer. Most powerful, and it needs the most trust. [Click] Claude Cowork: point it at a folder and it gets to work. Claude Pro, twenty dollars. [Click] Claude Code: same Pro plan. [Click] OpenAI's Codex: included even on the free ChatGPT plan, with tight limits, in the desktop app. Claude Code and Codex started as tools for programmers, but people now use them for all kinds of everyday computer chores. [Click] And OpenClaw, the open-source one that went viral this year. The software is free; you pay for the AI model it uses, often five to twenty dollars a month. You install it on your own machine and text it from WhatsApp or iMessage. What does that unlock? [Click] Tidy better. [Click] Remember better. [Click] Read better. [Click] And, my favourite, parent better.
 
-## 32. Inside: Your Computer — Inside: your computer.
+## 32. Inside: Your Computer — Inside: YOUR computer.
 
 **On screen**
 
-- Inside: your computer.
+- Inside: YOUR computer.
 - Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
 - Same model and tools as its own computer
 - New tool glows yellow: 🖱️
-- Environment swaps from ☁️ Its own computer to a pink panel: 💻 Your computer · 📁 Your files · 🌐 Your browser · 🖨️ Your printer
+- Environment swaps from ☁️ Its own computer to a pink panel: 💻 YOUR computer · 📁 YOUR files · 🌐 YOUR browser · 🖨️ YOUR printer
 - Chip: 🛡️ Asks first
 
 **Say**
 
 And kind three. Same model, same tools. [Click] One more tool: it can move your mouse and type on your keyboard, so it can use any app you can. [Click] And the environment is now YOUR computer. Your files, your browser where you're already logged in, your printer. That's why it's so useful, and why you need to trust it. [Click] So a good one always asks first, before it deletes, sends or buys anything. One picture to remember: across every kind the model never changed. What changed is everything around it: the tools, and where it's allowed to work.
 
-## 33. Ex C: Clean Up Desktop — Clean up your desktop.
+## 33. Ex C: Clean Up Desktop — Clean up YOUR desktop.
 
 **On screen**
 
 - Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
-- Clean up your desktop.
+- Clean up YOUR desktop.
 - 🧑‍💻 “My desktop is a mess. Sort everything into folders and bin the duplicates.”
 - Logo badge on the agent: Claude Cowork
 - Input: a messy desktop window with scattered files: IMG_2231.jpg · tax_2025.pdf · Resume_v3.docx · IMG_2231 (1).jpg · biryani.pdf · Resume_v3 copy.docx · W-2.pdf · beach.png
-- Agent badge: 💻 Your computer
+- Agent badge: 💻 YOUR computer
 - Output: folders 📁 Photos · 📁 Taxes · 📁 Recipes · 📁 Resumes · 🗑️ Duplicates
 - Then the files fly from the desktop into their folders; the two copies go to the bin
 
@@ -501,16 +501,16 @@ And kind three. Same model, same tools. [Click] One more tool: it can move your 
 
 Everyone's favourite. [Click] You say: my desktop is a mess, sort everything into folders and bin the duplicates. [Click] Look familiar? IMG something, resume v3, resume v3 copy, a biryani recipe next to your tax forms. [Click] This one needs kind three: the agent on YOUR computer, because the files are on your laptop. Here it's Claude Cowork. You point it at the folder and give it permission. [Click] It decides on folders: photos, taxes, recipes, resumes, and a bin for duplicates. [Click] And everything goes where it belongs, and the copies go in the bin. Tip: the first time, ask it to show you the plan before it moves anything. A good agent will ask before it deletes.
 
-## 34. Ex R: Rename Photos — Name your photos.
+## 34. Ex R: Rename Photos — Name YOUR photos.
 
 **On screen**
 
 - Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
-- Name your photos.
+- Name YOUR photos.
 - 🧑‍💻 “Rename my 500 trip photos by date and place, like '2024-03 Chennai - Marina Beach'.”
 - Logo badge on the agent: Codex
 - Input: file list 🖼️ IMG_4421.jpg · IMG_4422.jpg · DSC_0091.jpg · PXL_20240314.jpg · IMG_4423 (1).jpg · … × 500
-- Agent badges: 💻 Your computer · 👀 Looks at each photo
+- Agent badges: 💻 YOUR computer · 👀 Looks at each photo
 - Output: renamed list (green border): 2024-03 Chennai - Marina Beach · 2024-03 Chennai - Kapaleeshwarar · 2024-03 Madurai - Meenakshi Temple · 2024-11 Edison - Diwali party · …
 - Green: 📁 Sorted into 6 trip folders
 
