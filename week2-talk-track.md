@@ -660,53 +660,13 @@ This one's my favourite. [Click] You say: every morning at seven, make a colorin
 - Now, purpose built.
 - Starts where slide 2 ended: General purpose big in the centre, Purpose built small on the right
 - Then they swap: General purpose shrinks to the side, Purpose built zooms to the centre
-- Then four cards: 🎓 Learn Your Way · Textbook → your lesson | 🧪 AI Studio · Try it, build it | 🎙️ ElevenLabs · Any voice | ❔ … (placeholder, still to pick)
+- Then four cards: 📓 NotebookLM · Your sources → podcast, quiz, map | 🎓 Learn Your Way · Textbook → your lesson | 🧪 AI Studio · Try it, build it | ❔ … (placeholder, still to pick)
 
 **Say**
 
-Remember the two boxes from the start? We've spent the whole session in the general-purpose box. [Click] Now let's open the other one: purpose-built tools. Each one does a single job, and does it better than any chatbot. [Click] Learn Your Way, from Google: it turns a textbook into lessons made for you. [Click] Google AI Studio: a free playground to try Google's newest models and build little apps just by describing them. [Click] ElevenLabs: voices. Any voice, any language, even your own. [Click] And there are hundreds more. A new one launches every week. Let's look at these three quickly.
+Remember the two boxes from the start? We've spent the whole session in the general-purpose box. [Click] Now let's open the other one: purpose-built tools. Each one does a single job, and does it better than any chatbot. [Click] NotebookLM, from Google: give it your own documents and videos, and it turns them into a podcast, a quiz, a mind map, and answers only from your sources. [Click] Learn Your Way, also from Google: it turns a textbook into lessons made for you. [Click] Google AI Studio: a free playground to try Google's newest models and build little apps just by describing them. [Click] And there are hundreds more. A new one launches every week. Try one this week.
 
-## 44. Learn Your Way — Learn Your Way.
-
-**On screen**
-
-- Learn Your Way.
-- Left: a textbook page 📖 Ch. 7: Photosynthesis · chip: 🧑‍🎓 Grade 7 · loves ⚽
-- Middle: big yellow circle 🎓 (Learn Your Way)
-- Right, one at a time: 🧠 Mind map · 🎞️ Slides · 🎧 Audio lesson · ❓ Quiz
-
-**Say**
-
-Learn Your Way is an experiment from Google. [Click] You start with a normal textbook chapter. Photosynthesis, say. Dense, grey, boring. [Click] Then you tell it about the learner: grade seven, loves football. [Click] And it rewrites the chapter for that student, at their level, with examples from football. [Click] It makes a mind map, so you see the big picture. [Click] Slides, with narration. [Click] An audio lesson you can listen to in the car. [Click] And quizzes along the way, to check it's sinking in. Same textbook, but built for one kid. That's the advantage of a purpose-built tool: you'd need ten clever prompts to get this out of a chatbot. Here it's one button.
-
-## 45. Ai Studio — Google AI Studio.
-
-**On screen**
-
-- Google AI Studio.
-- 🧑‍💻 “Build me a Spanish flashcard app for my son.”
-- Left: yellow window 🧪 AI Studio
-- Right: blue app window with ⭐ 7 / 20 and a flashcard: perro → flips to 🐶 dog
-- Chip: 🆓 Free to try
-
-**Say**
-
-Second: Google AI Studio. [Click] Here's a fun one to try at home. You type: build me a Spanish flashcard app for my son. [Click] AI Studio is Google's playground. It's where Google puts its newest models first, and you can try them directly. [Click] It has a build mode: you describe an app in plain English, and it builds a working one in front of you. [Click] Here's the flashcard: perro. [Click] Tap it, and it flips: dog. Want a score counter? A sound when he gets it right? Just ask. [Click] And it's free to try. You don't need to know any code. We'll go much deeper into building things like this in week three.
-
-## 46. Elevenlabs — ElevenLabs.
-
-**On screen**
-
-- ElevenLabs.
-- Text card: “Once upon a time, a tiny hedgehog named Pip…”
-- → 🔊 a moving yellow sound wave
-- → 🗣️ Any voice 👵🧔👧 · 🌍 Languages தமிழ் · Español · 🧬 Your own voice 🧑→🔊
-
-**Say**
-
-Third: ElevenLabs, for voices. [Click] Remember Pip the hedgehog from last week's bedtime story? You type the story. [Click] And ElevenLabs reads it aloud, and it sounds like a real person: pauses, emotion, a little laugh in the right place. [Click] Pick any voice: a grandma, a deep movie-trailer voice, a child. [Click] Any language. Here's the fun part: the same story in Tamil, in Spanish, in almost any language. You can even dub a whole video into another language. [Click] And you can clone your own voice from a short recording. Imagine your kid's bedtime story read in your voice while you're travelling. Which, yes, also means: be careful. If a phone call sounds exactly like your family member asking for money, call them back on a number you know.
-
-## 47. Think Like A Ceo — Think like a CEO.
+## 44. Think Like A Ceo — Think like a CEO.
 
 **On screen**
 
@@ -720,7 +680,7 @@ Third: ElevenLabs, for voices. [Click] Remember Pip the hedgehog from last week'
 
 So how should you be thinking about all this? Not one task at a time. One level higher. Like a CEO. [Click] Here's you. A CEO doesn't do every task themselves; they delegate. [Click] And the first thing most busy CEOs hire is a chief of staff: one person you talk to, who makes sure everything else gets done. That's what these agents give you. You talk to one, and it hands out the work. [Click] One agent owns your inbox. Give it a name: Inbox Ida. [Click] Travel Tara handles trips and prices. [Click] Tax Tom collects receipts and paperwork. [Click] College Cara runs the college research. One agent, one job: that's the number-one tip from the team that built Grok Bot. Narrow jobs, given real names, because a teammate with a name gets delegated to, and a 'task 3' gets micromanaged. They call it teammates, not tasks. [Click] Until now, only CEOs had a chief of staff. Now every one of us can have one, for about the price of a Netflix subscription.
 
-## 48. Don'T Think Small — Don't think small.
+## 45. Don'T Think Small — Don't think small.
 
 **On screen**
 
@@ -732,7 +692,7 @@ So how should you be thinking about all this? Not one task at a time. One level 
 
 Second mindset shift: don't think small. [Click] Most people start here: fix my email. Fine. [Click] Then they realise it can run the family paperwork. [Click] Then: it could run my side business, the orders, the invoices, the follow-ups. [Click] And then there's the idea you haven't even let yourself think of yet, because until now it would have needed a team of ten people. Here's a line from one of the people running a whole team of these agents: "The thing probably holding you back is you thinking about what is actually possible." Most of us are limited by our imagination, not by the tools. You can do things now you haven't even thought of. [Click] So here's my ask: write your crazy idea down and bring it. Week three is building with AI. We'll pick some of your ideas and actually try to build them, live. No idea is too big.
 
-## 49. Start Here — Start here.
+## 46. Start Here — Start here.
 
 **On screen**
 
@@ -759,3 +719,46 @@ _Kept for reference; these slides are no longer in the deck._
 **Say**
 
 Enough theory. Let's go through real examples, everyday stuff, not programmer stuff. For each one, watch three things: what you ask, which kind of agent does it, and what you get back. I'll demo as many of these live as we have time for.
+
+
+## 44. Learn Your Way — Learn Your Way.
+
+**On screen**
+
+- Learn Your Way.
+- Left: a textbook page 📖 Ch. 7: Photosynthesis · chip: 🧑‍🎓 Grade 7 · loves ⚽
+- Middle: big yellow circle 🎓 (Learn Your Way)
+- Right, one at a time: 🧠 Mind map · 🎞️ Slides · 🎧 Audio lesson · ❓ Quiz
+
+**Say**
+
+Learn Your Way is an experiment from Google. [Click] You start with a normal textbook chapter. Photosynthesis, say. Dense, grey, boring. [Click] Then you tell it about the learner: grade seven, loves football. [Click] And it rewrites the chapter for that student, at their level, with examples from football. [Click] It makes a mind map, so you see the big picture. [Click] Slides, with narration. [Click] An audio lesson you can listen to in the car. [Click] And quizzes along the way, to check it's sinking in. Same textbook, but built for one kid. That's the advantage of a purpose-built tool: you'd need ten clever prompts to get this out of a chatbot. Here it's one button.
+
+
+## 45. Ai Studio — Google AI Studio.
+
+**On screen**
+
+- Google AI Studio.
+- 🧑‍💻 “Build me a Spanish flashcard app for my son.”
+- Left: yellow window 🧪 AI Studio
+- Right: blue app window with ⭐ 7 / 20 and a flashcard: perro → flips to 🐶 dog
+- Chip: 🆓 Free to try
+
+**Say**
+
+Second: Google AI Studio. [Click] Here's a fun one to try at home. You type: build me a Spanish flashcard app for my son. [Click] AI Studio is Google's playground. It's where Google puts its newest models first, and you can try them directly. [Click] It has a build mode: you describe an app in plain English, and it builds a working one in front of you. [Click] Here's the flashcard: perro. [Click] Tap it, and it flips: dog. Want a score counter? A sound when he gets it right? Just ask. [Click] And it's free to try. You don't need to know any code. We'll go much deeper into building things like this in week three.
+
+
+## 46. Elevenlabs — ElevenLabs.
+
+**On screen**
+
+- ElevenLabs.
+- Text card: “Once upon a time, a tiny hedgehog named Pip…”
+- → 🔊 a moving yellow sound wave
+- → 🗣️ Any voice 👵🧔👧 · 🌍 Languages தமிழ் · Español · 🧬 Your own voice 🧑→🔊
+
+**Say**
+
+Third: ElevenLabs, for voices. [Click] Remember Pip the hedgehog from last week's bedtime story? You type the story. [Click] And ElevenLabs reads it aloud, and it sounds like a real person: pauses, emotion, a little laugh in the right place. [Click] Pick any voice: a grandma, a deep movie-trailer voice, a child. [Click] Any language. Here's the fun part: the same story in Tamil, in Spanish, in almost any language. You can even dub a whole video into another language. [Click] And you can clone your own voice from a short recording. Imagine your kid's bedtime story read in your voice while you're travelling. Which, yes, also means: be careful. If a phone call sounds exactly like your family member asking for money, call them back on a number you know.
