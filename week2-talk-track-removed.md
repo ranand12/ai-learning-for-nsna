@@ -50,3 +50,55 @@ Second: Google AI Studio. [Click] Here's a fun one to try at home. You type: bui
 **Say**
 
 Third: ElevenLabs, for voices. [Click] Remember Pip the hedgehog from last week's bedtime story? You type the story. [Click] And ElevenLabs reads it aloud, and it sounds like a real person: pauses, emotion, a little laugh in the right place. [Click] Pick any voice: a grandma, a deep movie-trailer voice, a child. [Click] Any language. Here's the fun part: the same story in Tamil, in Spanish, in almost any language. You can even dub a whole video into another language. [Click] And you can clone your own voice from a short recording. Imagine your kid's bedtime story read in your voice while you're travelling. Which, yes, also means: be careful. If a phone call sounds exactly like your family member asking for money, call them back on a number you know.
+
+
+## 3. Quiz 1 — Does the AI remember yesterday's chat?
+
+**On screen**
+
+- Sticker: 🧠 Quick quiz · 1/4
+- Does the AI remember yesterday's chat?
+- A Yes, it learns from every chat · B No, it starts fresh every time ✓ · C Only if you pay (the right answer turns green, the others are crossed out)
+
+**Say**
+
+Quick quiz. Shout out the answer. Does the AI remember yesterday's chat? [Click] A: yes, it learns from every chat. B: no, it starts fresh every time. C: only if you pay. [Click] B. The model is stateless, Ghajini. When an app seems to remember you, that's the app pasting notes onto the desk, not the model learning.
+
+
+## 4. Quiz 2 — A really long chat starts to…
+
+**On screen**
+
+- Sticker: 🧠 Quick quiz · 2/4
+- A really long chat starts to…
+- A Forget the beginning ✓ · B Get smarter · C Cost nothing (the right answer turns green, the others are crossed out)
+
+**Say**
+
+Next one. A really long chat starts to… [Click] A: forget the beginning. B: get smarter. C: cost nothing. [Click] A. The desk fills up, things in the middle get lost, and eventually the oldest messages fall off. That's why we start a fresh chat for a new topic.
+
+
+## 5. Quiz 3 — Ask about last week's news, with no web search.
+
+**On screen**
+
+- Sticker: 🧠 Quick quiz · 3/4
+- Ask about last week's news, with no web search.
+- A It knows · B It doesn't: it's frozen at a cutoff ✓ · C It reads your mind (the right answer turns green, the others are crossed out)
+
+**Say**
+
+Ask the AI about last week's news, with no web search turned on. [Click] A: it knows. B: it doesn't, it's frozen at a cutoff. C: it reads your mind. [Click] B. It only knows the world up to its training cutoff. And watch out: sometimes it will confidently guess anyway. That's why web search and deep research matter.
+
+
+## 6. Quiz 4 — What turns a model into an agent?
+
+**On screen**
+
+- Sticker: 🧠 Quick quiz · 4/4
+- What turns a model into an agent?
+- A A bigger model · B Tools and a loop ✓ · C A nicer app (the right answer turns green, the others are crossed out)
+
+**Say**
+
+Last one, and it sets up today. What turns a model into an agent? [Click] A: a bigger model. B: tools and a loop. C: a nicer app. [Click] B. Same model inside; give it tools to act with and a loop to keep going until the job's done, and it becomes an agent. Tools. Hold that thought, because that's exactly where we start today.
