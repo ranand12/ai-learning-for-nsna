@@ -68,11 +68,11 @@ Quick question. Lately it feels like every week there's some new jaw-dropping th
 
 - Tools connect it to everything.
 - ❄️ 💃 model in the middle inside the blue dashed tools ring
-- One per click, each with a cable drawing out from the ring: 📧 Email · 📂 Files · 🌐 The web · 📊 Your data · 📅 Calendar · 💻 Your computer (pink)
+- One per click, each with a cable drawing out from the ring: 📧 Email · 📂 Files · 🌐 The web · 📊 Your data · 📅 Calendar · Trading account (Alpaca logo) · 💻 Your computer (pink)
 
 **Say**
 
-So what does that enable? Tools connect the model to systems and data outside its own head. [Click] Your email. [Click] Your files. [Click] The web, live, today. [Click] Your data: spreadsheets, databases, your bank statements. [Click] Your calendar. [Click] And your computer itself. On its own, the model only knows what it learned in training, frozen. With tools, it can look things up and actually do things. So how does it actually connect? Two main ways.
+So what does that enable? Tools connect the model to systems and data outside its own head. [Click] Your email. [Click] Your files. [Click] The web, live, today. [Click] Your data: spreadsheets, databases, your bank statements. [Click] Your calendar. [Click] Even your trading account: here, Alpaca, so it can check your portfolio or place a trade. [Click] And your computer itself. On its own, the model only knows what it learned in training, frozen. With tools, it can look things up and actually do things. So how does it actually connect? Two main ways.
 
 ## 6. How Does It Connect — How does it connect?
 
