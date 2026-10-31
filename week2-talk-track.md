@@ -520,7 +520,7 @@ So, recap: how does outside stuff get into the agent? [Click] Here's the agent. 
 - Left: 🧑‍💻 You, with a blue dashed basket of ingredients 🍚🍗🧅🌶️🧄🌿
 - Right: 👨‍🍳 Ramu Bhai, with the exact same basket
 - Title changes to: Who makes better biryani?
-- Your result: 🍲😬 ⭐⭐ · Ramu Bhai's: 🍛🤤 ⭐⭐⭐⭐⭐ (warm glow behind him)
+- Your result: 🍲😬 ⭐⭐ · Ramu Bhai's: biryani GIF (gifs/ramu-bhai-biryani.gif, seeraga samba biryani being served) ⭐⭐⭐⭐⭐ (warm glow behind him)
 - Title changes to: But why?
 - Amber recipe card next to Ramu Bhai: 📜 Recipe · 🍚 Soak rice 30 min · 🧅 Fry till golden · 🔥 Dum 40 min · 🤫 Secret masala
 - Blue labels on both baskets: 🧰 Tools
