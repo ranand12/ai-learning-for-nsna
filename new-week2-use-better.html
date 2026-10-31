@@ -724,6 +724,12 @@ aside.notes,aside.onscreen{display:none}
 .w2c-recipe{position:absolute;left:1240px;top:240px;width:270px;height:350px;border:4px solid var(--skill);border-radius:20px;background:#22180A;box-shadow:0 0 40px rgba(255,181,71,.3);padding:26px 20px;display:flex;flex-direction:column;gap:16px}
 .w2c-recipe h4{font-size:30px;font-weight:800;color:var(--skill)}
 .w2c-recipe span{font-size:22px;font-weight:700;color:var(--fg)}
+
+/* ---------- simplified "inside" slides: model · tools · computer (w2i-) ---------- */
+.w2i-tools{position:absolute;left:545px;top:330px;width:500px;display:flex;flex-wrap:wrap;justify-content:center;align-content:center;gap:14px;min-height:200px}
+.w2i-tools .w2-tl{width:84px;height:84px;font-size:46px;border-radius:20px}
+.w2i-tools .w2-tl img{width:54px;height:54px;border-radius:12px;padding:8px}
+.w2i-pc{left:1110px!important;top:200px!important;width:390px!important;height:530px!important}
 </style>
 </head>
 <body>
@@ -923,29 +929,21 @@ aside.notes,aside.onscreen{display:none}
 <!-- ============================ 10. INSIDE: CHAT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Inside a chatbot.</h2>
-  <div class="wa-win" data-step="1" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
-  <div class="wa-winlbl" data-step="1" style="left:210px;top:198px">App</div>
-  <div class="agcirc" data-step="1" style="left:60px;top:145px;width:100px;height:100px;border:4px solid #F5F5F0"><img src="gifs/agent.png" alt=""></div>
-  <div class="fm" data-step="2" style="left:495px;top:330px">💃</div>
-  <div class="wa-cap" data-step="2" style="left:435px;top:578px;width:300px;color:var(--model)">Model</div>
-  <div class="ag-ctx" data-step="3" style="left:150px;top:290px;width:250px;height:190px;padding:14px;gap:10px"><i style="display:block;height:26px;border-radius:5px;background:#8C8C86"></i><i style="display:block;height:26px;border-radius:5px;background:var(--dyk);width:70%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--fg);width:85%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--model);width:60%"></i></div>
-  <div class="wa-cap" data-step="3" style="left:150px;top:490px;width:250px">Context window</div>
-  <div class="wa-chat" data-step="4" style="left:790px;top:290px;width:190px;height:150px"><span class="u">Hi!</span><span class="a">Hello 👋</span></div>
-  <div class="wa-cap" data-step="4" style="left:790px;top:450px;width:190px">Chat screen</div>
-  <svg class="layer" data-step="5" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle cx="585" cy="420" r="140" fill="none" stroke="#555" stroke-width="6" stroke-dasharray="26 18"/></svg>
-  <div class="wa-cap" data-step="5" style="left:435px;top:612px;width:300px;color:var(--dim)">🔁 One reply</div>
-  <div class="wa-cap" style="left:150px;top:650px;width:200px;text-align:left;color:var(--harness)" data-step="6">Tools</div>
-  <div class="w2-tools"><span class="w2-tl" data-step="6">🔍</span><span class="w2-tl" data-step="6">📎</span></div>
-  <div class="layer" data-step="7"><div class="w2-env" style="--c:#555;border-style:dashed"><b>Environment</b><span class="big">💬</span><span class="t">Just the chat</span><span class="t" style="color:var(--demo)">✕ No computer</span></div></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <g data-step="2"><path d="M405 430 L530 430" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-dasharray="12 10" stroke-linecap="round"/><path d="M1060 430 L1095 430" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-dasharray="12 10" stroke-linecap="round"/></g>
+  </svg>
+  <div class="fm" data-step="1" style="left:200px;top:340px">💃</div>
+  <div class="wa-cap" data-step="1" style="left:140px;top:570px;width:300px;font-size:30px;font-weight:800;color:var(--model)">Model</div>
+  <div class="wa-cap" data-step="2" style="left:545px;top:250px;width:500px;font-size:30px;font-weight:800;color:var(--harness)">Tools</div>
+  <div class="w2i-tools" data-step="2"><span class="w2-tl">🔍</span><span class="w2-tl">📎</span></div>
+  <div class="layer" data-step="3"><div class="w2-env w2i-pc" style="--c:#555;border-style:dashed"><b>Environment</b><span class="big">💬</span><span class="t">Just the chat</span><span class="t" style="color:var(--demo)">✕ No computer</span></div></div>
   <aside class="onscreen">
     Inside a chatbot.
-    App window (blue box, label App, spy in a white-ringed green circle at the corner)
-    Inside: ❄️ frozen 💃 Model · Context window (red box) · Chat screen (Hi! / Hello 👋)
-    Grey dashed ring around the model: 🔁 One reply
-    Tools: 🔍 · 📎
-    Environment (dashed grey panel, right): 💬 Just the chat · ✕ No computer
+    Left: ❄️ frozen 💃 Model
+    Middle: Tools (blue tiles): 🔍 · 📎
+    Right: Environment panel (dashed grey): 💬 Just the chat · ✕ No computer
   </aside>
-  <aside class="notes">So what's actually inside each kind? Let's open them up. Same pieces as last week. [Click] The app: what you open on your phone or laptop. Our spy in the corner. [Click] Inside it, the model. The frozen dancer from week one. [Click] The context window, the desk: everything the model can see right now. [Click] The chat screen, where you type. [Click] The loop: for a chatbot it's just one round. You ask, it replies, it waits for you. [Click] Tools: very few. Most chatbots can search the web and read a file you upload. That's about it. [Click] And the environment, meaning where it can actually do things: nowhere. It has no computer. All it can do is talk.</aside>
+  <aside class="notes">So what's actually inside each kind? Let's open them up, and only look at three things: the model, its tools, and its environment, meaning where it can actually do things. [Click] The model. The frozen dancer from week one. [Click] Tools: very few. Most chatbots can search the web and read a file you upload. That's about it. [Click] And the environment: just the chat. No computer. It can't run anything or click anything. All it can do is talk.</aside>
 </section>
 
 
@@ -1124,31 +1122,22 @@ aside.notes,aside.onscreen{display:none}
 <!-- ============================ 16. INSIDE: CHAT + CONNECTORS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Inside: chat + connectors.</h2>
-  <div class="wa-win" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
-  <div class="wa-winlbl" style="left:210px;top:198px">App</div>
-  <div class="agcirc" style="left:60px;top:145px;width:100px;height:100px;border:4px solid #4D9FFF"><img src="gifs/agent.png" alt=""></div>
-  <div class="fm" style="left:495px;top:330px">💃</div>
-  <div class="wa-cap" style="left:435px;top:578px;width:300px;color:var(--model)">Model</div>
-  <div class="ag-ctx" style="left:150px;top:290px;width:250px;height:190px;padding:14px;gap:10px"><i style="display:block;height:26px;border-radius:5px;background:#8C8C86"></i><i style="display:block;height:26px;border-radius:5px;background:var(--dyk);width:70%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--fg);width:85%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--model);width:60%"></i></div>
-  <div class="wa-cap" style="left:150px;top:490px;width:250px">Context window</div>
-  <div class="wa-chat" style="left:790px;top:290px;width:190px;height:150px"><span class="u">Hi!</span><span class="a">Hello 👋</span></div>
-  <div class="wa-cap" style="left:790px;top:450px;width:190px">Chat screen</div>
-  <svg class="layer" data-hide="2" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle cx="585" cy="420" r="140" fill="none" stroke="#555" stroke-width="6" stroke-dasharray="26 18"/></svg>
-  <svg class="layer" data-step="2" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle class="wa-loopring" cx="585" cy="420" r="140" fill="none" stroke="#FFD23F" stroke-width="6" stroke-dasharray="26 18"/></svg>
-  <div class="wa-cap" data-hide="2" style="left:435px;top:612px;width:300px;color:var(--dim)">🔁 One reply</div>
-  <div class="wa-cap" data-step="2" style="left:435px;top:612px;width:300px;color:var(--dyk)">🔁 Until done</div>
-  <div class="wa-cap" style="left:150px;top:650px;width:200px;text-align:left;color:var(--harness)">Tools</div>
-  <div class="w2-tools"><span class="w2-tl">🔍</span><span class="w2-tl">📎</span><span class="w2-tl new" data-step="1"><img src="gifs/logos/gmail.svg" alt=""></span><span class="w2-tl new" data-step="1"><img src="gifs/logos/googledrive.svg" alt=""></span><span class="w2-tl new" data-step="1"><img src="gifs/logos/googlecalendar.svg" alt=""></span><span class="w2-tl new" data-step="1"><img src="gifs/logos/notion.png" alt=""></span><span class="w2-tl new" data-step="1"><img src="gifs/logos/youtube.svg" alt=""></span></div>
-  <div class="layer" data-hide="3"><div class="w2-env" style="--c:#555;border-style:dashed"><b>Environment</b><span class="big">💬</span><span class="t">Just the chat</span><span class="t" style="color:var(--demo)">✕ No computer</span></div></div>
-  <div class="layer" data-step="3"><div class="w2-env" style="--c:#4D9FFF"><b>Environment</b><span class="t">🌐 Your apps, online</span><div class="grid"><img src="gifs/logos/gmail.svg" alt=""><img src="gifs/logos/googledrive.svg" alt=""><img src="gifs/logos/googlecalendar.svg" alt=""><img src="gifs/logos/notion.png" alt=""></div><span class="t" style="color:var(--dim)">via connectors</span></div></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <g><path d="M405 430 L530 430" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-dasharray="12 10" stroke-linecap="round"/><path d="M1060 430 L1095 430" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-dasharray="12 10" stroke-linecap="round"/></g>
+  </svg>
+  <div class="fm" style="left:200px;top:340px">💃</div>
+  <div class="wa-cap" style="left:140px;top:570px;width:300px;font-size:30px;font-weight:800;color:var(--model)">Model</div>
+  <div class="wa-cap" style="left:545px;top:250px;width:500px;font-size:30px;font-weight:800;color:var(--harness)">Tools</div>
+  <div class="w2i-tools"><span class="w2-tl">🔍</span><span class="w2-tl">📎</span><span class="w2-tl new" data-step="1"><img src="gifs/logos/gmail.svg" alt=""></span><span class="w2-tl new" data-step="1"><img src="gifs/logos/googledrive.svg" alt=""></span><span class="w2-tl new" data-step="1"><img src="gifs/logos/googlecalendar.svg" alt=""></span><span class="w2-tl new" data-step="1"><img src="gifs/logos/notion.png" alt=""></span><span class="w2-tl new" data-step="1"><img src="gifs/logos/youtube.svg" alt=""></span></div>
+  <div class="layer" data-hide="2"><div class="w2-env w2i-pc" style="--c:#555;border-style:dashed"><b>Environment</b><span class="big">💬</span><span class="t">Just the chat</span><span class="t" style="color:var(--demo)">✕ No computer</span></div></div>
+  <div class="layer" data-step="2"><div class="w2-env w2i-pc" style="--c:#4D9FFF"><b>Environment</b><span class="t">🌐 Your apps, online</span><div class="grid"><img src="gifs/logos/gmail.svg" alt=""><img src="gifs/logos/googledrive.svg" alt=""><img src="gifs/logos/googlecalendar.svg" alt=""><img src="gifs/logos/notion.png" alt=""></div><span class="t" style="color:var(--dim)">via connectors</span></div></div>
   <aside class="onscreen">
     Inside: chat + connectors.
-    Same app, model, context window and chat screen as the chatbot
+    Same model and tools as the chatbot
     New tools glow yellow: Gmail · Google Drive · Google Calendar · Notion · YouTube (logos)
-    Loop changes: 🔁 One reply → 🔁 Until done (ring turns yellow and spins)
     Environment swaps to a blue panel: 🌐 Your apps, online (Gmail · Drive · Calendar · Notion logos) · via connectors
   </aside>
-  <aside class="notes">Same app, same model, same desk. Watch what changes. [Click] New tools: connectors to Gmail, Google Drive, your calendar, Notion, YouTube. [Click] And the loop wakes up. Instead of one reply, it keeps going until the job is done: check email, read, sort, check again. [Click] And now it has somewhere to act: your apps, online. It still has no computer of its own; it reaches your apps through the connectors. Notice what didn't change: the model. Same frozen dancer.</aside>
+  <aside class="notes">Same model, same layout. Watch what changes. [Click] New tools: connectors to Gmail, Google Drive, your calendar, Notion, YouTube. [Click] And now it has somewhere to act: your apps, online. It still has no computer of its own; it reaches your apps through the connectors. Notice what didn't change: the model. Same frozen dancer.</aside>
 </section>
 
 
@@ -1259,33 +1248,24 @@ aside.notes,aside.onscreen{display:none}
 <!-- ============================ 20. INSIDE: ITS OWN COMPUTER ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Inside: its own computer.</h2>
-  <div class="wa-win" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
-  <div class="wa-winlbl" style="left:210px;top:198px">App</div>
-  <div class="agcirc" style="left:60px;top:145px;width:100px;height:100px;border:4px solid #B69CFF"><img src="gifs/agent.png" alt=""></div>
-  <div class="fm" style="left:495px;top:330px">💃</div>
-  <div class="wa-cap" style="left:435px;top:578px;width:300px;color:var(--model)">Model</div>
-  <div class="ag-ctx" style="left:150px;top:290px;width:250px;height:190px;padding:14px;gap:10px"><i style="display:block;height:26px;border-radius:5px;background:#8C8C86"></i><i style="display:block;height:26px;border-radius:5px;background:var(--dyk);width:70%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--fg);width:85%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--model);width:60%"></i></div>
-  <div class="wa-cap" style="left:150px;top:490px;width:250px">Context window</div>
-  <div class="wa-chat" style="left:790px;top:290px;width:190px;height:150px"><span class="u">Hi!</span><span class="a">Hello 👋</span></div>
-  <div class="wa-cap" style="left:790px;top:450px;width:190px">Chat screen</div>
-  <svg class="layer" data-hide="2" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle class="wa-loopring" cx="585" cy="420" r="140" fill="none" stroke="#FFD23F" stroke-width="6" stroke-dasharray="26 18"/></svg>
-  <svg class="layer" data-step="2" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle class="wa-loopring" cx="585" cy="420" r="140" fill="none" stroke="#FFD23F" stroke-width="6" stroke-dasharray="26 18"/></svg>
-  <div class="wa-cap" data-hide="2" style="left:435px;top:612px;width:300px;color:var(--dyk)">🔁 Until done</div>
-  <div class="wa-cap" data-step="2" style="left:435px;top:612px;width:300px;color:var(--dyk)">🔁 For hours</div>
-  <div class="wa-cap" style="left:150px;top:650px;width:200px;text-align:left;color:var(--harness)">Tools</div>
-  <div class="w2-tools"><span class="w2-tl">🔍</span><span class="w2-tl">📎</span><span class="w2-tl"><img src="gifs/logos/gmail.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/googledrive.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/googlecalendar.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/notion.png" alt=""></span><span class="w2-tl"><img src="gifs/logos/youtube.svg" alt=""></span><span class="w2-tl new" data-step="1">🌐</span><span class="w2-tl new" data-step="1">⌨️</span><span class="w2-tl new" data-step="1">📁</span></div>
-  <div class="layer" data-hide="3"><div class="w2-env" style="--c:#4D9FFF"><b>Environment</b><span class="t">🌐 Your apps, online</span><div class="grid"><img src="gifs/logos/gmail.svg" alt=""><img src="gifs/logos/googledrive.svg" alt=""><img src="gifs/logos/googlecalendar.svg" alt=""><img src="gifs/logos/notion.png" alt=""></div><span class="t" style="color:var(--dim)">via connectors</span></div></div>
-  <div class="layer" data-step="3"><div class="w2-env" style="--c:#B69CFF"><b>Environment</b><span class="big">☁️</span><span class="t">Its cloud computer</span><div class="rows"><span>🌐 Browser</span><span>📁 Files</span><span>⌨️ Terminal</span></div></div></div>
-  <div class="w2-chip" data-step="4" style="left:1095px;top:770px;--c:var(--guess)">🌙 Works while you sleep</div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <g><path d="M405 430 L530 430" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-dasharray="12 10" stroke-linecap="round"/><path d="M1060 430 L1095 430" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-dasharray="12 10" stroke-linecap="round"/></g>
+  </svg>
+  <div class="fm" style="left:200px;top:340px">💃</div>
+  <div class="wa-cap" style="left:140px;top:570px;width:300px;font-size:30px;font-weight:800;color:var(--model)">Model</div>
+  <div class="wa-cap" style="left:545px;top:250px;width:500px;font-size:30px;font-weight:800;color:var(--harness)">Tools</div>
+  <div class="w2i-tools"><span class="w2-tl">🔍</span><span class="w2-tl">📎</span><span class="w2-tl"><img src="gifs/logos/gmail.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/googledrive.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/googlecalendar.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/notion.png" alt=""></span><span class="w2-tl"><img src="gifs/logos/youtube.svg" alt=""></span><span class="w2-tl new" data-step="1">🌐</span><span class="w2-tl new" data-step="1">⌨️</span><span class="w2-tl new" data-step="1">📁</span></div>
+  <div class="layer" data-hide="2"><div class="w2-env w2i-pc" style="--c:#4D9FFF"><b>Environment</b><span class="t">🌐 Your apps, online</span><div class="grid"><img src="gifs/logos/gmail.svg" alt=""><img src="gifs/logos/googledrive.svg" alt=""><img src="gifs/logos/googlecalendar.svg" alt=""><img src="gifs/logos/notion.png" alt=""></div><span class="t" style="color:var(--dim)">via connectors</span></div></div>
+  <div class="layer" data-step="2"><div class="w2-env w2i-pc" style="--c:#B69CFF"><b>Environment</b><span class="big">☁️</span><span class="t">Its cloud computer</span><div class="rows"><span>🌐 Browser</span><span>📁 Files</span><span>⌨️ Terminal</span></div></div></div>
+  <div class="w2-chip" data-step="3" style="left:1150px;top:770px;--c:var(--guess)">🌙 Works while you sleep</div>
   <aside class="onscreen">
     Inside: its own computer.
-    Same app, model, context window, chat screen and connector tools
+    Same model and connector tools
     New tools glow yellow: 🌐 · ⌨️ · 📁
-    Loop changes: 🔁 Until done → 🔁 For hours
-    Environment swaps to a purple panel: ☁️ Its cloud computer · 🌐 Browser · 📁 Files · ⌨️ Terminal
+    Environment swaps from 🌐 Your apps, online to a purple panel: ☁️ Its cloud computer · 🌐 Browser · 📁 Files · ⌨️ Terminal
     Chip: 🌙 Works while you sleep
   </aside>
-  <aside class="notes">Kind two: its own computer. Again, same app, same model. [Click] New tools: a web browser it can click around in, a terminal to run programs, and files it can create and edit. [Click] And the loop gets long. Not minutes: it can keep going for hours. [Click] Because now the environment is a whole computer, in the company's cloud. Its browser, its files, its terminal. Not yours. [Click] And because it's not your laptop, it keeps working while you sleep. You close the lid, it carries on.</aside>
+  <aside class="notes">Kind two: its own computer. Same model. [Click] New tools: a web browser it can click around in, a terminal to run programs, and files it can create and edit. [Click] Because now the environment is a whole computer, in the company's cloud. Its browser, its files, its terminal. Not yours. [Click] And because it's not your laptop, it keeps working while you sleep, for hours. You close the lid, it carries on.</aside>
 </section>
 
 
@@ -1620,33 +1600,27 @@ aside.notes,aside.onscreen{display:none}
 
 <!-- ============================ 30. INSIDE: YOUR COMPUTER ============================ -->
 <section class="slide w2c-sec">
-  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
   <h2 class="fu title-c" style="--d:.1s">Inside: your computer.</h2>
-  <div class="wa-win" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
-  <div class="wa-winlbl" style="left:210px;top:198px">App</div>
-  <div class="agcirc" style="left:60px;top:145px;width:100px;height:100px;border:4px solid #FF7AD9"><img src="gifs/agent.png" alt=""></div>
-  <div class="fm" style="left:495px;top:330px">💃</div>
-  <div class="wa-cap" style="left:435px;top:578px;width:300px;color:var(--model)">Model</div>
-  <div class="ag-ctx" style="left:150px;top:290px;width:250px;height:190px;padding:14px;gap:10px"><i style="display:block;height:26px;border-radius:5px;background:#8C8C86"></i><i style="display:block;height:26px;border-radius:5px;background:var(--dyk);width:70%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--fg);width:85%"></i><i style="display:block;height:26px;border-radius:5px;background:var(--model);width:60%"></i></div>
-  <div class="wa-cap" style="left:150px;top:490px;width:250px">Context window</div>
-  <div class="wa-chat" style="left:790px;top:290px;width:190px;height:150px"><span class="u">Hi!</span><span class="a">Hello 👋</span></div>
-  <div class="wa-cap" style="left:790px;top:450px;width:190px">Chat screen</div>
-  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle class="wa-loopring" cx="585" cy="420" r="140" fill="none" stroke="#FFD23F" stroke-width="6" stroke-dasharray="26 18"/></svg>
-  <div class="wa-cap" style="left:435px;top:612px;width:300px;color:var(--dyk)">🔁 For hours</div>
-  <div class="wa-cap" style="left:150px;top:650px;width:200px;text-align:left;color:var(--harness)">Tools</div>
-  <div class="w2-tools"><span class="w2-tl">🔍</span><span class="w2-tl">📎</span><span class="w2-tl"><img src="gifs/logos/gmail.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/googledrive.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/googlecalendar.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/notion.png" alt=""></span><span class="w2-tl"><img src="gifs/logos/youtube.svg" alt=""></span><span class="w2-tl">🌐</span><span class="w2-tl">⌨️</span><span class="w2-tl">📁</span><span class="w2-tl new" data-step="1">🖱️</span></div>
-  <div class="layer" data-hide="2"><div class="w2-env" style="--c:#B69CFF"><b>Environment</b><span class="big">☁️</span><span class="t">Its cloud computer</span><div class="rows"><span>🌐 Browser</span><span>📁 Files</span><span>⌨️ Terminal</span></div></div></div>
-  <div class="layer" data-step="2"><div class="w2-env" style="--c:#FF7AD9"><b>Environment</b><span class="big">💻</span><span class="t">Your computer</span><div class="rows"><span>📁 Your files</span><span>🌐 Your browser</span><span>🖨️ Your printer</span></div></div></div>
-  <div class="w2-chip" data-step="3" style="left:1140px;top:770px;--c:var(--dyk)">🛡️ Asks first</div>
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <g><path d="M405 430 L530 430" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-dasharray="12 10" stroke-linecap="round"/><path d="M1060 430 L1095 430" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-dasharray="12 10" stroke-linecap="round"/></g>
+  </svg>
+  <div class="fm" style="left:200px;top:340px">💃</div>
+  <div class="wa-cap" style="left:140px;top:570px;width:300px;font-size:30px;font-weight:800;color:var(--model)">Model</div>
+  <div class="wa-cap" style="left:545px;top:250px;width:500px;font-size:30px;font-weight:800;color:var(--harness)">Tools</div>
+  <div class="w2i-tools"><span class="w2-tl">🔍</span><span class="w2-tl">📎</span><span class="w2-tl"><img src="gifs/logos/gmail.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/googledrive.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/googlecalendar.svg" alt=""></span><span class="w2-tl"><img src="gifs/logos/notion.png" alt=""></span><span class="w2-tl"><img src="gifs/logos/youtube.svg" alt=""></span><span class="w2-tl">🌐</span><span class="w2-tl">⌨️</span><span class="w2-tl">📁</span><span class="w2-tl new" data-step="1">🖱️</span></div>
+  <div class="layer" data-hide="2"><div class="w2-env w2i-pc" style="--c:#B69CFF"><b>Environment</b><span class="big">☁️</span><span class="t">Its cloud computer</span><div class="rows"><span>🌐 Browser</span><span>📁 Files</span><span>⌨️ Terminal</span></div></div></div>
+  <div class="layer" data-step="2"><div class="w2-env w2i-pc" style="--c:#FF7AD9"><b>Environment</b><span class="big">💻</span><span class="t">Your computer</span><div class="rows"><span>📁 Your files</span><span>🌐 Your browser</span><span>🖨️ Your printer</span></div></div></div>
+  <div class="w2-chip" data-step="3" style="left:1180px;top:770px;--c:var(--dyk)">🛡️ Asks first</div>
   <aside class="onscreen">
-    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
     Inside: your computer.
-    Same app, model, context window, chat screen, tools and 🔁 For hours loop
+    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
+    Same model and tools as its own computer
     New tool glows yellow: 🖱️
-    Environment swaps to a pink panel: 💻 Your computer · 📁 Your files · 🌐 Your browser · 🖨️ Your printer
+    Environment swaps from ☁️ Its cloud computer to a pink panel: 💻 Your computer · 📁 Your files · 🌐 Your browser · 🖨️ Your printer
     Chip: 🛡️ Asks first
   </aside>
-  <aside class="notes">And kind three. Same app, same model, same loop. [Click] One more tool: it can move your mouse and type on your keyboard, so it can use any app you can. [Click] And the environment is now your computer. Your files, your browser where you're already logged in, your printer. That's why it's so useful, and why you need to trust it. [Click] So a good one always asks first, before it deletes, sends or buys anything. One picture to remember: across every kind the model never changed. What changed is everything around it: the tools, the loop, and where it's allowed to work.</aside>
+  <aside class="notes">And kind three. Same model, same tools. [Click] One more tool: it can move your mouse and type on your keyboard, so it can use any app you can. [Click] And the environment is now YOUR computer. Your files, your browser where you're already logged in, your printer. That's why it's so useful, and why you need to trust it. [Click] So a good one always asks first, before it deletes, sends or buys anything. One picture to remember: across every kind the model never changed. What changed is everything around it: the tools, and where it's allowed to work.</aside>
 </section>
 
 

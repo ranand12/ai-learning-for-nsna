@@ -126,15 +126,13 @@ Let's take the three kinds one at a time, starting with the simplest. Kind one: 
 **On screen**
 
 - Inside a chatbot.
-- App window (blue box, label App, spy in a white-ringed green circle at the corner)
-- Inside: ❄️ frozen 💃 Model · Context window (red box) · Chat screen (Hi! / Hello 👋)
-- Grey dashed ring around the model: 🔁 One reply
-- Tools: 🔍 · 📎
-- Environment (dashed grey panel, right): 💬 Just the chat · ✕ No computer
+- Left: ❄️ frozen 💃 Model
+- Middle: Tools (blue tiles): 🔍 · 📎
+- Right: Environment panel (dashed grey): 💬 Just the chat · ✕ No computer
 
 **Say**
 
-So what's actually inside each kind? Let's open them up. Same pieces as last week. [Click] The app: what you open on your phone or laptop. Our spy in the corner. [Click] Inside it, the model. The frozen dancer from week one. [Click] The context window, the desk: everything the model can see right now. [Click] The chat screen, where you type. [Click] The loop: for a chatbot it's just one round. You ask, it replies, it waits for you. [Click] Tools: very few. Most chatbots can search the web and read a file you upload. That's about it. [Click] And the environment, meaning where it can actually do things: nowhere. It has no computer. All it can do is talk.
+So what's actually inside each kind? Let's open them up, and only look at three things: the model, its tools, and its environment, meaning where it can actually do things. [Click] The model. The frozen dancer from week one. [Click] Tools: very few. Most chatbots can search the web and read a file you upload. That's about it. [Click] And the environment: just the chat. No computer. It can't run anything or click anything. All it can do is talk.
 
 ## 11. Ex D: Learn A Concept — Learn anything.
 
@@ -223,14 +221,13 @@ Now the other plug-in: access. Same chatbots, but now you plug in connectors to 
 **On screen**
 
 - Inside: chat + connectors.
-- Same app, model, context window and chat screen as the chatbot
+- Same model and tools as the chatbot
 - New tools glow yellow: Gmail · Google Drive · Google Calendar · Notion · YouTube (logos)
-- Loop changes: 🔁 One reply → 🔁 Until done (ring turns yellow and spins)
 - Environment swaps to a blue panel: 🌐 Your apps, online (Gmail · Drive · Calendar · Notion logos) · via connectors
 
 **Say**
 
-Same app, same model, same desk. Watch what changes. [Click] New tools: connectors to Gmail, Google Drive, your calendar, Notion, YouTube. [Click] And the loop wakes up. Instead of one reply, it keeps going until the job is done: check email, read, sort, check again. [Click] And now it has somewhere to act: your apps, online. It still has no computer of its own; it reaches your apps through the connectors. Notice what didn't change: the model. Same frozen dancer.
+Same model, same layout. Watch what changes. [Click] New tools: connectors to Gmail, Google Drive, your calendar, Notion, YouTube. [Click] And now it has somewhere to act: your apps, online. It still has no computer of its own; it reaches your apps through the connectors. Notice what didn't change: the model. Same frozen dancer.
 
 ## 17. Ex B: Organize Email — Tame your inbox.
 
@@ -283,15 +280,14 @@ Kind two: the agent gets its own computer, in the cloud. Not yours: a computer t
 **On screen**
 
 - Inside: its own computer.
-- Same app, model, context window, chat screen and connector tools
+- Same model and connector tools
 - New tools glow yellow: 🌐 · ⌨️ · 📁
-- Loop changes: 🔁 Until done → 🔁 For hours
-- Environment swaps to a purple panel: ☁️ Its cloud computer · 🌐 Browser · 📁 Files · ⌨️ Terminal
+- Environment swaps from 🌐 Your apps, online to a purple panel: ☁️ Its cloud computer · 🌐 Browser · 📁 Files · ⌨️ Terminal
 - Chip: 🌙 Works while you sleep
 
 **Say**
 
-Kind two: its own computer. Again, same app, same model. [Click] New tools: a web browser it can click around in, a terminal to run programs, and files it can create and edit. [Click] And the loop gets long. Not minutes: it can keep going for hours. [Click] Because now the environment is a whole computer, in the company's cloud. Its browser, its files, its terminal. Not yours. [Click] And because it's not your laptop, it keeps working while you sleep. You close the lid, it carries on.
+Kind two: its own computer. Same model. [Click] New tools: a web browser it can click around in, a terminal to run programs, and files it can create and edit. [Click] Because now the environment is a whole computer, in the company's cloud. Its browser, its files, its terminal. Not yours. [Click] And because it's not your laptop, it keeps working while you sleep, for hours. You close the lid, it carries on.
 
 ## 21. Ex A: Data Analysis — Crunch the numbers.
 
@@ -447,16 +443,16 @@ Kind three: the agent works on YOUR computer. Your files, your folders, your app
 
 **On screen**
 
-- Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
 - Inside: your computer.
-- Same app, model, context window, chat screen, tools and 🔁 For hours loop
+- Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
+- Same model and tools as its own computer
 - New tool glows yellow: 🖱️
-- Environment swaps to a pink panel: 💻 Your computer · 📁 Your files · 🌐 Your browser · 🖨️ Your printer
+- Environment swaps from ☁️ Its cloud computer to a pink panel: 💻 Your computer · 📁 Your files · 🌐 Your browser · 🖨️ Your printer
 - Chip: 🛡️ Asks first
 
 **Say**
 
-And kind three. Same app, same model, same loop. [Click] One more tool: it can move your mouse and type on your keyboard, so it can use any app you can. [Click] And the environment is now your computer. Your files, your browser where you're already logged in, your printer. That's why it's so useful, and why you need to trust it. [Click] So a good one always asks first, before it deletes, sends or buys anything. One picture to remember: across every kind the model never changed. What changed is everything around it: the tools, the loop, and where it's allowed to work.
+And kind three. Same model, same tools. [Click] One more tool: it can move your mouse and type on your keyboard, so it can use any app you can. [Click] And the environment is now YOUR computer. Your files, your browser where you're already logged in, your printer. That's why it's so useful, and why you need to trust it. [Click] So a good one always asks first, before it deletes, sends or buys anything. One picture to remember: across every kind the model never changed. What changed is everything around it: the tools, and where it's allowed to work.
 
 ## 31. Why So Good Lately — Why is AI suddenly so good?
 
