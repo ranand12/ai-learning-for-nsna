@@ -102,3 +102,19 @@ Ask the AI about last week's news, with no web search turned on. [Click] A: it k
 **Say**
 
 Last one, and it sets up today. What turns a model into an agent? [Click] A: a bigger model. B: tools and a loop. C: a nicer app. [Click] B. Same model inside; give it tools to act with and a loop to keep going until the job's done, and it becomes an agent. Tools. Hold that thought, because that's exactly where we start today.
+
+
+## 10. Skills — Skills: teach it once.
+
+**On screen**
+
+- Skills: teach it once.
+- Left: Context window (red box) with 📝 Instructions
+- Middle: spy agent
+- Right: a shelf labelled 🎓 Skills with amber recipe cards: ✍️ Write like me · 🧾 Expense report · 🎤 Grill me · 🎨 Coloring page
+- A request lands on the desk: 🧑‍💻 Grill me on my party plan
+- Only the 🎤 Grill me card slides off the shelf onto the desk; the rest dim
+
+**Say**
+
+So how does plugging in a chip actually work? [Click] Remember the desk, the context window? Whatever is on the desk is all the AI can see. [Click] Here's our agent. [Click] Now imagine a shelf next to the desk with recipe cards on it. Each card is a skill: written instructions for one job, done your way. Write like me. [Click] Do my expense report the way my company wants it. [Click] Grill me. [Click] Make a coloring page. You write each one once. [Click] Now a request comes in: grill me on my party plan. [Click] The agent looks at the shelf, picks the one card that matches, and puts only that card on the desk. The others stay on the shelf, so the desk stays clean. That's the difference from a saved prompt: you don't paste it in. The agent picks the right skill by itself, when it needs it. Claude calls them Skills; ChatGPT and Gemini have their own versions, custom GPTs and Gems. And a skill is just a text file. You can write one in five minutes, or ask the AI to write it for you.
