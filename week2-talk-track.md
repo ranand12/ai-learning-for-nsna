@@ -156,10 +156,11 @@ Inside general purpose, there are really three kinds of agent. Same spy every ti
 - 1 · Chat.
 - Left: card 1 · 💬 Chat (slides over from the three-kinds slide)
 - Logos, one at a time, each with its lowest tier: ChatGPT Free · Claude Free · Gemini Free · Grok Free · Meta AI Free · Copilot Free
+- What it can do, one at a time: 📚 Learn better · 🎬 Watch better · 🔍 Research better · 🛒 Shop better · 📥 Organize better · 🎙️ Capture better
 
 **Say**
 
-Let's take the three kinds one at a time, starting with the simplest. Kind one: chat. You type, it answers, and it can plug into your apps through connectors. And you already know the names. Look at the little tags under each one: green means you can start free. [Click] ChatGPT, free. [Click] Claude, free. [Click] Gemini, free. [Click] Grok, free. [Click] Meta AI, inside WhatsApp and Instagram, free. [Click] Microsoft Copilot, free. Every single chatbot has a free tier. The paid plans, usually twenty dollars a month, give you smarter models and higher limits. Connectors to Gmail, Drive and your calendar work on the free plans of Claude and Gemini; on ChatGPT they really start on Plus. Let's see what it can do.
+Let's take the three kinds one at a time, starting with the simplest. Kind one: chat. You type, it answers, and it can plug into your apps through connectors. And you already know the names. Look at the little tags under each one: green means you can start free. [Click] ChatGPT, free. [Click] Claude, free. [Click] Gemini, free. [Click] Grok, free. [Click] Meta AI, inside WhatsApp and Instagram, free. [Click] Microsoft Copilot, free. Every single chatbot has a free tier. The paid plans, usually twenty dollars a month, give you smarter models and higher limits. Connectors to Gmail, Drive and your calendar work on the free plans of Claude and Gemini; on ChatGPT they really start on Plus. Here's what that changes. [Click] Learn better. [Click] Watch better: it can even watch videos for you. [Click] Research better. [Click] Shop better. [Click] Organize better: your inbox, your calendar. [Click] And capture better.
 
 ## 12. Inside: Chat — Inside a chatbot.
 
@@ -276,10 +277,11 @@ Some of us think best out loud. [Click] You say: here's my twenty-minute voice m
 - 2 · Its own computer.
 - Left: card 2 · ☁️🖥️ Its own computer
 - Logos, one at a time, with lowest tier: Grok Bot $30/mo · Gemini Spark $20/mo
+- What it can do, one at a time: 📊 Analyze better · 🧾 Work better · 🩻 Understand better · 💰 Invest better · 🗓️ Book better · 🎓 Plan better · 💸 Save better · 🎤 Think better
 
 **Say**
 
-Kind two: the agent gets its own computer, in the cloud. Not yours: a computer the company lends it, with a browser, files and a terminal. It writes and runs little programs, opens websites, and keeps going even when your laptop is closed. This is where it starts to cost money. [Click] Grok Bot, from xAI: thirty dollars a month, on the X Premium plan. [Click] Gemini Spark, now called Task mode in the Gemini app: Google AI Pro, twenty dollars. Let's see what it can do.
+Kind two: the agent gets its own computer, in the cloud. Not yours: a computer the company lends it, with a browser, files and a terminal. It writes and runs little programs, opens websites, and keeps going even when your laptop is closed. This is where it starts to cost money. [Click] Grok Bot, from xAI: thirty dollars a month, on the X Premium plan. [Click] Gemini Spark, now called Task mode in the Gemini app: Google AI Pro, twenty dollars. Here's what having its own computer unlocks. [Click] Analyze better. [Click] Work better: the boring paperwork. [Click] Understand better. [Click] Invest better. [Click] Book better: grab that appointment. [Click] Plan better. [Click] Save better. [Click] And, with a skill plugged in, think better.
 
 ## 20. Inside: Its Own Computer — Inside: its own computer.
 
@@ -448,10 +450,11 @@ We've done the chatbot, and the agent with its own computer in the cloud. Now th
 - 3 · Your computer.
 - Left: card 3 · 💻📂 Your computer
 - Logos, one at a time, with lowest tier: Claude Cowork $20/mo · Claude Code $20/mo · Codex Free · OpenClaw Free + AI fees
+- What it can do, one at a time: 🗂️ Tidy better · 📸 Remember better · 📖 Read better · 🖍️ Parent better
 
 **Say**
 
-Kind three: the agent works on YOUR computer. Your files, your folders, your apps, your printer. Most powerful, and it needs the most trust. [Click] Claude Cowork: point it at a folder and it gets to work. Claude Pro, twenty dollars. [Click] Claude Code: same Pro plan. [Click] OpenAI's Codex: included even on the free ChatGPT plan, with tight limits, in the desktop app. Claude Code and Codex started as tools for programmers, but people now use them for all kinds of everyday computer chores. [Click] And OpenClaw, the open-source one that went viral this year. The software is free; you pay for the AI model it uses, often five to twenty dollars a month. You install it on your own machine and text it from WhatsApp or iMessage. Let's see what it can do.
+Kind three: the agent works on YOUR computer. Your files, your folders, your apps, your printer. Most powerful, and it needs the most trust. [Click] Claude Cowork: point it at a folder and it gets to work. Claude Pro, twenty dollars. [Click] Claude Code: same Pro plan. [Click] OpenAI's Codex: included even on the free ChatGPT plan, with tight limits, in the desktop app. Claude Code and Codex started as tools for programmers, but people now use them for all kinds of everyday computer chores. [Click] And OpenClaw, the open-source one that went viral this year. The software is free; you pay for the AI model it uses, often five to twenty dollars a month. You install it on your own machine and text it from WhatsApp or iMessage. What does that unlock? [Click] Tidy better. [Click] Remember better. [Click] Read better. [Click] And, my favourite, parent better.
 
 ## 31. Inside: Your Computer — Inside: YOUR computer.
 
