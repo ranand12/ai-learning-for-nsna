@@ -118,3 +118,32 @@ Last one, and it sets up today. What turns a model into an agent? [Click] A: a b
 **Say**
 
 So how does plugging in a chip actually work? [Click] Remember the desk, the context window? Whatever is on the desk is all the AI can see. [Click] Here's our agent. [Click] Now imagine a shelf next to the desk with recipe cards on it. Each card is a skill: written instructions for one job, done your way. Write like me. [Click] Do my expense report the way my company wants it. [Click] Grill me. [Click] Make a coloring page. You write each one once. [Click] Now a request comes in: grill me on my party plan. [Click] The agent looks at the shelf, picks the one card that matches, and puts only that card on the desk. The others stay on the shelf, so the desk stays clean. That's the difference from a saved prompt: you don't paste it in. The agent picks the right skill by itself, when it needs it. Claude calls them Skills; ChatGPT and Gemini have their own versions, custom GPTs and Gems. And a skill is just a text file. You can write one in five minutes, or ask the AI to write it for you.
+
+
+## 18. Plug-In: Connectors — Plug in access.
+
+**On screen**
+
+- Plug in access.
+- Left: card + · 🔌 Connectors (📧📅📂)
+- Logos, one at a time, with lowest tier: ChatGPT $20/mo · Claude Free · Gemini Free
+- A dashed blue connector strip: 🔌 Gmail · Google Drive · Google Calendar · Notion · YouTube · Alpaca (logos)
+- What it can do, one at a time: 📥 Organize better · 🎙️ Capture better
+
+**Say**
+
+Now the other plug-in: access. Same chatbots, but now you plug in connectors to your own apps. The prices start to split here. [Click] ChatGPT: connecting your apps really starts on Plus, twenty dollars a month. The free plan gets a little, and it keeps changing. [Click] Claude: connectors like Gmail and Google Drive work on the free plan. [Click] Gemini: free, and it's already wired into Gmail, Drive and Calendar. [Click] And these are the kinds of things it plugs into: Gmail, Google Drive, your calendar, Notion, YouTube, even a trading account. In the apps they're called connectors, or apps, or plugins. Once it can reach your stuff, here's what changes. [Click] Organize better. [Click] And capture better.
+
+
+## 19. Inside: Chat + Connectors — Inside: chat + connectors.
+
+**On screen**
+
+- Inside: chat + connectors.
+- Same model and tools as the chatbot
+- New tools glow yellow: Gmail · Google Drive · Google Calendar · Notion · YouTube (logos)
+- Environment swaps to a blue panel: 🌐 Your apps, online (Gmail · Drive · Calendar · Notion logos) · via connectors
+
+**Say**
+
+Same model, same layout. Watch what changes. [Click] New tools: connectors to Gmail, Google Drive, your calendar, Notion, YouTube. [Click] And now it has somewhere to act: your apps, online. It still has no computer of its own; it reaches your apps through the connectors. Notice what didn't change: the model. Same frozen dancer.
