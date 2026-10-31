@@ -181,6 +181,7 @@ So what's actually inside each kind? Let's open them up, and only look at three 
 
 - Learn anything.
 - 🧑‍💻 “Explain how inflation works. Start like I'm 10, then go deeper. Then quiz me.”
+- Sticker (top left, Chat colour): 📚 Learn better
 - Logo badge on the agent: ChatGPT
 - Input: card 📈 Inflation 😵‍💫
 - Agent badge: 💬 Chat
@@ -197,6 +198,7 @@ Now learning. [Click] You say: explain how inflation works, start like I'm ten, 
 
 - Watch a video for you.
 - 🧑‍💻 “Here's the 1-hour school board meeting. What got decided, and when?”
+- Sticker (top left, Chat colour): 🎬 Watch better
 - Logo badge on the agent: Gemini
 - Input: a video player (▶) with a timeline, 1:02:10
 - Agent badge: 💬 Chat
@@ -212,6 +214,7 @@ AI can watch video now, too. [Click] You say: here's the one-hour school board m
 
 - Deep research.
 - 🧑‍💻 “Which family EV under $45k is best for road trips? Compare range, charging and safety.”
+- Sticker (top left, Chat colour): 🔍 Research better
 - Logo badge on the agent: Gemini, with Perplexity as the second option
 - Input: a grid of 12 web pages 🌐 lighting up one by one · 🌐 The whole web
 - Agent badges: 🔍 Deep research · ⏱️ ~15 min
@@ -228,6 +231,7 @@ Last example, and a big one. [Click] You say: which family electric car under fo
 
 - Shop smarter.
 - 🧑‍💻 “Find the best 65-inch TV under $800. Compare prices and real reviews across stores.”
+- Sticker (top left, Chat colour): 🛒 Shop better
 - Logo badge on the agent: ChatGPT
 - Input: 🛒 with store chips Amazon · Best Buy · Costco · Walmart · Target · ⭐ thousands of reviews
 - Agent badge: 🔍 Web search
@@ -245,6 +249,7 @@ Shopping. [Click] You say: find the best sixty-five-inch TV under eight hundred 
 
 - Tame your inbox.
 - 🧑‍💻 “Sort my inbox into bills, school and junk. Draft replies to anything urgent.”
+- Sticker (top left, Chat colour): 📥 Organize better
 - Logo badge on the agent: Gemini
 - Input: a messy pile of envelopes ✉️📧📨 with a red unread badge: 1,284
 - Agent badge: MCP · Gmail (Gmail logo)
@@ -261,6 +266,7 @@ Next: email. [Click] You say: sort my inbox into bills, school and junk, and dra
 
 - Talk it out.
 - 🧑‍💻 “Here's my 20-minute voice memo from my walk. Turn it into notes, to-dos and bookmarks.”
+- Sticker (top left, Chat colour): 🎙️ Capture better
 - Logo badge on the agent: ChatGPT
 - Input: 🎙️ Voice memo 20:14, a moving pink waveform, “um… so… oh, and also…”
 - Agent badges: 🎙️ Transcribe · Notion (logo)
@@ -303,6 +309,7 @@ Kind two: its own computer. Same model. [Click] New tools: a web browser it can 
 
 - Crunch the numbers.
 - 🧑‍💻 “Here's a year of my bank exports. Clean them up and show me where my money goes.”
+- Sticker (top left, Its own computer colour): 📊 Analyze better
 - Logo badge on the agent: Gemini Spark
 - Input: messy spreadsheet (mixed date formats, 'AMZN Mktp' vs 'amazon.com', blanks and '??? POS 8812' in red) · 📄 × 12 messy files
 - Agent badge: ☁️ Its own computer
@@ -318,6 +325,7 @@ First: data. [Click] You say: here's a year of my bank exports, clean them up an
 
 - PDFs to a table.
 - 🧑‍💻 “Pull the date, store and amount out of these 40 receipts into a spreadsheet.”
+- Sticker (top left, Its own computer colour): 🧾 Work better
 - Logo badge on the agent: Grok Bot
 - Input: a fanned stack of PDF receipts with a red × 40 badge
 - Agent badges: 📎 Upload · ☁️ Its own computer
@@ -334,6 +342,7 @@ Tax season special. [Click] You say: pull the date, store and amount out of thes
 
 - Read your scans.
 - 🧑‍💻 “Here's the CD from my knee MRI. Turn it into images I can see, and explain them simply.”
+- Sticker (top left, Its own computer colour): 🩻 Understand better
 - Logo badge on the agent: Gemini Spark
 - Input: a 💿 CD with files IMG0001.dcm · IMG0002.dcm · … × 240 files
 - Agent badge: ☁️ Its own computer
@@ -350,6 +359,7 @@ Here's one most people don't know about. [Click] After an MRI or a CT scan, you 
 
 - Manage my money.
 - 🧑‍💻 “Here's $100k of paper money. Research the market, then manage it, or just place a trade.”
+- Sticker (top left, Its own computer colour): 💰 Invest better
 - Logo badge on the agent: Grok Bot
 - Input: Alpaca account card (Alpaca logo, 🧪 Paper) · $100,000 · green line chart
 - Agent badges: ☁️ Its own computer · Alpaca (logo)
@@ -368,6 +378,7 @@ This one gets people's attention. [Click] You say: here's a hundred thousand dol
 
 - Beat the DMV.
 - 🧑‍💻 “Check the NJ MVC site every hour and grab the first license-renewal slot near Edison.”
+- Sticker (top left, Its own computer colour): 🗓️ Book better
 - Logo badge on the agent: Grok Bot
 - Input: browser window 🔒 telegov.njportal.com · Appointments · a grid of red ✕ · No appointments available
 - Agent badges: ☁️ Its own computer · 🖱️ Browser use
@@ -385,6 +396,7 @@ Anyone here tried to get an appointment at the New Jersey MVC? [Click] You say: 
 
 - Find the right college.
 - 🧑‍💻 “Compare 12 colleges for my daughter who wants to study nursing: cost, fit and deadlines. Put it all in a spreadsheet.”
+- Sticker (top left, Its own computer colour): 🎓 Plan better
 - Logo badge on the agent: Gemini Spark
 - Input: 🎓 card with school chips: Rutgers · TCNJ · Penn State · Drexel · + 8 more
 - Agent badges: ☁️ Its own computer · 🔍 Hundreds of pages
@@ -402,6 +414,7 @@ For the parents in the room. [Click] You say: compare twelve colleges for my dau
 
 - Watch the price.
 - 🧑‍💻 “Watch flights from Newark to Chennai for December. Tell me the moment one drops under $1,100.”
+- Sticker (top left, Its own computer colour): 💸 Save better
 - Logo badge on the agent: Gemini Spark
 - Input: ✈️ EWR → MAA · December · round trip · $1,340 (red)
 - Agent badges: ☁️ Its own computer · ⏰ Checks daily
@@ -419,6 +432,7 @@ Who's flying to India this December? [Click] You say: watch flights from Newark 
 
 - Grill me.
 - 🧑‍💻 “Use grill-me: help me plan my daughter's 7th birthday party.”
+- Sticker (top left, Its own computer colour): 🎤 Think better
 - Logo badge on the agent: Claude
 - Input: a foggy dashed thought cloud 🎂❓🎈 · meter: How well the AI gets you (4 empty segments)
 - Agent badges: ☁️ Its own computer · 🎓 Skill · grill-me
@@ -477,6 +491,7 @@ And kind three. Same model, same tools. [Click] One more tool: it can move your 
 
 - Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
 - Clean up YOUR desktop.
+- Sticker (top left, Your computer colour): 🗂️ Tidy better
 - 🧑‍💻 “My desktop is a mess. Sort everything into folders and bin the duplicates.”
 - Logo badge on the agent: Claude Cowork
 - Input: a messy desktop window with scattered files: IMG_2231.jpg · tax_2025.pdf · Resume_v3.docx · IMG_2231 (1).jpg · biryani.pdf · Resume_v3 copy.docx · W-2.pdf · beach.png
@@ -494,6 +509,7 @@ Everyone's favourite. [Click] You say: my desktop is a mess, sort everything int
 
 - Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
 - Name YOUR photos.
+- Sticker (top left, Your computer colour): 📸 Remember better
 - 🧑‍💻 “Rename my 500 trip photos by date and place, like '2024-03 Chennai - Marina Beach'.”
 - Logo badge on the agent: Codex
 - Input: file list 🖼️ IMG_4421.jpg · IMG_4422.jpg · DSC_0091.jpg · PXL_20240314.jpg · IMG_4423 (1).jpg · … × 500
@@ -511,6 +527,7 @@ Every phone names photos like this. [Click] You say: rename my five hundred trip
 
 - Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
 - Turn videos into a book.
+- Sticker (top left, Your computer colour): 📖 Read better
 - 🧑‍💻 “Take this 12-video course playlist and turn it into a neat book with chapters.”
 - Logo badge on the agent: Claude Code
 - Input: three stacked YouTube video thumbnails (Ep 1 · Ep 2 · Ep 12) with a red × 12 badge
@@ -528,6 +545,7 @@ Here's one for the learners. [Click] You say: take this twelve-video course play
 
 - Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
 - A coloring page every morning.
+- Sticker (top left, Your computer colour): 🖍️ Parent better
 - 🧑‍💻 “Every morning at 7, make a coloring page for Maya (6, loves dinosaurs and cricket) and print it.”
 - Logo badge on the agent: OpenClaw
 - Input: card ⏰ 7:00 AM · 👧 Maya · 6 · 🦕 🏏
