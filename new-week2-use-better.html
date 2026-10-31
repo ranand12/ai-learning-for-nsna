@@ -14,6 +14,8 @@
   --ask:#FF7AD9;       /* ask AI                 */
   --demo:#FF5A3D;      /* live demo              */
   --guess:#B69CFF;     /* your guess? (reveal)   */
+  --pc:#FF7AD9;        /* computer-access section */
+  --skill:#FFB547;     /* skills (amber)         */
   --font: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -580,13 +582,13 @@ aside.notes,aside.onscreen{display:none}
 .w2-fold b{display:block;font-size:24px;font-weight:800;margin-top:8px}
 .w2-stair{position:absolute;width:150px;border:3px solid var(--c);border-bottom:none;border-radius:16px 16px 0 0;background:#141414;display:flex;flex-direction:column;align-items:center;padding-top:14px;gap:6px;font-size:22px;font-weight:800;color:var(--c)}
 .w2-stair .e{font-size:56px;line-height:1}
-.w2-skill{position:absolute;width:420px;height:76px;border:4px solid var(--dyk);border-radius:16px;background:#1A1608;display:flex;align-items:center;gap:14px;padding:0 20px;font-size:27px;font-weight:800;color:var(--dyk);z-index:3;
+.w2-skill{position:absolute;width:420px;height:76px;border:4px solid var(--skill);border-radius:16px;background:#22180A;display:flex;align-items:center;gap:14px;padding:0 20px;font-size:27px;font-weight:800;color:var(--skill);z-index:3;
   transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1),left 1s cubic-bezier(.5,0,.2,1),top 1s cubic-bezier(.5,0,.2,1)}
 .w2-skill .e{font-size:36px;line-height:1}
-.w2-skill.moved{left:var(--tx)!important;top:var(--ty)!important;box-shadow:0 0 40px rgba(255,210,63,.45)}
+.w2-skill.moved{left:var(--tx)!important;top:var(--ty)!important;box-shadow:0 0 40px rgba(255,181,71,.45)}
 .slide:has(.w2-skill.moved) .w2-skill:not(.moved){opacity:.3}
 .w2-shelf{position:absolute;border:3px solid #333;border-radius:24px;background:#111}
-.w2-shelf b{position:absolute;left:30px;top:18px;font-size:28px;font-weight:800;color:var(--dyk)}
+.w2-shelf b{position:absolute;left:30px;top:18px;font-size:28px;font-weight:800;color:var(--skill)}
 .w2-blk{height:56px;border-radius:10px;display:flex;align-items:center;padding:0 18px;font-size:24px;font-weight:800;color:#0A0A0A;flex:none}
 .w2-qb{position:absolute;left:1020px;width:470px;padding:16px 24px;border-radius:20px;background:var(--ask);color:#0A0A0A;font-size:27px;font-weight:800}
 .w2-meter{display:flex;gap:10px}
@@ -669,9 +671,9 @@ aside.notes,aside.onscreen{display:none}
 .w2-files span{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:19px;font-weight:600;white-space:nowrap}
 .w2-idea{position:absolute;bottom:140px;border:4px solid var(--c);border-radius:24px;background:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;font-weight:800;color:var(--c);padding:16px;line-height:1.15}
 .w2-idea .e{line-height:1}
-.w2-sock{position:absolute;border:4px dashed var(--dyk);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:var(--dyk);opacity:.85}
+.w2-sock{position:absolute;border:4px dashed var(--skill);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:var(--skill);opacity:.85}
 .w2-kfagent{transition:box-shadow .8s ease}
-.slide:has(.w2-skill.moved) .w2-kfagent{box-shadow:0 0 0 8px #FFD23F,0 0 70px rgba(255,210,63,.65)}
+.slide:has(.w2-skill.moved) .w2-kfagent{box-shadow:0 0 0 8px #FFB547,0 0 70px rgba(255,181,71,.65)}
 .slide:has(.w2-hidemark.shown) .w2-skill:not(.moved){opacity:0}
 .w2-pg{position:absolute;left:1170px;width:290px;height:170px;border:4px solid var(--c);border-radius:22px;background:#151515;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--c)}
 .w2-pg .e{font-size:60px;line-height:1}
@@ -697,6 +699,31 @@ aside.notes,aside.onscreen{display:none}
 .w2-flash.moved .fi2{transform:rotateY(180deg)}
 .w2-flash .fc{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:800;background:var(--fg);color:#0A0A0A}
 .w2-flash .fc.bk{transform:rotateY(180deg);background:var(--model)}
+
+/* ---------- computer-access section (w2c-) ---------- */
+.slide.w2c-sec{background:radial-gradient(900px 600px at 100% 0%,rgba(255,122,217,.11),transparent 65%),radial-gradient(800px 600px at 0% 100%,rgba(182,156,255,.08),transparent 65%)}
+.slide.w2c-sec::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,#FF7AD9,#B69CFF,#4D9FFF)}
+.w2c-badge{position:absolute;right:34px;top:20px;height:66px;display:flex;align-items:center;gap:10px;padding:5px 22px 5px 5px;border-radius:999px;border:3px solid var(--pc);background:linear-gradient(90deg,#2B1233,#1B1631);box-shadow:0 0 28px rgba(255,122,217,.25);z-index:6}
+.w2c-badge .agcirc{position:relative;width:52px;height:52px;flex:none}
+.w2c-badge .pc{font-size:32px;line-height:1}
+.w2c-badge b{font-size:19px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--pc)}
+.w2c-plus{position:absolute;font-size:110px;font-weight:800;color:var(--dim);line-height:1}
+.w2c-pill{position:absolute;height:60px;border-radius:999px;border:3px solid var(--c);color:var(--c);background:#0A0A0A;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;white-space:nowrap}
+.w2c-nm{position:absolute;top:660px;width:220px;height:70px;border:3px dashed #8C8C86;border-radius:16px;background:#151515;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:var(--fg);
+  transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1),left .8s cubic-bezier(.5,0,.2,1)}
+.w2c-nm.moved{left:690px!important;opacity:0!important;transition:left .8s cubic-bezier(.5,0,.2,1),opacity .3s ease .5s}
+.w2c-who{position:absolute;top:220px;width:400px;text-align:center}
+.w2c-who .e{display:block;font-size:150px;line-height:1}
+.w2c-who b{display:block;margin-top:14px;font-size:34px;font-weight:800}
+.w2c-bag{position:absolute;top:480px;width:440px;height:110px;border:4px dashed var(--harness);border-radius:22px;background:#0F1A2A;display:flex;align-items:center;justify-content:center;gap:12px;font-size:54px;line-height:1}
+.w2c-lbl{position:absolute;padding:6px 18px;border-radius:999px;font-size:22px;font-weight:800;background:var(--c);color:#0A0A0A;white-space:nowrap;z-index:4}
+.w2c-res{position:absolute;top:630px;width:440px;text-align:center}
+.w2c-res .e{display:block;font-size:90px;line-height:1}
+.w2c-res i{display:block;margin-top:10px;font-style:normal;font-size:32px;letter-spacing:4px}
+.w2c-glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,181,71,.35),transparent 70%)}
+.w2c-recipe{position:absolute;left:1240px;top:240px;width:270px;height:350px;border:4px solid var(--skill);border-radius:20px;background:#22180A;box-shadow:0 0 40px rgba(255,181,71,.3);padding:26px 20px;display:flex;flex-direction:column;gap:16px}
+.w2c-recipe h4{font-size:30px;font-weight:800;color:var(--skill)}
+.w2c-recipe span{font-size:22px;font-weight:700;color:var(--fg)}
 </style>
 </head>
 <body>
@@ -858,12 +885,12 @@ aside.notes,aside.onscreen{display:none}
   <div class="w2-lvl" data-step="3" style="left:830px;--c:#FF7AD9"><span class="n">3</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero"><span>💻</span><span style="font-size:60px">📂</span></div><b>Your computer</b><div class="acc"><span>💬</span><span>💻</span></div></div>
   <div class="w2-say" data-step="4" style="left:1170px;top:262px;width:290px;font-size:24px;color:var(--dim)">Plug into any of them</div>
   <div class="w2-pg" data-step="4" style="top:310px;--c:#4D9FFF"><span class="e">🔌</span><b>Connectors</b><i>give it access</i></div>
-  <div class="w2-pg" data-step="5" style="top:510px;--c:#FFD23F"><span class="e">🃏</span><b>Skills</b><i>give it expertise</i></div>
+  <div class="w2-pg" data-step="5" style="top:510px;--c:#FFB547"><span class="e">🎓</span><b>Skills</b><i>give it expertise</i></div>
   <aside class="onscreen">
     Three kinds of agents.
     The General purpose box from the last slide grows into a big green frame: 🧰 General purpose
     Three cards, each with the spy agent on top: 1 · 💬 Chat · 2 · ☁️🖥️ Its own computer · 3 · 💻📂 Your computer
-    Right: Plug into any of them · 🔌 Connectors (give it access) · 🃏 Skills (give it expertise)
+    Right: Plug into any of them · 🔌 Connectors (give it access) · 🎓 Skills (give it expertise)
   </aside>
   <aside class="notes">Inside general purpose, there are really three kinds of agent. Same spy every time; what changes is where it gets to work. [Click] One: chat. ChatGPT, Claude, Gemini in a chat window. You ask, it answers. It has no computer; it can only talk. [Click] Two: its own computer. The company lends the agent a computer in the cloud, with a browser, files and a terminal. It can run programs, use websites, and keep going while you sleep. Grok Bot and Gemini Spark work like this. [Click] Three: YOUR computer. Now the agent works right on your laptop: your files, your folders, your desktop, even your printer. Claude Cowork, Claude Code, Codex and OpenClaw. Each step, it can reach more: more useful, and you need to trust it more. And then there are two things you can plug into any of the three. [Click] Connectors give it access: your Gmail, your calendar, your Drive, your trading account. [Click] And skills give it expertise: like hiring an expert for one job. Three kinds, two plug-ins. Every example today is one of those.</aside>
 </section>
@@ -883,14 +910,13 @@ aside.notes,aside.onscreen{display:none}
   <div class="w2-better" data-step="8" style="left:1030px;top:490px;--c:#F5F5F0"><span class="e">🎬</span>Watch better</div>
   <div class="w2-better" data-step="9" style="left:540px;top:586px;--c:#F5F5F0"><span class="e">🔍</span>Research better</div>
   <div class="w2-better" data-step="10" style="left:1030px;top:586px;--c:#F5F5F0"><span class="e">🛒</span>Shop better</div>
-  <div class="w2-better" data-step="11" style="left:540px;top:682px;--c:#F5F5F0"><span class="e">🎤</span>Think better</div>
   <aside class="onscreen">
     1 · Chat.
     Left: card 1 · 💬 Chat (slides over from the three-kinds slide)
     Logos, one at a time, each with its lowest tier: ChatGPT Free · Claude Free · Gemini Free · Grok Free · Meta AI Free · Copilot Free
-    What it can do, one at a time: 📚 Learn better · 🎬 Watch better · 🔍 Research better · 🛒 Shop better · 🎤 Think better
+    What it can do, one at a time: 📚 Learn better · 🎬 Watch better · 🔍 Research better · 🛒 Shop better
   </aside>
-  <aside class="notes">Let's take the three kinds one at a time, starting with the simplest. Kind one: chat. You type, it answers. It can only talk. And you already know the names. Look at the little tags under each one: green means you can start free. [Click] ChatGPT, free. [Click] Claude, free. [Click] Gemini, free. [Click] Grok, free. [Click] Meta AI, inside WhatsApp and Instagram, free. [Click] Microsoft Copilot, free. Every single chatbot has a free tier. The paid plans, usually twenty dollars a month, give you smarter models and higher limits. Just talking doesn't sound like much, but it's already enough to change how you do three things. [Click] Learn better. [Click] Watch better: it can even watch videos for you. [Click] Research better. [Click] Shop better. [Click] And, with a skill plugged in, think better.</aside>
+  <aside class="notes">Let's take the three kinds one at a time, starting with the simplest. Kind one: chat. You type, it answers. It can only talk. And you already know the names. Look at the little tags under each one: green means you can start free. [Click] ChatGPT, free. [Click] Claude, free. [Click] Gemini, free. [Click] Grok, free. [Click] Meta AI, inside WhatsApp and Instagram, free. [Click] Microsoft Copilot, free. Every single chatbot has a free tier. The paid plans, usually twenty dollars a month, give you smarter models and higher limits. Just talking doesn't sound like much, but it's already enough to change how you do three things. [Click] Learn better. [Click] Watch better: it can even watch videos for you. [Click] Research better. [Click] Shop better.</aside>
 </section>
 
 
@@ -1074,97 +1100,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 15. HIRE AN EXPERT ============================ -->
-<section class="slide">
-  <h2 class="fu title-c" style="--d:.1s">Hire an expert.</h2>
-  <svg class="layer" data-step="1" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><line x1="310" y1="532" x2="310" y2="578" stroke="#FFD23F" stroke-width="6" stroke-dasharray="8 8"/></svg>
-  <div class="agcirc w2-kfagent" data-step="1" style="left:210px;top:330px;width:200px;height:200px"><img src="gifs/agent.png" alt=""></div>
-  <div class="w2-sock" data-step="1" style="left:130px;top:580px;width:360px;height:76px">plug in a skill</div>
-  <div class="w2-skill" data-step="2" style="left:1000px;top:300px;width:360px"><span class="e">🧾</span>Tax expert</div>
-  <div class="w2-skill" data-step="3" style="left:1000px;top:400px;width:360px"><span class="e">🎤</span>Interviewer</div>
-  <div class="w2-skill" data-step="4" style="left:1000px;top:500px;width:360px"><span class="e">✍️</span>Your voice</div>
-  <div class="w2-skill" data-step="5" data-move="6" style="left:1000px;top:600px;width:360px;--tx:130px;--ty:580px"><span class="e">📊</span>Excel pro</div>
-  <span class="w2-hidemark" data-step="7"></span>
-  <img data-step="7" src="gifs/i-know-kung-fu.gif" alt="" style="position:absolute;left:830px;top:290px;width:640px;height:320px;border-radius:16px;border:3px solid #2A2A28;object-fit:cover;z-index:4">
-  <div class="cva-punch" data-step="8" style="left:760px;width:780px;top:650px;font-size:42px;white-space:nowrap">Plug in a skill. <span style="color:var(--dyk)">Get an expert.</span></div>
-  <aside class="onscreen">
-    Hire an expert.
-    Spy agent (left) with an empty dashed yellow socket below it: plug in a skill
-    Yellow skill chips on the right, one per click: 🧾 Tax expert · 🎤 Interviewer · ✍️ Your voice · 📊 Excel pro
-    The 📊 Excel pro chip slides into the socket; the agent glows yellow; the other chips fade away
-    Matrix GIF: Neo, “I know kung fu” (gifs/i-know-kung-fu.gif)
-    Plug in a skill. Get an expert.
-  </aside>
-  <aside class="notes">Now the first plug-in: skills. Here's the best way to think about them. You're not writing prompts. You're hiring experts. [Click] Here's your agent. Smart, but a generalist. And notice the empty socket. [Click] Now picture a rack of chips. A tax expert that knows exactly which forms you need. [Click] An interviewer that grills you before it plans anything. [Click] One that writes exactly in your voice. [Click] An Excel pro. [Click] You need a spreadsheet built properly? Plug in the Excel chip. [Click] Remember the Matrix? They plug the program into Neo's head, he opens his eyes, and: "I know kung fu." That's a skill. Seconds ago the agent was a generalist; now it's an expert at this one job. [Click] Plug in a skill, get an expert. And where do the chips come from? You can write your own: it's just a page of instructions, plus any templates or examples. Your company can share them. And you can install ready-made ones: Anthropic, for example, ships skills for Excel, PowerPoint, Word and PDFs. Hiring an expert used to take weeks. Now it's one click.</aside>
-</section>
-
-
-<!-- ============================ 16. SKILLS ============================ -->
-<section class="slide">
-  <h2 class="fu title-c" style="--d:.1s">Skills: teach it once.</h2>
-  <div class="ag-ctx" data-step="1" style="left:150px;top:260px;width:520px;height:500px">
-    <div class="w2-blk" style="background:#8C8C86">📝 Instructions</div>
-    <div class="w2-blk" data-step="7" style="background:var(--fg)">🧑‍💻 Grill me on my party plan</div>
-  </div>
-  <div class="wa-cap" data-step="1" style="left:150px;top:775px;width:520px">Context window</div>
-  <div class="agcirc" data-step="2" style="left:740px;top:435px;width:130px;height:130px"><img src="gifs/agent.png" alt=""></div>
-  <div class="w2-shelf" data-step="3" style="left:960px;top:260px;width:520px;height:500px"><b>🃏 Skills</b></div>
-  <div class="w2-skill" data-step="3" style="left:1010px;top:340px"><span class="e">✍️</span>Write like me</div>
-  <div class="w2-skill" data-step="4" style="left:1010px;top:440px"><span class="e">🧾</span>Expense report</div>
-  <div class="w2-skill" data-step="5" data-move="8" style="left:1010px;top:540px;--tx:173px;--ty:419px"><span class="e">🎤</span>Grill me</div>
-  <div class="w2-skill" data-step="6" style="left:1010px;top:640px"><span class="e">🎨</span>Coloring page</div>
-  <aside class="onscreen">
-    Skills: teach it once.
-    Left: Context window (red box) with 📝 Instructions
-    Middle: spy agent
-    Right: a shelf labelled 🃏 Skills with yellow recipe cards: ✍️ Write like me · 🧾 Expense report · 🎤 Grill me · 🎨 Coloring page
-    A request lands on the desk: 🧑‍💻 Grill me on my party plan
-    Only the 🎤 Grill me card slides off the shelf onto the desk; the rest dim
-  </aside>
-  <aside class="notes">So how does plugging in a chip actually work? [Click] Remember the desk, the context window? Whatever is on the desk is all the AI can see. [Click] Here's our agent. [Click] Now imagine a shelf next to the desk with recipe cards on it. Each card is a skill: written instructions for one job, done your way. Write like me. [Click] Do my expense report the way my company wants it. [Click] Grill me. [Click] Make a coloring page. You write each one once. [Click] Now a request comes in: grill me on my party plan. [Click] The agent looks at the shelf, picks the one card that matches, and puts only that card on the desk. The others stay on the shelf, so the desk stays clean. That's the difference from a saved prompt: you don't paste it in. The agent picks the right skill by itself, when it needs it. Claude calls them Skills; ChatGPT and Gemini have their own versions, custom GPTs and Gems. And a skill is just a text file. You can write one in five minutes, or ask the AI to write it for you.</aside>
-</section>
-
-
-<!-- ============================ 17. EX E: GRILL ME ============================ -->
-<section class="slide">
-  <h2 class="fu title-c" style="--d:.1s">Grill me.</h2>
-  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Use grill-me: help me plan my daughter's 7th birthday party.”</span></div>
-  <div class="w2-card" data-step="2" style="left:120px;top:360px;width:460px;height:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px">
-    <div class="w2-cloud" style="width:380px;height:190px">🎂❓🎈</div>
-    <div style="font-size:22px;font-weight:700;color:var(--dim)">How well the AI gets you</div>
-    <div class="w2-meter"><i class="w2-seg" data-move="4"></i><i class="w2-seg" data-move="5"></i><i class="w2-seg" data-move="6"></i><i class="w2-seg" data-move="7"></i></div>
-  </div>
-  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
-    <defs><marker id="w2A12" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
-    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A12)" style="--t:.3s;--d:.1s"/></g>
-    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A12)" style="--t:.3s;--d:.1s"/></g>
-    
-  </svg>
-  <div class="w2-ring" data-step="3"></div>
-  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
-  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/claude.png" alt=""></div>
-  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#FFD23F">🃏 Skill · grill-me</span></div>
-  <div class="w2-qb" data-step="4" style="top:330px">❓ How many kids?</div>
-  <div class="w2-qb" data-step="5" style="top:420px">❓ What's the budget?</div>
-  <div class="w2-qb" data-step="6" style="top:510px">❓ Indoor or outdoor?</div>
-  <div class="w2-qb" data-step="7" style="top:600px">❓ Any allergies?</div>
-  <div class="wa-done" data-step="8" style="left:1020px;top:700px;width:470px;height:auto;padding:14px 20px;font-size:25px;text-align:center">📋 12 kids · $300 · backyard · nut-free</div>
-  <span class="sticker" style="left:40px;top:28px;background:#F5F5F0;border-color:#F5F5F0;--r:-5deg">🎤 Think better</span>
-  <aside class="onscreen">
-    Grill me.
-    🧑‍💻 “Use grill-me: help me plan my daughter's 7th birthday party.”
-    Sticker (top left, Chat colour): 🎤 Think better
-    Logo badge on the agent: Claude
-    Input: a foggy dashed thought cloud 🎂❓🎈 · meter: How well the AI gets you (4 empty segments)
-    Agent badge: 🃏 Skill · grill-me
-    Output: pink questions one at a time: ❓ How many kids? · ❓ What's the budget? · ❓ Indoor or outdoor? · ❓ Any allergies? (each one fills a meter segment green)
-    Green plan card: 📋 12 kids · $300 · backyard · nut-free
-  </aside>
-  <aside class="notes">Here's that skill in action. [Click] You say: use grill-me, help me plan my daughter's seventh birthday party. [Click] Right now, the idea is a fog in your head. And the AI knows even less than you do. If it just starts answering, you get a generic party plan for a generic kid. [Click] Here it's Claude, which has Skills built in. So the grill-me skill flips it around. Instead of answering, the agent interviews you first, one question at a time. [Click] How many kids? [Click] What's the budget? [Click] Indoor or outdoor? [Click] Any allergies? Watch the meter: every answer, it understands you better. [Click] And only then does it plan, and the plan fits YOUR party. Use this for anything big: a trip, a business idea, a hard email. Let it grill you first.</aside>
-</section>
-
-
-<!-- ============================ 18. PLUG-IN: CONNECTORS ============================ -->
+<!-- ============================ 15. PLUG-IN: CONNECTORS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Plug in access.</h2>
   <div class="w2-lvl ho" style="--fx:0px;--c:#4D9FFF"><span class="n">+</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero">🔌</div><b>Connectors</b><div class="acc"><span>📧</span><span>📅</span><span>📂</span></div></div>
@@ -1185,7 +1121,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 19. INSIDE: CHAT + CONNECTORS ============================ -->
+<!-- ============================ 16. INSIDE: CHAT + CONNECTORS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Inside: chat + connectors.</h2>
   <div class="wa-win" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
@@ -1216,63 +1152,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 20. HOW DOES IT CONNECT ============================ -->
-<section class="slide">
-  <h2 class="fu title-c" style="--d:.1s">How does it connect?</h2>
-  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
-    <defs><marker id="w2A4" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
-    <g data-step="2"><path class="draw" pathLength="1" d="M684 310 L1385 310" fill="none" stroke="#4D9FFF" stroke-width="8" stroke-linecap="round" style="--t:.6s;--d:.3s"/></g>
-    <g data-step="2"><path class="draw" pathLength="1" d="M262 440 C330 350 390 315 462 312" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A4)" style="--t:.4s;--d:.1s"/></g>
-    <g data-step="3" data-hide="4"><path d="M262 560 C380 680 600 690 852 680" fill="none" stroke="#FF5A3D" stroke-width="6" stroke-dasharray="14 12" stroke-linecap="round"/><text x="507" y="672" text-anchor="middle" dominant-baseline="central" font-size="64" font-weight="900" style="fill:#FF5A3D">✕</text></g>
-    <g data-step="4"><path class="draw" pathLength="1" d="M262 560 C380 680 600 690 852 680" fill="none" stroke="#FF7AD9" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A4)" style="--t:.6s;--d:.1s"/></g>
-  </svg>
-  <div class="agcirc" data-step="1" style="left:110px;top:420px;width:160px;height:160px"><img src="gifs/agent.png" alt=""></div>
-  <div class="w2-app" data-step="1" style="left:860px;top:255px">📧<b>Email</b></div>
-  <div class="w2-app" data-step="1" style="left:1000px;top:255px">📅<b>Calendar</b></div>
-  <div class="w2-app" data-step="1" style="left:1140px;top:255px">📂<b>Drive</b></div>
-  <div class="w2-app" data-step="1" style="left:1280px;top:255px">📈<b>Trading</b></div>
-  <div class="w2-hub" data-step="2" style="left:470px;top:250px;width:210px;height:120px"><span class="e">🔌</span>MCP</div>
-  <div class="wa-win" data-step="3" style="left:860px;top:540px;width:530px;height:280px"><div class="wa-bar"><i></i><i></i><i></i></div><div class="w2-url">🔒 tickets.example.com</div>
-    <div class="w2-ln" style="left:30px;top:84px;width:300px"></div><div class="w2-ln" style="left:30px;top:116px;width:420px"></div><div class="w2-ln" style="left:30px;top:148px;width:360px"></div>
-    <div class="w2-btn" style="left:380px;top:200px">Book</div>
-    <svg class="w2-cursor" data-step="4" viewBox="0 0 40 52"><path d="M4 3 L4 42 L14 32 L21 48 L28 45 L21 29 L35 29 Z" fill="#F5F5F0" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="round"/></svg>
-  </div>
-  <div class="w2-say" data-step="3" data-hide="4" style="left:357px;top:720px;width:300px;color:var(--demo)">No connector</div>
-  <div class="w2-say" data-step="4" style="left:357px;top:720px;width:300px;color:var(--ask)">🖱️ Browser use</div>
-  <aside class="onscreen">
-    How does it connect?
-    Spy agent (left). Four app tiles (top right): 📧 Email · 📅 Calendar · 📂 Drive · 📈 Trading
-    Blue 🔌 MCP plug between the agent and the apps, with one blue cable running through all four
-    A website with no connector (browser window: tickets.example.com, a green Book button): red dashed line with ✕ · No connector
-    Then: pink arrow instead, and a mouse pointer moving and clicking Book · 🖱️ Browser use
-  </aside>
-  <aside class="notes">So how does the agent actually reach your stuff? [Click] Here's our agent, and here are the apps it wants to use: your email, your calendar, your Drive, your trading account. [Click] The main way is called MCP. Don't worry about the letters. Think of it as USB-C for AI: one standard plug. Any app that offers an MCP connector, the agent can plug straight into. In ChatGPT and Claude you'll see these listed as "connectors". One plug, every app. [Click] But what if the site you need has no connector? Your kid's school portal, an old ticketing site, your company's expense system. No plug. [Click] Then the agent does what you'd do: it opens a browser, looks at the page, moves the mouse and clicks the buttons. That's called browser use, or computer use. It's slower and clumsier than a connector, but it works on almost any website.</aside>
-</section>
-
-
-<!-- ============================ 21. THREE WAYS IN ============================ -->
-<section class="slide">
-  <h2 class="fu title-c" style="--d:.1s">Three ways in.</h2>
-  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
-    <g data-step="2"><path d="M360 470 C380 600 600 690 712 690" fill="none" stroke="#4D9FFF" stroke-width="4" stroke-opacity=".45"/><circle r="9" fill="#4D9FFF"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" path="M360 470 C380 600 600 690 712 690"/></circle><circle r="9" fill="#4D9FFF"><animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite" path="M360 470 C380 600 600 690 712 690"/></circle><circle r="9" fill="#4D9FFF"><animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite" path="M360 470 C380 600 600 690 712 690"/></circle></g>
-    <g data-step="3"><path d="M800 470 L800 596" fill="none" stroke="#FFD23F" stroke-width="4" stroke-opacity=".45"/><circle r="9" fill="#FFD23F"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" path="M800 470 L800 596"/></circle><circle r="9" fill="#FFD23F"><animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite" path="M800 470 L800 596"/></circle><circle r="9" fill="#FFD23F"><animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite" path="M800 470 L800 596"/></circle></g>
-    <g data-step="4"><path d="M1240 470 C1220 600 1000 690 888 690" fill="none" stroke="#FF7AD9" stroke-width="4" stroke-opacity=".45"/><circle r="9" fill="#FF7AD9"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" path="M1240 470 C1220 600 1000 690 888 690"/></circle><circle r="9" fill="#FF7AD9"><animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite" path="M1240 470 C1220 600 1000 690 888 690"/></circle><circle r="9" fill="#FF7AD9"><animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite" path="M1240 470 C1220 600 1000 690 888 690"/></circle></g>
-  </svg>
-  <div class="agcirc" data-step="1" style="left:710px;top:600px;width:180px;height:180px"><img src="gifs/agent.png" alt=""></div>
-  <div class="w2-way" data-step="2" style="left:190px;--c:#4D9FFF"><span class="e">🔌</span><b>MCP</b><i>📧📅📂</i></div>
-  <div class="w2-way" data-step="3" style="left:630px;--c:#FFD23F"><span class="e">🧩</span><b>Plugins</b><i>🔌🃏⚙️</i></div>
-  <div class="w2-way" data-step="4" style="left:1070px;--c:#FF7AD9"><span class="e">🖱️</span><b>Browser use</b><i>🌐</i></div>
-  <aside class="onscreen">
-    Three ways in.
-    Spy agent at the bottom centre
-    Three cards above, each feeding a stream of dots into the agent:
-    🔌 MCP (📧📅📂) · 🧩 Plugins (🔌🃏⚙️) · 🖱️ Browser use (🌐)
-  </aside>
-  <aside class="notes">So, recap: how does outside stuff get into the agent? [Click] Here's the agent. [Click] One: MCP connectors. A clean, official plug into an app: Gmail, Calendar, Drive. [Click] Two: plugins. A plugin is a bundle: one install gives the agent a set of connectors, plus instructions on how to use them, plus a few shortcuts. In ChatGPT these show up as apps; in Claude they're called plugins. Same idea: install once, and the agent gains a whole new ability. [Click] Three: browser use. No plug at all; the agent just uses the website like a person would. Those are the three ways in. Now let's see what you can actually do with all this.</aside>
-</section>
-
-
-<!-- ============================ 22. EX B: ORGANIZE EMAIL ============================ -->
+<!-- ============================ 17. EX B: ORGANIZE EMAIL ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Tame your inbox.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Sort my inbox into bills, school and junk. Draft replies to anything urgent.”</span></div>
@@ -1318,7 +1198,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 23. EX J: VOICE TO NOTES ============================ -->
+<!-- ============================ 18. EX J: VOICE TO NOTES ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Talk it out.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's my 20-minute voice memo from my walk. Turn it into notes, to-dos and bookmarks.”</span></div>
@@ -1353,7 +1233,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 24. KIND 2: ITS OWN COMPUTER ============================ -->
+<!-- ============================ 19. KIND 2: ITS OWN COMPUTER ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">2 · Its own computer.</h2>
   <div class="w2-lvl ho" style="--fx:350px;--c:#B69CFF"><span class="n">2</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero"><span>☁️</span><span style="font-size:70px">🖥️</span></div><b>Its own computer</b><div class="acc"><span>💬</span><span>☁️</span></div></div>
@@ -1376,7 +1256,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 25. INSIDE: ITS OWN COMPUTER ============================ -->
+<!-- ============================ 20. INSIDE: ITS OWN COMPUTER ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Inside: its own computer.</h2>
   <div class="wa-win" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
@@ -1409,7 +1289,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 26. EX A: DATA ANALYSIS ============================ -->
+<!-- ============================ 21. EX A: DATA ANALYSIS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Crunch the numbers.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's a year of my bank exports. Clean them up and show me where my money goes.”</span></div>
@@ -1450,7 +1330,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 27. EX K: PDF TO TABLE ============================ -->
+<!-- ============================ 22. EX K: PDF TO TABLE ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">PDFs to a table.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Pull the date, store and amount out of these 40 receipts into a spreadsheet.”</span></div>
@@ -1494,7 +1374,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 28. EX G: DICOM SCANS ============================ -->
+<!-- ============================ 23. EX G: DICOM SCANS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Read your scans.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's the CD from my knee MRI. Turn it into images I can see, and explain them simply.”</span></div>
@@ -1531,7 +1411,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 29. EX F: MANAGE MONEY + TRADE ============================ -->
+<!-- ============================ 24. EX F: MANAGE MONEY + TRADE ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Manage my money.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Here's $100k of paper money. Research the market, then manage it, or just place a trade.”</span></div>
@@ -1576,7 +1456,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 30. EX N: NJ DMV APPOINTMENT ============================ -->
+<!-- ============================ 25. EX N: NJ DMV APPOINTMENT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Beat the DMV.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Check the NJ MVC site every hour and grab the first license-renewal slot near Edison.”</span></div>
@@ -1615,7 +1495,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 31. EX O: COLLEGE RESEARCH ============================ -->
+<!-- ============================ 26. EX O: COLLEGE RESEARCH ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Find the right college.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Compare 12 colleges for my daughter who wants to study nursing: cost, fit and deadlines. Put it all in a spreadsheet.”</span></div>
@@ -1657,7 +1537,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 32. EX P: PRICE WATCHER ============================ -->
+<!-- ============================ 27. EX P: PRICE WATCHER ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Watch the price.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Watch flights from Newark to Chennai for December. Tell me the moment one drops under $1,100.”</span></div>
@@ -1697,8 +1577,26 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 33. KIND 3: YOUR COMPUTER ============================ -->
-<section class="slide">
+<!-- ============================ 28. WITH A COMPUTER ============================ -->
+<section class="slide w2c-sec">
+  <h2 class="fu title-c" style="--d:.1s">With a computer.</h2>
+  <div class="agcirc" data-step="1" data-hide="3" style="left:450px;top:330px;width:260px;height:260px;box-shadow:0 0 0 6px #FF7AD9,0 0 60px rgba(255,122,217,.4)"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2c-plus" data-step="2" data-hide="3" style="left:765px;top:400px">+</div>
+  <div class="w2-emo" data-step="2" data-hide="3" style="left:880px;top:350px;width:270px;font-size:210px">💻</div>
+  <div class="w2c-badge" data-step="3"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
+  <aside class="onscreen">
+    With a computer.
+    Big spy agent in a green circle with a pink glow ring
+    + 💻 laptop
+    Then both shrink away and reappear as a pill badge in the top-right corner: spy agent + 💻 Computer access (stays on every slide of this section)
+  </aside>
+  <aside class="notes">We've done the chatbot, and the agent with its own computer in the cloud. Now the big one. [Click] Our agent. [Click] Plus access to a computer: YOUR computer. Your files, your apps, everything you can do on a laptop. [Click] That pair is what this whole section is about, so it's going to sit up there in the corner of every slide until we're done. Agent plus computer access.</aside>
+</section>
+
+
+<!-- ============================ 29. KIND 3: YOUR COMPUTER ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
   <h2 class="fu title-c" style="--d:.1s">3 · Your computer.</h2>
   <div class="w2-lvl ho" style="--fx:680px;--c:#FF7AD9"><span class="n">3</span><div class="agcirc"><img src="gifs/agent.png" alt=""></div><div class="hero"><span>💻</span><span style="font-size:60px">📂</span></div><b>Your computer</b><div class="acc"><span>💬</span><span>💻</span></div></div>
   <div class="w2-logo" data-step="1" style="left:540px"><img src="gifs/logos/claude.png" alt=""><b>Claude Cowork</b><span class="w2-price" style="--pc:#FFD23F">$20/mo</span></div>
@@ -1710,6 +1608,7 @@ aside.notes,aside.onscreen{display:none}
   <div class="w2-better" data-step="7" style="left:540px;top:586px;--c:#FF7AD9"><span class="e">📖</span>Read better</div>
   <div class="w2-better" data-step="8" style="left:1030px;top:586px;--c:#FF7AD9"><span class="e">🖍️</span>Parent better</div>
   <aside class="onscreen">
+    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
     3 · Your computer.
     Left: card 3 · 💻📂 Your computer
     Logos, one at a time, with lowest tier: Claude Cowork $20/mo · Claude Code $20/mo · Codex Free · OpenClaw Free + AI fees
@@ -1719,8 +1618,9 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 34. INSIDE: YOUR COMPUTER ============================ -->
-<section class="slide">
+<!-- ============================ 30. INSIDE: YOUR COMPUTER ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
   <h2 class="fu title-c" style="--d:.1s">Inside: your computer.</h2>
   <div class="wa-win" style="left:110px;top:190px;width:900px;height:660px"><div class="wa-bar"><i></i><i></i><i></i></div></div>
   <div class="wa-winlbl" style="left:210px;top:198px">App</div>
@@ -1739,6 +1639,7 @@ aside.notes,aside.onscreen{display:none}
   <div class="layer" data-step="2"><div class="w2-env" style="--c:#FF7AD9"><b>Environment</b><span class="big">💻</span><span class="t">Your computer</span><div class="rows"><span>📁 Your files</span><span>🌐 Your browser</span><span>🖨️ Your printer</span></div></div></div>
   <div class="w2-chip" data-step="3" style="left:1140px;top:770px;--c:var(--dyk)">🛡️ Asks first</div>
   <aside class="onscreen">
+    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
     Inside: your computer.
     Same app, model, context window, chat screen, tools and 🔁 For hours loop
     New tool glows yellow: 🖱️
@@ -1749,8 +1650,262 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 35. EX C: CLEAN UP DESKTOP ============================ -->
-<section class="slide">
+<!-- ============================ 31. WHY SO GOOD LATELY ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
+  <div class="title-swap">
+    <h2 class="fu title-c" style="--d:.1s" data-hide="2">Why is AI suddenly so good?</h2>
+    <h2 class="title-c" data-step="2" data-hide="7">But more importantly…</h2>
+    <h2 class="title-c" data-step="7">Let's just call them tools.</h2>
+  </div>
+  <div class="fm" data-step="1" style="left:710px;top:300px">💃</div>
+  <div class="w2c-pill" data-step="1" style="left:630px;top:545px;width:340px;--c:#FFD23F">📈 Smarter models ✓</div>
+  <svg class="layer" data-step="2" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><circle cx="800" cy="390" r="135" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-dasharray="22 14" style="filter:drop-shadow(0 0 12px rgba(77,159,255,.7))"/>
+    <text x="935" y="270" font-size="54" text-anchor="middle" dominant-baseline="central">🔌</text><text x="665" y="270" font-size="54" text-anchor="middle" dominant-baseline="central">🔌</text></svg>
+  <div class="w2c-nm" data-step="3" data-move="7" style="left:225px">MCP</div>
+  <div class="w2c-nm" data-step="4" data-move="7" style="left:535px">Plugins</div>
+  <div class="w2c-nm" data-step="5" data-move="7" style="left:845px">Connectors</div>
+  <div class="w2c-nm" data-step="6" data-move="7" style="left:1155px">Tools</div>
+  <div class="w2-hub" data-step="7" style="left:600px;top:645px;width:400px;height:96px"><span class="e">🔧</span>Tools</div>
+  <span class="sticker" data-step="8" style="left:1130px;top:780px;background:#4D9FFF;border-color:#4D9FFF;--r:-4deg">🏗️ Deeper in Build</span>
+  <aside class="onscreen">
+    Why is AI suddenly so good?
+    ❄️ 💃 model in the middle, with a yellow pill: 📈 Smarter models ✓
+    Title changes to: But more importantly…
+    A glowing blue dashed ring of plugs 🔌 around the model
+    Grey dashed name chips, one per click: MCP · Plugins · Connectors · Tools
+    They all slide together and merge into one blue block: 🔧 Tools
+    Title changes to: Let's just call them tools.
+    Blue sticker: 🏗️ Deeper in Build
+  </aside>
+  <aside class="notes">Quick question. Lately it feels like every week there's some new jaw-dropping thing AI can do. Why is that? [Click] Is it because the models are getting better? Sort of, yes, obviously. They are. [Click] But more importantly, we've found much easier ways to plug the model's intelligence into the outside world: other apps, other systems, your data. And there are several ways to do that, and everyone has their own name for them. [Click] MCP. [Click] Plugins. [Click] Connectors. [Click] Tools. [Click] For the sake of simplicity, let's just call them all tools. [Click] We'll dive much deeper into how they actually work in the Build section.</aside>
+</section>
+
+
+<!-- ============================ 32. TOOLS CONNECT IT ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
+  <h2 class="fu title-c" style="--d:.1s">Tools connect it to everything.</h2>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <circle cx="800" cy="420" r="135" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-dasharray="22 14" style="filter:drop-shadow(0 0 12px rgba(77,159,255,.7))"/>
+    <g data-step="1"><path class="draw" pathLength="1" d="M669 386 L370 308" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-linecap="round" style="--t:.5s;--d:.1s"/></g>
+    <g data-step="2"><path class="draw" pathLength="1" d="M672 463 L368 567" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-linecap="round" style="--t:.5s;--d:.1s"/></g>
+    <g data-step="3"><path class="draw" pathLength="1" d="M931 386 L1230 308" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-linecap="round" style="--t:.5s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M928 463 L1232 567" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-linecap="round" style="--t:.5s;--d:.1s"/></g>
+    <g data-step="5"><path class="draw" pathLength="1" d="M721 529 L602 692" fill="none" stroke="#4D9FFF" stroke-width="6" stroke-linecap="round" style="--t:.5s;--d:.1s"/></g>
+    <g data-step="6"><path class="draw" pathLength="1" d="M879 529 L998 692" fill="none" stroke="#FF7AD9" stroke-width="6" stroke-linecap="round" style="--t:.5s;--d:.1s"/></g>
+  </svg>
+  <div class="fm" style="left:710px;top:330px">💃</div>
+  <div class="w2-app" data-step="1" style="left:245px;top:235px;border-color:#4D9FFF">📧<b>Email</b></div>
+  <div class="w2-app" data-step="2" style="left:245px;top:535px;border-color:#4D9FFF">📂<b>Files</b></div>
+  <div class="w2-app" data-step="3" style="left:1245px;top:235px;border-color:#4D9FFF">🌐<b>The web</b></div>
+  <div class="w2-app" data-step="4" style="left:1245px;top:535px;border-color:#4D9FFF">📊<b>Your data</b></div>
+  <div class="w2-app" data-step="5" style="left:505px;top:695px;border-color:#4D9FFF">📅<b>Calendar</b></div>
+  <div class="w2-app" data-step="6" style="left:985px;top:695px;border-color:#FF7AD9">💻<b>Your computer</b></div>
+  <aside class="onscreen">
+    Tools connect it to everything.
+    ❄️ 💃 model in the middle inside the blue dashed tools ring
+    One per click, each with a cable drawing out from the ring: 📧 Email · 📂 Files · 🌐 The web · 📊 Your data · 📅 Calendar · 💻 Your computer (pink)
+  </aside>
+  <aside class="notes">So what does that enable? Tools connect the model to systems and data outside its own head. [Click] Your email. [Click] Your files. [Click] The web, live, today. [Click] Your data: spreadsheets, databases, your bank statements. [Click] Your calendar. [Click] And your computer itself. On its own, the model only knows what it learned in training, frozen. With tools, it can look things up and actually do things. So how does it actually connect? Two main ways.</aside>
+</section>
+
+
+<!-- ============================ 33. HOW DOES IT CONNECT ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
+  <h2 class="fu title-c" style="--d:.1s">How does it connect?</h2>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A4" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="2"><path class="draw" pathLength="1" d="M684 310 L1385 310" fill="none" stroke="#4D9FFF" stroke-width="8" stroke-linecap="round" style="--t:.6s;--d:.3s"/></g>
+    <g data-step="2"><path class="draw" pathLength="1" d="M262 440 C330 350 390 315 462 312" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A4)" style="--t:.4s;--d:.1s"/></g>
+    <g data-step="3" data-hide="4"><path d="M262 560 C380 680 600 690 852 680" fill="none" stroke="#FF5A3D" stroke-width="6" stroke-dasharray="14 12" stroke-linecap="round"/><text x="507" y="672" text-anchor="middle" dominant-baseline="central" font-size="64" font-weight="900" style="fill:#FF5A3D">✕</text></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M262 560 C380 680 600 690 852 680" fill="none" stroke="#FF7AD9" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A4)" style="--t:.6s;--d:.1s"/></g>
+  </svg>
+  <div class="agcirc" data-step="1" style="left:110px;top:420px;width:160px;height:160px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-app" data-step="1" style="left:860px;top:255px">📧<b>Email</b></div>
+  <div class="w2-app" data-step="1" style="left:1000px;top:255px">📅<b>Calendar</b></div>
+  <div class="w2-app" data-step="1" style="left:1140px;top:255px">📂<b>Drive</b></div>
+  <div class="w2-app" data-step="1" style="left:1280px;top:255px">📈<b>Trading</b></div>
+  <div class="w2-hub" data-step="2" style="left:470px;top:250px;width:210px;height:120px"><span class="e">🔌</span>MCP</div>
+  <div class="wa-win" data-step="3" style="left:860px;top:540px;width:530px;height:280px"><div class="wa-bar"><i></i><i></i><i></i></div><div class="w2-url">🔒 tickets.example.com</div>
+    <div class="w2-ln" style="left:30px;top:84px;width:300px"></div><div class="w2-ln" style="left:30px;top:116px;width:420px"></div><div class="w2-ln" style="left:30px;top:148px;width:360px"></div>
+    <div class="w2-btn" style="left:380px;top:200px">Book</div>
+    <svg class="w2-cursor" data-step="4" viewBox="0 0 40 52"><path d="M4 3 L4 42 L14 32 L21 48 L28 45 L21 29 L35 29 Z" fill="#F5F5F0" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="w2-say" data-step="3" data-hide="4" style="left:357px;top:720px;width:300px;color:var(--demo)">No connector</div>
+  <div class="w2-say" data-step="4" style="left:357px;top:720px;width:300px;color:var(--ask)">🖱️ Browser use</div>
+  <aside class="onscreen">
+    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
+    How does it connect?
+    Spy agent (left). Four app tiles (top right): 📧 Email · 📅 Calendar · 📂 Drive · 📈 Trading
+    Blue 🔌 MCP plug between the agent and the apps, with one blue cable running through all four
+    A website with no connector (browser window: tickets.example.com, a green Book button): red dashed line with ✕ · No connector
+    Then: pink arrow instead, and a mouse pointer moving and clicking Book · 🖱️ Browser use
+  </aside>
+  <aside class="notes">So how does the agent actually reach your stuff? [Click] Here's our agent, and here are the apps it wants to use: your email, your calendar, your Drive, your trading account. [Click] The main way is called MCP. Don't worry about the letters. Think of it as USB-C for AI: one standard plug. Any app that offers an MCP connector, the agent can plug straight into. In ChatGPT and Claude you'll see these listed as "connectors". One plug, every app. [Click] But what if the site you need has no connector? Your kid's school portal, an old ticketing site, your company's expense system. No plug. [Click] Then the agent does what you'd do: it opens a browser, looks at the page, moves the mouse and clicks the buttons. That's called browser use, or computer use. It's slower and clumsier than a connector, but it works on almost any website.</aside>
+</section>
+
+
+<!-- ============================ 34. THREE WAYS IN ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
+  <h2 class="fu title-c" style="--d:.1s">Three ways in.</h2>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <g data-step="2"><path d="M360 470 C380 600 600 690 712 690" fill="none" stroke="#4D9FFF" stroke-width="4" stroke-opacity=".45"/><circle r="9" fill="#4D9FFF"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" path="M360 470 C380 600 600 690 712 690"/></circle><circle r="9" fill="#4D9FFF"><animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite" path="M360 470 C380 600 600 690 712 690"/></circle><circle r="9" fill="#4D9FFF"><animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite" path="M360 470 C380 600 600 690 712 690"/></circle></g>
+    <g data-step="3"><path d="M800 470 L800 596" fill="none" stroke="#FFD23F" stroke-width="4" stroke-opacity=".45"/><circle r="9" fill="#FFD23F"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" path="M800 470 L800 596"/></circle><circle r="9" fill="#FFD23F"><animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite" path="M800 470 L800 596"/></circle><circle r="9" fill="#FFD23F"><animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite" path="M800 470 L800 596"/></circle></g>
+    <g data-step="4"><path d="M1240 470 C1220 600 1000 690 888 690" fill="none" stroke="#FF7AD9" stroke-width="4" stroke-opacity=".45"/><circle r="9" fill="#FF7AD9"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" path="M1240 470 C1220 600 1000 690 888 690"/></circle><circle r="9" fill="#FF7AD9"><animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite" path="M1240 470 C1220 600 1000 690 888 690"/></circle><circle r="9" fill="#FF7AD9"><animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite" path="M1240 470 C1220 600 1000 690 888 690"/></circle></g>
+  </svg>
+  <div class="agcirc" data-step="1" style="left:710px;top:600px;width:180px;height:180px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-way" data-step="2" style="left:190px;--c:#4D9FFF"><span class="e">🔌</span><b>MCP</b><i>📧📅📂</i></div>
+  <div class="w2-way" data-step="3" style="left:630px;--c:#FFD23F"><span class="e">🧩</span><b>Plugins</b><i>🔌🎓⚙️</i></div>
+  <div class="w2-way" data-step="4" style="left:1070px;--c:#FF7AD9"><span class="e">🖱️</span><b>Browser use</b><i>🌐</i></div>
+  <aside class="onscreen">
+    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
+    Three ways in.
+    Spy agent at the bottom centre
+    Three cards above, each feeding a stream of dots into the agent:
+    🔌 MCP (📧📅📂) · 🧩 Plugins (🔌🎓⚙️) · 🖱️ Browser use (🌐)
+  </aside>
+  <aside class="notes">So, recap: how does outside stuff get into the agent? [Click] Here's the agent. [Click] One: MCP connectors. A clean, official plug into an app: Gmail, Calendar, Drive. [Click] Two: plugins. A plugin is a bundle: one install gives the agent a set of connectors, plus instructions on how to use them, plus a few shortcuts. In ChatGPT these show up as apps; in Claude they're called plugins. Same idea: install once, and the agent gains a whole new ability. [Click] Three: browser use. No plug at all; the agent just uses the website like a person would. Those are the three ways in. But wait. There's a catch.</aside>
+</section>
+
+
+<!-- ============================ 35. BUT WAIT ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
+  <div class="title-swap">
+    <h2 class="fu title-c" style="--d:.1s" data-hide="3">But wait.</h2>
+    <h2 class="title-c" data-step="3" data-hide="6">Who makes better biryani?</h2>
+    <h2 class="title-c" data-step="6" data-hide="9">But why?</h2>
+    <h2 class="title-c" data-step="9">Skills = the recipe.</h2>
+  </div>
+  <div class="w2c-who" data-step="1" style="left:140px"><span class="e">🧑‍💻</span><b>You</b></div>
+  <div class="w2c-bag" data-step="1" style="left:120px">🍚🍗🧅🌶️🧄🌿</div>
+  <div class="w2c-glow" data-step="5" style="left:810px;top:160px;width:300px;height:300px"></div>
+  <div class="w2c-who" data-step="2" style="left:760px"><span class="e">👨‍🍳</span><b style="color:var(--skill)">Ramu Bhai</b></div>
+  <div class="w2c-bag" data-step="2" style="left:740px">🍚🍗🧅🌶️🧄🌿</div>
+  <div class="w2c-res" data-step="4" style="left:120px"><span class="e">🍲😬</span><i>⭐⭐</i></div>
+  <div class="w2c-res" data-step="5" style="left:740px"><span class="e">🍛🤤</span><i>⭐⭐⭐⭐⭐</i></div>
+  <div class="w2c-recipe" data-step="7"><h4>📜 Recipe</h4><span>🍚 Soak rice 30 min</span><span>🧅 Fry till golden</span><span>🔥 Dum 40 min</span><span>🤫 Secret masala</span></div>
+  <div class="w2c-lbl" data-step="8" style="left:150px;top:460px;--c:#4D9FFF">🧰 Tools</div>
+  <div class="w2c-lbl" data-step="8" style="left:770px;top:460px;--c:#4D9FFF">🧰 Tools</div>
+  <div class="w2c-lbl" data-step="9" style="left:1270px;top:220px;--c:#FFB547">🎓 Skill</div>
+  <aside class="onscreen">
+    But wait.
+    Left: 🧑‍💻 You, with a blue dashed basket of ingredients 🍚🍗🧅🌶️🧄🌿
+    Right: 👨‍🍳 Ramu Bhai, with the exact same basket
+    Title changes to: Who makes better biryani?
+    Your result: 🍲😬 ⭐⭐ · Ramu Bhai's: 🍛🤤 ⭐⭐⭐⭐⭐ (warm glow behind him)
+    Title changes to: But why?
+    Amber recipe card next to Ramu Bhai: 📜 Recipe · 🍚 Soak rice 30 min · 🧅 Fry till golden · 🔥 Dum 40 min · 🤫 Secret masala
+    Blue labels on both baskets: 🧰 Tools
+    Amber label on the recipe: 🎓 Skill
+    Title changes to: Skills = the recipe.
+  </aside>
+  <aside class="notes">But wait. Okay, question for you. [Click] Say I give you all the ingredients for biryani: rice, chicken, onions, chillies, garlic, mint. Those are your tools. [Click] And I give Ramu Bhai, who's been making biryani for thirty years, the exact same ingredients. [Click] Who do you think makes the better biryani? [Click] Let's be honest: yours is... edible. [Click] Ramu Bhai's: people queue around the block for it. Obviously Ramu Bhai. [Click] But why? Same ingredients! [Click] Because Ramu Bhai has the recipe. How long to soak the rice, how golden to fry the onions, how long to keep it on dum, and the secret masala. The know-how. [Click] The ingredients are the tools. Everyone can have them. [Click] The recipe is the skill. That's where skills come into play: they hold the best practices, the way to do it, the recipe if you like, encoded by the experts themselves.</aside>
+</section>
+
+
+<!-- ============================ 36. HIRE AN EXPERT ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
+  <h2 class="fu title-c" style="--d:.1s">Hire an expert.</h2>
+  <svg class="layer" data-step="1" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none"><line x1="310" y1="532" x2="310" y2="578" stroke="#FFB547" stroke-width="6" stroke-dasharray="8 8"/></svg>
+  <div class="agcirc w2-kfagent" data-step="1" style="left:210px;top:330px;width:200px;height:200px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-sock" data-step="1" style="left:130px;top:580px;width:360px;height:76px">plug in a skill</div>
+  <div class="w2-skill" data-step="2" style="left:1000px;top:300px;width:360px"><span class="e">🧾</span>Tax expert</div>
+  <div class="w2-skill" data-step="3" style="left:1000px;top:400px;width:360px"><span class="e">🎤</span>Interviewer</div>
+  <div class="w2-skill" data-step="4" style="left:1000px;top:500px;width:360px"><span class="e">✍️</span>Your voice</div>
+  <div class="w2-skill" data-step="5" data-move="6" style="left:1000px;top:600px;width:360px;--tx:130px;--ty:580px"><span class="e">📊</span>Excel pro</div>
+  <span class="w2-hidemark" data-step="7"></span>
+  <img data-step="7" src="gifs/i-know-kung-fu.gif" alt="" style="position:absolute;left:830px;top:290px;width:640px;height:320px;border-radius:16px;border:3px solid #2A2A28;object-fit:cover;z-index:4">
+  <div class="cva-punch" data-step="8" style="left:760px;width:780px;top:650px;font-size:42px;white-space:nowrap">Plug in a skill. <span style="color:var(--dyk)">Get an expert.</span></div>
+  <aside class="onscreen">
+    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
+    Hire an expert.
+    Spy agent (left) with an empty dashed amber socket below it: plug in a skill
+    Amber skill chips on the right, one per click: 🧾 Tax expert · 🎤 Interviewer · ✍️ Your voice · 📊 Excel pro
+    The 📊 Excel pro chip slides into the socket; the agent glows amber; the other chips fade away
+    Matrix GIF: Neo, “I know kung fu” (gifs/i-know-kung-fu.gif)
+    Plug in a skill. Get an expert.
+  </aside>
+  <aside class="notes">So skills are the recipe. Here's the best way to think about them. You're not writing prompts. You're hiring experts. [Click] Here's your agent. Smart, but a generalist. And notice the empty socket. [Click] Now picture a rack of chips. A tax expert that knows exactly which forms you need. [Click] An interviewer that grills you before it plans anything. [Click] One that writes exactly in your voice. [Click] An Excel pro. [Click] You need a spreadsheet built properly? Plug in the Excel chip. [Click] Remember the Matrix? They plug the program into Neo's head, he opens his eyes, and: "I know kung fu." That's a skill. Seconds ago the agent was a generalist; now it's an expert at this one job. [Click] Plug in a skill, get an expert. And where do the chips come from? You can write your own: it's just a page of instructions, plus any templates or examples. Your company can share them. And you can install ready-made ones: Anthropic, for example, ships skills for Excel, PowerPoint, Word and PDFs. Hiring an expert used to take weeks. Now it's one click.</aside>
+</section>
+
+
+<!-- ============================ 37. SKILLS ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
+  <h2 class="fu title-c" style="--d:.1s">Skills: teach it once.</h2>
+  <div class="ag-ctx" data-step="1" style="left:150px;top:260px;width:520px;height:500px">
+    <div class="w2-blk" style="background:#8C8C86">📝 Instructions</div>
+    <div class="w2-blk" data-step="7" style="background:var(--fg)">🧑‍💻 Grill me on my party plan</div>
+  </div>
+  <div class="wa-cap" data-step="1" style="left:150px;top:775px;width:520px">Context window</div>
+  <div class="agcirc" data-step="2" style="left:740px;top:435px;width:130px;height:130px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-shelf" data-step="3" style="left:960px;top:260px;width:520px;height:500px"><b>🎓 Skills</b></div>
+  <div class="w2-skill" data-step="3" style="left:1010px;top:340px"><span class="e">✍️</span>Write like me</div>
+  <div class="w2-skill" data-step="4" style="left:1010px;top:440px"><span class="e">🧾</span>Expense report</div>
+  <div class="w2-skill" data-step="5" data-move="8" style="left:1010px;top:540px;--tx:173px;--ty:419px"><span class="e">🎤</span>Grill me</div>
+  <div class="w2-skill" data-step="6" style="left:1010px;top:640px"><span class="e">🎨</span>Coloring page</div>
+  <aside class="onscreen">
+    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
+    Skills: teach it once.
+    Left: Context window (red box) with 📝 Instructions
+    Middle: spy agent
+    Right: a shelf labelled 🎓 Skills with amber recipe cards: ✍️ Write like me · 🧾 Expense report · 🎤 Grill me · 🎨 Coloring page
+    A request lands on the desk: 🧑‍💻 Grill me on my party plan
+    Only the 🎤 Grill me card slides off the shelf onto the desk; the rest dim
+  </aside>
+  <aside class="notes">So how does plugging in a chip actually work? [Click] Remember the desk, the context window? Whatever is on the desk is all the AI can see. [Click] Here's our agent. [Click] Now imagine a shelf next to the desk with recipe cards on it. Each card is a skill: written instructions for one job, done your way. Write like me. [Click] Do my expense report the way my company wants it. [Click] Grill me. [Click] Make a coloring page. You write each one once. [Click] Now a request comes in: grill me on my party plan. [Click] The agent looks at the shelf, picks the one card that matches, and puts only that card on the desk. The others stay on the shelf, so the desk stays clean. That's the difference from a saved prompt: you don't paste it in. The agent picks the right skill by itself, when it needs it. Claude calls them Skills; ChatGPT and Gemini have their own versions, custom GPTs and Gems. And a skill is just a text file. You can write one in five minutes, or ask the AI to write it for you.</aside>
+</section>
+
+
+<!-- ============================ 38. EX E: GRILL ME ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
+  <h2 class="fu title-c" style="--d:.1s">Grill me.</h2>
+  <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Use grill-me: help me plan my daughter's 7th birthday party.”</span></div>
+  <div class="w2-card" data-step="2" style="left:120px;top:360px;width:460px;height:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px">
+    <div class="w2-cloud" style="width:380px;height:190px">🎂❓🎈</div>
+    <div style="font-size:22px;font-weight:700;color:var(--dim)">How well the AI gets you</div>
+    <div class="w2-meter"><i class="w2-seg" data-move="4"></i><i class="w2-seg" data-move="5"></i><i class="w2-seg" data-move="6"></i><i class="w2-seg" data-move="7"></i></div>
+  </div>
+  <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
+    <defs><marker id="w2A12" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F5F5F0"/></marker></defs>
+    <g data-step="3"><path class="draw" pathLength="1" d="M595 580 L668 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A12)" style="--t:.3s;--d:.1s"/></g>
+    <g data-step="4"><path class="draw" pathLength="1" d="M932 580 L1005 580" fill="none" stroke="#F5F5F0" stroke-width="6" stroke-linecap="round" marker-end="url(#w2A12)" style="--t:.3s;--d:.1s"/></g>
+    
+  </svg>
+  <div class="w2-ring" data-step="3"></div>
+  <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
+  <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/claude.png" alt=""></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#FFB547">🎓 Skill · grill-me</span></div>
+  <div class="w2-qb" data-step="4" style="top:330px">❓ How many kids?</div>
+  <div class="w2-qb" data-step="5" style="top:420px">❓ What's the budget?</div>
+  <div class="w2-qb" data-step="6" style="top:510px">❓ Indoor or outdoor?</div>
+  <div class="w2-qb" data-step="7" style="top:600px">❓ Any allergies?</div>
+  <div class="wa-done" data-step="8" style="left:1020px;top:700px;width:470px;height:auto;padding:14px 20px;font-size:25px;text-align:center">📋 12 kids · $300 · backyard · nut-free</div>
+  <span class="sticker" style="left:40px;top:28px;background:#F5F5F0;border-color:#F5F5F0;--r:-5deg">🎤 Think better</span>
+  <aside class="onscreen">
+    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
+    Grill me.
+    🧑‍💻 “Use grill-me: help me plan my daughter's 7th birthday party.”
+    Sticker (top left, Chat colour): 🎤 Think better
+    Logo badge on the agent: Claude
+    Input: a foggy dashed thought cloud 🎂❓🎈 · meter: How well the AI gets you (4 empty segments)
+    Agent badge: 🎓 Skill · grill-me
+    Output: pink questions one at a time: ❓ How many kids? · ❓ What's the budget? · ❓ Indoor or outdoor? · ❓ Any allergies? (each one fills a meter segment green)
+    Green plan card: 📋 12 kids · $300 · backyard · nut-free
+  </aside>
+  <aside class="notes">Here's that skill in action. [Click] You say: use grill-me, help me plan my daughter's seventh birthday party. [Click] Right now, the idea is a fog in your head. And the AI knows even less than you do. If it just starts answering, you get a generic party plan for a generic kid. [Click] Here it's Claude, which has Skills built in. So the grill-me skill flips it around. Instead of answering, the agent interviews you first, one question at a time. [Click] How many kids? [Click] What's the budget? [Click] Indoor or outdoor? [Click] Any allergies? Watch the meter: every answer, it understands you better. [Click] And only then does it plan, and the plan fits YOUR party. Use this for anything big: a trip, a business idea, a hard email. Let it grill you first.</aside>
+</section>
+
+
+<!-- ============================ 39. EX C: CLEAN UP DESKTOP ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
   <h2 class="fu title-c" style="--d:.1s">Clean up your desktop.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“My desktop is a mess. Sort everything into folders and bin the duplicates.”</span></div>
   <div class="wa-win" data-step="2" style="left:110px;top:340px;width:480px;height:450px;border-color:#555;background:#121212;box-shadow:none"><div class="wa-bar" style="border-color:#555"><i style="background:#888"></i><i style="background:#888"></i><i style="background:#888"></i></div></div>
@@ -1779,6 +1934,7 @@ aside.notes,aside.onscreen{display:none}
   <div class="w2-fold" data-step="4" style="left:1160px;top:690px;font-size:76px">🗑️<b style="color:var(--demo)">Duplicates</b></div>
   <span class="sticker" style="left:40px;top:28px;background:#FF7AD9;border-color:#FF7AD9;--r:-5deg">🗂️ Tidy better</span>
   <aside class="onscreen">
+    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
     Clean up your desktop.
     🧑‍💻 “My desktop is a mess. Sort everything into folders and bin the duplicates.”
     Sticker (top left, Your computer colour): 🗂️ Tidy better
@@ -1792,8 +1948,9 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 36. EX R: RENAME PHOTOS ============================ -->
-<section class="slide">
+<!-- ============================ 40. EX R: RENAME PHOTOS ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
   <h2 class="fu title-c" style="--d:.1s">Name your photos.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Rename my 500 trip photos by date and place, like '2024-03 Chennai - Marina Beach'.”</span></div>
   <div class="w2-card w2-files" data-step="2" style="left:120px;top:370px;width:470px;height:360px"><span>🖼️ IMG_4421.jpg</span><span>🖼️ IMG_4422.jpg</span><span>🖼️ DSC_0091.jpg</span><span>🖼️ PXL_20240314.jpg</span><span>🖼️ IMG_4423 (1).jpg</span><span style="color:var(--dim)">… × 500</span></div>
@@ -1811,6 +1968,7 @@ aside.notes,aside.onscreen{display:none}
   <div class="wa-done" data-step="5" style="left:1020px;top:660px;width:470px;height:64px;font-size:26px">📁 Sorted into 6 trip folders</div>
   <span class="sticker" style="left:40px;top:28px;background:#FF7AD9;border-color:#FF7AD9;--r:-5deg">📸 Remember better</span>
   <aside class="onscreen">
+    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
     Name your photos.
     🧑‍💻 “Rename my 500 trip photos by date and place, like '2024-03 Chennai - Marina Beach'.”
     Sticker (top left, Your computer colour): 📸 Remember better
@@ -1824,8 +1982,9 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 37. EX I: YOUTUBE TO BOOK ============================ -->
-<section class="slide">
+<!-- ============================ 41. EX I: YOUTUBE TO BOOK ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
   <h2 class="fu title-c" style="--d:.1s">Turn videos into a book.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Take this 12-video course playlist and turn it into a neat book with chapters.”</span></div>
   <div class="layer" data-step="2">
@@ -1843,7 +2002,7 @@ aside.notes,aside.onscreen{display:none}
   <div class="w2-ring" data-step="3"></div>
   <div class="agcirc" data-step="3" style="left:715px;top:495px;width:170px;height:170px"><img src="gifs/agent.png" alt=""></div>
   <div class="w2-agbadge" data-step="3" style="left:848px;top:470px"><img src="gifs/logos/claude-code.png" alt=""></div>
-  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#FF7AD9">💻 Your computer</span><span class="w2-tag" style="--c:#FFD23F">🃏 Skill · send-to-kindle</span></div>
+  <div class="w2-tags" data-step="3"><span class="w2-tag" style="--c:#FF7AD9">💻 Your computer</span><span class="w2-tag" style="--c:#FFB547">🎓 Skill · send-to-kindle</span></div>
   <div class="w2-book" data-step="4" style="left:1040px;top:330px;width:430px;height:390px">
     <h4>📖 My Course Book</h4>
     <div><span>1 · Getting started</span><span></span><span>3</span></div>
@@ -1854,12 +2013,13 @@ aside.notes,aside.onscreen{display:none}
   <div class="wa-done" data-step="5" style="left:1040px;top:745px;width:430px;height:64px;font-size:26px">📲 Sent to Kindle</div>
   <span class="sticker" style="left:40px;top:28px;background:#FF7AD9;border-color:#FF7AD9;--r:-5deg">📖 Read better</span>
   <aside class="onscreen">
+    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
     Turn videos into a book.
     🧑‍💻 “Take this 12-video course playlist and turn it into a neat book with chapters.”
     Sticker (top left, Your computer colour): 📖 Read better
     Logo badge on the agent: Claude Code
     Input: three stacked YouTube video thumbnails (Ep 1 · Ep 2 · Ep 12) with a red × 12 badge
-    Agent badges: 💻 Your computer · 🃏 Skill · send-to-kindle
+    Agent badges: 💻 Your computer · 🎓 Skill · send-to-kindle
     Output: a book 📖 My Course Book, contents: 1 · Getting started 3 · 2 · The basics 11 · 3 · Your first project 24 · ⋮ · 12 · Wrap-up 141
     Green: 📲 Sent to Kindle
   </aside>
@@ -1867,8 +2027,9 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 38. EX H: DAILY COLORING PAGE ============================ -->
-<section class="slide">
+<!-- ============================ 42. EX H: DAILY COLORING PAGE ============================ -->
+<section class="slide w2c-sec">
+  <div class="w2c-badge"><span class="agcirc"><img src="gifs/agent.png" alt=""></span><span class="pc">💻</span><b>Computer access</b></div>
   <h2 class="fu title-c" style="--d:.1s">A coloring page every morning.</h2>
   <div class="w2-ask" data-step="1"><span class="u">🧑‍💻</span><span class="p">“Every morning at 7, make a coloring page for Maya (6, loves dinosaurs and cricket) and print it.”</span></div>
   <div class="w2-card" data-step="2" style="left:130px;top:370px;width:440px;height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px">
@@ -1890,6 +2051,7 @@ aside.notes,aside.onscreen{display:none}
   <div class="w2-emo" data-step="6" style="left:1400px;top:660px;font-size:80px;transform:rotate(-20deg)">🖍️</div>
   <span class="sticker" style="left:40px;top:28px;background:#FF7AD9;border-color:#FF7AD9;--r:-5deg">🖍️ Parent better</span>
   <aside class="onscreen">
+    Corner badge (top right, on every slide of this section): spy agent + 💻 Computer access
     A coloring page every morning.
     🧑‍💻 “Every morning at 7, make a coloring page for Maya (6, loves dinosaurs and cricket) and print it.”
     Sticker (top left, Your computer colour): 🖍️ Parent better
@@ -1903,7 +2065,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 39. PURPOSE BUILT ============================ -->
+<!-- ============================ 43. PURPOSE BUILT ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Now, purpose built.</h2>
   <div class="w2-box gp big" data-move="1" data-hide="2"><div class="e">🧰</div><b>General purpose</b><div class="row"><img src="gifs/logos/openai.png" alt=""><img src="gifs/logos/claude.png" alt=""><img src="gifs/logos/gemini.png" alt=""></div></div>
@@ -1922,7 +2084,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 40. LEARN YOUR WAY ============================ -->
+<!-- ============================ 44. LEARN YOUR WAY ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Learn Your Way.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -1948,7 +2110,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 41. AI STUDIO ============================ -->
+<!-- ============================ 45. AI STUDIO ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Google AI Studio.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -1974,7 +2136,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 42. ELEVENLABS ============================ -->
+<!-- ============================ 46. ELEVENLABS ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">ElevenLabs.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -1997,7 +2159,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 43. THINK LIKE A CEO ============================ -->
+<!-- ============================ 47. THINK LIKE A CEO ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Think like a CEO.</h2>
   <svg class="layer" width="1600" height="900" viewBox="0 0 1600 900" style="pointer-events:none">
@@ -2032,7 +2194,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 44. DON'T THINK SMALL ============================ -->
+<!-- ============================ 48. DON'T THINK SMALL ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Don't think small.</h2>
   <div class="w2-idea" data-step="1" style="left:130px;width:220px;height:130px;--c:#8C8C86"><span class="e" style="font-size:44px">✍️</span><span style="font-size:22px">Fix my email</span></div>
@@ -2049,7 +2211,7 @@ aside.notes,aside.onscreen{display:none}
 </section>
 
 
-<!-- ============================ 45. START HERE ============================ -->
+<!-- ============================ 49. START HERE ============================ -->
 <section class="slide">
   <h2 class="fu title-c" style="--d:.1s">Start here.</h2>
   <div class="w2-tool" data-step="1" style="left:155px;border-top-color:#FF5A3D"><span class="e">😤</span><b>Your most annoying task</b><i>Not the most impressive one</i></div>
@@ -2062,6 +2224,7 @@ aside.notes,aside.onscreen{display:none}
   </aside>
   <aside class="notes">So where do you start this week? This comes straight from the Grok Bot team's own advice after building a whole product with agents in three days. [Click] One: pick the most annoying part of your day. Not the most impressive one, the most annoying one. That's where you'll actually feel the difference. [Click] Two: record a fifteen-minute voice memo. Who you are, what your job is, what's broken, what you wish someone else would do. Give it to the AI and ask it to propose a plan. You'll be surprised. [Click] Three: connect your apps first: email, calendar, Drive. Connectors are faster, cheaper and more reliable than letting it click around websites. [Click] Four: start it read-only. First it just reads and summarises. Then it drafts, and you send. Only when you trust it do you let it act on its own. That's your homework. And bring your crazy ideas next week.</aside>
 </section>
+
 
 </div>
 
